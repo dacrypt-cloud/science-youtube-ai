@@ -1,0 +1,115 @@
+{
+  "structure": "journey_process",
+  "beats": [
+    "Hook: follow the journey",
+    "Stage 1",
+    "Stage 2",
+    "Stage 3",
+    "Stage 4",
+    "Where it ends / why it matters"
+  ],
+  "outline": [
+    {
+      "beat": "Hook: follow the journey",
+      "claim_ids": [
+        "C001",
+        "C002",
+        "C003",
+        "C004",
+        "C005",
+        "C006",
+        "C007",
+        "C008"
+      ],
+      "chain_points": [
+        "How does a mosquito transmit malaria, and what actually happens to Plasmodium inside the mosquito?",
+        "A large malaria outbreak caused by Plasmodium malariae parasites occurred in Khanh Hoa Province, Vietnam, in 2023"
+      ]
+    },
+    {
+      "beat": "Stage 1",
+      "claim_ids": [
+        "C009",
+        "C010",
+        "C011",
+        "C012",
+        "C013",
+        "C014",
+        "C015",
+        "C016"
+      ],
+      "chain_points": [
+        "A large malaria outbreak caused by Plasmodium malariae parasites occurred in Khanh Hoa Province, Vietnam, in 2023",
+        "Since then, P. malariae parasites have persisted in the region alongside P. falciparum and P. vivax species, changing malaria patterns"
+      ]
+    },
+    {
+      "beat": "Stage 2",
+      "claim_ids": [
+        "C017",
+        "C018",
+        "C019",
+        "C020",
+        "C021",
+        "C022",
+        "C023",
+        "C024"
+      ],
+      "chain_points": [
+        "Since then, P. malariae parasites have persisted in the region alongside P. falciparum and P. vivax species, changing malaria patterns",
+        "Background Angola is one of the most affected countries in sub-Saharan Africa and was off-track to meet the WHO Global Technical Strategy targeting of a 75% reduction in malaria incidence and mortality by 2025"
+      ]
+    },
+    {
+      "beat": "Stage 3",
+      "claim_ids": [
+        "C025",
+        "C026",
+        "C027",
+        "C028",
+        "C029",
+        "C030",
+        "C031",
+        "C032"
+      ],
+      "chain_points": [
+        "Background Angola is one of the most affected countries in sub-Saharan Africa and was off-track to meet the WHO Global Technical Strategy targeting of a 75% reduction in malaria incidence and mortality by 2025",
+        "A malaria control project initiated in 2007 in Balombo (Benguela Province, central Angola) has monitored malaria dynamics for 18 years, revealing increased Plasmodium prevalence and more frequent detection of non-falciparum species, mainly Plasmodium malariae (in co-infection with P. falciparum ) in villagers of the Balombo region"
+      ]
+    },
+    {
+      "beat": "Stage 4",
+      "claim_ids": [
+        "C033",
+        "C034",
+        "C035",
+        "C036",
+        "C037",
+        "C038",
+        "C039",
+        "C040"
+      ],
+      "chain_points": [
+        "A malaria control project initiated in 2007 in Balombo (Benguela Province, central Angola) has monitored malaria dynamics for 18 years, revealing increased Plasmodium prevalence and more frequent detection of non-falciparum species, mainly Plasmodium malariae (in co-infection with P. falciparum ) in villagers of the Balombo region",
+        "The 6 species of Plasmodium that are known to cause disease in humans include P falciparum, P vivax, P ovale curtisi, P ovale wallikeri, P malariae, and P knowlesi"
+      ]
+    },
+    {
+      "beat": "Where it ends / why it matters",
+      "claim_ids": [
+        "C041",
+        "C042",
+        "C043",
+        "C044",
+        "C045",
+        "C046",
+        "C047",
+        "C048"
+      ],
+      "chain_points": [
+        "The 6 species of Plasmodium that are known to cause disease in humans include P falciparum, P vivax, P ovale curtisi, P ovale wallikeri, P malariae, and P knowlesi",
+        "Globally, Plasmodium falciparum and Plasmodium vivax account for the majority of malaria cases"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "width": 1280,
+  "height": 720,
+  "fps": 24,
+  "scenes": [
+    {
+      "scene_id": "scene_01",
+      "title": "Hook: follow the journey",
+      "onscreen_text": "",
+      "image": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/assets/ddd9cb5c9792738a_scene_01.jpg",
+      "video": "",
+      "duration_s": 89.352,
+      "is_diagram": false,
+      "audio": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/narration/scene_01.mp3"
+    },
+    {
+      "scene_id": "scene_02",
+      "title": "Hook: follow the journey — part 2",
+      "onscreen_text": "",
+      "image": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/diagrams/scene_02_lifecycle.png",
+      "video": "",
+      "duration_s": 98.664,
+      "is_diagram": true,
+      "audio": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/narration/scene_02.mp3"
+    },
+    {
+      "scene_id": "scene_03",
+      "title": "Stage 1",
+      "onscreen_text": "",
+      "image": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/diagrams/scene_03_lifecycle.png",
+      "video": "",
+      "duration_s": 91.896,
+      "is_diagram": true,
+      "audio": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/narration/scene_03.mp3"
+    },
+    {
+      "scene_id": "scene_04",
+      "title": "Stage 1 — part 2",
+      "onscreen_text": "",
+      "image": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/diagrams/scene_04_chart.png",
+      "video": "",
+      "duration_s": 86.352,
+      "is_diagram": true,
+      "audio": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/narration/scene_04.mp3"
+    },
+    {
+      "scene_id": "scene_05",
+      "title": "Stage 2",
+      "onscreen_text": "",
+      "image": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/diagrams/scene_05_lifecycle.png",
+      "video": "",
+      "duration_s": 89.88,
+      "is_diagram": true,
+      "audio": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/narration/scene_05.mp3"
+    },
+    {
+      "scene_id": "scene_06",
+      "title": "Stage 2 — part 2",
+      "onscreen_text": "",
+      "image": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/diagrams/scene_06_lifecycle.png",
+      "video": "",
+      "duration_s": 87.048,
+      "is_diagram": true,
+      "audio": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/narration/scene_06.mp3"
+    },
+    {
+      "scene_id": "scene_07",
+      "title": "Stage 3",
+      "onscreen_text": "",
+      "image": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/diagrams/scene_07_chart.png",
+      "video": "",
+      "duration_s": 84.888,
+      "is_diagram": true,
+      "audio": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/narration/scene_07.mp3"
+    },
+    {
+      "scene_id": "scene_08",
+      "title": "Stage 3 — part 2",
+      "onscreen_text": "",
+      "image": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/diagrams/scene_08_process.png",
+      "video": "",
+      "duration_s": 97.872,
+      "is_diagram": true,
+      "audio": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/narration/scene_08.mp3"
+    },
+    {
+      "scene_id": "scene_09",
+      "title": "Stage 4",
+      "onscreen_text": "",
+      "image": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/diagrams/scene_09_lifecycle.png",
+      "video": "",
+      "duration_s": 95.928,
+      "is_diagram": true,
+      "audio": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/narration/scene_09.mp3"
+    },
+    {
+      "scene_id": "scene_10",
+      "title": "Stage 4 — part 2",
+      "onscreen_text": "",
+      "image": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/diagrams/scene_10_lifecycle.png",
+      "video": "",
+      "duration_s": 76.992,
+      "is_diagram": true,
+      "audio": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/narration/scene_10.mp3"
+    },
+    {
+      "scene_id": "scene_11",
+      "title": "Where it ends / why it matters",
+      "onscreen_text": "",
+      "image": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/diagrams/scene_11_anatomy.png",
+      "video": "",
+      "duration_s": 89.784,
+      "is_diagram": true,
+      "audio": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/narration/scene_11.mp3"
+    },
+    {
+      "scene_id": "scene_12",
+      "title": "Where it ends / why it matters — part 2",
+      "onscreen_text": "",
+      "image": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/diagrams/scene_12_chart.png",
+      "video": "",
+      "duration_s": 75.072,
+      "is_diagram": true,
+      "audio": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/narration/scene_12.mp3"
+    }
+  ],
+  "music": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/music/_generated_ambient.wav",
+  "music_gain": 0.08
+}

@@ -1,0 +1,29 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{pid}}</title>
+<style>body{font-family:system-ui;margin:0;background:#0a1420;color:#e8f1ff}main{max-width:760px;margin:0 auto;padding:16px}
+.card{background:#12263f;border-radius:10px;padding:12px;margin:10px 0;overflow-wrap:anywhere}
+a{color:#4fc3f7}pre{white-space:pre-wrap;font-size:12px;background:#0a1420;padding:8px;border-radius:6px;max-height:300px;overflow:auto}
+.btn{display:inline-block;background:#1e88e5;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;margin:4px 4px 4px 0}
+video{width:100%;border-radius:10px}small{color:#9fc}</style>
+<meta http-equiv="refresh" content="15"></head>
+<body><main>
+<p><a href="/">← all projects</a></p>
+<h2>{{doc.idea}}</h2>
+<p><b>State: {{doc.state}}</b> · {{doc.duration}} · {{doc.mode}} {% if job %}· job: {{job.status}}{% endif %}</p>
+<p><a class="btn" href="/p/{{pid}}/resume">⟳ Resume / Run</a>
+{% if has_video %}<a class="btn" href="/p/{{pid}}/video">▶ Watch</a>{% endif %}
+<a class="btn" href="/p/{{pid}}/package">⬇ Package (.zip)</a></p>
+{% if has_video %}<video controls src="/p/{{pid}}/video"></video>{% endif %}
+<div class="card"><b>Plan</b> — depth {{plan.depth}}, {{plan.research_questions|length if plan.research_questions else 0}} questions
+<br><small>{{plan.budget}}</small></div>
+<div class="card"><b>Research</b> — {{sources|length}} sources · {{claims|length}} claims
+<br><small>{% for s in sources[:8] %}[{{s.source_id}}] {{s.title[:60]}} ({{s.publisher}})<br>{% endfor %}</small></div>
+<div class="card"><b>Outline</b> — {{outline.structure}}<br><small>{% for b in outline.beats or [] %}{{loop.index}}. {{b}}<br>{% endfor %}</small></div>
+<div class="card"><b>Script</b> ({{script.split()|length}} words)<pre>{{script[:4000]}}</pre></div>
+<div class="card"><b>Fact-check</b> — {{fact.status}} · {{fact.issues|length if fact.issues else 0}} issues</div>
+<div class="card"><b>Storyboard</b> — {{board|length}} scenes<br><small>{% for s in board %}🎬 {{s.scene_id}} {{s.title[:50]}} [{{s.diagram or 'stock'}}]<br>{% endfor %}</small></div>
+<div class="card"><b>Assets</b> — {{assets|length}} · <b>Narration</b> — {{narr|length}} clips</div>
+<div class="card"><b>QA</b> — {{qa.status}}<br><small>{% for c in qa.checks or [] %}{{ '✅' if c.ok else '❌' }} {{c.name}} — {{c.detail[:80]}}<br>{% endfor %}</small></div>
+<div class="card"><b>Titles</b><br><small>{% for t in meta.titles or [] %}· {{t}}<br>{% endfor %}</small></div>
+<div class="card"><b>Log</b><pre>{{log}}</pre></div>
+</main></body></html>

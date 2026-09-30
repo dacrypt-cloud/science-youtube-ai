@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "science-youtube-ai"
+version = "0.1.0"
+description = "Autonomous AI-assisted science YouTube production system ($0 stack)"
+requires-python = ">=3.10"
+dependencies = ["requests", "pillow", "mutagen", "svgwrite", "flask", "edge-tts", "gTTS", "imageio-ffmpeg", "python-dotenv"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

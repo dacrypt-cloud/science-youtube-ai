@@ -1,0 +1,9 @@
+{
+  "path": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/video/video.mp4",
+  "duration_s": 1063.728,
+  "scenes": 12,
+  "width": 1280,
+  "height": 720,
+  "fps": 24,
+  "provider": "ffmpeg"
+}

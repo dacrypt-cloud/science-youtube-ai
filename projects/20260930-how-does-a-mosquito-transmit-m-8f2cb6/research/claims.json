@@ -1,0 +1,598 @@
+[
+  {
+    "claim_id": "C001",
+    "claim": "A large malaria outbreak caused by Plasmodium malariae parasites occurred in Khanh Hoa Province, Vietnam, in 2023.",
+    "evidence_summary": "A large malaria outbreak caused by Plasmodium malariae parasites occurred in Khanh Hoa Province, Vietnam, in 2023.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S007"
+    ],
+    "status": "supported",
+    "scene_location": "scene_01",
+    "script_location": "Hook: follow the journey"
+  },
+  {
+    "claim_id": "C002",
+    "claim": "Since then, P. malariae parasites have persisted in the region alongside P. falciparum and P. vivax species, changing malaria patterns.",
+    "evidence_summary": "Since then, P. malariae parasites have persisted in the region alongside P. falciparum and P. vivax species, changing malaria patterns.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S007"
+    ],
+    "status": "supported",
+    "scene_location": "scene_01",
+    "script_location": "Hook: follow the journey"
+  },
+  {
+    "claim_id": "C003",
+    "claim": "Background Angola is one of the most affected countries in sub-Saharan Africa and was off-track to meet the WHO Global Technical Strategy targeting of a 75% reduction in malaria incidence and mortality by 2025.",
+    "evidence_summary": "Background Angola is one of the most affected countries in sub-Saharan Africa and was off-track to meet the WHO Global Technical Strategy targeting of a 75% reduction in malaria incidence and mortality by 2025.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S008"
+    ],
+    "status": "supported",
+    "scene_location": "scene_01",
+    "script_location": "Hook: follow the journey"
+  },
+  {
+    "claim_id": "C004",
+    "claim": "A malaria control project initiated in 2007 in Balombo (Benguela Province, central Angola) has monitored malaria dynamics for 18 years, revealing increased Plasmodium prevalence and more frequent detection of non-falciparum species, mainly Plasmodium malariae (in co-infection with P. falciparum ) in villagers of the Balombo region.",
+    "evidence_summary": "A malaria control project initiated in 2007 in Balombo (Benguela Province, central Angola) has monitored malaria dynamics for 18 years, revealing increased Plasmodium prevalence and more frequent detection of non-falcipa",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S008"
+    ],
+    "status": "supported",
+    "scene_location": "scene_01",
+    "script_location": "Hook: follow the journey"
+  },
+  {
+    "claim_id": "C005",
+    "claim": "The 6 species of Plasmodium that are known to cause disease in humans include P falciparum, P vivax, P ovale curtisi, P ovale wallikeri, P malariae, and P knowlesi.",
+    "evidence_summary": "The 6 species of Plasmodium that are known to cause disease in humans include P falciparum, P vivax, P ovale curtisi, P ovale wallikeri, P malariae, and P knowlesi.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S009"
+    ],
+    "status": "supported",
+    "scene_location": "scene_01",
+    "script_location": "Hook: follow the journey"
+  },
+  {
+    "claim_id": "C006",
+    "claim": "Globally, Plasmodium falciparum and Plasmodium vivax account for the majority of malaria cases.",
+    "evidence_summary": "Globally, Plasmodium falciparum and Plasmodium vivax account for the majority of malaria cases.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S009"
+    ],
+    "status": "supported",
+    "scene_location": "scene_01",
+    "script_location": "Hook: follow the journey"
+  },
+  {
+    "claim_id": "C007",
+    "claim": "This review summarizes the biology, structure, catalytic mechanism, and substrate specificity of Plasmodium rhomboid proteases, and critically evaluates their functional roles in parasite development, host-cell invasion, and potential as antimalarial drug targets.",
+    "evidence_summary": "This review summarizes the biology, structure, catalytic mechanism, and substrate specificity of Plasmodium rhomboid proteases, and critically evaluates their functional roles in parasite development, host-cell invasion,",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S010"
+    ],
+    "status": "supported",
+    "scene_location": "scene_01",
+    "script_location": "Hook: follow the journey"
+  },
+  {
+    "claim_id": "C008",
+    "claim": "Evolutionarily conserved across eukaryotes, rhomboid proteases constitute a family of intramembrane serine proteases that play essential roles in parasite development, motility, and host cell invasion.",
+    "evidence_summary": "Evolutionarily conserved across eukaryotes, rhomboid proteases constitute a family of intramembrane serine proteases that play essential roles in parasite development, motility, and host cell invasion.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S010"
+    ],
+    "status": "supported",
+    "scene_location": "scene_01",
+    "script_location": "Hook: follow the journey"
+  },
+  {
+    "claim_id": "C009",
+    "claim": "Background Malaria is a life-threatening vector-borne disease caused by five species of the genus Plasmodium (P.) It can present as mixed infections that remain underreported and pose diagnostic, therapeutic and prognostic challenges.",
+    "evidence_summary": "Background Malaria is a life-threatening vector-borne disease caused by five species of the genus Plasmodium (P.) It can present as mixed infections that remain underreported and pose diagnostic, therapeutic and prognost",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S011"
+    ],
+    "status": "supported",
+    "scene_location": "scene_03",
+    "script_location": "Stage 1"
+  },
+  {
+    "claim_id": "C010",
+    "claim": "The objective of the present study was to describe the epidemiological, clinical, and biological features of four cases of mixed Plasmodium infection.",
+    "evidence_summary": "The objective of the present study was to describe the epidemiological, clinical, and biological features of four cases of mixed Plasmodium infection.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S011"
+    ],
+    "status": "supported",
+    "scene_location": "scene_03",
+    "script_location": "Stage 1"
+  },
+  {
+    "claim_id": "C011",
+    "claim": "The innate immune response of Anopheles mosquitoes is closely associated with the successful development of Plasmodium parasites and their subsequent transmission to humans.",
+    "evidence_summary": "The innate immune response of Anopheles mosquitoes is closely associated with the successful development of Plasmodium parasites and their subsequent transmission to humans.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S012"
+    ],
+    "status": "supported",
+    "scene_location": "scene_03",
+    "script_location": "Stage 1"
+  },
+  {
+    "claim_id": "C012",
+    "claim": "In this study, we examined the immune responses of individual Anopheles coluzzii mosquitoes fed on Plasmodium falciparum infected blood with identical gametocytemia, yet exhibiting different infection intensities at the ookinete stage.",
+    "evidence_summary": "In this study, we examined the immune responses of individual Anopheles coluzzii mosquitoes fed on Plasmodium falciparum infected blood with identical gametocytemia, yet exhibiting different infection intensities at the ",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S012"
+    ],
+    "status": "supported",
+    "scene_location": "scene_03",
+    "script_location": "Stage 1"
+  },
+  {
+    "claim_id": "C013",
+    "claim": "Holobionts - hosts together with their resident microorganisms - provide a framework for studying life as a network of interdependent partners.",
+    "evidence_summary": "Holobionts - hosts together with their resident microorganisms - provide a framework for studying life as a network of interdependent partners.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S027"
+    ],
+    "status": "supported",
+    "scene_location": "scene_03",
+    "script_location": "Stage 1"
+  },
+  {
+    "claim_id": "C014",
+    "claim": "Within host-ectoparasite holobionts, the dialogue between the two microbiomes offers powerful clues to ecological balance, disease dynamics and evolution.",
+    "evidence_summary": "Within host-ectoparasite holobionts, the dialogue between the two microbiomes offers powerful clues to ecological balance, disease dynamics and evolution.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S027"
+    ],
+    "status": "supported",
+    "scene_location": "scene_03",
+    "script_location": "Stage 1"
+  },
+  {
+    "claim_id": "C015",
+    "claim": "Malaria is a mosquito-borne disease caused by protozoans of the genus Plasmodium that affects both humans and wildlife.",
+    "evidence_summary": "Malaria is a mosquito-borne disease caused by protozoans of the genus Plasmodium that affects both humans and wildlife.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S028"
+    ],
+    "status": "supported",
+    "scene_location": "scene_03",
+    "script_location": "Stage 1"
+  },
+  {
+    "claim_id": "C016",
+    "claim": "Here we study how Culex pipiens mosquitoes transcriptionally respond to infection by two different Plasmodium species, P. relictum and P. cathemerium, differing in their virulence (mortality rate) and transmissibility (parasite presence in exposed mosquitoes' saliva).",
+    "evidence_summary": "Here we study how Culex pipiens mosquitoes transcriptionally respond to infection by two different Plasmodium species, P. relictum and P. cathemerium, differing in their virulence (mortality rate) and transmissibility (p",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S028"
+    ],
+    "status": "supported",
+    "scene_location": "scene_03",
+    "script_location": "Stage 1"
+  },
+  {
+    "claim_id": "C017",
+    "claim": "Mitosis in eukaryotes involves reorganisation of the nuclear envelope (NE) and microtubule-organising centres (MTOCs).",
+    "evidence_summary": "Mitosis in eukaryotes involves reorganisation of the nuclear envelope (NE) and microtubule-organising centres (MTOCs).",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S029"
+    ],
+    "status": "supported",
+    "scene_location": "scene_05",
+    "script_location": "Stage 2"
+  },
+  {
+    "claim_id": "C018",
+    "claim": "During male gametogenesis in Plasmodium , the causative agent of malaria, mitosis is exceptionally rapid and highly divergent.",
+    "evidence_summary": "During male gametogenesis in Plasmodium , the causative agent of malaria, mitosis is exceptionally rapid and highly divergent.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S029"
+    ],
+    "status": "supported",
+    "scene_location": "scene_05",
+    "script_location": "Stage 2"
+  },
+  {
+    "claim_id": "C019",
+    "claim": "Malaria remains one of the most devastating infectious diseases.",
+    "evidence_summary": "Malaria remains one of the most devastating infectious diseases.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S030"
+    ],
+    "status": "supported",
+    "scene_location": "scene_05",
+    "script_location": "Stage 2"
+  },
+  {
+    "claim_id": "C020",
+    "claim": "Reverse genetic screens offer a powerful approach to identify genes and molecular processes governing malaria parasite biology.",
+    "evidence_summary": "Reverse genetic screens offer a powerful approach to identify genes and molecular processes governing malaria parasite biology.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S030"
+    ],
+    "status": "supported",
+    "scene_location": "scene_05",
+    "script_location": "Stage 2"
+  },
+  {
+    "claim_id": "C021",
+    "claim": "Malaria is a life-threatening, blood-borne disease with over two hundred million cases throughout the world and is more prevalent in Sub-Saharan Africa than anywhere else in the world.",
+    "evidence_summary": "Malaria is a life-threatening, blood-borne disease with over two hundred million cases throughout the world and is more prevalent in Sub-Saharan Africa than anywhere else in the world.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S031"
+    ],
+    "status": "supported",
+    "scene_location": "scene_05",
+    "script_location": "Stage 2"
+  },
+  {
+    "claim_id": "C022",
+    "claim": "Over the years, several treatment agents have been developed for malaria; however, most of these active pharmaceutical ingredients exhibit poor aqueous solubility and low bioavailability and may result in drug-resistant parasites, thus increasing malaria cases and eventually, deaths.",
+    "evidence_summary": "Over the years, several treatment agents have been developed for malaria; however, most of these active pharmaceutical ingredients exhibit poor aqueous solubility and low bioavailability and may result in drug-resistant ",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S031"
+    ],
+    "status": "supported",
+    "scene_location": "scene_05",
+    "script_location": "Stage 2"
+  },
+  {
+    "claim_id": "C023",
+    "claim": "Five mosquito species potentially causing MBDs, including Culex pipiens biotypes, were found in the zoo.",
+    "evidence_summary": "Five mosquito species potentially causing MBDs, including Culex pipiens biotypes, were found in the zoo.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S032"
+    ],
+    "status": "supported",
+    "scene_location": "scene_05",
+    "script_location": "Stage 2"
+  },
+  {
+    "claim_id": "C024",
+    "claim": "The sympatric occurrence of Culex pipiens biotypes represents a risk factor for the epizootic transmission of West Nile virus and Usutu virus.",
+    "evidence_summary": "The sympatric occurrence of Culex pipiens biotypes represents a risk factor for the epizootic transmission of West Nile virus and Usutu virus.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S032"
+    ],
+    "status": "supported",
+    "scene_location": "scene_05",
+    "script_location": "Stage 2"
+  },
+  {
+    "claim_id": "C025",
+    "claim": "Flagella are important for eukaryote cell motility, including in sperm, and are vital for life cycle progression of many unicellular eukaryotic pathogens.",
+    "evidence_summary": "Flagella are important for eukaryote cell motility, including in sperm, and are vital for life cycle progression of many unicellular eukaryotic pathogens.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S036"
+    ],
+    "status": "supported",
+    "scene_location": "scene_07",
+    "script_location": "Stage 3"
+  },
+  {
+    "claim_id": "C026",
+    "claim": "The '9+2' axoneme in most motile flagella comprises nine outer doublet and two central-pair singlet microtubules.",
+    "evidence_summary": "The '9+2' axoneme in most motile flagella comprises nine outer doublet and two central-pair singlet microtubules.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S036"
+    ],
+    "status": "supported",
+    "scene_location": "scene_07",
+    "script_location": "Stage 3"
+  },
+  {
+    "claim_id": "C027",
+    "claim": "Recent results have shown that the human malaria-resistant hemoglobin S mutation originates de novo more frequently in the gene and in the population where it is of adaptive significance, namely, in the hemoglobin subunit beta gene compared to the nonresistant but otherwise identical 20A[Formula: see text]T mutation in the hemoglobin subunit delta gene, and in sub-Saharan Africans, who have been subject to intense malarial pressure for many generations, compared to northern Europeans, who have not.",
+    "evidence_summary": "Recent results have shown that the human malaria-resistant hemoglobin S mutation originates de novo more frequently in the gene and in the population where it is of adaptive significance, namely, in the hemoglobin subuni",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S037"
+    ],
+    "status": "supported",
+    "scene_location": "scene_07",
+    "script_location": "Stage 3"
+  },
+  {
+    "claim_id": "C028",
+    "claim": "This finding raises a fundamental challenge to the traditional notion of accidental mutation.",
+    "evidence_summary": "This finding raises a fundamental challenge to the traditional notion of accidental mutation.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S037"
+    ],
+    "status": "supported",
+    "scene_location": "scene_07",
+    "script_location": "Stage 3"
+  },
+  {
+    "claim_id": "C029",
+    "claim": "Vector control has been a key component in the fight against malaria for decades, and chemical insecticides are critical to the success of vector control programs worldwide.",
+    "evidence_summary": "Vector control has been a key component in the fight against malaria for decades, and chemical insecticides are critical to the success of vector control programs worldwide.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S038"
+    ],
+    "status": "supported",
+    "scene_location": "scene_07",
+    "script_location": "Stage 3"
+  },
+  {
+    "claim_id": "C030",
+    "claim": "Additionally, accelerated research and development of new tools that can be deployed alongside existing vector control strategies is key to eradicating malaria in the near future.",
+    "evidence_summary": "Additionally, accelerated research and development of new tools that can be deployed alongside existing vector control strategies is key to eradicating malaria in the near future.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S038"
+    ],
+    "status": "supported",
+    "scene_location": "scene_07",
+    "script_location": "Stage 3"
+  },
+  {
+    "claim_id": "C031",
+    "claim": "Infectious diseases that are sensitive to climate can be grouped into: vector-borne diseases (transmitted via mosquitos, ticks etc.), waterborne diseases (transmitted through viruses or bacteria in water), and food-borne diseases (spread through pathogens in food).",
+    "evidence_summary": "Infectious diseases that are sensitive to climate can be grouped into: vector-borne diseases (transmitted via mosquitos, ticks etc.), waterborne diseases (transmitted through viruses or bacteria in water), and food-borne",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S001"
+    ],
+    "status": "supported",
+    "scene_location": "scene_07",
+    "script_location": "Stage 3"
+  },
+  {
+    "claim_id": "C032",
+    "claim": "These changes are altering the geographic ranges and seasonal activity of disease-carrying organisms such as mosquitoes and ticks, and influence the growth and survival of bacteria and other pathogens in food and water systems.",
+    "evidence_summary": "These changes are altering the geographic ranges and seasonal activity of disease-carrying organisms such as mosquitoes and ticks, and influence the growth and survival of bacteria and other pathogens in food and water s",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S001"
+    ],
+    "status": "supported",
+    "scene_location": "scene_07",
+    "script_location": "Stage 3"
+  },
+  {
+    "claim_id": "C033",
+    "claim": "The life cycles of Plasmodium species involve development in a blood-feeding insect host which then injects parasites into a vertebrate host during a blood meal.",
+    "evidence_summary": "The life cycles of Plasmodium species involve development in a blood-feeding insect host which then injects parasites into a vertebrate host during a blood meal.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S002"
+    ],
+    "status": "supported",
+    "scene_location": "scene_09",
+    "script_location": "Stage 4"
+  },
+  {
+    "claim_id": "C034",
+    "claim": "Plasmodium is a genus of unicellular eukaryotes that are obligate parasites of vertebrates and insects such as mosquitoes in the genus Anopheles.",
+    "evidence_summary": "Plasmodium is a genus of unicellular eukaryotes that are obligate parasites of vertebrates and insects such as mosquitoes in the genus Anopheles.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S002"
+    ],
+    "status": "supported",
+    "scene_location": "scene_09",
+    "script_location": "Stage 4"
+  },
+  {
+    "claim_id": "C035",
+    "claim": "Plasmodium falciparum is a unicellular protozoan parasite of humans and is the deadliest species of Plasmodium that causes malaria in humans.",
+    "evidence_summary": "Plasmodium falciparum is a unicellular protozoan parasite of humans and is the deadliest species of Plasmodium that causes malaria in humans.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S003"
+    ],
+    "status": "supported",
+    "scene_location": "scene_09",
+    "script_location": "Stage 4"
+  },
+  {
+    "claim_id": "C036",
+    "claim": "The parasite is transmitted through the bite of a female Anopheles mosquito and causes the disease's most dangerous form, falciparum malaria.",
+    "evidence_summary": "The parasite is transmitted through the bite of a female Anopheles mosquito and causes the disease's most dangerous form, falciparum malaria.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S003"
+    ],
+    "status": "supported",
+    "scene_location": "scene_09",
+    "script_location": "Stage 4"
+  },
+  {
+    "claim_id": "C037",
+    "claim": "This parasite is the most frequent and widely distributed cause of recurring malaria.",
+    "evidence_summary": "This parasite is the most frequent and widely distributed cause of recurring malaria.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S004"
+    ],
+    "status": "supported",
+    "scene_location": "scene_09",
+    "script_location": "Stage 4"
+  },
+  {
+    "claim_id": "C038",
+    "claim": "Plasmodium vivax is a protozoal parasite and a human pathogen.",
+    "evidence_summary": "Plasmodium vivax is a protozoal parasite and a human pathogen.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S004"
+    ],
+    "status": "supported",
+    "scene_location": "scene_09",
+    "script_location": "Stage 4"
+  },
+  {
+    "claim_id": "C039",
+    "claim": "Plasmodium malariae is a parasitic protozoan that causes malaria in humans.",
+    "evidence_summary": "Plasmodium malariae is a parasitic protozoan that causes malaria in humans.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S005"
+    ],
+    "status": "supported",
+    "scene_location": "scene_09",
+    "script_location": "Stage 4"
+  },
+  {
+    "claim_id": "C040",
+    "claim": "It is one of several species of Plasmodium parasites that infect other organisms as pathogens, also including Plasmodium falciparum and Plasmodium vivax, responsible for most malarial infection.",
+    "evidence_summary": "It is one of several species of Plasmodium parasites that infect other organisms as pathogens, also including Plasmodium falciparum and Plasmodium vivax, responsible for most malarial infection.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S005"
+    ],
+    "status": "supported",
+    "scene_location": "scene_09",
+    "script_location": "Stage 4"
+  },
+  {
+    "claim_id": "C041",
+    "claim": "Plasmodium knowlesi is a parasite that causes malaria in humans and other primates.",
+    "evidence_summary": "Plasmodium knowlesi is a parasite that causes malaria in humans and other primates.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S006"
+    ],
+    "status": "supported",
+    "scene_location": "scene_11",
+    "script_location": "Where it ends / why it matters"
+  },
+  {
+    "claim_id": "C042",
+    "claim": "It is found throughout Southeast Asia, and is the most common cause of human malaria in Malaysia.",
+    "evidence_summary": "It is found throughout Southeast Asia, and is the most common cause of human malaria in Malaysia.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S006"
+    ],
+    "status": "supported",
+    "scene_location": "scene_11",
+    "script_location": "Where it ends / why it matters"
+  },
+  {
+    "claim_id": "C043",
+    "claim": "At maturity, E. culicivora spiders have an average size of 5 mm for both males and females.",
+    "evidence_summary": "At maturity, E. culicivora spiders have an average size of 5 mm for both males and females.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S020"
+    ],
+    "status": "supported",
+    "scene_location": "scene_11",
+    "script_location": "Where it ends / why it matters"
+  },
+  {
+    "claim_id": "C044",
+    "claim": "Evarcha culicivora is a species of jumping spider (family Salticidae) found only around Lake Victoria in Kenya and Uganda.",
+    "evidence_summary": "Evarcha culicivora is a species of jumping spider (family Salticidae) found only around Lake Victoria in Kenya and Uganda.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S020"
+    ],
+    "status": "supported",
+    "scene_location": "scene_11",
+    "script_location": "Where it ends / why it matters"
+  },
+  {
+    "claim_id": "C045",
+    "claim": "Symptoms usually begin 10 to 15 days after being bitten by an infected Anopheles mosquito.",
+    "evidence_summary": "Symptoms usually begin 10 to 15 days after being bitten by an infected Anopheles mosquito.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S039"
+    ],
+    "status": "supported",
+    "scene_location": "scene_11",
+    "script_location": "Where it ends / why it matters"
+  },
+  {
+    "claim_id": "C046",
+    "claim": "Malaria is caused by single-celled parasites of the genus Plasmodium, generally spread through the bites of an infected female Anopheles mosquito.",
+    "evidence_summary": "Malaria is caused by single-celled parasites of the genus Plasmodium, generally spread through the bites of an infected female Anopheles mosquito.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S039"
+    ],
+    "status": "supported",
+    "scene_location": "scene_11",
+    "script_location": "Where it ends / why it matters"
+  },
+  {
+    "claim_id": "C047",
+    "claim": "Parasitism is a close relationship between species, where one organism, the parasite, lives (at least some of the time) on or inside another organism, the host, causing it some harm, and is adapted structurally to this way of life.",
+    "evidence_summary": "Parasitism is a close relationship between species, where one organism, the parasite, lives (at least some of the time) on or inside another organism, the host, causing it some harm, and is adapted structurally to this w",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S040"
+    ],
+    "status": "supported",
+    "scene_location": "scene_11",
+    "script_location": "Where it ends / why it matters"
+  },
+  {
+    "claim_id": "C048",
+    "claim": "Parasites of animals are highly specialised, each parasite species living on one given animal species, and reproduce at a faster rate than their hosts.",
+    "evidence_summary": "Parasites of animals are highly specialised, each parasite species living on one given animal species, and reproduce at a faster rate than their hosts.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S040"
+    ],
+    "status": "supported",
+    "scene_location": "scene_11",
+    "script_location": "Where it ends / why it matters"
+  },
+  {
+    "claim_id": "C049",
+    "claim": "Avian malaria is a parasitic disease of birds, caused by parasite species belonging to the genera Plasmodium and Hemoproteus (phylum Apicomplexa, class Haemosporidia, family Plasmoiidae).",
+    "evidence_summary": "Avian malaria is a parasitic disease of birds, caused by parasite species belonging to the genera Plasmodium and Hemoproteus (phylum Apicomplexa, class Haemosporidia, family Plasmoiidae).",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S041"
+    ],
+    "status": "supported"
+  },
+  {
+    "claim_id": "C050",
+    "claim": "Co-speciation and host switching events have contributed to the broad range of hosts that these parasites can infect, causing avian malaria to be a widespread global disease, found everywhere except Antarctica.",
+    "evidence_summary": "Co-speciation and host switching events have contributed to the broad range of hosts that these parasites can infect, causing avian malaria to be a widespread global disease, found everywhere except Antarctica.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S041"
+    ],
+    "status": "supported"
+  }
+]

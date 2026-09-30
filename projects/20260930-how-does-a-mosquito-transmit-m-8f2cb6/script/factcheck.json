@@ -1,0 +1,22 @@
+{
+  "status": "review",
+  "issues": [
+    {
+      "type": "absolute",
+      "sentence": "Evolutionary relationships among different Plasmodium species do not always follow taxonomic boundaries; some species that are morphologically similar or infect the same host turn out to be distantly related.",
+      "fix": "Soften absolute ('always/never/proven') unless an established claim backs it."
+    },
+    {
+      "type": "number_unverified",
+      "sentence": "Purpose Malaria continues to rank among the most significant and deadly infectious diseases, with over 282 million estimated cases and more than 610,000 deaths reported by the WHO in 2025.",
+      "fix": "Verify numbers ['282 million'] against sources or remove."
+    }
+  ],
+  "orphan_claims": [
+    "C008",
+    "C013",
+    "C014"
+  ],
+  "llm_notes": [],
+  "sentences_checked": 136
+}

@@ -1,0 +1,48 @@
+# ── env / secrets ──
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+token.json
+client_secret*.json
+
+# ── python ──
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+coverage/
+.coverage
+htmlcov/
+
+# ── node (if any) ──
+node_modules/
+dist/
+build/
+out/
+
+# ── project outputs (large, local only) ──
+# Keep project JSON but ignore heavy binaries by default.
+# Uncomment the next lines if you want to keep the repo small:
+projects/*/production/assets/*
+projects/*/production/narration/*.mp3
+projects/*/production/narration/*.wav
+projects/*/production/video/*.mp4
+projects/*/production/final/*.mp4
+projects/*/production/diagrams/*.png
+*.mp4
+*.mp3
+*.wav
+
+# ── misc ──
+.DS_Store
+*.log
+.cache/
+_segments/
+_concat.mp4

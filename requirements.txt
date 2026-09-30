@@ -1,0 +1,11 @@
+requests>=2.31
+pillow>=10.0
+mutagen>=1.47
+svgwrite>=1.4
+flask>=3.0
+pytest>=8.0
+edge-tts>=7.0
+gTTS>=2.5
+imageio-ffmpeg>=0.5
+python-dotenv>=1.0
+cairosvg>=2.7

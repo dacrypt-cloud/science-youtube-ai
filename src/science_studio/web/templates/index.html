@@ -1,0 +1,18 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Science Studio</title>
+<style>body{font-family:system-ui;margin:0;background:#0a1420;color:#e8f1ff}main{max-width:720px;margin:0 auto;padding:16px}
+input,select,textarea,button{width:100%;margin:6px 0;padding:12px;font-size:16px;border-radius:8px;border:1px solid #2a4a6a;background:#12263f;color:#fff}
+button{background:#1e88e5;border:0;font-weight:700}.card{background:#12263f;border-radius:10px;padding:12px;margin:10px 0}a{color:#4fc3f7}</style></head>
+<body><main>
+<h1>🔬 Science Studio</h1>
+<p>Idea → researched, narrated, rendered science video. $0 stack.</p>
+<form action="/new" method="post">
+<textarea name="idea" rows="4" placeholder="Explain your science idea… e.g. How does a mosquito transmit malaria, and what happens to Plasmodium inside the mosquito?" required></textarea>
+<textarea name="instructions" rows="2" placeholder="Optional instructions (depth, audience, angle…)"></textarea>
+<select name="duration"><option value="8-10">8–10 min</option><option value="12-15" selected>12–15 min</option><option value="15-20">15–20 min</option><option value="auto">Automatic</option></select>
+<select name="mode"><option value="autonomous">Autonomous mode</option><option value="approval">Approval mode</option></select>
+<button type="submit">▶ START PROJECT</button>
+</form>
+<h2>Projects</h2>
+{% for p in projects %}<div class="card"><a href="/p/{{p.project_id}}">{{p.idea[:90]}}</a><br><small>{{p.project_id}} · {{p.state}} · {{p.duration}}</small></div>{% else %}<p>No projects yet.</p>{% endfor %}
+</main></body></html>

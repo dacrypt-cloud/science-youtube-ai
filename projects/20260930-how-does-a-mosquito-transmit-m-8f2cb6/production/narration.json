@@ -1,0 +1,86 @@
+[
+  {
+    "scene_id": "scene_01",
+    "path": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/narration/scene_01.mp3",
+    "duration_s": 89.352,
+    "voice": "cached",
+    "provider": "cached"
+  },
+  {
+    "scene_id": "scene_02",
+    "path": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/narration/scene_02.mp3",
+    "duration_s": 98.664,
+    "voice": "cached",
+    "provider": "cached"
+  },
+  {
+    "scene_id": "scene_03",
+    "path": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/narration/scene_03.mp3",
+    "duration_s": 91.896,
+    "voice": "cached",
+    "provider": "cached"
+  },
+  {
+    "scene_id": "scene_04",
+    "path": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/narration/scene_04.mp3",
+    "duration_s": 86.352,
+    "voice": "cached",
+    "provider": "cached"
+  },
+  {
+    "scene_id": "scene_05",
+    "path": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/narration/scene_05.mp3",
+    "duration_s": 89.88,
+    "voice": "cached",
+    "provider": "cached"
+  },
+  {
+    "scene_id": "scene_06",
+    "path": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/narration/scene_06.mp3",
+    "duration_s": 87.048,
+    "voice": "cached",
+    "provider": "cached"
+  },
+  {
+    "scene_id": "scene_07",
+    "path": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/narration/scene_07.mp3",
+    "duration_s": 84.888,
+    "voice": "cached",
+    "provider": "cached"
+  },
+  {
+    "scene_id": "scene_08",
+    "path": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/narration/scene_08.mp3",
+    "duration_s": 97.872,
+    "voice": "cached",
+    "provider": "cached"
+  },
+  {
+    "scene_id": "scene_09",
+    "path": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/narration/scene_09.mp3",
+    "duration_s": 95.928,
+    "voice": "cached",
+    "provider": "cached"
+  },
+  {
+    "scene_id": "scene_10",
+    "path": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/narration/scene_10.mp3",
+    "duration_s": 76.992,
+    "voice": "cached",
+    "provider": "cached"
+  },
+  {
+    "scene_id": "scene_11",
+    "path": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/narration/scene_11.mp3",
+    "duration_s": 89.784,
+    "voice": "cached",
+    "provider": "cached"
+  },
+  {
+    "scene_id": "scene_12",
+    "path": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/narration/scene_12.mp3",
+    "duration_s": 75.072,
+    "voice": "cached",
+    "provider": "cached"
+  }
+]

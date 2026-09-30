@@ -1,0 +1,683 @@
+1
+00:00:00,000 --> 00:00:05,956
+Hook: follow the journey. The 6 species of Plasmodium that are known to cause
+
+2
+00:00:05,956 --> 00:00:11,913
+disease in humans include P falciparum, P vivax, P ovale curtisi, P ovale wallikeri,
+
+3
+00:00:11,913 --> 00:00:17,870
+P malariae, and P knowlesi. Plasmodium falciparum is a unicellular protozoan parasite of humans
+
+4
+00:00:17,870 --> 00:00:23,827
+and is the deadliest species of Plasmodium that causes malaria in humans. Evolutionary relationships
+
+5
+00:00:23,827 --> 00:00:29,784
+among different Plasmodium species do not always follow taxonomic boundaries; some species that are
+
+6
+00:00:29,784 --> 00:00:35,740
+morphologically similar or infect the same host turn out to be distantly related. The
+
+7
+00:00:35,740 --> 00:00:41,697
+parasite is transmitted through the bite of a female Anopheles mosquito and causes the
+
+8
+00:00:41,697 --> 00:00:47,654
+disease's most dangerous form, falciparum malaria. Although it is less virulent than Plasmodium falciparum,
+
+9
+00:00:47,654 --> 00:00:53,611
+the deadliest of the five human malaria parasites, P. vivax malaria infections can lead
+
+10
+00:00:53,611 --> 00:00:59,568
+to severe disease and death, often due to splenomegaly (a pathologically enlarged spleen). Plasmodium
+
+11
+00:00:59,568 --> 00:01:05,524
+knowlesi is a parasite that causes malaria in humans and other primates. Humans infected
+
+12
+00:01:05,524 --> 00:01:11,481
+with P. knowlesi can develop either uncomplicated or severe malaria similar to that caused
+
+13
+00:01:11,481 --> 00:01:17,438
+by Plasmodium falciparum. It does this by predating on blood-sucking female mosquitoes in the
+
+14
+00:01:17,438 --> 00:01:23,395
+genus Anopheles, the mosquito responsible for transmitting malaria in the region, as well as
+
+15
+00:01:23,395 --> 00:01:29,352
+other vector-borne diseases in humans.
+
+16
+00:01:29,352 --> 00:01:35,929
+Hook: follow the journey — part 2. However, the complex regulation of gene expression
+
+17
+00:01:35,929 --> 00:01:42,507
+and genotype-phenotype associations in the mosquito vector, along with sexual reproduction, have hindered the
+
+18
+00:01:42,507 --> 00:01:49,084
+development of screens in this critical part of the parasite life cycle. The parasite
+
+19
+00:01:49,084 --> 00:01:55,662
+Plasmodium falciparum causes the infectious disease malaria. Plasmodium knowlesi, a simian and human malaria
+
+20
+00:01:55,662 --> 00:02:02,240
+parasite, is an attractive experimental parasite for malaria research since it can infect olive
+
+21
+00:02:02,240 --> 00:02:08,817
+baboons (Papio anubis), non-human primates that have similar host-pathogen interactions to humans. Since then,
+
+22
+00:02:08,817 --> 00:02:15,395
+P. malariae parasites have persisted in the region alongside P. falciparum and P. vivax
+
+23
+00:02:15,395 --> 00:02:21,972
+species, changing malaria patterns. A malaria control project initiated in 2007 in Balombo (Benguela
+
+24
+00:02:21,972 --> 00:02:28,550
+Province, central Angola) has monitored malaria dynamics for 18 years, revealing increased Plasmodium prevalence
+
+25
+00:02:28,550 --> 00:02:35,128
+and more frequent detection of non-falciparum species, mainly Plasmodium malariae (in co-infection with P.
+
+26
+00:02:35,128 --> 00:02:41,705
+falciparum ) in villagers of the Balombo region. Background Malaria is a life-threatening vector-borne
+
+27
+00:02:41,705 --> 00:02:48,283
+disease caused by five species of the genus Plasmodium (P.) It can present as
+
+28
+00:02:48,283 --> 00:02:54,860
+mixed infections that remain underreported and pose diagnostic, therapeutic and prognostic challenges. Plasmodium species
+
+29
+00:02:54,860 --> 00:03:01,438
+were identified according to standard microscopic morphological cr Early mosquito immune patterns correlate with
+
+30
+00:03:01,438 --> 00:03:08,016
+differential Plasmodium falciparum ookinete load.
+
+31
+00:03:08,016 --> 00:03:14,142
+Stage 1. In this study, we examined the immune responses of individual Anopheles coluzzii
+
+32
+00:03:14,142 --> 00:03:20,268
+mosquitoes fed on Plasmodium falciparum infected blood with identical gametocytemia, yet exhibiting different infection
+
+33
+00:03:20,268 --> 00:03:26,395
+intensities at the ookinete stage. Here we study how Culex pipiens mosquitoes transcriptionally respond
+
+34
+00:03:26,395 --> 00:03:32,521
+to infection by two different Plasmodium species, P. relictum and P. cathemerium, differing in
+
+35
+00:03:32,521 --> 00:03:38,648
+their virulence (mortality rate) and transmissibility (parasite presence in exposed mosquitoes' saliva). The human-infective
+
+36
+00:03:38,648 --> 00:03:44,774
+stage are sporozoites from the salivary gland of a mosquito. It is one of
+
+37
+00:03:44,774 --> 00:03:50,900
+several species of Plasmodium parasites that infect other organisms as pathogens, also including Plasmodium
+
+38
+00:03:50,900 --> 00:03:57,027
+falciparum and Plasmodium vivax, responsible for most malarial infection. Like other Plasmodium species, P.
+
+39
+00:03:57,027 --> 00:04:03,153
+knowlesi has a life cycle that requires infection of both a mosquito and a
+
+40
+00:04:03,153 --> 00:04:09,280
+warm-blooded host. P. knowlesi malaria is an emerging disease previously thought to be rare
+
+41
+00:04:09,280 --> 00:04:15,406
+in humans, but increasingly recognized as a major health burden in Southeast Asia. Malaria
+
+42
+00:04:15,406 --> 00:04:21,532
+is caused by single-celled parasites of the genus Plasmodium, generally spread through the bites
+
+43
+00:04:21,532 --> 00:04:27,659
+of an infected female Anopheles mosquito. The three species associated with more severe cases
+
+44
+00:04:27,659 --> 00:04:33,785
+are P. falciparum (which is responsible for the vast majority of malaria deaths), P.
+
+45
+00:04:33,785 --> 00:04:39,912
+vivax and P.
+
+46
+00:04:39,912 --> 00:04:46,080
+Stage 1 — part 2. Baboons are susceptible to Plasmodium knowlesi and their reproductive
+
+47
+00:04:46,080 --> 00:04:52,248
+physiology and host pathogen interactions are similar to those in humans, making them attractive
+
+48
+00:04:52,248 --> 00:04:58,416
+for development as a model for studying mechanisms underlying pregnancy malaria. We experiment on
+
+49
+00:04:58,416 --> 00:05:04,584
+a dataset released to the public as part of the ICIP 2023 grand challenge
+
+50
+00:05:04,584 --> 00:05:10,752
+entitled Automatic Detection of Mosquito Breeding Grounds. A method has been developed to create
+
+51
+00:05:10,752 --> 00:05:16,920
+a live organism vaccine using the sporozoites (SPZ) of the parasite Plasmodium falciparum (Pf),
+
+52
+00:05:16,920 --> 00:05:23,088
+which are concentrated in the salivary glands of infected mosquitoes. We propose an improved
+
+53
+00:05:23,088 --> 00:05:29,256
+dissection procedure and a mechanical fixture that increases the rate of mosquito dissection and
+
+54
+00:05:29,256 --> 00:05:35,424
+helps to deskill this stage of the production process. Emergence of Plasmodium malariae and
+
+55
+00:05:35,424 --> 00:05:41,592
+Co-endemicity of 3 Plasmodium Species Parasites, Khanh Hoa Province, Vietnam, 2023-2025.. A large malaria
+
+56
+00:05:41,592 --> 00:05:47,760
+outbreak caused by Plasmodium malariae parasites occurred in Khanh Hoa Province, Vietnam, in 2023.
+
+57
+00:05:47,760 --> 00:05:53,928
+World Malaria Report 2025] Malaria results from infection with single-celled parasites belonging to the
+
+58
+00:05:53,928 --> 00:06:00,096
+Plasmodium genus. Globally, Plasmodium falciparum and Plasmodium vivax account for the majority of malaria
+
+59
+00:06:00,096 --> 00:06:06,264
+cases.
+
+60
+00:06:06,264 --> 00:06:12,256
+Stage 2. To address this, we developed a genetic approach in the rodent parasite
+
+61
+00:06:12,256 --> 00:06:18,248
+Plasmodium berghei that, in combination with barcode sequencing, circumvents the fertilization roadblock and enables
+
+62
+00:06:18,248 --> 00:06:24,240
+screening for gametocyte-expressed genes required for parasite infection of the mosquito Anopheles coluzzii. Plasmodium
+
+63
+00:06:24,240 --> 00:06:30,232
+is a genus of unicellular eukaryotes that are obligate parasites of vertebrates and insects
+
+64
+00:06:30,232 --> 00:06:36,224
+such as mosquitoes in the genus Anopheles. The life cycles of Plasmodium species involve
+
+65
+00:06:36,224 --> 00:06:42,216
+development in a blood-feeding insect host which then injects parasites into a vertebrate host
+
+66
+00:06:42,216 --> 00:06:48,208
+during a blood meal. Over 200 species of Plasmodium have been described, many of
+
+67
+00:06:48,208 --> 00:06:54,200
+which have been subdivided into 14 subgenera based on parasite morphology and host range.
+
+68
+00:06:54,200 --> 00:07:00,192
+P. falciparum is therefore regarded as the deadliest parasite in humans. Plasmodium malariae is
+
+69
+00:07:00,192 --> 00:07:06,184
+a parasitic protozoan that causes malaria in humans. While the natural warm-blooded hosts of
+
+70
+00:07:06,184 --> 00:07:12,176
+P. knowlesi are likely various Old World monkeys, humans can be infected by P.
+
+71
+00:07:12,176 --> 00:07:18,168
+knowlesi if they are fed upon by infected mosquitoes. It is most closely related
+
+72
+00:07:18,168 --> 00:07:24,160
+to the human parasite Plasmodium vivax as well as other Plasmodium species that infect
+
+73
+00:07:24,160 --> 00:07:30,152
+non-human primates. Diagnosis of P. knowlesi infection is challenging as P. knowlesi very closely
+
+74
+00:07:30,152 --> 00:07:36,144
+resembles other species that infect humans.
+
+75
+00:07:36,144 --> 00:07:42,361
+Stage 2 — part 2. P. knowlesi was first described as a distinct species
+
+76
+00:07:42,361 --> 00:07:48,579
+and as a potential cause of human malaria in 1932. Malaria is a mosquito-borne
+
+77
+00:07:48,579 --> 00:07:54,797
+infectious disease that is transmitted by the bite of Anopheles mosquitoes. Five species of
+
+78
+00:07:54,797 --> 00:08:01,014
+Plasmodium commonly infect humans. Parasites include single-celled protozoans such as the agents of malaria,
+
+79
+00:08:01,014 --> 00:08:07,232
+sleeping sickness, and amoebic dysentery; animals such as hookworms, lice, mosquitoes, and vampire bats;
+
+80
+00:08:07,232 --> 00:08:13,450
+fungi such as honey fungus and the agents of ringworm; and plants such as
+
+81
+00:08:13,450 --> 00:08:19,668
+mistletoe, dodder, and the broomrapes. Parasites of animals are highly specialised, each parasite species
+
+82
+00:08:19,668 --> 00:08:25,885
+living on one given animal species, and reproduce at a faster rate than their
+
+83
+00:08:25,885 --> 00:08:32,103
+hosts. Classic examples include interactions between vertebrate hosts and tapeworms, flukes, and those between
+
+84
+00:08:32,103 --> 00:08:38,321
+the malaria-causing Plasmodium species, and Avian malaria. Co-speciation and host switching events have contributed
+
+85
+00:08:38,321 --> 00:08:44,538
+to the broad range of hosts that these parasites can infect, causing avian malaria
+
+86
+00:08:44,538 --> 00:08:50,756
+to be a widespread global disease, found everywhere except Antarctica. Plasmodium spp. are the
+
+87
+00:08:50,756 --> 00:08:56,974
+protozoan parasites responsible for malaria. Plasmodium knowlesi H strain pregnancy malaria immune responses in
+
+88
+00:08:56,974 --> 00:09:03,192
+olive baboons (Papio anubis).
+
+89
+00:09:03,192 --> 00:09:09,721
+Stage 3. This study exploited the susceptibility of baboons to Plasmodium knowlesi infection to
+
+90
+00:09:09,721 --> 00:09:16,251
+characterize cytokine and peripheral blood mononuclear cell recall proliferation responses underlying the pathogenesis of
+
+91
+00:09:16,251 --> 00:09:22,781
+pregnancy malaria in baboons infected with Plasmodium knowlesi. Biological targets are sought in a
+
+92
+00:09:22,781 --> 00:09:29,311
+biological space designed from the genomic data from Plasmodium falciparum, but using also the
+
+93
+00:09:29,311 --> 00:09:35,841
+millions of genomic data from other species. Mosquitoes are well-known carriers of diseases such
+
+94
+00:09:35,841 --> 00:09:42,371
+as malaria, dengue and yellow fever. Immunity to Plasmodium knowlesi H strain malaria in
+
+95
+00:09:42,371 --> 00:09:48,900
+olive baboons. Characterisation of placental malaria in olive baboons (Papio anubis) infected with Plasmodium
+
+96
+00:09:48,900 --> 00:09:55,430
+knowlesi H strain. Plasmodium vivax is the most geographically widespread species of malaria. Well
+
+97
+00:09:55,430 --> 00:10:01,960
+known examples include the Plasmodium spp. which cause malaria in humans and Theileria which
+
+98
+00:10:01,960 --> 00:10:08,490
+causes theileriosis in cattle. Understanding malaria transmission in Angola: first detection of Plasmodium malariae
+
+99
+00:10:08,490 --> 00:10:15,020
+in Anopheles spp . and the role of secondary vectors in the Balombo region,
+
+100
+00:10:15,020 --> 00:10:21,550
+Benguela Province. This study aimed to characterize Anopheles populations in this region by assessing
+
+101
+00:10:21,550 --> 00:10:28,080
+species composition, behavioural patterns Relapsing Malaria.
+
+102
+00:10:28,080 --> 00:10:34,604
+Stage 3 — part 2. To address this, as part of the HumBug project,
+
+103
+00:10:34,604 --> 00:10:41,129
+we (arXiv, 2021-10-14). Malaria is a significant global health problem with a substantial disease
+
+104
+00:10:41,129 --> 00:10:47,654
+burden worldwide. While Plasmodium falciparum is re Rhomboid Proteases in Plasmodium spp. : Biology,
+
+105
+00:10:47,654 --> 00:10:54,179
+Functional Roles, and Therapeutic Potential.. Purpose Malaria continues to rank among the most significant
+
+106
+00:10:54,179 --> 00:11:00,704
+and deadly infectious diseases, with over 282 million estimated cases and more than 610,000
+
+107
+00:11:00,704 --> 00:11:07,228
+deaths reported by the WHO in 2025. This review summarizes the biology, structure, catalytic
+
+108
+00:11:07,228 --> 00:11:13,753
+mechanism, and substrate specificity of Plasmodium rhomboid proteases, and critically evaluates their functional roles
+
+109
+00:11:13,753 --> 00:11:20,278
+in parasite development, host-cell invasion, and potential as antimalarial drug targets. However, the extent
+
+110
+00:11:20,278 --> 00:11:26,803
+to which mosquito immune activation correlates with parasite burden during early sporogonic development, and
+
+111
+00:11:26,803 --> 00:11:33,328
+how additional factors may be linked to variation in this early immune response, remains
+
+112
+00:11:33,328 --> 00:11:39,852
+only partly understood. In all cases, microbes move passively during feeding or contact, then
+
+113
+00:11:39,852 --> 00:11:46,377
+colonise, replicate and modulate physiology and immunity, exerting Two avian Plasmodium species trigger different
+
+114
+00:11:46,377 --> 00:11:52,902
+transcriptional responses on their vector Culex pipiens.. The fitness consequences of infections by avian
+
+115
+00:11:52,902 --> 00:11:59,427
+malaria are well known in birds, however, little information exists on its impact on
+
+116
+00:11:59,427 --> 00:12:05,952
+mosquitoes.
+
+117
+00:12:05,952 --> 00:12:12,347
+Stage 4. We identify the SUN1-ALLAN complex as a novel mediator of NE remodelling
+
+118
+00:12:12,347 --> 00:12:18,742
+and bipartite MTOC coordination during Plasmodium berghei male gametoge Identification of genes required for
+
+119
+00:12:18,742 --> 00:12:25,137
+Plasmodium gametocyte-to-sporozoite development in the mosquito vector.. Malaria remains one of the most devastating
+
+120
+00:12:25,137 --> 00:12:31,532
+infectious diseases. Reverse genetic screens offer a powerful approach to identify genes and molecular
+
+121
+00:12:31,532 --> 00:12:37,928
+processes governing malaria parasite biology. Malaria is a life-threatening, blood-borne disease with over two
+
+122
+00:12:37,928 --> 00:12:44,323
+hundred million cases throughout the world and is more prevalent in Sub-Saharan Africa than
+
+123
+00:12:44,323 --> 00:12:50,718
+anywhere else in the world. Over the years, several treatment agents have been developed
+
+124
+00:12:50,718 --> 00:12:57,113
+for malaria; however, most of these active pharmaceutical ingredients exhibit poor aqueous solubility and
+
+125
+00:12:57,113 --> 00:13:03,508
+low bioavailability and may result in drug-resistant parasites, thus increasing malaria cases and eventually,
+
+126
+00:13:03,508 --> 00:13:09,904
+deaths. Mosquito-borne diseases (MBDs) are important emerging diseases that affect humans and animals. Five
+
+127
+00:13:09,904 --> 00:13:16,299
+mosquito species potentially causing MBDs, including Culex pipiens biotypes, were found in the zoo.
+
+128
+00:13:16,299 --> 00:13:22,694
+The minimum tem Radial spoke protein 9 is necessary for axoneme assembly in Plasmodium
+
+129
+00:13:22,694 --> 00:13:29,089
+but not in trypanosomatid parasites.. Methods such as gene drives that aim to genetically
+
+130
+00:13:29,089 --> 00:13:35,484
+modify large mosquito populations in the wild to either render them refractory to malaria
+
+131
+00:13:35,484 --> 00:13:41,880
+or impair their reproduction may prove invaluable tools.
+
+132
+00:13:41,880 --> 00:13:48,296
+Stage 4 — part 2. In 2022 scientists stated a clear observation that "the
+
+133
+00:13:48,296 --> 00:13:54,712
+occurrence of climate-related food-borne and waterborne diseases has increased." Vector-borne diseases like dengue fever,
+
+134
+00:13:54,712 --> 00:14:01,128
+malaria, tick-borne diseases, leishmaniasis, zika fever, chikungunya and Ebola are especially sensitive to climatic
+
+135
+00:14:01,128 --> 00:14:07,544
+conditions. For example, the range of ticks that transmit Lyme disease and tick-borne encephalitis
+
+136
+00:14:07,544 --> 00:14:13,960
+has expanded, and further warming could lengthen the Plasmodium. During this infection, some parasites
+
+137
+00:14:13,960 --> 00:14:20,376
+are picked up by a blood-feeding insect (mosquitoes in majority cases), continuing the life
+
+138
+00:14:20,376 --> 00:14:26,792
+cycle. Species of Plasmodium are distributed globally wherever suitable hosts are found. Plasmodium parasites
+
+139
+00:14:26,792 --> 00:14:33,208
+were first identified in the late 19th century by Charles Laveran. Over the course
+
+140
+00:14:33,208 --> 00:14:39,624
+of the Plasmodium falciparum. The species originated from the malarial parasite Laverania found in
+
+141
+00:14:39,624 --> 00:14:46,040
+gorillas, around 10,000 years ago. Giovanni Battista Grassi elucidated the complete transmission from a
+
+142
+00:14:46,040 --> 00:14:52,456
+female anopheline mosquito to humans in 1898. Welch created the name Plasmodium falciparum, which
+
+143
+00:14:52,456 --> 00:14:58,872
+ICZN formally adopted in 1954.
+
+144
+00:14:58,872 --> 00:15:04,857
+Where it ends / why it matters. Parasitism is a close relationship between species,
+
+145
+00:15:04,857 --> 00:15:10,843
+where one organism, the parasite, lives (at least some of the time) on or
+
+146
+00:15:10,843 --> 00:15:16,828
+inside another organism, the host, causing it some harm, and is adapted structurally to
+
+147
+00:15:16,828 --> 00:15:22,814
+this way of life. After a few days the mature parasites spread into the
+
+148
+00:15:22,814 --> 00:15:28,800
+bloodstream, where they infect and destroy red blood cells, causing the symptoms of infection.
+
+149
+00:15:28,800 --> 00:15:34,785
+Recent results have shown that the human malaria-resistant hemoglobin S mutation originates de novo
+
+150
+00:15:34,785 --> 00:15:40,771
+more frequently in the gene and in the population where it is of adaptive
+
+151
+00:15:40,771 --> 00:15:46,756
+significance, namely, in the hemoglobin subunit beta gene compared to the nonresistant but otherwise
+
+152
+00:15:46,756 --> 00:15:52,742
+identical 20A[Formula: see text]T mutation in the hemoglobin subunit delta gene, and in sub-Saharan
+
+153
+00:15:52,742 --> 00:15:58,728
+Africans, who have been subject to intense malarial pressure for many generations, compared to
+
+154
+00:15:58,728 --> 00:16:04,713
+northern Europeans, who have not. This behavioral characteristic differs from other jumping spiders, where
+
+155
+00:16:04,713 --> 00:16:10,699
+the majority of males show preference and pursue females. Plasmodium vivax is a protozoal
+
+156
+00:16:10,699 --> 00:16:16,684
+parasite and a human pathogen. This parasite is the most frequent and widely distributed
+
+157
+00:16:16,684 --> 00:16:22,670
+cause of recurring malaria. Found worldwide, it causes a so-called "benign malaria", not nearly
+
+158
+00:16:22,670 --> 00:16:28,656
+as dangerous as that produced by P. falciparum or P. vivax.
+
+159
+00:16:28,656 --> 00:16:34,430
+Where it ends / why it matters — part 2. The mosquito bite introduces
+
+160
+00:16:34,430 --> 00:16:40,205
+the parasites from the mosquito's saliva into the blood. The range of symptoms and
+
+161
+00:16:40,205 --> 00:16:45,980
+effects of the parasite on its bird hosts is very wide, from asymptomatic cases
+
+162
+00:16:45,980 --> 00:16:51,755
+to drastic population declines due to the disease, as is the case of the
+
+163
+00:16:51,755 --> 00:16:57,529
+Hawaiian honeycreepers. The diversity of parasites is large, as it is estimated that there
+
+164
+00:16:57,529 --> 00:17:03,304
+are approximately as many parasites as there are species of hosts. PlasmoFAB: A Benchmark
+
+165
+00:17:03,304 --> 00:17:09,079
+to Foster Machine Learning for Plasmodium falciparum Protein Antigen Candidate Prediction. Currently, no such
+
+166
+00:17:09,079 --> 00:17:14,854
+dataset for the exploration of Plasmodium falciparum protein antigen candidates exists. Characterization of the
+
+167
+00:17:14,854 --> 00:17:20,628
+infectious reservoir of malaria with an agent-based model calibrated to age-stratified parasite densities and
+
+168
+00:17:20,628 --> 00:17:26,403
+infectiousness. Background Elimination of malaria can only be achieved through removal of all vectors
+
+169
+00:17:26,403 --> 00:17:32,178
+or complete depletion of the infectious reservoir in humans. Methods The EMOD model of
+
+170
+00:17:32,178 --> 00:17:37,953
+malaria transmission was calibrated to prevalence, incidence, asexual parasite density, gametocyte density, infection duration,
+
+171
+00:17:37,953 --> 00:17:43,728
+and infectiousness data from 9 study sites.

@@ -1,0 +1,45 @@
+{
+  "interpretation": {
+    "idea": "How does a mosquito transmit malaria, and what actually happens to Plasmodium inside the mosquito?",
+    "instructions": "",
+    "central_question": "How does a mosquito transmit malaria, and what actually happens to Plasmodium inside the mosquito?",
+    "entities": [
+      "Plasmodium"
+    ],
+    "keywords": [
+      "mosquito",
+      "transmit",
+      "malaria",
+      "actually",
+      "happens",
+      "plasmodium",
+      "inside"
+    ]
+  },
+  "depth": "deep",
+  "budget": {
+    "questions": 12,
+    "queries_per_question": 4,
+    "sources_per_query": 6,
+    "max_sources": 50
+  },
+  "research_questions": [
+    "What is the core mechanism behind How does a mosquito transmit malaria, and what actually happens to Plasmodium inside the mosquito??",
+    "What causes How does a mosquito transmit malaria, and what actually happens to Plasmodium inside the mosquito?, step by step?",
+    "What background concepts are needed to understand How does a mosquito transmit malaria, and what actually happens to Plasmodium inside the mosquito??",
+    "What evidence supports the current understanding of How does a mosquito transmit malaria, and what actually happens to Plasmodium inside the mosquito??",
+    "What are common misconceptions about How does a mosquito transmit malaria, and what actually happens to Plasmodium inside the mosquito??",
+    "What remains uncertain or debated about How does a mosquito transmit malaria, and what actually happens to Plasmodium inside the mosquito??",
+    "What is the history of discovery for How does a mosquito transmit malaria, and what actually happens to Plasmodium inside the mosquito??",
+    "Why does How does a mosquito transmit malaria, and what actually happens to Plasmodium inside the mosquito? matter, and what are its consequences?"
+  ],
+  "background_needs": [
+    "Core vocabulary and definitions the viewer needs first",
+    "Scale and context (where/when/how big/how fast)",
+    "Prerequisite mechanisms from neighbouring fields"
+  ],
+  "causal_seed": [
+    "How does a mosquito transmit malaria, and what actually happens to Plasmodium inside the mosquito?",
+    "How does a mosquito transmit malaria, and what actually happens to Plasmodium inside the mosquito?"
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "name": "claims_have_sources",
+      "ok": true,
+      "detail": "50 claims traced",
+      "repaired": ""
+    },
+    {
+      "name": "assets_exist",
+      "ok": true,
+      "detail": "13 assets ok",
+      "repaired": ""
+    },
+    {
+      "name": "narration_exist",
+      "ok": true,
+      "detail": "12 scenes narrated",
+      "repaired": ""
+    },
+    {
+      "name": "narration_duration",
+      "ok": true,
+      "detail": "total narration 1064s",
+      "repaired": ""
+    },
+    {
+      "name": "subtitles_exist",
+      "ok": true,
+      "detail": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/subtitles/subtitles.srt",
+      "repaired": ""
+    },
+    {
+      "name": "video_exists",
+      "ok": true,
+      "detail": "projects/20260930-how-does-a-mosquito-transmit-m-8f2cb6/production/final/final.mp4 (24.6 MB)",
+      "repaired": ""
+    },
+    {
+      "name": "video_duration_match",
+      "ok": true,
+      "detail": "video 1064s vs narration 1064s",
+      "repaired": ""
+    },
+    {
+      "name": "scenes_nonempty",
+      "ok": true,
+      "detail": "12 scenes",
+      "repaired": ""
+    },
+    {
+      "name": "aspect_16x9",
+      "ok": true,
+      "detail": "renderer fixed 16:9 (1920x1080 default)",
+      "repaired": ""
+    },
+    {
+      "name": "real_voices",
+      "ok": true,
+      "detail": "all scenes voiced by TTS",
+      "repaired": ""
+    },
+    {
+      "name": "pacing",
+      "ok": true,
+      "detail": "avg scene 89s",
+      "repaired": ""
+    },
+    {
+      "name": "repetition",
+      "ok": true,
+      "detail": "top trigram ('that causes malaria', 3)",
+      "repaired": ""
+    }
+  ],
+  "video_duration_s": 1063.65,
+  "narration_total_s": 1063.728,
+  "failed": []
+}

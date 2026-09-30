@@ -1,0 +1,47 @@
+How does a mosquito transmit malaria, and what actually happens to Plasmodium inside the mosquito?
+
+A deeply researched science explainer. Every major claim is traced to sources below.
+
+CHAPTERS:
+00:00 — Hook: follow the journey
+01:29 — Hook: follow the journey — part 2
+03:08 — Stage 1
+04:39 — Stage 1 — part 2
+06:06 — Stage 2
+07:36 — Stage 2 — part 2
+09:03 — Stage 3
+10:28 — Stage 3 — part 2
+12:05 — Stage 4
+13:41 — Stage 4 — part 2
+14:58 — Where it ends / why it matters
+16:28 — Where it ends / why it matters — part 2
+
+SOURCES & FURTHER READING:
+[S001] Climate change and infectious diseases — https://en.wikipedia.org/wiki/Climate_change_and_infectious_diseases
+[S002] Plasmodium — https://en.wikipedia.org/wiki/Plasmodium
+[S003] Plasmodium falciparum — https://en.wikipedia.org/wiki/Plasmodium_falciparum
+[S004] Plasmodium vivax — https://en.wikipedia.org/wiki/Plasmodium_vivax
+[S005] Plasmodium malariae — https://en.wikipedia.org/wiki/Plasmodium_malariae
+[S006] Plasmodium knowlesi — https://en.wikipedia.org/wiki/Plasmodium_knowlesi
+[S007] Emergence of Plasmodium malariae and Co-endemicity of 3 Plasmodium Species Parasites, Khanh Hoa Province, Vietnam, 2023-2025. — https://europepmc.org/article/MED/42759060
+[S008] Understanding malaria transmission in Angola: first detection of Plasmodium malariae in Anopheles spp . and the role of secondary vectors in the Balombo region, Benguela Province — https://europepmc.org/article/PPR/PPR1322877
+[S009] Relapsing Malaria — https://europepmc.org/article/MED/30855917
+[S010] Rhomboid Proteases in Plasmodium spp. : Biology, Functional Roles, and Therapeutic Potential. — https://europepmc.org/article/MED/42747666
+[S011] Mixed Plasmodium Infections: Report of Four Cases from the Military Hospital of Tunis — https://europepmc.org/article/PPR/PPR1319284
+[S012] Early mosquito immune patterns correlate with differential Plasmodium falciparum ookinete load — https://europepmc.org/article/PPR/PPR1324914
+[S020] Evarcha culicivora — https://en.wikipedia.org/wiki/Evarcha_culicivora
+[S027] Holobiont-holobiont interactions across host-ectoparasite systems. — https://europepmc.org/article/MED/40993747
+[S028] Two avian Plasmodium species trigger different transcriptional responses on their vector Culex pipiens. — https://europepmc.org/article/MED/38108558
+[S029] A novel SUN1-ALLAN complex coordinates segregation of the bipartite MTOC across the nuclear envelope during rapid closed mitosis in <i>Plasmodium berghei</i>. — https://europepmc.org/article/MED/40392232
+[S030] Identification of genes required for Plasmodium gametocyte-to-sporozoite development in the mosquito vector. — https://europepmc.org/article/MED/37708854
+[S031] Current advances in nanodrug delivery systems for malaria prevention and treatment. — https://europepmc.org/article/MED/37382765
+[S032] Mosquito (Diptera: Culicidae) Fauna of a Zoological Park in an Urban Setting: Analysis of Culex pipiens s.l. and Their Biotypes. — https://europepmc.org/article/MED/38249051
+[S036] Radial spoke protein 9 is necessary for axoneme assembly in Plasmodium but not in trypanosomatid parasites. — https://europepmc.org/article/MED/37288670
+[S037] Evolutionary honing in and mutational replacement: how long-term directed mutational responses to specific environmental pressures are possible. — https://europepmc.org/article/MED/36899155
+[S038] Vector genetics, insecticide resistance and gene drives: An agent-based modeling approach to evaluate malaria transmission and elimination. — https://europepmc.org/article/MED/32797077
+[S039] Malaria — https://en.wikipedia.org/wiki/Malaria
+[S040] Parasitism — https://en.wikipedia.org/wiki/Parasitism
+[S041] Avian malaria — https://en.wikipedia.org/wiki/Avian_malaria
+
+VOICES/MEDIA: narration via free TTS; visuals: Wikimedia Commons / Pexels / Pixabay / project-generated diagrams (see credits file).
+Uncertainty is stated where the evidence is limited — see claims file.
