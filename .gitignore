@@ -33,12 +33,20 @@ out/
 projects/*/production/assets/*
 projects/*/production/narration/*.mp3
 projects/*/production/narration/*.wav
+projects/*/production/music/*.m4a
+projects/*/production/music/*.wav
 projects/*/production/video/*.mp4
 projects/*/production/final/*.mp4
 projects/*/production/diagrams/*.png
 *.mp4
 *.mp3
 *.wav
+*.m4a
+*.m4b
+*.ogg
+*.opus
+*.aac
+*.flac
 
 # ── misc ──
 .DS_Store

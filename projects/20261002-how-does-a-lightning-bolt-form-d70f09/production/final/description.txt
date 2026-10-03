@@ -1,0 +1,46 @@
+How does a lightning bolt form, and what actually happens inside a thundercloud before lightning strikes?
+
+A deeply researched science explainer. Every major claim is traced to sources below.
+
+CHAPTERS:
+00:00 — Hook: follow the journey
+01:32 — Hook: follow the journey — part 2
+03:04 — Stage 1
+04:27 — Stage 1 — part 2
+05:59 — Stage 2
+07:31 — Stage 2 — part 2
+08:53 — Stage 3
+10:06 — Stage 3 — part 2
+11:14 — Stage 4
+12:36 — Stage 4 — part 2
+13:53 — Where it ends / why it matters
+15:17 — Where it ends / why it matters — part 2
+
+SOURCES & FURTHER READING:
+[S002] Estimation of the fluence of high‐energy electron bursts produced by thunderclouds and the resulting radiation doses received in aircraft — https://doi.org/10.1029/2009jd012039
+[S003] Three‐dimensional fractal modeling of intracloud lightning discharge in a New Mexico thunderstorm and comparison with lightning mapping observations — https://doi.org/10.1029/2006jd007621
+[S004] Review of recent results on streamer discharges and discussion of their relevance for sprites and lightning — https://doi.org/10.1029/2009ja014867
+[S005] Environmental Control of Cloud-to-Ground Lightning Polarity in Severe Storms — https://doi.org/10.1175/mwr3361.1
+[S006] Physical mechanism of initial breakdown pulses and narrow bipolar events in lightning discharges — https://doi.org/10.1002/2015jd023209
+[S007] Nowcasting lightning occurrence from commonly available meteorological parameters using machine learning techniques — https://doi.org/10.1038/s41612-019-0098-0
+[S008] In-Flight Observation of Positron Annihilation by ILDAS. — https://europepmc.org/article/MED/31032163
+[S015] Lightning characteristics observed by a VLF/LF lightning detection network (LINET) in Brazil, Australia, Africa and Germany — https://doi.org/10.5194/acp-9-7795-2009
+[S016] The Riddle of Ball Lightning: A Review — https://doi.org/10.1100/tsw.2006.48
+[S017] Explosions of Ball Lightning inside Enclosed Spaces — https://doi.org/10.3390/atmos15010002
+[S018] Protection of Aircraft Radomes against Direct Lightning Strikes—An Overview — https://doi.org/10.3390/atmos12091141
+[S019] Evaluating Methods for the Identification of Off-Chain Transactions in the Lightning Network — https://doi.org/10.3390/app9122519
+[S020] High-Energy Atmospheric Physics: Ball Lightning — https://doi.org/10.4236/jhepgc.2019.52020
+[S021] Cluster based WSN routing with MOGA and LSA optimization. — https://europepmc.org/article/MED/41714324
+[S024] Jovian atmospheric dynamics: an update after Galileo and Cassini — https://doi.org/10.1088/0034-4885/68/8/r06
+[S025] A brief history of ball lightning observations by scientists and trained professionals — https://doi.org/10.5194/hgss-12-43-2021
+[S026] Lightning Discharges to Aircraft and Associated Meteorological Conditions — https://openalex.org/W600326372
+[S027] Survey of recent progress on lightning and lightning protection research — https://doi.org/10.1049/hve.2016.0004
+[S029] Lightning Strikes on Commercial Aircraft: How the Airlines Are Coping — https://doi.org/10.15394/jaaer.2005.1511
+[S030] Relevant prior knowledge moderates the effect of elaboration during small group discussion on academic achievement — https://doi.org/10.1007/s11251-012-9252-3
+[S031] An Initiation of Ball Lightning in an Aircraft — https://doi.org/10.1016/j.jastp.2021.105758
+[S032] About the Mechanism of the Hail Formation — https://doi.org/10.11648/j.sd.20140202.11
+[S033] An analysis of five negative sprite‐parent discharges and their associated thunderstorm charge structures — https://doi.org/10.1002/2015jd024188
+[S034] DOMITIAN'S LIGHTNING BOLTS AND CLOSE SHAVES IN PLINY — https://doi.org/10.5184/classicalj.109.1.0088
+
+VOICES/MEDIA: narration via free TTS; visuals: Wikimedia Commons / Pexels / Pixabay / project-generated diagrams (see credits file).
+Uncertainty is stated where the evidence is limited — see claims file.

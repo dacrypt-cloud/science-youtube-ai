@@ -1,0 +1,4 @@
+{
+  "error": "name '_probe_streams' is not defined",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/user/science-youtube-ai/src/science_studio/pipeline.py\", line 264, in run_project\n    claims = storage.read_json(root / \"research\" / \"claims.json\", [])\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    qa = run_qa(pid, root, board, assets, narr,\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/user/science-youtube-ai/src/science_studio/video/qa.py\", line 88, in run_qa\n    streams = _probe_streams(video_path) if v_ok else {}\n              ^^^^^^^^^^^^^^\nNameError: name '_probe_streams' is not defined\n"
+}

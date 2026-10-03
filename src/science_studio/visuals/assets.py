@@ -28,8 +28,27 @@ def _add(assets: list[dict], scene_id: str, primary: bool, **kw) -> dict:
     return a
 
 
-def collect_assets(storyboard: list[dict], stack, assets_dir: Path, progress_cb=None) -> list[dict]:
-    from .diagrams import render_diagram, rasterize
+def _img_relevant(im: dict, anchor_stems: set[str]) -> bool:
+    """Stock relevance gate: the file title must share >=1 anchor stem.
+
+    Without this, full-text search quirks return nebulae for 'lightning bolt
+    interactions'. Rejected candidates fall through to the next hit / query /
+    the honest title-card diagram fallback.
+    """
+    if not anchor_stems:
+        return True
+    from ..providers.llm_template import stem as _stem
+    import re as _re
+    toks = {_stem(w) for w in _re.findall(r"[a-zA-Z]{4,}",
+            ((im.get("title") or "") + " " + (im.get("description") or "")).lower())}
+    return bool(toks & set(anchor_stems))
+
+
+def collect_assets(storyboard: list[dict], stack, assets_dir: Path, progress_cb=None,
+                   anchors: list[str] | None = None) -> list[dict]:
+    from .diagrams import render_diagram_png
+    from ..providers.llm_template import stem as _stem
+    anchor_stems = {_stem(a) for a in (anchors or [])}
     assets_dir.mkdir(parents=True, exist_ok=True)
     diagrams_dir = assets_dir.parent / "diagrams"
     diagrams_dir.mkdir(parents=True, exist_ok=True)
@@ -46,8 +65,7 @@ def collect_assets(storyboard: list[dict], stack, assets_dir: Path, progress_cb=
             try:
                 dp = diagrams_dir / f"{sid}_{sc['diagram']}.svg"
                 png = diagrams_dir / f"{sid}_{sc['diagram']}.png"
-                render_diagram(sc["diagram"], sc["title"], sc["narration"], dp)
-                rp = rasterize(dp, png)
+                rp = render_diagram_png(sc["diagram"], sc["title"], sc["narration"], dp, png)
                 if rp and Path(rp).exists():
                     _add(assets, sid, True, kind="diagram", path=str(rp),
                          source="generated-svg", source_url="", license="CC0 (project-generated)",
@@ -66,6 +84,8 @@ def collect_assets(storyboard: list[dict], stack, assets_dir: Path, progress_cb=
                     for v in vp.search_videos(sc["visual_query"], limit=2):
                         if v["url"] in seen_urls:
                             continue
+                        if not _img_relevant(v, anchor_stems):
+                            continue
                         try:
                             p = download(v["url"], assets_dir / f"{sid}.mp4")
                             seen_urls.add(v["url"])
@@ -83,13 +103,24 @@ def collect_assets(storyboard: list[dict], stack, assets_dir: Path, progress_cb=
                     continue
 
         # 3) stock/science image (also collected as secondary when diagram is primary,
-        #    for thumbnail pool and renderer fallback)
+        #    for thumbnail pool and renderer fallback). Falls back to the short
+        #    anchor query when the primary query returns nothing.
+        queries = [sc["visual_query"]]
+        if sc.get("visual_query_fallback") and sc["visual_query_fallback"] != sc["visual_query"]:
+            queries.append(sc["visual_query_fallback"])
         for ip in stack.images:
             try:
                 if not ip.status().available:
                     continue
-                for im in ip.search_images(sc["visual_query"], limit=3):
+                hits: list[dict] = []
+                for q in queries:
+                    hits = ip.search_images(q, limit=3)
+                    if hits:
+                        break
+                for im in hits:
                     if im["url"] in seen_urls:
+                        continue
+                    if not _img_relevant(im, anchor_stems):
                         continue
                     try:
                         p = download(im["url"], assets_dir / f"{sid}.jpg")

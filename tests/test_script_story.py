@@ -14,5 +14,5 @@ def test_script_template_mode():
     assert len(s["scenes"]) >= 4 and s["words"] > 200
 
 def test_duration_plan():
-    assert plan_for("12-15")["words"] == 2000
+    assert plan_for("12-15")["words"] == 1900  # calibrated to measured neural-TTS rate (~140 wpm)
     assert estimate_text_seconds("word " * 150) > 50

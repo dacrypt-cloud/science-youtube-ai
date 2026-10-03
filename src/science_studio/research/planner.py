@@ -31,12 +31,47 @@ def interpret_idea(idea: str, instructions: str = "") -> dict:
                 "The", "This", "That", "Does", "Do\u2019s", "Dos", "And"}
     ents = [e for e in raw_ents if e not in ent_stop and len(e) >= 4]
     nouns = [w for w in re.findall(r"[a-zA-Z]{5,}", idea.lower())]
+    anchors = topic_anchors(idea, {"entities": ents, "keywords": nouns})
     return {
         "idea": idea, "instructions": instructions,
         "central_question": q,
         "entities": list(dict.fromkeys(ents))[:10],
         "keywords": list(dict.fromkeys(nouns))[:15],
+        "anchors": anchors,
     }
+
+
+# Words that carry no topical signal (questions, glue, weak verbs). Used for
+# anchor extraction, relevance matching, and sentence hygiene — all generic.
+ANCHOR_STOP = {
+    "how", "what", "why", "when", "where", "which", "does", "do", "is", "are",
+    "was", "were", "been", "being", "have", "has", "had", "actually", "really",
+    "very", "just", "inside", "outside", "before", "after", "between", "through",
+    "during", "under", "about", "happens", "happen", "occurs", "occur", "with",
+    "from", "that", "this", "into", "over", "such", "than", "then", "them",
+    "they", "their", "there", "these", "those", "while", "would", "could",
+    "should", "more", "most", "other", "some", "using", "used", "make", "makes",
+    "take", "takes", "know", "known", "part", "form", "forms",
+}
+
+
+def topic_anchors(idea: str, interp: dict | None = None, n: int = 10) -> list[str]:
+    """Distinctive topic words used for backbone lookup, relevance, and hygiene.
+
+    Generic: longest content words of the idea + entity words, minus stopwords.
+    """
+    interp = interp or {}
+    words = [w for w in re.findall(r"[A-Za-z]{4,}", (idea or "").lower())
+             if w not in ANCHOR_STOP]
+    for e in (interp.get("entities") or []):
+        for w in re.findall(r"[A-Za-z]{4,}", e.lower()):
+            if w not in ANCHOR_STOP:
+                words.append(w)
+    for w in (interp.get("keywords") or []):
+        wl = w.lower()
+        if len(wl) >= 4 and wl not in ANCHOR_STOP:
+            words.append(wl)
+    return list(dict.fromkeys(words))[:n]
 
 
 def depth_for(idea: str, duration: str, requested_depth: str = "auto") -> str:

@@ -84,7 +84,9 @@ def run_project(pid: str, *, resume: bool = True, stop_after: str = "",
             storage.write_json(root / "research" / "sources.json", res["sources"])
             storage.write_json(root / "research" / "claims.json", res["claims"])
             storage.write_json(root / "research" / "evidence.json",
-                               {"queries": res["queries"], "causal_chain": res["causal_chain"]})
+                               {"queries": res["queries"], "causal_chain": res["causal_chain"],
+                                "fetch_stats": res.get("fetch_stats", {}),
+                                "backbone_stats": res.get("backbone_stats", {})})
             storage.write_json(root / "research" / "contradictions.json", res["contradictions"])
             storage.write_json(root / "research" / "uncertainty.json", res["uncertainty"])
             (root / "research" / "notes.md").write_text(
@@ -126,6 +128,8 @@ def run_project(pid: str, *, resume: bool = True, stop_after: str = "",
                 f"~{script['words']} words · ~{script['est_seconds']/60:.1f} min_\n\n" + script["full_text"],
                 encoding="utf-8")
             storage.write_json(root / "script" / "script.json", script)
+            storage.write_json(root / "script" / "traceability.json",
+                               script.get("traceability", []))
             storage.write_json(root / "research" / "claims.json", claims)  # with scene mapping
             _log(pid, f"script: {script['words']} words, ~{script['est_seconds']/60:.1f} min, via {script['provider']}")
             if stop_after == "SCRIPTING":
@@ -167,9 +171,11 @@ def run_project(pid: str, *, resume: bool = True, stop_after: str = "",
         if not reached("ASSET_COLLECTION") or not (root / "production" / "assets.json").exists():
             storage.set_state(pid, ProjectState.ASSET_COLLECTION)
             from .visuals.assets import collect_assets
+            from .research.planner import topic_anchors
             board = storage.read_json(root / "production" / "storyboard.json", [])
             assets = collect_assets(board, stack, root / "production" / "assets",
-                                    progress_cb=lambda d, t, m: _log(pid, f"assets {d}/{t} {m}"))
+                                    progress_cb=lambda d, t, m: _log(pid, f"assets {d}/{t} {m}"),
+                                    anchors=topic_anchors(idea))
             storage.write_json(root / "production" / "assets.json", assets)
             _log(pid, f"assets: {len(assets)} collected")
             if stop_after == "ASSET_COLLECTION":
@@ -203,7 +209,15 @@ def run_project(pid: str, *, resume: bool = True, stop_after: str = "",
             durs = {n["scene_id"]: float(n.get("duration_s", 0) or 0) for n in narr}
             music = ensure_music(root / "production" / "music", sum(durs.values()))
             storage.write_json(root / "production" / "music.json", music)
-            job = build_job(board, assets, narr, music, get_settings())
+            from .audio.sfx import ensure_storm_bed
+            bed = ensure_storm_bed(root / "production" / "music", sum(durs.values()),
+                                   music.get("path", ""))
+            storage.write_json(root / "production" / "sfx.json", bed)
+            _log(pid, f"sound bed: {bed.get('source', 'none')}")
+            job = build_job(board, assets, narr,
+                            {"path": bed.get("path") or music.get("path", ""),
+                             "gain": bed.get("gain", 0.08) if bed.get("path") else music.get("gain", 0.08)},
+                            get_settings())
             storage.write_json(root / "production" / "render_job.json",
                                {**job, "scenes": [{k: v for k, v in s.items() if k != "audio"} | {"audio": s.get("audio", "")} for s in job["scenes"]]})
             out = root / "production" / "video" / "video.mp4"

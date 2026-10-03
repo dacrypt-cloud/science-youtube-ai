@@ -1,0 +1,556 @@
+[
+  {
+    "claim_id": "C001",
+    "claim": "Using recent X‐ray and gamma‐ray observations of terrestrial gamma‐ray flashes (TGFs) from spacecraft and of natural and rocket‐triggered lightning from the ground, along with detailed models of energetic particle transport, we calculate the fluence (integrated flux) of high‐energy (million electronvolt) electrons, X rays, and gamma rays likely to be produced inside or near thunderclouds in high electric field regions.",
+    "evidence_summary": "Using recent X‐ray and gamma‐ray observations of terrestrial gamma‐ray flashes (TGFs) from spacecraft and of natural and rocket‐triggered lightning from the ground, along with detailed models of energetic particle transp",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S002"
+    ],
+    "status": "supported",
+    "scene_location": "scene_01",
+    "script_location": "Hook: follow the journey"
+  },
+  {
+    "claim_id": "C002",
+    "claim": "The direct comparison of lightning mapping observations by the New Mexico Tech Lightning Mapping Array (LMA) with realistic models of thundercloud electrical structures and lightning discharges represents a useful tool for studies of electrification mechanisms in thunderstorms, initiation and propagation mechanisms of different types of lightning discharges as well as for understanding of electrical and energetic effects of tropospheric thunderstorms on the upper regions of the Earth's atmosphere.",
+    "evidence_summary": "The direct comparison of lightning mapping observations by the New Mexico Tech Lightning Mapping Array (LMA) with realistic models of thundercloud electrical structures and lightning discharges represents a useful tool f",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S003"
+    ],
+    "status": "supported",
+    "scene_location": "scene_01",
+    "script_location": "Hook: follow the journey"
+  },
+  {
+    "claim_id": "C003",
+    "claim": "It is by now well understood that large sprite discharges at the low air densities of the mesosphere are physically similar to small streamer discharges in air at standard temperature and pressure.",
+    "evidence_summary": "It is by now well understood that large sprite discharges at the low air densities of the mesosphere are physically similar to small streamer discharges in air at standard temperature and pressure.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S004"
+    ],
+    "status": "supported",
+    "scene_location": "scene_01",
+    "script_location": "Hook: follow the journey"
+  },
+  {
+    "claim_id": "C004",
+    "claim": "This similarity is based on Townsend scaling with air density.",
+    "evidence_summary": "This similarity is based on Townsend scaling with air density.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S004"
+    ],
+    "status": "supported",
+    "scene_location": "scene_01",
+    "script_location": "Hook: follow the journey"
+  },
+  {
+    "claim_id": "C005",
+    "claim": "Abstract In this study, it is hypothesized that the mesoscale environment can indirectly control the cloud-to-ground (CG) lightning polarity of severe storms by directly affecting their structural, dynamical, and microphysical properties, which in turn directly control cloud electrification and ground flash polarity.",
+    "evidence_summary": "Abstract In this study, it is hypothesized that the mesoscale environment can indirectly control the cloud-to-ground (CG) lightning polarity of severe storms by directly affecting their structural, dynamical, and microph",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S005"
+    ],
+    "status": "supported",
+    "scene_location": "scene_01",
+    "script_location": "Hook: follow the journey"
+  },
+  {
+    "claim_id": "C006",
+    "claim": "Abstract To date the true nature of initial breakdown pulses (IBPs) and narrow bipolar events (NBEs) in lightning discharges remains a mystery.",
+    "evidence_summary": "Abstract To date the true nature of initial breakdown pulses (IBPs) and narrow bipolar events (NBEs) in lightning discharges remains a mystery.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S006"
+    ],
+    "status": "supported",
+    "scene_location": "scene_01",
+    "script_location": "Hook: follow the journey"
+  },
+  {
+    "claim_id": "C007",
+    "claim": "Recent experimental evidence has correlated IBPs to the initial development of lightning leaders inside the thundercloud.",
+    "evidence_summary": "Recent experimental evidence has correlated IBPs to the initial development of lightning leaders inside the thundercloud.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S006"
+    ],
+    "status": "supported",
+    "scene_location": "scene_01",
+    "script_location": "Hook: follow the journey"
+  },
+  {
+    "claim_id": "C008",
+    "claim": "Nowcasting lightning occurrence from commonly available meteorological parameters using machine learning techniques | npj Climate and Atmospheric Science Thank you for visiting nature.com.",
+    "evidence_summary": "Nowcasting lightning occurrence from commonly available meteorological parameters using machine learning techniques | npj Climate and Atmospheric Science Thank you for visiting nature.com.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S007"
+    ],
+    "status": "supported",
+    "scene_location": "scene_03",
+    "script_location": "Stage 1"
+  },
+  {
+    "claim_id": "C009",
+    "claim": "We have used machine learning techniques to successfully hindcast nearby and distant lightning hazards by looking at single-site observations of meteorological parameters.",
+    "evidence_summary": "We have used machine learning techniques to successfully hindcast nearby and distant lightning hazards by looking at single-site observations of meteorological parameters.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S007"
+    ],
+    "status": "supported",
+    "scene_location": "scene_03",
+    "script_location": "Stage 1"
+  },
+  {
+    "claim_id": "C010",
+    "claim": "Apart from discussing the prediction skill of the model, data mining techniques are also used to compare the patterns of data distribution, both spatially and temporally among the stations.",
+    "evidence_summary": "Apart from discussing the prediction skill of the model, data mining techniques are also used to compare the patterns of data distribution, both spatially and temporally among the stations.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S007"
+    ],
+    "status": "supported",
+    "scene_location": "scene_03",
+    "script_location": "Stage 1"
+  },
+  {
+    "claim_id": "C011",
+    "claim": "We report a 511-keV photon flux enhancement that was observed inside a thundercloud and is a result of positron annihilation.",
+    "evidence_summary": "We report a 511-keV photon flux enhancement that was observed inside a thundercloud and is a result of positron annihilation.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S008"
+    ],
+    "status": "supported",
+    "scene_location": "scene_03",
+    "script_location": "Stage 1"
+  },
+  {
+    "claim_id": "C012",
+    "claim": "Two gamma ray detectors showed a significant count rate increase synchronously with fast electromagnetic field variations registered by an on-board antenna.",
+    "evidence_summary": "Two gamma ray detectors showed a significant count rate increase synchronously with fast electromagnetic field variations registered by an on-board antenna.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S008"
+    ],
+    "status": "supported",
+    "scene_location": "scene_03",
+    "script_location": "Stage 1"
+  },
+  {
+    "claim_id": "C013",
+    "claim": "The focus is on the characteristics of lightning which can specifically be observed by this system like intra-cloud and cloud-to-ground stroke statistics, vertical distributions of intra-cloud strokes or peak current distributions.",
+    "evidence_summary": "The focus is on the characteristics of lightning which can specifically be observed by this system like intra-cloud and cloud-to-ground stroke statistics, vertical distributions of intra-cloud strokes or peak current dis",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S015"
+    ],
+    "status": "supported",
+    "scene_location": "scene_03",
+    "script_location": "Stage 1"
+  },
+  {
+    "claim_id": "C014",
+    "claim": "In accordance with radar observed storm structures, the intra-cloud stroke mean emission heights were found distinctly different in Germany (8 km) as compared to the tropics (up to 12 km in N-Australia).",
+    "evidence_summary": "In accordance with radar observed storm structures, the intra-cloud stroke mean emission heights were found distinctly different in Germany (8 km) as compared to the tropics (up to 12 km in N-Australia).",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S015"
+    ],
+    "status": "supported",
+    "scene_location": "scene_03",
+    "script_location": "Stage 1"
+  },
+  {
+    "claim_id": "C015",
+    "claim": "The fraction of intra-cloud strokes (compared to all strokes) was found to be relatively high in Brazil and Australia (0.83 and 0.82, respectively) as compared to Benin and Germany (0.64 and 0.69, respectively).",
+    "evidence_summary": "The fraction of intra-cloud strokes (compared to all strokes) was found to be relatively high in Brazil and Australia (0.83 and 0.82, respectively) as compared to Benin and Germany (0.64 and 0.69, respectively).",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S015"
+    ],
+    "status": "supported",
+    "scene_location": "scene_05",
+    "script_location": "Stage 2"
+  },
+  {
+    "claim_id": "C016",
+    "claim": "One of the most intriguing and enduring scientific challenges is to find an explanation for ball lightning, the shining fireballs that sometimes appear near lightning strokes.",
+    "evidence_summary": "One of the most intriguing and enduring scientific challenges is to find an explanation for ball lightning, the shining fireballs that sometimes appear near lightning strokes.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S016"
+    ],
+    "status": "supported",
+    "scene_location": "scene_05",
+    "script_location": "Stage 2"
+  },
+  {
+    "claim_id": "C017",
+    "claim": "Although many theoretical ideas have been proposed and much experimental work has been performed, there is not yet an accepted explanation of their amazing properties.",
+    "evidence_summary": "Although many theoretical ideas have been proposed and much experimental work has been performed, there is not yet an accepted explanation of their amazing properties.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S016"
+    ],
+    "status": "supported",
+    "scene_location": "scene_05",
+    "script_location": "Stage 2"
+  },
+  {
+    "claim_id": "C018",
+    "claim": "According to observations, the energy density contained inside ball lightning can reach 1010 J/m3, and its charge can range from 10−3 to 10−1 C.",
+    "evidence_summary": "According to observations, the energy density contained inside ball lightning can reach 1010 J/m3, and its charge can range from 10−3 to 10−1 C.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S017"
+    ],
+    "status": "supported",
+    "scene_location": "scene_05",
+    "script_location": "Stage 2"
+  },
+  {
+    "claim_id": "C019",
+    "claim": "Witnesses often report seeing moving sparks about one millimeter in size inside the ball lightning shell.",
+    "evidence_summary": "Witnesses often report seeing moving sparks about one millimeter in size inside the ball lightning shell.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S017"
+    ],
+    "status": "supported",
+    "scene_location": "scene_05",
+    "script_location": "Stage 2"
+  },
+  {
+    "claim_id": "C020",
+    "claim": "The aim of this contribution is to design and test the lightning protection of an aircraft radome exposed to direct lightning strikes.",
+    "evidence_summary": "The aim of this contribution is to design and test the lightning protection of an aircraft radome exposed to direct lightning strikes.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S018"
+    ],
+    "status": "supported",
+    "scene_location": "scene_05",
+    "script_location": "Stage 2"
+  },
+  {
+    "claim_id": "C021",
+    "claim": "The influencing parameters are investigated on different radome wall samples equipped with solid and segmented diverter strips.",
+    "evidence_summary": "The influencing parameters are investigated on different radome wall samples equipped with solid and segmented diverter strips.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S018"
+    ],
+    "status": "supported",
+    "scene_location": "scene_05",
+    "script_location": "Stage 2"
+  },
+  {
+    "claim_id": "C022",
+    "claim": "Payment channels and off-chain transactions are used to address blockchain scalability.",
+    "evidence_summary": "Payment channels and off-chain transactions are used to address blockchain scalability.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S019"
+    ],
+    "status": "supported",
+    "scene_location": "scene_07",
+    "script_location": "Stage 3"
+  },
+  {
+    "claim_id": "C023",
+    "claim": "Those mechanisms rely on the blockchain proper, as the resolution mechanism.",
+    "evidence_summary": "Those mechanisms rely on the blockchain proper, as the resolution mechanism.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S019"
+    ],
+    "status": "supported",
+    "scene_location": "scene_07",
+    "script_location": "Stage 3"
+  },
+  {
+    "claim_id": "C024",
+    "claim": "This article proposes an explanation for High-Energy Atmospheric phenomena through the frames of Hypersphere World-Universe Model (WUM).",
+    "evidence_summary": "This article proposes an explanation for High-Energy Atmospheric phenomena through the frames of Hypersphere World-Universe Model (WUM).",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S020"
+    ],
+    "status": "supported",
+    "scene_location": "scene_07",
+    "script_location": "Stage 3"
+  },
+  {
+    "claim_id": "C025",
+    "claim": "In WUM, Terrestrial Gamma-Ray Flashes (TGFs) are, in fact, Gamma-Ray Bursts (GRBs).",
+    "evidence_summary": "In WUM, Terrestrial Gamma-Ray Flashes (TGFs) are, in fact, Gamma-Ray Bursts (GRBs).",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S020"
+    ],
+    "status": "supported",
+    "scene_location": "scene_07",
+    "script_location": "Stage 3"
+  },
+  {
+    "claim_id": "C026",
+    "claim": "Wireless sensor networks (WSNs) play an important role in fields such as environmental monitoring, and industrial automation.",
+    "evidence_summary": "Wireless sensor networks (WSNs) play an important role in fields such as environmental monitoring, and industrial automation.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S021"
+    ],
+    "status": "supported",
+    "scene_location": "scene_07",
+    "script_location": "Stage 3"
+  },
+  {
+    "claim_id": "C027",
+    "claim": "This research presents a new optimization method derived from the blending of Multi-Objective Genetic Algorithm (MOGA) and Lightning Search Algorithm (LSA) for overcoming these drawbacks.",
+    "evidence_summary": "This research presents a new optimization method derived from the blending of Multi-Objective Genetic Algorithm (MOGA) and Lightning Search Algorithm (LSA) for overcoming these drawbacks.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S021"
+    ],
+    "status": "supported",
+    "scene_location": "scene_07",
+    "script_location": "Stage 3"
+  },
+  {
+    "claim_id": "C028",
+    "claim": "The Galileo and Cassini spacecrafts have greatly enhanced the observational record of Jupiter's tropospheric dynamics, particularly through returning high spatial resolution, multi-spectral and global imaging data with episodic coverage over periods of months to years.",
+    "evidence_summary": "The Galileo and Cassini spacecrafts have greatly enhanced the observational record of Jupiter's tropospheric dynamics, particularly through returning high spatial resolution, multi-spectral and global imaging data with e",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S024"
+    ],
+    "status": "supported",
+    "scene_location": "scene_07",
+    "script_location": "Stage 3"
+  },
+  {
+    "claim_id": "C029",
+    "claim": "These data, along with those from Earth-based telescopes, have revealed the stability of Jupiter's zonal jets, captured the evolution of vortices and equatorial waves, and mapped the distributions of lightning and moist convection.",
+    "evidence_summary": "These data, along with those from Earth-based telescopes, have revealed the stability of Jupiter's zonal jets, captured the evolution of vortices and equatorial waves, and mapped the distributions of lightning and moist ",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S024"
+    ],
+    "status": "supported",
+    "scene_location": "scene_09",
+    "script_location": "Stage 4"
+  },
+  {
+    "claim_id": "C030",
+    "claim": "With thousands of eyewitness reports, but few instrumental records and no consensus about a theory, ball lightning remains an unsolved problem in atmospheric physics.",
+    "evidence_summary": "With thousands of eyewitness reports, but few instrumental records and no consensus about a theory, ball lightning remains an unsolved problem in atmospheric physics.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S025"
+    ],
+    "status": "supported",
+    "scene_location": "scene_09",
+    "script_location": "Stage 4"
+  },
+  {
+    "claim_id": "C031",
+    "claim": "As chances to monitor this transient phenomenon are low, it seems promising to evaluate observation reports by scientists and trained professionals.",
+    "evidence_summary": "As chances to monitor this transient phenomenon are low, it seems promising to evaluate observation reports by scientists and trained professionals.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S025"
+    ],
+    "status": "supported",
+    "scene_location": "scene_09",
+    "script_location": "Stage 4"
+  },
+  {
+    "claim_id": "C032",
+    "claim": "A summary is given of information on atmospheric electrical discharges to aircraft and associated meteorological conditions.",
+    "evidence_summary": "A summary is given of information on atmospheric electrical discharges to aircraft and associated meteorological conditions.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S026"
+    ],
+    "status": "supported",
+    "scene_location": "scene_09",
+    "script_location": "Stage 4"
+  },
+  {
+    "claim_id": "C033",
+    "claim": "Information is given that is designed to give a fairly comprehensive view of the underlying principles of meteorology and atmospheric electricity.",
+    "evidence_summary": "Information is given that is designed to give a fairly comprehensive view of the underlying principles of meteorology and atmospheric electricity.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S026"
+    ],
+    "status": "supported",
+    "scene_location": "scene_09",
+    "script_location": "Stage 4"
+  },
+  {
+    "claim_id": "C034",
+    "claim": "Lightning and lightning induced effects have significant influence on many aspects affecting the public, which makes the research of lightning and lightning protection very important.",
+    "evidence_summary": "Lightning and lightning induced effects have significant influence on many aspects affecting the public, which makes the research of lightning and lightning protection very important.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S027"
+    ],
+    "status": "supported",
+    "scene_location": "scene_09",
+    "script_location": "Stage 4"
+  },
+  {
+    "claim_id": "C035",
+    "claim": "However, due to the strong randomness and complex discharge mechanisms of lightning, the understanding of lightning is still far from satisfactory.",
+    "evidence_summary": "However, due to the strong randomness and complex discharge mechanisms of lightning, the understanding of lightning is still far from satisfactory.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S027"
+    ],
+    "status": "supported",
+    "scene_location": "scene_09",
+    "script_location": "Stage 4"
+  },
+  {
+    "claim_id": "C036",
+    "claim": "The hazard posed by lightning strikes is an important issue in commercial aviation.",
+    "evidence_summary": "The hazard posed by lightning strikes is an important issue in commercial aviation.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S029"
+    ],
+    "status": "supported",
+    "scene_location": "scene_11",
+    "script_location": "Where it ends / why it matters"
+  },
+  {
+    "claim_id": "C037",
+    "claim": "Extensive research into methods for coping with lightning strikes has been continuing for many years.",
+    "evidence_summary": "Extensive research into methods for coping with lightning strikes has been continuing for many years.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S029"
+    ],
+    "status": "supported",
+    "scene_location": "scene_11",
+    "script_location": "Where it ends / why it matters"
+  },
+  {
+    "claim_id": "C038",
+    "claim": "This study set out to test whether relevant prior knowledge would moderate a positive effect on academic achievement of elaboration during small-group discussion.",
+    "evidence_summary": "This study set out to test whether relevant prior knowledge would moderate a positive effect on academic achievement of elaboration during small-group discussion.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S030"
+    ],
+    "status": "supported",
+    "scene_location": "scene_11",
+    "script_location": "Where it ends / why it matters"
+  },
+  {
+    "claim_id": "C039",
+    "claim": "In a 2 × 2 experimental design, 66 undergraduate students observed a video showing a small-group problem-based discussion about thunder and lightning.",
+    "evidence_summary": "In a 2 × 2 experimental design, 66 undergraduate students observed a video showing a small-group problem-based discussion about thunder and lightning.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S030"
+    ],
+    "status": "supported",
+    "scene_location": "scene_11",
+    "script_location": "Where it ends / why it matters"
+  },
+  {
+    "claim_id": "C040",
+    "claim": "The detailed observation of ball lightning in an aircraft gives strong evidence that the ball lightning was initiated by preceding corona from metallic diverter strips attached to the surface of the radome.",
+    "evidence_summary": "The detailed observation of ball lightning in an aircraft gives strong evidence that the ball lightning was initiated by preceding corona from metallic diverter strips attached to the surface of the radome.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S031"
+    ],
+    "status": "supported",
+    "scene_location": "scene_11",
+    "script_location": "Where it ends / why it matters"
+  },
+  {
+    "claim_id": "C041",
+    "claim": "These diverter strips are designed to direct current from a lightning strike to the radome towards the aircraft fuselage in order to protect the radar antenna.",
+    "evidence_summary": "These diverter strips are designed to direct current from a lightning strike to the radome towards the aircraft fuselage in order to protect the radar antenna.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S031"
+    ],
+    "status": "supported",
+    "scene_location": "scene_11",
+    "script_location": "Where it ends / why it matters"
+  },
+  {
+    "claim_id": "C042",
+    "claim": "The new hypothesis about the building mechanism of hail showers is made under atmosphere conditions.",
+    "evidence_summary": "The new hypothesis about the building mechanism of hail showers is made under atmosphere conditions.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S032"
+    ],
+    "status": "supported",
+    "scene_location": "scene_11",
+    "script_location": "Where it ends / why it matters"
+  },
+  {
+    "claim_id": "C043",
+    "claim": "It is suggested, contrary to other famous theories that hail showers building is stipulated by the generation of high temperature in lightning strike in atmosphere.",
+    "evidence_summary": "It is suggested, contrary to other famous theories that hail showers building is stipulated by the generation of high temperature in lightning strike in atmosphere.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S032"
+    ],
+    "status": "supported"
+  },
+  {
+    "claim_id": "C044",
+    "claim": "Abstract In this study we analyze the discharge morphologies of five confirmed negative sprite‐parent discharges and the associated charge structures of the thunderstorms that produced them.",
+    "evidence_summary": "Abstract In this study we analyze the discharge morphologies of five confirmed negative sprite‐parent discharges and the associated charge structures of the thunderstorms that produced them.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S033"
+    ],
+    "status": "supported"
+  },
+  {
+    "claim_id": "C045",
+    "claim": "The first thunderstorm, which moved onshore in east central Florida, produced four of the five negative sprite‐parent discharges within a period of 17 min, as it made landfall from the Atlantic Ocean.",
+    "evidence_summary": "The first thunderstorm, which moved onshore in east central Florida, produced four of the five negative sprite‐parent discharges within a period of 17 min, as it made landfall from the Atlantic Ocean.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S033"
+    ],
+    "status": "supported"
+  },
+  {
+    "claim_id": "C046",
+    "claim": "Pliny's portrayal of his public life under Domitian has often come under fire from both those who approach Pliny's Letters from a historical perspective and those who study them as a literary production.",
+    "evidence_summary": "Pliny's portrayal of his public life under Domitian has often come under fire from both those who approach Pliny's Letters from a historical perspective and those who study them as a literary production.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S034"
+    ],
+    "status": "supported"
+  },
+  {
+    "claim_id": "C047",
+    "claim": "This article reevaluates Pliny's experiences in five significant areas: public speaking, amicitia, political promotion, threats of political persecution, and survival and reconciliation.",
+    "evidence_summary": "This article reevaluates Pliny's experiences in five significant areas: public speaking, amicitia, political promotion, threats of political persecution, and survival and reconciliation.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S034"
+    ],
+    "status": "supported"
+  }
+]

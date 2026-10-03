@@ -1,0 +1,91 @@
+{
+  "structure": "journey_process",
+  "beats": [
+    "Hook: follow the journey",
+    "Stage 1",
+    "Stage 2",
+    "Stage 3",
+    "Stage 4",
+    "Where it ends / why it matters"
+  ],
+  "outline": [
+    {
+      "beat": "Hook: follow the journey",
+      "claim_ids": [
+        "C045",
+        "C048",
+        "C046",
+        "C043"
+      ],
+      "chain_points": [
+        "How does a lightning bolt form, and what actually happens inside a thundercloud before lightning strikes?",
+        "The most common occurrence of a lightning event is known as a thunderstorm, though they can also commonly occur in other types of energetic weather systems, such as volcanic eruptions"
+      ]
+    },
+    {
+      "beat": "Stage 1",
+      "claim_ids": [
+        "C044",
+        "C001",
+        "C042",
+        "C047"
+      ],
+      "chain_points": [
+        "The most common occurrence of a lightning event is known as a thunderstorm, though they can also commonly occur in other types of energetic weather systems, such as volcanic eruptions",
+        "A lightning strike or lightning bolt is a lightning event in which an electric discharge takes place between the atmosphere and the ground"
+      ]
+    },
+    {
+      "beat": "Stage 2",
+      "claim_ids": [
+        "C008",
+        "C036",
+        "C050",
+        "C034"
+      ],
+      "chain_points": [
+        "A lightning strike or lightning bolt is a lightning event in which an electric discharge takes place between the atmosphere and the ground",
+        "Positive lightning has also been shown to trigger the occurrence of upward lightning flashes from the tops of tall structures and is largely responsible for the initiation of sprites several tens of kilometers above ground level"
+      ]
+    },
+    {
+      "beat": "Stage 3",
+      "claim_ids": [
+        "C014",
+        "C049",
+        "C002",
+        "C015"
+      ],
+      "chain_points": [
+        "Positive lightning has also been shown to trigger the occurrence of upward lightning flashes from the tops of tall structures and is largely responsible for the initiation of sprites several tens of kilometers above ground level",
+        "Using recent X‐ray and gamma‐ray observations of terrestrial gamma‐ray flashes (TGFs) from spacecraft and of natural and rocket‐triggered lightning from the ground, along with detailed models of energetic particle transport, we calculate the fluence (integrated flux) of high‐energy (million electronvolt) electrons, X rays, and gamma rays likely to be produced inside or near thunderclouds in high electric field regions"
+      ]
+    },
+    {
+      "beat": "Stage 4",
+      "claim_ids": [
+        "C038",
+        "C041",
+        "C051",
+        "C052"
+      ],
+      "chain_points": [
+        "Using recent X‐ray and gamma‐ray observations of terrestrial gamma‐ray flashes (TGFs) from spacecraft and of natural and rocket‐triggered lightning from the ground, along with detailed models of energetic particle transport, we calculate the fluence (integrated flux) of high‐energy (million electronvolt) electrons, X rays, and gamma rays likely to be produced inside or near thunderclouds in high electric field regions",
+        "Positive and negative lightning Cloud-to-ground (CG) lightning is either positive or negative, as defined by the direction of the conventional electric current between cloud and ground"
+      ]
+    },
+    {
+      "beat": "Where it ends / why it matters",
+      "claim_ids": [
+        "C007",
+        "C019",
+        "C013",
+        "C009"
+      ],
+      "chain_points": [
+        "Positive and negative lightning Cloud-to-ground (CG) lightning is either positive or negative, as defined by the direction of the conventional electric current between cloud and ground",
+        "Most CG lightning is negative, meaning that a negative charge is transferred (electrons flow) downwards to ground along the lightning channel (the conventional current flows from the ground up to the cloud)"
+      ]
+    }
+  ]
+}

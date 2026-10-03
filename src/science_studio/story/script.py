@@ -83,7 +83,10 @@ def write_script(outline: list[dict], claims: list[dict], evidence_text: str,
     if not scene_narrations:
         from ..providers.llm_template import TemplateAIProvider
         tpl = TemplateAIProvider()
-        scene_narrations = tpl.assemble_script(scenes_outline, evidence_text, target_words)
+        from ..research.planner import topic_anchors
+        scene_narrations = tpl.assemble_script(
+            scenes_outline, evidence_text, target_words, claims=claims,
+            anchors=topic_anchors(idea))
         provider_used = "template-fallback"
 
     # Tag script_location/scene_location back onto claims
@@ -95,6 +98,35 @@ def write_script(outline: list[dict], claims: list[dict], evidence_text: str,
                     c["scene_location"] = f"scene_{idx+1:02d}"
                     c["script_location"] = s["title"]
     words = len(full_text.split())
+    traceability = build_traceability(scene_narrations, claims)
     return {"scenes": scene_narrations, "full_text": full_text, "words": words,
             "est_seconds": words / 150 * 60, "provider": provider_used,
-            "target_words": target_words}
+            "target_words": target_words, "traceability": traceability}
+
+
+def build_traceability(scenes: list[dict], claims: list[dict]) -> list[dict]:
+    """CLAIM -> SOURCE -> SCRIPT SENTENCE -> SCENE audit map.
+
+    For each claim, finds script sentences sharing >=2 rare words with the
+    claim (extractive scripts usually contain the claim verbatim). Purely
+    observational: reports what is/isn't traceable, never invents links.
+    """
+    from ..providers.llm_template import STOP, split_sentences
+    rows = []
+    for c in claims:
+        ctoks = {w for w in re.findall(r"[a-zA-Z][a-zA-Z\-]{4,}", c.get("claim", "").lower())} - STOP
+        hits = []
+        for i, s in enumerate(scenes):
+            for sent in split_sentences(s.get("narration", "")):
+                stoks = {w for w in re.findall(r"[a-zA-Z][a-zA-Z\-]{4,}", sent.lower())} - STOP
+                if len(ctoks & stoks) >= 2:
+                    hits.append({"scene": f"scene_{i+1:02d}",
+                                 "sentence": sent[:240]})
+                    break
+        rows.append({"claim_id": c.get("claim_id"), "claim": c.get("claim", "")[:300],
+                     "confidence": c.get("confidence"), "source_ids": c.get("source_ids", []),
+                     "status": c.get("status", "supported"),
+                     "script_scenes": [h["scene"] for h in hits][:6],
+                     "matched_sentences": [h["sentence"] for h in hits][:3],
+                     "traceable": bool(hits)})
+    return rows

@@ -1,0 +1,71 @@
+{
+  "project_id": "20261002-how-does-a-lightning-bolt-form-c96775",
+  "idea": "How does a lightning bolt form, and what actually happens inside a thundercloud before lightning strikes?",
+  "instructions": "Documentary explainer for a general audience aged 15-35. Open with a visual mystery, progressively reveal the hidden mechanism inside the cloud, close with what remains unknown.",
+  "duration": "12-15",
+  "mode": "autonomous",
+  "state": "READY",
+  "created_at": "2026-10-02T23:51:09.802497+00:00",
+  "updated_at": "2026-10-03T00:05:09.641721+00:00",
+  "history": [
+    {
+      "state": "IDEA",
+      "at": "2026-10-02T23:51:09.802497+00:00"
+    },
+    {
+      "state": "RESEARCHING",
+      "at": "2026-10-02T23:51:14.564145+00:00",
+      "note": ""
+    },
+    {
+      "state": "RESEARCH_COMPLETE",
+      "at": "2026-10-02T23:51:15.482360+00:00",
+      "note": "30 sources, 24 claims"
+    },
+    {
+      "state": "OUTLINING",
+      "at": "2026-10-02T23:51:15.482765+00:00",
+      "note": ""
+    },
+    {
+      "state": "SCRIPTING",
+      "at": "2026-10-02T23:51:15.484335+00:00",
+      "note": ""
+    },
+    {
+      "state": "FACT_CHECKING",
+      "at": "2026-10-02T23:51:15.665464+00:00",
+      "note": ""
+    },
+    {
+      "state": "VISUAL_PLANNING",
+      "at": "2026-10-02T23:51:15.672824+00:00",
+      "note": ""
+    },
+    {
+      "state": "ASSET_COLLECTION",
+      "at": "2026-10-02T23:51:15.677680+00:00",
+      "note": ""
+    },
+    {
+      "state": "NARRATION",
+      "at": "2026-10-02T23:51:31.902368+00:00",
+      "note": ""
+    },
+    {
+      "state": "RENDERING",
+      "at": "2026-10-02T23:52:52.402303+00:00",
+      "note": ""
+    },
+    {
+      "state": "QA",
+      "at": "2026-10-03T00:04:11.682206+00:00",
+      "note": ""
+    },
+    {
+      "state": "READY",
+      "at": "2026-10-03T00:05:09.641721+00:00",
+      "note": "QA pass"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "titles": [
+    "How does a lightning bolt form, and what actually happens inside a thundercloud before lightning strikes — Explained with Evidence",
+    "The Science of How does a lightning bolt form, and what actually happens in",
+    "How does a lightning bolt form, and what actually happens inside a thundercloud before lightning strikes? What the Research Shows"
+  ],
+  "description": "How does a lightning bolt form, and what actually happens inside a thundercloud before lightning strikes?\n\nA deeply researched science explainer. Every major claim is traced to sources below.\n\nCHAPTERS:\n00:00 — Hook: follow the journey\n01:32 — Hook: follow the journey — part 2\n03:04 — Stage 1\n04:27 — Stage 1 — part 2\n05:59 — Stage 2\n07:31 — Stage 2 — part 2\n08:53 — Stage 3\n10:06 — Stage 3 — part 2\n11:14 — Stage 4\n12:36 — Stage 4 — part 2\n13:53 — Where it ends / why it matters\n15:17 — Where it ends / why it matters — part 2\n\nSOURCES & FURTHER READING:\n[S002] Estimation of the fluence of high‐energy electron bursts produced by thunderclouds and the resulting radiation doses received in aircraft — https://doi.org/10.1029/2009jd012039\n[S003] Three‐dimensional fractal modeling of intracloud lightning discharge in a New Mexico thunderstorm and comparison with lightning mapping observations — https://doi.org/10.1029/2006jd007621\n[S004] Review of recent results on streamer discharges and discussion of their relevance for sprites and lightning — https://doi.org/10.1029/2009ja014867\n[S005] Environmental Control of Cloud-to-Ground Lightning Polarity in Severe Storms — https://doi.org/10.1175/mwr3361.1\n[S006] Physical mechanism of initial breakdown pulses and narrow bipolar events in lightning discharges — https://doi.org/10.1002/2015jd023209\n[S007] Nowcasting lightning occurrence from commonly available meteorological parameters using machine learning techniques — https://doi.org/10.1038/s41612-019-0098-0\n[S008] In-Flight Observation of Positron Annihilation by ILDAS. — https://europepmc.org/article/MED/31032163\n[S015] Lightning characteristics observed by a VLF/LF lightning detection network (LINET) in Brazil, Australia, Africa and Germany — https://doi.org/10.5194/acp-9-7795-2009\n[S016] The Riddle of Ball Lightning: A Review — https://doi.org/10.1100/tsw.2006.48\n[S017] Explosions of Ball Lightning inside Enclosed Spaces — https://doi.org/10.3390/atmos15010002\n[S018] Protection of Aircraft Radomes against Direct Lightning Strikes—An Overview — https://doi.org/10.3390/atmos12091141\n[S019] Evaluating Methods for the Identification of Off-Chain Transactions in the Lightning Network — https://doi.org/10.3390/app9122519\n[S020] High-Energy Atmospheric Physics: Ball Lightning — https://doi.org/10.4236/jhepgc.2019.52020\n[S021] Cluster based WSN routing with MOGA and LSA optimization. — https://europepmc.org/article/MED/41714324\n[S024] Jovian atmospheric dynamics: an update after Galileo and Cassini — https://doi.org/10.1088/0034-4885/68/8/r06\n[S025] A brief history of ball lightning observations by scientists and trained professionals — https://doi.org/10.5194/hgss-12-43-2021\n[S026] Lightning Discharges to Aircraft and Associated Meteorological Conditions — https://openalex.org/W600326372\n[S027] Survey of recent progress on lightning and lightning protection research — https://doi.org/10.1049/hve.2016.0004\n[S029] Lightning Strikes on Commercial Aircraft: How the Airlines Are Coping — https://doi.org/10.15394/jaaer.2005.1511\n[S030] Relevant prior knowledge moderates the effect of elaboration during small group discussion on academic achievement — https://doi.org/10.1007/s11251-012-9252-3\n[S031] An Initiation of Ball Lightning in an Aircraft — https://doi.org/10.1016/j.jastp.2021.105758\n[S032] About the Mechanism of the Hail Formation — https://doi.org/10.11648/j.sd.20140202.11\n[S033] An analysis of five negative sprite‐parent discharges and their associated thunderstorm charge structures — https://doi.org/10.1002/2015jd024188\n[S034] DOMITIAN'S LIGHTNING BOLTS AND CLOSE SHAVES IN PLINY — https://doi.org/10.5184/classicalj.109.1.0088\n\nVOICES/MEDIA: narration via free TTS; visuals: Wikimedia Commons / Pexels / Pixabay / project-generated diagrams (see credits file).\nUncertainty is stated where the evidence is limited — see claims file.",
+  "chapters": [
+    {
+      "at_s": 0,
+      "at": "00:00",
+      "title": "Hook: follow the journey"
+    },
+    {
+      "at_s": 92,
+      "at": "01:32",
+      "title": "Hook: follow the journey — part 2"
+    },
+    {
+      "at_s": 184,
+      "at": "03:04",
+      "title": "Stage 1"
+    },
+    {
+      "at_s": 267,
+      "at": "04:27",
+      "title": "Stage 1 — part 2"
+    },
+    {
+      "at_s": 359,
+      "at": "05:59",
+      "title": "Stage 2"
+    },
+    {
+      "at_s": 451,
+      "at": "07:31",
+      "title": "Stage 2 — part 2"
+    },
+    {
+      "at_s": 533,
+      "at": "08:53",
+      "title": "Stage 3"
+    },
+    {
+      "at_s": 606,
+      "at": "10:06",
+      "title": "Stage 3 — part 2"
+    },
+    {
+      "at_s": 674,
+      "at": "11:14",
+      "title": "Stage 4"
+    },
+    {
+      "at_s": 756,
+      "at": "12:36",
+      "title": "Stage 4 — part 2"
+    },
+    {
+      "at_s": 833,
+      "at": "13:53",
+      "title": "Where it ends / why it matters"
+    },
+    {
+      "at_s": 917,
+      "at": "15:17",
+      "title": "Where it ends / why it matters — part 2"
+    }
+  ],
+  "tags": [
+    "How",
+    "does",
+    "a",
+    "lightning",
+    "bolt",
+    "form,",
+    "and",
+    "what",
+    "actually",
+    "happens",
+    "inside",
+    "thundercloud",
+    "before",
+    "strikes",
+    "science"
+  ],
+  "hashtags": "#science #explained #research",
+  "duration_s": 1013.664,
+  "sources_count": 43,
+  "claims_count": 47
+}

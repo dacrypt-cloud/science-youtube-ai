@@ -1,0 +1,86 @@
+[
+  {
+    "scene_id": "scene_01",
+    "path": "projects/20261002-how-does-a-lightning-bolt-form-c96775/production/narration/scene_01.mp3",
+    "duration_s": 53.736,
+    "voice": "en-US-AvaNeural",
+    "provider": "edge-tts"
+  },
+  {
+    "scene_id": "scene_02",
+    "path": "projects/20261002-how-does-a-lightning-bolt-form-c96775/production/narration/scene_02.mp3",
+    "duration_s": 67.56,
+    "voice": "en-US-AvaNeural",
+    "provider": "edge-tts"
+  },
+  {
+    "scene_id": "scene_03",
+    "path": "projects/20261002-how-does-a-lightning-bolt-form-c96775/production/narration/scene_03.mp3",
+    "duration_s": 57.0,
+    "voice": "en-US-AvaNeural",
+    "provider": "edge-tts"
+  },
+  {
+    "scene_id": "scene_04",
+    "path": "projects/20261002-how-does-a-lightning-bolt-form-c96775/production/narration/scene_04.mp3",
+    "duration_s": 72.048,
+    "voice": "en-US-AvaNeural",
+    "provider": "edge-tts"
+  },
+  {
+    "scene_id": "scene_05",
+    "path": "projects/20261002-how-does-a-lightning-bolt-form-c96775/production/narration/scene_05.mp3",
+    "duration_s": 63.312,
+    "voice": "en-US-AvaNeural",
+    "provider": "edge-tts"
+  },
+  {
+    "scene_id": "scene_06",
+    "path": "projects/20261002-how-does-a-lightning-bolt-form-c96775/production/narration/scene_06.mp3",
+    "duration_s": 57.72,
+    "voice": "en-US-AvaNeural",
+    "provider": "edge-tts"
+  },
+  {
+    "scene_id": "scene_07",
+    "path": "projects/20261002-how-does-a-lightning-bolt-form-c96775/production/narration/scene_07.mp3",
+    "duration_s": 65.904,
+    "voice": "en-US-AvaNeural",
+    "provider": "edge-tts"
+  },
+  {
+    "scene_id": "scene_08",
+    "path": "projects/20261002-how-does-a-lightning-bolt-form-c96775/production/narration/scene_08.mp3",
+    "duration_s": 73.056,
+    "voice": "en-US-AvaNeural",
+    "provider": "edge-tts"
+  },
+  {
+    "scene_id": "scene_09",
+    "path": "projects/20261002-how-does-a-lightning-bolt-form-c96775/production/narration/scene_09.mp3",
+    "duration_s": 72.0,
+    "voice": "en-US-AvaNeural",
+    "provider": "edge-tts"
+  },
+  {
+    "scene_id": "scene_10",
+    "path": "projects/20261002-how-does-a-lightning-bolt-form-c96775/production/narration/scene_10.mp3",
+    "duration_s": 65.736,
+    "voice": "en-US-AvaNeural",
+    "provider": "edge-tts"
+  },
+  {
+    "scene_id": "scene_11",
+    "path": "projects/20261002-how-does-a-lightning-bolt-form-c96775/production/narration/scene_11.mp3",
+    "duration_s": 29.4,
+    "voice": "en-US-AvaNeural",
+    "provider": "edge-tts"
+  },
+  {
+    "scene_id": "scene_12",
+    "path": "projects/20261002-how-does-a-lightning-bolt-form-c96775/production/narration/scene_12.mp3",
+    "duration_s": 70.8,
+    "voice": "en-US-AvaNeural",
+    "provider": "edge-tts"
+  }
+]

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#0a1420"/>
+<rect x="0" y="0" width="1920" height="200" fill="#0d1b2e"/>
+<text x="80" y="100" font-family="sans-serif" font-size="64" font-weight="bold" fill="#e8f1ff">Stage 1</text>
+<text x="80" y="160" font-family="sans-serif" font-size="34" fill="#4fc3f7">Mechanism — step by step</text>
+<defs><marker id="a" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L12,5 L0,10 z" fill="#4fc3f7"/></marker></defs>
+<rect x="270" y="420" width="300" height="220" rx="18" fill="#12263f" stroke="#4fc3f7" stroke-width="3"/>
+<text x="290" y="480" font-family="sans-serif" font-size="30" font-weight="bold" fill="#ffb74d">1</text>
+<text x="290" y="530" font-family="sans-serif" font-size="26" fill="#e8f1ff">Most CG lightning is negative,</text>
+<text x="290" y="570" font-family="sans-serif" font-size="26" fill="#e8f1ff">meaning that a negative</text>
+<line x1="576" y1="530" x2="624" y2="530" stroke="#4fc3f7" stroke-width="5" marker-end="url(#a)"/>
+<rect x="630" y="420" width="300" height="220" rx="18" fill="#12263f" stroke="#4fc3f7" stroke-width="3"/>
+<text x="650" y="480" font-family="sans-serif" font-size="30" font-weight="bold" fill="#ffb74d">2</text>
+<text x="650" y="530" font-family="sans-serif" font-size="26" fill="#e8f1ff">Positive and negative lightning Cloud-to-ground</text>
+<text x="650" y="570" font-family="sans-serif" font-size="26" fill="#e8f1ff">(CG) lightning is either</text>
+<line x1="936" y1="530" x2="984" y2="530" stroke="#4fc3f7" stroke-width="5" marker-end="url(#a)"/>
+<rect x="990" y="420" width="300" height="220" rx="18" fill="#12263f" stroke="#4fc3f7" stroke-width="3"/>
+<text x="1010" y="480" font-family="sans-serif" font-size="30" font-weight="bold" fill="#ffb74d">3</text>
+<text x="1010" y="530" font-family="sans-serif" font-size="26" fill="#e8f1ff">The reverse happens in a</text>
+<text x="1010" y="570" font-family="sans-serif" font-size="26" fill="#e8f1ff">positive CG flash, where</text>
+<line x1="1296" y1="530" x2="1344" y2="530" stroke="#4fc3f7" stroke-width="5" marker-end="url(#a)"/>
+<rect x="1350" y="420" width="300" height="220" rx="18" fill="#12263f" stroke="#4fc3f7" stroke-width="3"/>
+<text x="1370" y="480" font-family="sans-serif" font-size="30" font-weight="bold" fill="#ffb74d">4</text>
+<text x="1370" y="530" font-family="sans-serif" font-size="26" fill="#e8f1ff">We have analyzed very high</text>
+<text x="1370" y="570" font-family="sans-serif" font-size="26" fill="#e8f1ff">frequency lightning mapping observations</text>
+<text x="80" y="1040" font-family="sans-serif" font-size="24" fill="#5b7a99">science-youtube-ai · diagram generated from verified research</text>
+</svg>

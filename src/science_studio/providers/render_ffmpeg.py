@@ -128,6 +128,13 @@ class FFmpegRenderer(RenderingProvider):
                 shutil.copy2(tmp, out_path)
         else:
             shutil.copy2(tmp, out_path)
+        # workspace budget: segments + concat are regenerable — remove on success
+        # (kept on failure for debugging, since cleanup only runs here).
+        try:
+            shutil.rmtree(work, ignore_errors=True)
+            tmp.unlink(missing_ok=True)
+        except Exception:
+            pass
         return {"path": str(out_path), "duration_s": total, "scenes": len(seg_files),
                 "width": W, "height": H, "fps": fps, "provider": self.name}
 

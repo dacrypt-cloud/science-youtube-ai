@@ -19,15 +19,36 @@ def _fmt_vtt(t: float) -> str:
     return f"{h:02d}:{m:02d}:{s:02d}.{ms:03d}"
 
 
+MAX_LINE = 42  # chars per subtitle line (readability standard)
+MAX_LINES = 2  # lines per cue
+
+
+def wrap_cues(text: str) -> list[str]:
+    """Wrap narration into readable cues: <=42 chars/line, <=2 lines/cue."""
+    words = (text or "").split()
+    lines: list[str] = []
+    cur = ""
+    for w in words:
+        trial = f"{cur} {w}".strip()
+        if len(trial) > MAX_LINE and cur:
+            lines.append(cur)
+            cur = w
+        else:
+            cur = trial
+    if cur:
+        lines.append(cur)
+    if not lines:
+        return [""]
+    return ["\n".join(lines[i:i + MAX_LINES]) for i in range(0, len(lines), MAX_LINES)]
+
+
 def build_subtitles(storyboard: list[dict], durations: dict[str, float], out_dir: Path) -> dict:
     out_dir.mkdir(parents=True, exist_ok=True)
     cues: list[tuple[float, float, str]] = []
     t = 0.0
     for sc in storyboard:
         dur = float(durations.get(sc["scene_id"], 0) or 0)
-        words = sc["narration"].split()
-        # ~2 lines per cue, 14 words max
-        chunks = [" ".join(words[i:i + 14]) for i in range(0, len(words), 14)] or [""]
+        chunks = wrap_cues(sc["narration"])
         per = dur / max(1, len(chunks))
         for j, ch in enumerate(chunks):
             cues.append((t + j * per, t + (j + 1) * per, ch))

@@ -1,0 +1,1035 @@
+1
+00:00:00,000 --> 00:00:04,846
+Since lightning involves complex
+interactions between many atmospheric and
+
+2
+00:00:04,846 --> 00:00:09,693
+in-cloud processes, it is unsurprising
+that research into that phenomenon
+
+3
+00:00:09,693 --> 00:00:14,540
+continues to generate a wide range of
+approaches for its prediction. Abstract To
+
+4
+00:00:14,540 --> 00:00:19,386
+date the true nature of initial breakdown
+pulses (IBPs) and narrow bipolar events
+
+5
+00:00:19,386 --> 00:00:24,233
+(NBEs) in lightning discharges remains a
+mystery. For many years, the press has
+
+6
+00:00:24,233 --> 00:00:29,080
+published reports of the destruction of
+houses inside of which a ball lightning
+
+7
+00:00:29,080 --> 00:00:33,927
+explosion Protection of Aircraft Radomes
+against Direct Lightning Strikes—An
+
+8
+00:00:33,927 --> 00:00:38,773
+Overview. The transactions in such overlay
+networks are not included in the
+
+9
+00:00:38,773 --> 00:00:43,620
+blockchain, they nevertheless leave some
+data traces High-Energy Atmospheric
+
+10
+00:00:43,620 --> 00:00:48,467
+Physics: Ball Lightning. Electric currents
+circulating between charged clouds and the
+
+11
+00:00:48,467 --> 00:00:53,314
+earth surface during lightning discharges
+are responsible for considerable damages
+
+12
+00:00:53,314 --> 00:00:58,160
+and casualties. Here we present the first
+demonstration that filaments formed by
+
+13
+00:00:58,160 --> 00:01:03,007
+short and intense laser pulses can guide
+lightning discharges over considerable
+
+14
+00:01:03,007 --> 00:01:07,854
+distances. Using recent X‐ray and
+gamma‐ray observations of terrestrial
+
+15
+00:01:07,854 --> 00:01:12,701
+gamma‐ray flashes (TGFs) from spacecraft
+and of natural and rocket‐triggered
+
+16
+00:01:12,701 --> 00:01:17,547
+lightning from the ground, along with
+detailed models of energetic particle
+
+17
+00:01:17,547 --> 00:01:22,394
+transport, we calculate the fluence
+(integrated flux) of high‐energy (million
+
+18
+00:01:22,394 --> 00:01:27,241
+electronvolt) electrons, X rays, and gamma
+rays likely to be produced inside or near
+
+19
+00:01:27,241 --> 00:01:32,088
+thunderclouds in high electric field
+regions.
+
+20
+00:01:32,088 --> 00:01:36,956
+We have used machine learning techniques
+to successfully hindcast nearby and
+
+21
+00:01:36,956 --> 00:01:41,824
+distant lightning hazards by looking at
+single-site observations of meteorological
+
+22
+00:01:41,824 --> 00:01:46,692
+parameters. We developed a four-parameter
+model based on four commonly available
+
+23
+00:01:46,692 --> 00:01:51,560
+surface weather variables (air pressure at
+station level (QFE), Nowcasting lightning
+
+24
+00:01:51,560 --> 00:01:56,429
+occurrence from commonly available
+meteorological parameters using machine
+
+25
+00:01:56,429 --> 00:02:01,297
+learning techniques | npj Climate and
+Atmospheric Science Thank you for visiting
+
+26
+00:02:01,297 --> 00:02:06,165
+nature.com. In the meantime, to ensure
+continued support, we are displaying the
+
+27
+00:02:06,165 --> 00:02:11,033
+site without styles Nowcasting lightning
+occurrence from commonly available
+
+28
+00:02:11,033 --> 00:02:15,901
+meteorological parameters using machine
+learning techniques Abstract Lightning
+
+29
+00:02:15,901 --> 00:02:20,770
+discharges in the atmosphere owe their
+existence to the combination of complex
+
+30
+00:02:20,770 --> 00:02:25,638
+dynamic and microphysical processes. We
+have used machine learning techniques to
+
+31
+00:02:25,638 --> 00:02:30,506
+successfully hindcast nearby and distant
+lightning hazards by looking at
+
+32
+00:02:30,506 --> 00:02:35,374
+single-site observations of meteorological
+parameters. The results encourage further
+
+33
+00:02:35,374 --> 00:02:40,242
+analysis on how mining techniques could
+contribute to further our understanding of
+
+34
+00:02:40,242 --> 00:02:45,111
+lightning dependencies on atmospheric
+parameters. 18 implemented an explicit
+
+35
+00:02:45,111 --> 00:02:49,979
+electrification and lightning forecast
+module within the Weather Research and
+
+36
+00:02:49,979 --> 00:02:54,847
+Forecasting (WRF) Model which includes
+in-cloud, non-inductive, and inductive
+
+37
+00:02:54,847 --> 00:02:59,715
+collisional charging, an explicit elliptic
+solution of the 3D component of the
+
+38
+00:02:59,715 --> 00:03:04,584
+ambient electric field, and two discharge
+parameterizations.
+
+39
+00:03:04,584 --> 00:03:09,475
+Lightning Discharges to Aircraft and
+Associated Meteorological Conditions. A
+
+40
+00:03:09,475 --> 00:03:14,367
+summary is given of information on
+atmospheric electrical discharges to
+
+41
+00:03:14,367 --> 00:03:19,259
+aircraft and associated meteorological
+conditions. Lightning and lightning
+
+42
+00:03:19,259 --> 00:03:24,151
+induced effects have significant influence
+on many aspects affecting the public,
+
+43
+00:03:24,151 --> 00:03:29,042
+which makes the research of lightning and
+lightning protection very important.
+
+44
+00:03:29,042 --> 00:03:33,934
+Lightning is one of the fascinating
+phenomena exhibiting tremendous natural
+
+45
+00:03:33,934 --> 00:03:38,826
+power.It is source of awe, curiosity,
+enticement, inspiration as well as fear.On
+
+46
+00:03:38,826 --> 00:03:43,718
+average, 50 lightning strikes occur on
+earth in one second.Fortunately not all of
+
+47
+00:03:43,718 --> 00:03:48,609
+them kill people, albeit 10% people fall
+prey to lightning annually, out of which
+
+48
+00:03:48,609 --> 00:03:53,501
+hardly 20 to 25% die.Lightning injures
+victims by heat, shockwave, intense
+
+49
+00:03:53,501 --> 00:03:58,393
+brightness, radio waves, and secondary
+slip or fall mechanisms.Lightning injury
+
+50
+00:03:58,393 --> 00:04:03,285
+is different from the normal electric
+shock as it involves Lightning Strikes on
+
+51
+00:04:03,285 --> 00:04:08,176
+Commercial Aircraft: How the Airlines Are
+Coping. They received either relevant An
+
+52
+00:04:08,176 --> 00:04:13,068
+Initiation of Ball Lightning in an
+Aircraft. The detailed observation of ball
+
+53
+00:04:13,068 --> 00:04:17,960
+lightning in an aircraft gives strong
+evidence that the ball lightning was
+
+54
+00:04:17,960 --> 00:04:22,852
+initiated by preceding corona from
+metallic diverter strips attached to the
+
+55
+00:04:22,852 --> 00:04:27,744
+surface of the radome.
+
+56
+00:04:27,744 --> 00:04:32,828
+Future space missions carrying
+lightning-related instrumentation are also
+
+57
+00:04:32,828 --> 00:04:37,912
+summarised, specifically the European
+ExoMars mission and Japanese Akatsuki
+
+58
+00:04:37,912 --> 00:04:42,996
+mission to Venus, which could both yield
+lightning observations in 2016. (arXiv,
+
+59
+00:04:42,996 --> 00:04:48,080
+2016-06-10). This report uses a few well
+documented cases of Ball Lightning (or BL
+
+60
+00:04:48,080 --> 00:04:53,164
+for short) observations to demonstrate a
+correlation between BL and positive
+
+61
+00:04:53,164 --> 00:04:58,248
+lightning, especially strong positive
+lightning. Estimation of the fluence of
+
+62
+00:04:58,248 --> 00:05:03,332
+high‐energy electron bursts produced by
+thunderclouds and the resulting radiation
+
+63
+00:05:03,332 --> 00:05:08,416
+doses received in aircraft. We find that
+the X‐ray/gamma‐ray fluence predicted for
+
+64
+00:05:08,416 --> 00:05:13,500
+lightning leaders propagating inside
+thunderclouds agrees well with the fluence
+
+65
+00:05:13,500 --> 00:05:18,584
+calculated for TGFs, Three‐dimensional
+fractal modeling of intracloud lightning
+
+66
+00:05:18,584 --> 00:05:23,668
+discharge in a New Mexico thunderstorm and
+comparison with lightning mapping
+
+67
+00:05:23,668 --> 00:05:28,752
+observations. This paper presents the
+formulation of a new three‐dimensional
+
+68
+00:05:28,752 --> 00:05:33,836
+probabilistic model for Review of recent
+results on streamer discharges and
+
+69
+00:05:33,836 --> 00:05:38,920
+discussion of their relevance for sprites
+and lightning. Abstract In this study, it
+
+70
+00:05:38,920 --> 00:05:44,004
+is hypothesized that the mesoscale
+environment can indirectly control the
+
+71
+00:05:44,004 --> 00:05:49,088
+cloud-to-ground (CG) lightning polarity of
+severe storms by directly affecting their
+
+72
+00:05:49,088 --> 00:05:54,172
+structural, dynamical, and microphysical
+properties, which in turn directly control
+
+73
+00:05:54,172 --> 00:05:59,256
+cloud electrification and ground flash
+polarity.
+
+74
+00:05:59,256 --> 00:06:03,889
+4 Furthermore, lightning is reported to
+have an adverse impact on the aviation
+
+75
+00:06:03,889 --> 00:06:08,522
+industry due to hazard to outdoor ramp
+operations, such as aircraft fueling,
+
+76
+00:06:08,522 --> 00:06:13,155
+baggage handling, food service, and tug
+operations. They hypothesized that the
+
+77
+00:06:13,155 --> 00:06:17,788
+mesoscale environment indirectly
+influences CG lightning polarity by
+
+78
+00:06:17,788 --> 00:06:22,422
+directly controlling the storm structure,
+dynamics, and microphysics, which in turn
+
+79
+00:06:22,422 --> 00:06:27,055
+control storm electrification and ground
+flash polarity. 30 developed an early
+
+80
+00:06:27,055 --> 00:06:31,688
+lightning warning system by integrating
+observational data from radar, satellites,
+
+81
+00:06:31,688 --> 00:06:36,321
+lightning detection systems, ground
+electric instruments and sounding
+
+82
+00:06:36,321 --> 00:06:40,954
+instruments with synoptic pattern
+forecasting products, and numerical
+
+83
+00:06:40,954 --> 00:06:45,588
+simulation of the electrification and
+discharge model. Despite several different
+
+84
+00:06:45,588 --> 00:06:50,221
+approaches applied to the important
+problem of lightning nowcasting and early
+
+85
+00:06:50,221 --> 00:06:54,854
+warning generation, the complex processes
+and large number of parameters involved in
+
+86
+00:06:54,854 --> 00:06:59,487
+the problem lends themselves to the
+potential application of a machine
+
+87
+00:06:59,487 --> 00:07:04,120
+learning approach. The observation was
+made with the In-flight Lightning Damage
+
+88
+00:07:04,120 --> 00:07:08,754
+Assessment System (ILDAS) on board of an
+A340 test aircraft. The local electric
+
+89
+00:07:08,754 --> 00:07:13,387
+activity during the emission was
+identified as a series of static
+
+90
+00:07:13,387 --> 00:07:18,020
+discharges of the aircraft. The focus is
+on the characteristics of lightning which
+
+91
+00:07:18,020 --> 00:07:22,653
+can specifically be observed by this
+system like intra-cloud and
+
+92
+00:07:22,653 --> 00:07:27,286
+cloud-to-ground stroke statistics,
+vertical distributions of intra-cloud
+
+93
+00:07:27,286 --> 00:07:31,920
+strokes or peak current distributions.
+
+94
+00:07:31,920 --> 00:07:36,734
+By night, their appearance can be
+spectacular, but their brilliance is just
+
+95
+00:07:36,734 --> 00:07:41,548
+similar to Explosions of Ball Lightning
+inside Enclosed Spaces. Witnesses often
+
+96
+00:07:41,548 --> 00:07:46,362
+report seeing moving sparks about one
+millimeter in size inside the ball
+
+97
+00:07:46,362 --> 00:07:51,176
+lightning shell. When the ball lightning
+shell ruptures, charge carriers fly out of
+
+98
+00:07:51,176 --> 00:07:55,990
+it in the form of a sheaf of sparks. The
+aim of this contribution is to design and
+
+99
+00:07:55,990 --> 00:08:00,804
+test the lightning protection of an
+aircraft radome exposed to direct
+
+100
+00:08:00,804 --> 00:08:05,618
+lightning strikes. This research presents
+a new optimization method derived from the
+
+101
+00:08:05,618 --> 00:08:10,432
+blending of Multi-Objective Genetic
+Algorithm (MOGA) and Lightning Search
+
+102
+00:08:10,432 --> 00:08:15,247
+Algorithm (LSA) for overcoming these
+drawbacks. MOGA is combined with local
+
+103
+00:08:15,247 --> 00:08:20,061
+search algorithm (LSA) which efficiently
+identifies globally efficient routes for
+
+104
+00:08:20,061 --> 00:08:24,875
+data transmission. The Galileo and Cassini
+spacecrafts have greatly enhanced the
+
+105
+00:08:24,875 --> 00:08:29,689
+observational record of Jupiter's
+tropospheric dynamics, particularly
+
+106
+00:08:29,689 --> 00:08:34,503
+through returning high spatial resolution,
+multi-spectral and global imaging data
+
+107
+00:08:34,503 --> 00:08:39,317
+with episodic coverage over periods of
+months to years. These data, along with
+
+108
+00:08:39,317 --> 00:08:44,131
+those from Earth-based telescopes, have
+revealed the stability of Jupiter's zonal
+
+109
+00:08:44,131 --> 00:08:48,945
+jets, captured the evolution of vortices
+and equatorial waves, and mapped the
+
+110
+00:08:48,945 --> 00:08:53,760
+distributions of lightning and moist
+convection.
+
+111
+00:08:53,760 --> 00:08:58,279
+Survey of recent progress on lightning and
+lightning protection research. On the
+
+112
+00:08:58,279 --> 00:09:02,799
+basis of the International Conference on
+Lightning Protection 2014, this study
+
+113
+00:09:02,799 --> 00:09:07,318
+gives a review of recent progress on
+lightning and lightning protection
+
+114
+00:09:07,318 --> 00:09:11,838
+research covering the following aspects:
+lightning locating and observation,
+
+115
+00:09:11,838 --> 00:09:16,357
+lightning Lightning Interactions with
+Humans and Lifelines. Extensive research
+
+116
+00:09:16,357 --> 00:09:20,877
+into methods for coping with lightning
+strikes has been continuing for many
+
+117
+00:09:20,877 --> 00:09:25,396
+years. These diverter strips are designed
+to direct current from a lightning strike
+
+118
+00:09:25,396 --> 00:09:29,915
+to the radome towards the aircraft
+fuselage in order to protect the radar
+
+119
+00:09:29,915 --> 00:09:34,435
+antenna. The charging of the aircraft can
+be generated by ambient atmospheric
+
+120
+00:09:34,435 --> 00:09:38,955
+electric fields or by precipitation when
+rain or fog droplets collide About the
+
+121
+00:09:38,955 --> 00:09:43,474
+Mechanism of the Hail Formation. It is
+suggested, contrary to other famous
+
+122
+00:09:43,474 --> 00:09:47,994
+theories that hail showers building is
+stipulated by the generation of high
+
+123
+00:09:47,994 --> 00:09:52,513
+temperature in lightning strike in
+atmosphere. The first thunderstorm, which
+
+124
+00:09:52,513 --> 00:09:57,033
+moved onshore in east central Florida,
+produced four of the five negative
+
+125
+00:09:57,033 --> 00:10:01,552
+sprite‐parent discharges within a period
+of 17 min, as it made landfall from the
+
+126
+00:10:01,552 --> 00:10:06,072
+Atlantic Ocean.
+
+127
+00:10:06,072 --> 00:10:10,930
+Lightning morphology and impulse charge
+moment change of high peak current
+
+128
+00:10:10,930 --> 00:10:15,788
+negative strokes. Because of the coherent
+nature of the measurements, radiation
+
+129
+00:10:15,788 --> 00:10:20,646
+sources are located down into the ambient
+receiver Green fireballs and ball
+
+130
+00:10:20,646 --> 00:10:25,505
+lightning. This paper presents evidence of
+an apparent connection between ball
+
+131
+00:10:25,505 --> 00:10:30,363
+lightning and a green fireball. Every year
+Bangladesh experiences high density of
+
+132
+00:10:30,363 --> 00:10:35,221
+lightning as it is a tropical country. A
+lightning strike or lightning bolt is a
+
+133
+00:10:35,221 --> 00:10:40,080
+lightning event in which an electric
+discharge takes place between the
+
+134
+00:10:40,080 --> 00:10:44,938
+atmosphere and the ground. Lightning
+strikes the average commercial aircraft at
+
+135
+00:10:44,938 --> 00:10:49,796
+least once a year, but modern engineering
+and design means this is rarely a problem.
+
+136
+00:10:49,796 --> 00:10:54,654
+The movement of aircraft through clouds
+can even cause lightning strikes. Here we
+
+137
+00:10:54,654 --> 00:10:59,513
+discuss the available detection techniques
+for, and observations of, planetary
+
+138
+00:10:59,513 --> 00:11:04,371
+lightning by spacecraft, planetary landers
+and, increasingly, sophisticated
+
+139
+00:11:04,371 --> 00:11:09,229
+terrestrial radio telescopes. We present a
+comprehensive theory on the formation of
+
+140
+00:11:09,229 --> 00:11:14,088
+ball lightning, a luminous sphere
+sometimes observed after normal lightning.
+
+141
+00:11:14,088 --> 00:11:18,910
+In a ball lightning event, a relativistic
+electron bunch can be produced by the
+
+142
+00:11:18,910 --> 00:11:23,733
+stepped leader of lightning and coherently
+emit high-power microwave when striking
+
+143
+00:11:23,733 --> 00:11:28,555
+the ground. The theory can explain
+observed properties of ball lightning and
+
+144
+00:11:28,555 --> 00:11:33,378
+should be useful to lightning protection
+and aviation safety. (arXiv, 2014-11-18).
+
+145
+00:11:33,378 --> 00:11:38,200
+Analysis of Conditions favorable for Ball
+Lightning Creation. A sufficiently large
+
+146
+00:11:38,200 --> 00:11:43,023
+macro passing through the atmosphere
+producing a straight column ofplasma would
+
+147
+00:11:43,023 --> 00:11:47,846
+produce fluorescence, or, under
+atmospheric conditions conducive to
+
+148
+00:11:47,846 --> 00:11:52,668
+lightning, seeda very straight lightning
+strike visible to the naked eye. It is by
+
+149
+00:11:52,668 --> 00:11:57,491
+now well understood that large sprite
+discharges at the low air densities of the
+
+150
+00:11:57,491 --> 00:12:02,313
+mesosphere are physically similar to small
+streamer discharges in air at standard
+
+151
+00:12:02,313 --> 00:12:07,136
+temperature and pressure. We then discuss
+how far present sprite Environmental
+
+152
+00:12:07,136 --> 00:12:11,959
+Control of Cloud-to-Ground Lightning
+Polarity in Severe Storms. Recent
+
+153
+00:12:11,959 --> 00:12:16,781
+experimental evidence has correlated IBPs
+to the initial development of lightning
+
+154
+00:12:16,781 --> 00:12:21,604
+leaders inside the thundercloud. Most NBEs
+are quite peculiar in the sense that very
+
+155
+00:12:21,604 --> 00:12:26,426
+frequently they occur in isolation from
+other lightning processes. Knowledge
+
+156
+00:12:26,426 --> 00:12:31,249
+discovery and data mining methods can be
+used for seeking characteristics of data
+
+157
+00:12:31,249 --> 00:12:36,072
+and their teleconnections in complex data
+clusters.
+
+158
+00:12:36,072 --> 00:12:40,918
+Furthermore, the importance of the input
+parameters fits with the broad physical
+
+159
+00:12:40,918 --> 00:12:45,765
+understanding of surface processes driving
+thunderstorms (e.g., the surface
+
+160
+00:12:45,765 --> 00:12:50,611
+temperature and the relative humidity will
+be important factors for the instability
+
+161
+00:12:50,611 --> 00:12:55,458
+and moisture availability of the
+thunderstorm environment). The model also
+
+162
+00:12:55,458 --> 00:13:00,304
+improves upon three competitive baselines
+for generating lightning warnings: (i) a
+
+163
+00:13:00,304 --> 00:13:05,151
+simple but objective baseline forecast,
+based on the persistence method, (ii) the
+
+164
+00:13:05,151 --> 00:13:09,997
+widely-used method based on a threshold of
+the vertical electrostatic field magnitude
+
+165
+00:13:09,997 --> 00:13:14,844
+at ground level, and, finally (iii) a
+scheme based on CAPE threshold. Apart from
+
+166
+00:13:14,844 --> 00:13:19,690
+discussing the prediction skill of the
+model, data mining techniques are also
+
+167
+00:13:19,690 --> 00:13:24,537
+used to compare the patterns of data
+distribution, both spatially and
+
+168
+00:13:24,537 --> 00:13:29,383
+temporally among the stations. Hybrid
+AI-enhanced lightning flash prediction in
+
+169
+00:13:29,383 --> 00:13:34,230
+the medium-range forecast horizon A
+physics-guided machine learning framework
+
+170
+00:13:34,230 --> 00:13:39,076
+for enhancing dust storm visibility
+prediction in arid and semi-arid regions
+
+171
+00:13:39,076 --> 00:13:43,923
+Lightning nowcasting with aerosol-informed
+machine learning and satellite-enriched
+
+172
+00:13:43,923 --> 00:13:48,769
+dataset Introduction Lightning is
+responsible for human injuries and
+
+173
+00:13:48,769 --> 00:13:53,616
+fatalities, the death of livestock, and
+house and forest fires.
+
+174
+00:13:53,616 --> 00:13:58,545
+The electroactive region is modeled here
+as a quantum two-level system of oxygen
+
+175
+00:13:58,545 --> 00:14:03,475
+molecules which are assumed to have two
+(ground and excited) states, where
+
+176
+00:14:03,475 --> 00:14:08,405
+transitions from ground to excited states
+come as a result of micro-discharges
+
+177
+00:14:08,405 --> 00:14:13,335
+between ice particles. We benchmark the
+performance of Lightning with backends
+
+178
+00:14:13,335 --> 00:14:18,265
+supporting CPUs, as well as NVidia and AMD
+GPUs, and compare the results to other
+
+179
+00:14:18,265 --> 00:14:23,195
+commonly used high-performance simulator
+packages, demonstrating where Lightning's
+
+180
+00:14:23,195 --> 00:14:28,125
+implementations give performance leads. 19
+On the other hand, some studies employ a
+
+181
+00:14:28,125 --> 00:14:33,055
+simpler and practical approach of
+parameterization to allow for useful
+
+182
+00:14:33,055 --> 00:14:37,984
+lightning forecasts without the need for
+adding electrification subroutines to
+
+183
+00:14:37,984 --> 00:14:42,914
+cloud-resolving models. 26 implemented a
+dynamic forecast scheme for both
+
+184
+00:14:42,914 --> 00:14:47,844
+cloud-to-ground (CG) and intracloud (IC)
+lightning flashes based on the electrical
+
+185
+00:14:47,844 --> 00:14:52,774
+potential energy parameter derived from
+the WRF cloud-resolving model. 27 used the
+
+186
+00:14:52,774 --> 00:14:57,704
+product of convective available potential
+energy (CAPE) and precipitation rate as a
+
+187
+00:14:57,704 --> 00:15:02,634
+proxy to predict cloud-to-ground (CG)
+lightning over the United States. The
+
+188
+00:15:02,634 --> 00:15:07,564
+prediction scheme showed significant skill
+for lead times up to 15 days for
+
+189
+00:15:07,564 --> 00:15:12,494
+predicting the number of flashes and their
+spatial extent as well as the lightning/no
+
+190
+00:15:12,494 --> 00:15:17,424
+lightning maps.
+
+191
+00:15:17,424 --> 00:15:22,770
+Here, motivated by the commencement of
+observations by the Akatsuki spacecraft
+
+192
+00:15:22,770 --> 00:15:28,117
+and by studies of future missions, we
+critically review spacecraft and
+
+193
+00:15:28,117 --> 00:15:33,464
+ground-based observations of the past 40
+years, in an attempt to reconcile the
+
+194
+00:15:33,464 --> 00:15:38,810
+discordant reports with a minimal number
+of assumptions. This allows to draw
+
+195
+00:15:38,810 --> 00:15:44,157
+conclusions and predictions about future
+BL observations and the pro- duction of
+
+196
+00:15:44,157 --> 00:15:49,504
+these objects in the laboratory. By
+merging the satellite and radar systems
+
+197
+00:15:49,504 --> 00:15:54,850
+with numerical models, the lightning
+forecast is made 30–45 min before rainfall
+
+198
+00:15:54,850 --> 00:16:00,197
+occurs. 29 implemented a cloud-to-ground
+(CG) lightning probability and binary
+
+199
+00:16:00,197 --> 00:16:05,544
+occurrence or non-occurrence forecast in
+20-km grid boxes for 2-h periods over the
+
+200
+00:16:05,544 --> 00:16:10,890
+continental United States. This lightning
+guidance product is provided in the
+
+201
+00:16:10,890 --> 00:16:16,237
+framework of the Localized Aviation MOS
+Program (LAMP) and it is issued at hourly
+
+202
+00:16:16,237 --> 00:16:21,584
+intervals. The system is able to provide
+lightning activity potential and warning
+
+203
+00:16:21,584 --> 00:16:26,930
+products for the upcoming 0–1 h. 31 used
+radar-derived parameters, namely the
+
+204
+00:16:26,930 --> 00:16:32,277
+isothermal reflectivity and Vertically
+Integrated Ice (VII), as the proxy to
+
+205
+00:16:32,277 --> 00:16:37,624
+nowcast lighting over the Kennedy Space
+Center. The aircraft was intentionally
+
+206
+00:16:37,624 --> 00:16:42,970
+flying through a thunderstorm at 12-km
+altitude over Northern Australia in
+
+207
+00:16:42,970 --> 00:16:48,317
+January 2016. A Lightning characteristics
+observed by a VLF/LF lightning detection
+
+208
+00:16:48,317 --> 00:16:53,664
+network (LINET) in Brazil, Australia,
+Africa and Germany.

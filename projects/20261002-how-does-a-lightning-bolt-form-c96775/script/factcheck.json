@@ -1,0 +1,13 @@
+{
+  "status": "review",
+  "issues": [
+    {
+      "type": "number_unverified",
+      "sentence": "The air around the lightning flash rapidly heats to temperatures of about 30,000 °C (54,000 °F).",
+      "fix": "Verify numbers ['000 °C'] against sources or remove."
+    }
+  ],
+  "orphan_claims": [],
+  "llm_notes": [],
+  "sentences_checked": 71
+}

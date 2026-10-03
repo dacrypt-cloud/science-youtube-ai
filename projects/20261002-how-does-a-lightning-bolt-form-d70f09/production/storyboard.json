@@ -1,0 +1,254 @@
+[
+  {
+    "scene_id": "scene_01",
+    "index": 0,
+    "title": "Hook: follow the journey",
+    "narration": "Since lightning involves complex interactions between many atmospheric and in-cloud processes, it is unsurprising that research into that phenomenon continues to generate a wide range of approaches for its prediction. Abstract To date the true nature of initial breakdown pulses (IBPs) and narrow bipolar events (NBEs) in lightning discharges remains a mystery. For many years, the press has published reports of the destruction of houses inside of which a ball lightning explosion Protection of Aircraft Radomes against Direct Lightning Strikes—An Overview. The transactions in such overlay networks are not included in the blockchain, they nevertheless leave some data traces High-Energy Atmospheric Physics: Ball Lightning. Electric currents circulating between charged clouds and the earth surface during lightning discharges are responsible for considerable damages and casualties. Here we present the first demonstration that filaments formed by short and intense laser pulses can guide lightning discharges over considerable distances. Using recent X‐ray and gamma‐ray observations of terrestrial gamma‐ray flashes (TGFs) from spacecraft and of natural and rocket‐triggered lightning from the ground, along with detailed models of energetic particle transport, we calculate the fluence (integrated flux) of high‐energy (million electronvolt) electrons, X rays, and gamma rays likely to be produced inside or near thunderclouds in high electric field regions.",
+    "concept": "Hook: follow the journey",
+    "visual_objective": "Show: Hook: follow the journey",
+    "visual_query": "lightning actually involves complex",
+    "diagram": "process",
+    "onscreen_text": "",
+    "transition": "cut",
+    "claim_ids": [
+      "C001",
+      "C002",
+      "C003",
+      "C004",
+      "C005",
+      "C006",
+      "C007"
+    ]
+  },
+  {
+    "scene_id": "scene_02",
+    "index": 1,
+    "title": "Hook: follow the journey — part 2",
+    "narration": "We have used machine learning techniques to successfully hindcast nearby and distant lightning hazards by looking at single-site observations of meteorological parameters. We developed a four-parameter model based on four commonly available surface weather variables (air pressure at station level (QFE), Nowcasting lightning occurrence from commonly available meteorological parameters using machine learning techniques | npj Climate and Atmospheric Science Thank you for visiting nature.com. In the meantime, to ensure continued support, we are displaying the site without styles Nowcasting lightning occurrence from commonly available meteorological parameters using machine learning techniques Abstract Lightning discharges in the atmosphere owe their existence to the combination of complex dynamic and microphysical processes. We have used machine learning techniques to successfully hindcast nearby and distant lightning hazards by looking at single-site observations of meteorological parameters. The results encourage further analysis on how mining techniques could contribute to further our understanding of lightning dependencies on atmospheric parameters. 18 implemented an explicit electrification and lightning forecast module within the Weather Research and Forecasting (WRF) Model which includes in-cloud, non-inductive, and inductive collisional charging, an explicit elliptic solution of the 3D component of the ambient electric field, and two discharge parameterizations.",
+    "concept": "Hook: follow the journey — part 2",
+    "visual_objective": "Show: Hook: follow the journey — part 2",
+    "visual_query": "lightning actually machine learning techniques",
+    "diagram": "process",
+    "onscreen_text": "",
+    "transition": "fade",
+    "claim_ids": [
+      "C001",
+      "C002",
+      "C003",
+      "C004",
+      "C005",
+      "C006",
+      "C007"
+    ]
+  },
+  {
+    "scene_id": "scene_03",
+    "index": 2,
+    "title": "Stage 1",
+    "narration": "Lightning Discharges to Aircraft and Associated Meteorological Conditions. A summary is given of information on atmospheric electrical discharges to aircraft and associated meteorological conditions. Lightning and lightning induced effects have significant influence on many aspects affecting the public, which makes the research of lightning and lightning protection very important. Lightning is one of the fascinating phenomena exhibiting tremendous natural power.It is source of awe, curiosity, enticement, inspiration as well as fear.On average, 50 lightning strikes occur on earth in one second.Fortunately not all of them kill people, albeit 10% people fall prey to lightning annually, out of which hardly 20 to 25% die.Lightning injures victims by heat, shockwave, intense brightness, radio waves, and secondary slip or fall mechanisms.Lightning injury is different from the normal electric shock as it involves Lightning Strikes on Commercial Aircraft: How the Airlines Are Coping. They received either relevant An Initiation of Ball Lightning in an Aircraft. The detailed observation of ball lightning in an aircraft gives strong evidence that the ball lightning was initiated by preceding corona from metallic diverter strips attached to the surface of the radome.",
+    "concept": "Stage 1",
+    "visual_objective": "Show: Stage 1",
+    "visual_query": "lightning actually Lightning Discharges Aircraft",
+    "diagram": "process",
+    "onscreen_text": "",
+    "transition": "fade",
+    "claim_ids": [
+      "C008",
+      "C009",
+      "C010",
+      "C011",
+      "C012",
+      "C013",
+      "C014"
+    ]
+  },
+  {
+    "scene_id": "scene_04",
+    "index": 3,
+    "title": "Stage 1 — part 2",
+    "narration": "Future space missions carrying lightning-related instrumentation are also summarised, specifically the European ExoMars mission and Japanese Akatsuki mission to Venus, which could both yield lightning observations in 2016. (arXiv, 2016-06-10). This report uses a few well documented cases of Ball Lightning (or BL for short) observations to demonstrate a correlation between BL and positive lightning, especially strong positive lightning. Estimation of the fluence of high‐energy electron bursts produced by thunderclouds and the resulting radiation doses received in aircraft. We find that the X‐ray/gamma‐ray fluence predicted for lightning leaders propagating inside thunderclouds agrees well with the fluence calculated for TGFs, Three‐dimensional fractal modeling of intracloud lightning discharge in a New Mexico thunderstorm and comparison with lightning mapping observations. This paper presents the formulation of a new three‐dimensional probabilistic model for Review of recent results on streamer discharges and discussion of their relevance for sprites and lightning. Abstract In this study, it is hypothesized that the mesoscale environment can indirectly control the cloud-to-ground (CG) lightning polarity of severe storms by directly affecting their structural, dynamical, and microphysical properties, which in turn directly control cloud electrification and ground flash polarity.",
+    "concept": "Stage 1 — part 2",
+    "visual_objective": "Show: Stage 1 — part 2",
+    "visual_query": "lightning actually Future missions carrying",
+    "diagram": "process",
+    "onscreen_text": "",
+    "transition": "cut",
+    "claim_ids": [
+      "C008",
+      "C009",
+      "C010",
+      "C011",
+      "C012",
+      "C013",
+      "C014"
+    ]
+  },
+  {
+    "scene_id": "scene_05",
+    "index": 4,
+    "title": "Stage 2",
+    "narration": "4 Furthermore, lightning is reported to have an adverse impact on the aviation industry due to hazard to outdoor ramp operations, such as aircraft fueling, baggage handling, food service, and tug operations. They hypothesized that the mesoscale environment indirectly influences CG lightning polarity by directly controlling the storm structure, dynamics, and microphysics, which in turn control storm electrification and ground flash polarity. 30 developed an early lightning warning system by integrating observational data from radar, satellites, lightning detection systems, ground electric instruments and sounding instruments with synoptic pattern forecasting products, and numerical simulation of the electrification and discharge model. Despite several different approaches applied to the important problem of lightning nowcasting and early warning generation, the complex processes and large number of parameters involved in the problem lends themselves to the potential application of a machine learning approach. The observation was made with the In-flight Lightning Damage Assessment System (ILDAS) on board of an A340 test aircraft. The local electric activity during the emission was identified as a series of static discharges of the aircraft. The focus is on the characteristics of lightning which can specifically be observed by this system like intra-cloud and cloud-to-ground stroke statistics, vertical distributions of intra-cloud strokes or peak current distributions.",
+    "concept": "Stage 2",
+    "visual_objective": "Show: Stage 2",
+    "visual_query": "lightning actually Furthermore reported",
+    "diagram": "process",
+    "onscreen_text": "",
+    "transition": "fade",
+    "claim_ids": [
+      "C015",
+      "C016",
+      "C017",
+      "C018",
+      "C019",
+      "C020",
+      "C021"
+    ]
+  },
+  {
+    "scene_id": "scene_06",
+    "index": 5,
+    "title": "Stage 2 — part 2",
+    "narration": "By night, their appearance can be spectacular, but their brilliance is just similar to Explosions of Ball Lightning inside Enclosed Spaces. Witnesses often report seeing moving sparks about one millimeter in size inside the ball lightning shell. When the ball lightning shell ruptures, charge carriers fly out of it in the form of a sheaf of sparks. The aim of this contribution is to design and test the lightning protection of an aircraft radome exposed to direct lightning strikes. This research presents a new optimization method derived from the blending of Multi-Objective Genetic Algorithm (MOGA) and Lightning Search Algorithm (LSA) for overcoming these drawbacks. MOGA is combined with local search algorithm (LSA) which efficiently identifies globally efficient routes for data transmission. The Galileo and Cassini spacecrafts have greatly enhanced the observational record of Jupiter's tropospheric dynamics, particularly through returning high spatial resolution, multi-spectral and global imaging data with episodic coverage over periods of months to years. These data, along with those from Earth-based telescopes, have revealed the stability of Jupiter's zonal jets, captured the evolution of vortices and equatorial waves, and mapped the distributions of lightning and moist convection.",
+    "concept": "Stage 2 — part 2",
+    "visual_objective": "Show: Stage 2 — part 2",
+    "visual_query": "lightning actually appearance spectacular brilliance",
+    "diagram": "lifecycle",
+    "onscreen_text": "",
+    "transition": "fade",
+    "claim_ids": [
+      "C015",
+      "C016",
+      "C017",
+      "C018",
+      "C019",
+      "C020",
+      "C021"
+    ]
+  },
+  {
+    "scene_id": "scene_07",
+    "index": 6,
+    "title": "Stage 3",
+    "narration": "Survey of recent progress on lightning and lightning protection research. On the basis of the International Conference on Lightning Protection 2014, this study gives a review of recent progress on lightning and lightning protection research covering the following aspects: lightning locating and observation, lightning Lightning Interactions with Humans and Lifelines. Extensive research into methods for coping with lightning strikes has been continuing for many years. These diverter strips are designed to direct current from a lightning strike to the radome towards the aircraft fuselage in order to protect the radar antenna. The charging of the aircraft can be generated by ambient atmospheric electric fields or by precipitation when rain or fog droplets collide About the Mechanism of the Hail Formation. It is suggested, contrary to other famous theories that hail showers building is stipulated by the generation of high temperature in lightning strike in atmosphere. The first thunderstorm, which moved onshore in east central Florida, produced four of the five negative sprite‐parent discharges within a period of 17 min, as it made landfall from the Atlantic Ocean.",
+    "concept": "Stage 3",
+    "visual_objective": "Show: Stage 3",
+    "visual_query": "lightning actually Survey recent progress",
+    "diagram": "process",
+    "onscreen_text": "",
+    "transition": "cut",
+    "claim_ids": [
+      "C022",
+      "C023",
+      "C024",
+      "C025",
+      "C026",
+      "C027",
+      "C028"
+    ]
+  },
+  {
+    "scene_id": "scene_08",
+    "index": 7,
+    "title": "Stage 3 — part 2",
+    "narration": "Lightning morphology and impulse charge moment change of high peak current negative strokes. Because of the coherent nature of the measurements, radiation sources are located down into the ambient receiver Green fireballs and ball lightning. This paper presents evidence of an apparent connection between ball lightning and a green fireball. Every year Bangladesh experiences high density of lightning as it is a tropical country. A lightning strike or lightning bolt is a lightning event in which an electric discharge takes place between the atmosphere and the ground. Lightning strikes the average commercial aircraft at least once a year, but modern engineering and design means this is rarely a problem. The movement of aircraft through clouds can even cause lightning strikes. Here we discuss the available detection techniques for, and observations of, planetary lightning by spacecraft, planetary landers and, increasingly, sophisticated terrestrial radio telescopes. We present a comprehensive theory on the formation of ball lightning, a luminous sphere sometimes observed after normal lightning.",
+    "concept": "Stage 3 — part 2",
+    "visual_objective": "Show: Stage 3 — part 2",
+    "visual_query": "lightning actually Lightning morphology impulse",
+    "diagram": "process",
+    "onscreen_text": "",
+    "transition": "fade",
+    "claim_ids": [
+      "C022",
+      "C023",
+      "C024",
+      "C025",
+      "C026",
+      "C027",
+      "C028"
+    ]
+  },
+  {
+    "scene_id": "scene_09",
+    "index": 8,
+    "title": "Stage 4",
+    "narration": "In a ball lightning event, a relativistic electron bunch can be produced by the stepped leader of lightning and coherently emit high-power microwave when striking the ground. The theory can explain observed properties of ball lightning and should be useful to lightning protection and aviation safety. (arXiv, 2014-11-18). Analysis of Conditions favorable for Ball Lightning Creation. A sufficiently large macro passing through the atmosphere producing a straight column ofplasma would produce fluorescence, or, under atmospheric conditions conducive to lightning, seeda very straight lightning strike visible to the naked eye. It is by now well understood that large sprite discharges at the low air densities of the mesosphere are physically similar to small streamer discharges in air at standard temperature and pressure. We then discuss how far present sprite Environmental Control of Cloud-to-Ground Lightning Polarity in Severe Storms. Recent experimental evidence has correlated IBPs to the initial development of lightning leaders inside the thundercloud. Most NBEs are quite peculiar in the sense that very frequently they occur in isolation from other lightning processes. Knowledge discovery and data mining methods can be used for seeking characteristics of data and their teleconnections in complex data clusters.",
+    "concept": "Stage 4",
+    "visual_objective": "Show: Stage 4",
+    "visual_query": "lightning actually relativistic electron",
+    "diagram": "process",
+    "onscreen_text": "",
+    "transition": "fade",
+    "claim_ids": [
+      "C029",
+      "C030",
+      "C031",
+      "C032",
+      "C033",
+      "C034",
+      "C035"
+    ]
+  },
+  {
+    "scene_id": "scene_10",
+    "index": 9,
+    "title": "Stage 4 — part 2",
+    "narration": "Furthermore, the importance of the input parameters fits with the broad physical understanding of surface processes driving thunderstorms (e.g., the surface temperature and the relative humidity will be important factors for the instability and moisture availability of the thunderstorm environment). The model also improves upon three competitive baselines for generating lightning warnings: (i) a simple but objective baseline forecast, based on the persistence method, (ii) the widely-used method based on a threshold of the vertical electrostatic field magnitude at ground level, and, finally (iii) a scheme based on CAPE threshold. Apart from discussing the prediction skill of the model, data mining techniques are also used to compare the patterns of data distribution, both spatially and temporally among the stations. Hybrid AI-enhanced lightning flash prediction in the medium-range forecast horizon A physics-guided machine learning framework for enhancing dust storm visibility prediction in arid and semi-arid regions Lightning nowcasting with aerosol-informed machine learning and satellite-enriched dataset Introduction Lightning is responsible for human injuries and fatalities, the death of livestock, and house and forest fires.",
+    "concept": "Stage 4 — part 2",
+    "visual_objective": "Show: Stage 4 — part 2",
+    "visual_query": "lightning actually Furthermore importance parameters",
+    "diagram": "anatomy",
+    "onscreen_text": "",
+    "transition": "cut",
+    "claim_ids": [
+      "C029",
+      "C030",
+      "C031",
+      "C032",
+      "C033",
+      "C034",
+      "C035"
+    ]
+  },
+  {
+    "scene_id": "scene_11",
+    "index": 10,
+    "title": "Where it ends / why it matters",
+    "narration": "The electroactive region is modeled here as a quantum two-level system of oxygen molecules which are assumed to have two (ground and excited) states, where transitions from ground to excited states come as a result of micro-discharges between ice particles. We benchmark the performance of Lightning with backends supporting CPUs, as well as NVidia and AMD GPUs, and compare the results to other commonly used high-performance simulator packages, demonstrating where Lightning's implementations give performance leads. 19 On the other hand, some studies employ a simpler and practical approach of parameterization to allow for useful lightning forecasts without the need for adding electrification subroutines to cloud-resolving models. 26 implemented a dynamic forecast scheme for both cloud-to-ground (CG) and intracloud (IC) lightning flashes based on the electrical potential energy parameter derived from the WRF cloud-resolving model. 27 used the product of convective available potential energy (CAPE) and precipitation rate as a proxy to predict cloud-to-ground (CG) lightning over the United States. The prediction scheme showed significant skill for lead times up to 15 days for predicting the number of flashes and their spatial extent as well as the lightning/no lightning maps.",
+    "concept": "Where it ends / why it matters",
+    "visual_objective": "Show: Where it ends / why it matters",
+    "visual_query": "lightning actually electroactive region modeled",
+    "diagram": "scale",
+    "onscreen_text": "",
+    "transition": "fade",
+    "claim_ids": [
+      "C036",
+      "C037",
+      "C038",
+      "C039",
+      "C040",
+      "C041",
+      "C042"
+    ]
+  },
+  {
+    "scene_id": "scene_12",
+    "index": 11,
+    "title": "Where it ends / why it matters — part 2",
+    "narration": "Here, motivated by the commencement of observations by the Akatsuki spacecraft and by studies of future missions, we critically review spacecraft and ground-based observations of the past 40 years, in an attempt to reconcile the discordant reports with a minimal number of assumptions. This allows to draw conclusions and predictions about future BL observations and the pro- duction of these objects in the laboratory. By merging the satellite and radar systems with numerical models, the lightning forecast is made 30–45 min before rainfall occurs. 29 implemented a cloud-to-ground (CG) lightning probability and binary occurrence or non-occurrence forecast in 20-km grid boxes for 2-h periods over the continental United States. This lightning guidance product is provided in the framework of the Localized Aviation MOS Program (LAMP) and it is issued at hourly intervals. The system is able to provide lightning activity potential and warning products for the upcoming 0–1 h. 31 used radar-derived parameters, namely the isothermal reflectivity and Vertically Integrated Ice (VII), as the proxy to nowcast lighting over the Kennedy Space Center. The aircraft was intentionally flying through a thunderstorm at 12-km altitude over Northern Australia in January 2016. A Lightning characteristics observed by a VLF/LF lightning detection network (LINET) in Brazil, Australia, Africa and Germany.",
+    "concept": "Where it ends / why it matters — part 2",
+    "visual_objective": "Show: Where it ends / why it matters — part 2",
+    "visual_query": "lightning actually motivated commencement observations",
+    "diagram": "timeline",
+    "onscreen_text": "",
+    "transition": "fade",
+    "claim_ids": [
+      "C036",
+      "C037",
+      "C038",
+      "C039",
+      "C040",
+      "C041",
+      "C042"
+    ]
+  }
+]

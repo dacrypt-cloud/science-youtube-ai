@@ -1,0 +1,122 @@
+[
+  {
+    "claim_id": "C001",
+    "claim": "Using recent X‐ray and gamma‐ray observations of terrestrial gamma‐ray flashes (TGFs) from spacecraft and of natural and rocket‐triggered lightning from the ground, along with detailed models of energ",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C002",
+    "claim": "The direct comparison of lightning mapping observations by the New Mexico Tech Lightning Mapping Array (LMA) with realistic models of thundercloud electrical structures and lightning discharges repres",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C003",
+    "claim": "It is by now well understood that large sprite discharges at the low air densities of the mesosphere are physically similar to small streamer discharges in air at standard temperature and pressure.",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C004",
+    "claim": "This similarity is based on Townsend scaling with air density.",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C005",
+    "claim": "Abstract In this study, it is hypothesized that the mesoscale environment can indirectly control the cloud-to-ground (CG) lightning polarity of severe storms by directly affecting their structural, dy",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C006",
+    "claim": "Abstract To date the true nature of initial breakdown pulses (IBPs) and narrow bipolar events (NBEs) in lightning discharges remains a mystery.",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C007",
+    "claim": "Recent experimental evidence has correlated IBPs to the initial development of lightning leaders inside the thundercloud.",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C008",
+    "claim": "Nowcasting lightning occurrence from commonly available meteorological parameters using machine learning techniques | npj Climate and Atmospheric Science Thank you for visiting nature.com.",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C009",
+    "claim": "We have used machine learning techniques to successfully hindcast nearby and distant lightning hazards by looking at single-site observations of meteorological parameters.",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C010",
+    "claim": "Apart from discussing the prediction skill of the model, data mining techniques are also used to compare the patterns of data distribution, both spatially and temporally among the stations.",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C011",
+    "claim": "We report a 511-keV photon flux enhancement that was observed inside a thundercloud and is a result of positron annihilation.",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C012",
+    "claim": "Two gamma ray detectors showed a significant count rate increase synchronously with fast electromagnetic field variations registered by an on-board antenna.",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C013",
+    "claim": "The focus is on the characteristics of lightning which can specifically be observed by this system like intra-cloud and cloud-to-ground stroke statistics, vertical distributions of intra-cloud strokes",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C014",
+    "claim": "In accordance with radar observed storm structures, the intra-cloud stroke mean emission heights were found distinctly different in Germany (8 km) as compared to the tropics (up to 12 km in N-Australi",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C015",
+    "claim": "The fraction of intra-cloud strokes (compared to all strokes) was found to be relatively high in Brazil and Australia (0.83 and 0.82, respectively) as compared to Benin and Germany (0.64 and 0.69, res",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C016",
+    "claim": "One of the most intriguing and enduring scientific challenges is to find an explanation for ball lightning, the shining fireballs that sometimes appear near lightning strokes.",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C017",
+    "claim": "Although many theoretical ideas have been proposed and much experimental work has been performed, there is not yet an accepted explanation of their amazing properties.",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C018",
+    "claim": "According to observations, the energy density contained inside ball lightning can reach 1010 J/m3, and its charge can range from 10−3 to 10−1 C.",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C019",
+    "claim": "Witnesses often report seeing moving sparks about one millimeter in size inside the ball lightning shell.",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C020",
+    "claim": "The aim of this contribution is to design and test the lightning protection of an aircraft radome exposed to direct lightning strikes.",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  }
+]

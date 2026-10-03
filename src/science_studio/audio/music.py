@@ -30,9 +30,9 @@ def ensure_music(music_dir: Path, duration_s: float) -> dict:
             return {"path": str(f), "source": "user-supplied",
                     "license": "see user documentation — verify before upload",
                     "gain": 0.08}
-    # generate ambient bed
+    # generate ambient bed (AAC: ~10x smaller than WAV, workspace budget)
     exe = _ffmpeg()
-    out = music_dir / "_generated_ambient.wav"
+    out = music_dir / "_generated_ambient.m4a"
     if exe and not (out.exists() and out.stat().st_size > 10000):
         dur = max(30.0, duration_s + 10)
         # layered soft sines (A2+E3+A3) w/ slow tremolo — quiet by design

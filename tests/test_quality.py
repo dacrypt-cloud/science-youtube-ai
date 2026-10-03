@@ -34,12 +34,20 @@ def test_entities_skip_sentence_case():
 
 
 def test_relevance_filters_junk_reference():
-    ideas = {"mosquito", "malaria", "plasmodium", "transmit"}
-    assert not _relevant("How It Is", "A novel about life", ideas, "reference")
-    assert _relevant("Plasmodium", "Plasmodium parasites cause malaria transmitted by mosquito", ideas, "reference")
-    # scholarly needs >=1 keyword (filters off-topic papers)
-    assert _relevant("Malaria drug trial", "patients", ideas, "journal")
-    assert not _relevant("Anything", "", ideas, "journal")
+    from science_studio.providers.llm_template import stem
+    vocab = {stem(w) for w in ("mosquito", "malaria", "plasmodium", "transmit",
+                               "parasite", "blood", "fever")}
+    anchors = {stem(w) for w in ("mosquito", "malaria", "plasmodium")}
+    assert not _relevant("How It Is", "A novel about life", vocab, anchors, "reference")
+    assert _relevant("Plasmodium", "Plasmodium parasites cause malaria transmitted by mosquito",
+                     vocab, anchors, "reference")
+    # scholarly now needs >=2 vocab overlaps + an anchor hit (strict for all types)
+    assert _relevant("Malaria drug trial", "malaria patients given mosquito nets in trial", vocab, anchors, "journal")
+    assert not _relevant("Malaria drug trial", "patients", vocab, anchors, "journal")
+    assert not _relevant("Anything", "", vocab, anchors, "journal")
+    # cross-domain homonym: single-word match is not enough
+    assert not _relevant("Malaria Algorithm", "A malaria routing algorithm for mesh networks and data packets",
+                         vocab, anchors, "journal")
 
 
 def test_word_cap_enforced():

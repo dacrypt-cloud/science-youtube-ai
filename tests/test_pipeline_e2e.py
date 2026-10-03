@@ -36,6 +36,7 @@ def test_pipeline_offline(monkeypatch, tmp_path):
 
     plan = plan_research("How do mosquitoes transmit malaria?", duration="8-10", stack=stack)
     assert plan["research_questions"]
+    plan["skip_backbone"] = True  # keep this wiring test offline-pure
     from science_studio.research.engine import run_research
     res = run_research(plan, stack)
     assert len(res["sources"]) > 0 and len(res["claims"]) > 0

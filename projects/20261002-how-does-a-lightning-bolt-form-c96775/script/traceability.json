@@ -1,0 +1,543 @@
+[
+  {
+    "claim_id": "C045",
+    "claim": "The most common occurrence of a lightning event is known as a thunderstorm, though they can also commonly occur in other types of energetic weather systems, such as volcanic eruptions.",
+    "confidence": "strong_evidence",
+    "source_ids": [
+      "S001"
+    ],
+    "status": "supported",
+    "script_scenes": [
+      "scene_01",
+      "scene_02",
+      "scene_04",
+      "scene_05",
+      "scene_06",
+      "scene_07"
+    ],
+    "matched_sentences": [
+      "The most common occurrence of a lightning event is known as a thunderstorm, though they can also commonly occur in other types of energetic weather systems, such as volcanic eruptions.",
+      "Positive lightning is less common than negative lightning and on average makes up less than 5% of all lightning strikes.",
+      "The remaining fraction, 16% of positive polarity NBEs, according to Wu et Nowcasting lightning occurrence from commonly available meteorological parameters using machine learning techniques."
+    ],
+    "traceable": true
+  },
+  {
+    "claim_id": "C048",
+    "claim": "A lightning strike or lightning bolt is a lightning event in which an electric discharge takes place between the atmosphere and the ground.",
+    "confidence": "strong_evidence",
+    "source_ids": [
+      "S002"
+    ],
+    "status": "supported",
+    "script_scenes": [
+      "scene_01",
+      "scene_02",
+      "scene_03",
+      "scene_05",
+      "scene_06",
+      "scene_07"
+    ],
+    "matched_sentences": [
+      "The most common occurrence of a lightning event is known as a thunderstorm, though they can also commonly occur in other types of energetic weather systems, such as volcanic eruptions.",
+      "Positive lightning produces both higher peak currents and longer continuing currents, making them capable of heating surfaces to much higher levels which increases the likelihood of a fire being ignited.",
+      "Most CG lightning is negative, meaning that a negative charge is transferred (electrons flow) downwards to ground along the lightning channel (the conventional current flows from the ground up to the cloud)."
+    ],
+    "traceable": true
+  },
+  {
+    "claim_id": "C046",
+    "claim": "Cloud to ground (CG) Cloud-to-ground (CG) lightning is a lightning discharge between a thundercloud and the ground.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S001"
+    ],
+    "status": "supported",
+    "script_scenes": [
+      "scene_01",
+      "scene_02",
+      "scene_03",
+      "scene_05",
+      "scene_06",
+      "scene_08"
+    ],
+    "matched_sentences": [
+      "Positive lightning has also been shown to trigger the occurrence of upward lightning flashes from the tops of tall structures and is largely responsible for the initiation of sprites several tens of kilometers above ground level.",
+      "The conductivity of the electrical ground, be it soil, fresh water, or salt water, may affect the lightning discharge rate and thus visible characteristics.",
+      "Most CG lightning is negative, meaning that a negative charge is transferred (electrons flow) downwards to ground along the lightning channel (the conventional current flows from the ground up to the cloud)."
+    ],
+    "traceable": true
+  },
+  {
+    "claim_id": "C043",
+    "claim": "The reverse happens in a positive CG flash, where electrons travel upward along the lightning channel, while also a positive charge is transferred downward to the ground (the conventional current travels from cloud to ground).",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S001"
+    ],
+    "status": "supported",
+    "script_scenes": [
+      "scene_01",
+      "scene_02",
+      "scene_03",
+      "scene_04",
+      "scene_06",
+      "scene_08"
+    ],
+    "matched_sentences": [
+      "Positive lightning has also been shown to trigger the occurrence of upward lightning flashes from the tops of tall structures and is largely responsible for the initiation of sprites several tens of kilometers above ground level.",
+      "Positive lightning produces both higher peak currents and longer continuing currents, making them capable of heating surfaces to much higher levels which increases the likelihood of a fire being ignited.",
+      "Most CG lightning is negative, meaning that a negative charge is transferred (electrons flow) downwards to ground along the lightning channel (the conventional current flows from the ground up to the cloud)."
+    ],
+    "traceable": true
+  },
+  {
+    "claim_id": "C044",
+    "claim": "Positive lightning has also been shown to trigger the occurrence of upward lightning flashes from the tops of tall structures and is largely responsible for the initiation of sprites several tens of kilometers above ground level.",
+    "confidence": "strong_evidence",
+    "source_ids": [
+      "S001"
+    ],
+    "status": "supported",
+    "script_scenes": [
+      "scene_01",
+      "scene_02",
+      "scene_03",
+      "scene_04",
+      "scene_05",
+      "scene_07"
+    ],
+    "matched_sentences": [
+      "The most common occurrence of a lightning event is known as a thunderstorm, though they can also commonly occur in other types of energetic weather systems, such as volcanic eruptions.",
+      "Positive lightning produces both higher peak currents and longer continuing currents, making them capable of heating surfaces to much higher levels which increases the likelihood of a fire being ignited.",
+      "Most CG lightning is negative, meaning that a negative charge is transferred (electrons flow) downwards to ground along the lightning channel (the conventional current flows from the ground up to the cloud)."
+    ],
+    "traceable": true
+  },
+  {
+    "claim_id": "C001",
+    "claim": "Using recent X‐ray and gamma‐ray observations of terrestrial gamma‐ray flashes (TGFs) from spacecraft and of natural and rocket‐triggered lightning from the ground, along with detailed models of energetic particle transport, we calculate the fluence (integrated flux) of high‐energy (million electron",
+    "confidence": "strong_evidence",
+    "source_ids": [
+      "S003"
+    ],
+    "status": "supported",
+    "script_scenes": [
+      "scene_01",
+      "scene_02",
+      "scene_03",
+      "scene_04",
+      "scene_06",
+      "scene_07"
+    ],
+    "matched_sentences": [
+      "The most common occurrence of a lightning event is known as a thunderstorm, though they can also commonly occur in other types of energetic weather systems, such as volcanic eruptions.",
+      "The conductivity of the electrical ground, be it soil, fresh water, or salt water, may affect the lightning discharge rate and thus visible characteristics.",
+      "Most CG lightning is negative, meaning that a negative charge is transferred (electrons flow) downwards to ground along the lightning channel (the conventional current flows from the ground up to the cloud)."
+    ],
+    "traceable": true
+  },
+  {
+    "claim_id": "C042",
+    "claim": "Positive and negative lightning Cloud-to-ground (CG) lightning is either positive or negative, as defined by the direction of the conventional electric current between cloud and ground.",
+    "confidence": "strong_evidence",
+    "source_ids": [
+      "S001"
+    ],
+    "status": "supported",
+    "script_scenes": [
+      "scene_01",
+      "scene_02",
+      "scene_03",
+      "scene_04",
+      "scene_05",
+      "scene_06"
+    ],
+    "matched_sentences": [
+      "Positive lightning has also been shown to trigger the occurrence of upward lightning flashes from the tops of tall structures and is largely responsible for the initiation of sprites several tens of kilometers above ground level.",
+      "Positive lightning produces both higher peak currents and longer continuing currents, making them capable of heating surfaces to much higher levels which increases the likelihood of a fire being ignited.",
+      "Most CG lightning is negative, meaning that a negative charge is transferred (electrons flow) downwards to ground along the lightning channel (the conventional current flows from the ground up to the cloud)."
+    ],
+    "traceable": true
+  },
+  {
+    "claim_id": "C047",
+    "claim": "Most CG lightning is negative, meaning that a negative charge is transferred (electrons flow) downwards to ground along the lightning channel (the conventional current flows from the ground up to the cloud).",
+    "confidence": "strong_evidence",
+    "source_ids": [
+      "S001"
+    ],
+    "status": "supported",
+    "script_scenes": [
+      "scene_01",
+      "scene_02",
+      "scene_03",
+      "scene_04",
+      "scene_06",
+      "scene_07"
+    ],
+    "matched_sentences": [
+      "Positive lightning has also been shown to trigger the occurrence of upward lightning flashes from the tops of tall structures and is largely responsible for the initiation of sprites several tens of kilometers above ground level.",
+      "The conductivity of the electrical ground, be it soil, fresh water, or salt water, may affect the lightning discharge rate and thus visible characteristics.",
+      "Most CG lightning is negative, meaning that a negative charge is transferred (electrons flow) downwards to ground along the lightning channel (the conventional current flows from the ground up to the cloud)."
+    ],
+    "traceable": true
+  },
+  {
+    "claim_id": "C008",
+    "claim": "Since lightning involves complex interactions between many atmospheric and in-cloud processes, it is unsurprising that research into that phenomenon continues to generate a wide range of approaches for its prediction.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S007"
+    ],
+    "status": "supported",
+    "script_scenes": [
+      "scene_02",
+      "scene_03",
+      "scene_04",
+      "scene_05",
+      "scene_06",
+      "scene_07"
+    ],
+    "matched_sentences": [
+      "Several past studies have reported on observational findings regarding how charge structures relate to different lightning types over a wide range of convective regimes.",
+      "Positive and negative lightning Cloud-to-ground (CG) lightning is either positive or negative, as defined by the direction of the conventional electric current between cloud and ground.",
+      "According to observations, the energy density contained inside ball lightning can reach 1010 J/m3, and its charge can range from 10−3 to 10−1 C."
+    ],
+    "traceable": true
+  },
+  {
+    "claim_id": "C036",
+    "claim": "We have analyzed very high frequency lightning mapping observations and remote magnetic field measurements to investigate connections between lightning morphology and impulse charge moment change (iCMC) of negative cloud‐to‐ground (CG) strokes with high estimated peak currents.",
+    "confidence": "strong_evidence",
+    "source_ids": [
+      "S028"
+    ],
+    "status": "supported",
+    "script_scenes": [
+      "scene_01",
+      "scene_02",
+      "scene_03",
+      "scene_04",
+      "scene_05",
+      "scene_06"
+    ],
+    "matched_sentences": [
+      "Positive lightning has also been shown to trigger the occurrence of upward lightning flashes from the tops of tall structures and is largely responsible for the initiation of sprites several tens of kilometers above ground level.",
+      "Positive lightning produces both higher peak currents and longer continuing currents, making them capable of heating surfaces to much higher levels which increases the likelihood of a fire being ignited.",
+      "Most CG lightning is negative, meaning that a negative charge is transferred (electrons flow) downwards to ground along the lightning channel (the conventional current flows from the ground up to the cloud)."
+    ],
+    "traceable": true
+  },
+  {
+    "claim_id": "C050",
+    "claim": "We designed, developed, and deployed a distributed sensor network aiming at observing high-energy ionizing radiation, primarily gamma rays, from winter thunderclouds and lightning in coastal areas of Japan.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S009"
+    ],
+    "status": "supported",
+    "script_scenes": [
+      "scene_07",
+      "scene_09",
+      "scene_12"
+    ],
+    "matched_sentences": [
+      "Lightning initiation problem is solved by GRBs that slam into thunderclouds and carve a conductive path through a thunderstorm.",
+      "The VHF Broadband Digital Interferometer developed by Osaka University has been improved to allow continuous sampling over the entire duration of a lightning flash and to utilize a generalized cross-correlation technique for determining the",
+      "We find that the X‐ray/gamma‐ray fluence predicted for lightning leaders propagating inside thunderclouds agrees well with the fluence calculated for TGFs, Three‐dimensional fractal modeling of intracloud lightning discharge in a New Mexico"
+    ],
+    "traceable": true
+  },
+  {
+    "claim_id": "C034",
+    "claim": "The electrification of volcanic ash plumes and the occurrence of volcanic lightning are now known to be common phenomena during explosive volcanic eruptions.",
+    "confidence": "strong_evidence",
+    "source_ids": [
+      "S026"
+    ],
+    "status": "supported",
+    "script_scenes": [
+      "scene_01",
+      "scene_02",
+      "scene_04",
+      "scene_05",
+      "scene_11",
+      "scene_12"
+    ],
+    "matched_sentences": [
+      "The most common occurrence of a lightning event is known as a thunderstorm, though they can also commonly occur in other types of energetic weather systems, such as volcanic eruptions.",
+      "Positive lightning is less common than negative lightning and on average makes up less than 5% of all lightning strikes.",
+      "The remaining fraction, 16% of positive polarity NBEs, according to Wu et Nowcasting lightning occurrence from commonly available meteorological parameters using machine learning techniques."
+    ],
+    "traceable": true
+  },
+  {
+    "claim_id": "C014",
+    "claim": "Lightning initiation problem is solved by GRBs that slam into thunderclouds and carve a conductive path through a thunderstorm.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S017"
+    ],
+    "status": "supported",
+    "script_scenes": [
+      "scene_01",
+      "scene_05",
+      "scene_07",
+      "scene_12"
+    ],
+    "matched_sentences": [
+      "The most common occurrence of a lightning event is known as a thunderstorm, though they can also commonly occur in other types of energetic weather systems, such as volcanic eruptions.",
+      "Despite several different approaches applied to the important problem of lightning nowcasting and early warning generation, the complex processes and large number of parameters involved in the problem lends themselves to the potential appli",
+      "Lightning initiation problem is solved by GRBs that slam into thunderclouds and carve a conductive path through a thunderstorm."
+    ],
+    "traceable": true
+  },
+  {
+    "claim_id": "C049",
+    "claim": "About 25% of all lightning events worldwide are strikes between the atmosphere and earth-bound objects.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S002"
+    ],
+    "status": "supported",
+    "script_scenes": [
+      "scene_02",
+      "scene_03",
+      "scene_05",
+      "scene_06",
+      "scene_07",
+      "scene_10"
+    ],
+    "matched_sentences": [
+      "Positive lightning is less common than negative lightning and on average makes up less than 5% of all lightning strikes.",
+      "Positive and negative lightning Cloud-to-ground (CG) lightning is either positive or negative, as defined by the direction of the conventional electric current between cloud and ground.",
+      "Since lightning involves complex interactions between many atmospheric and in-cloud processes, it is unsurprising that research into that phenomenon continues to generate a wide range of approaches for its prediction."
+    ],
+    "traceable": true
+  },
+  {
+    "claim_id": "C002",
+    "claim": "Recent experimental evidence has correlated IBPs to the initial development of lightning leaders inside the thundercloud.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S006"
+    ],
+    "status": "supported",
+    "script_scenes": [
+      "scene_04",
+      "scene_06",
+      "scene_07",
+      "scene_08",
+      "scene_10",
+      "scene_12"
+    ],
+    "matched_sentences": [
+      "According to observations, the energy density contained inside ball lightning can reach 1010 J/m3, and its charge can range from 10−3 to 10−1 C.",
+      "A more specific hypothesis, which has been supported by past observational and laboratory charging studies, suggests that broad, strong updrafts and associated large liquid water contents in severe storms lead to the generation of an invert",
+      "Witnesses often report seeing moving sparks about one millimeter in size inside the ball lightning shell."
+    ],
+    "traceable": true
+  },
+  {
+    "claim_id": "C015",
+    "claim": "A summary is given of information on atmospheric electrical discharges to aircraft and associated meteorological conditions.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S019"
+    ],
+    "status": "supported",
+    "script_scenes": [
+      "scene_06",
+      "scene_07",
+      "scene_12"
+    ],
+    "matched_sentences": [
+      "A more specific hypothesis, which has been supported by past observational and laboratory charging studies, suggests that broad, strong updrafts and associated large liquid water contents in severe storms lead to the generation of an invert",
+      "A key challenge is in the interpretation of electrical or magnetic signatures claimed to be whistler-mode emissions from lightning discharges.",
+      "A more specific hypothesis, which has been supported by past observational and laboratory charging studies, suggests that broad, strong updrafts and associated large liquid water contents in severe storms lead to the generation of an invert"
+    ],
+    "traceable": true
+  },
+  {
+    "claim_id": "C038",
+    "claim": "The VHF Broadband Digital Interferometer developed by Osaka University has been improved to allow continuous sampling over the entire duration of a lightning flash and to utilize a generalized cross-correlation technique for determining the lightning source directions.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S029"
+    ],
+    "status": "supported",
+    "script_scenes": [
+      "scene_03",
+      "scene_04",
+      "scene_07",
+      "scene_09"
+    ],
+    "matched_sentences": [
+      "The reverse happens in a positive CG flash, where electrons travel upward along the lightning channel, while also a positive charge is transferred downward to the ground (the conventional current travels from cloud to ground).",
+      "Apart from lightning diagnostic schemes producing bulk flash metrics such as average lightning activity with useful skill up to several days forecast, some studies have focused on assessment of the lightning threat in the very near future a",
+      "Lightning influences the global atmospheric electrical circuit and atmospheric chemistry and is a natural ignition source of wildfires."
+    ],
+    "traceable": true
+  },
+  {
+    "claim_id": "C041",
+    "claim": "Possible sites of electro-optical activity are noted—eolian and volcanic discharges near the surface, convective lightning in the cloud layer, and possible transient luminous events like sprites in the mesosphere.",
+    "confidence": "strong_evidence",
+    "source_ids": [
+      "S030"
+    ],
+    "status": "supported",
+    "script_scenes": [
+      "scene_01",
+      "scene_02",
+      "scene_03",
+      "scene_04",
+      "scene_05",
+      "scene_06"
+    ],
+    "matched_sentences": [
+      "The most common occurrence of a lightning event is known as a thunderstorm, though they can also commonly occur in other types of energetic weather systems, such as volcanic eruptions.",
+      "Several past studies have reported on observational findings regarding how charge structures relate to different lightning types over a wide range of convective regimes.",
+      "Most CG lightning is negative, meaning that a negative charge is transferred (electrons flow) downwards to ground along the lightning channel (the conventional current flows from the ground up to the cloud)."
+    ],
+    "traceable": true
+  },
+  {
+    "claim_id": "C051",
+    "claim": "In this period, our system recorded 51 gamma-ray radiation events from thundercloud and lightning.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S009"
+    ],
+    "status": "supported",
+    "script_scenes": [
+      "scene_02",
+      "scene_06",
+      "scene_09",
+      "scene_10",
+      "scene_12"
+    ],
+    "matched_sentences": [
+      "Possible sites of electro-optical activity are noted—eolian and volcanic discharges near the surface, convective lightning in the cloud layer, and possible transient luminous events like sprites in the mesosphere.",
+      "A more specific hypothesis, which has been supported by past observational and laboratory charging studies, suggests that broad, strong updrafts and associated large liquid water contents in severe storms lead to the generation of an invert",
+      "The system is able to provide lightning activity potential and warning products for the upcoming 0–1 h."
+    ],
+    "traceable": true
+  },
+  {
+    "claim_id": "C052",
+    "claim": "Electric currents circulating between charged clouds and the earth surface during lightning discharges are responsible for considerable damages and casualties.",
+    "confidence": "strong_evidence",
+    "source_ids": [
+      "S010"
+    ],
+    "status": "supported",
+    "script_scenes": [
+      "scene_01",
+      "scene_02",
+      "scene_03",
+      "scene_04",
+      "scene_05",
+      "scene_06"
+    ],
+    "matched_sentences": [
+      "Positive lightning has also been shown to trigger the occurrence of upward lightning flashes from the tops of tall structures and is largely responsible for the initiation of sprites several tens of kilometers above ground level.",
+      "Positive lightning produces both higher peak currents and longer continuing currents, making them capable of heating surfaces to much higher levels which increases the likelihood of a fire being ignited.",
+      "Positive and negative lightning Cloud-to-ground (CG) lightning is either positive or negative, as defined by the direction of the conventional electric current between cloud and ground."
+    ],
+    "traceable": true
+  },
+  {
+    "claim_id": "C007",
+    "claim": "Based on the reports for 1023 fatalities associated with natural hazard processes in Switzerland during the period from 1946 to 2015, more than 16% of the cases were caused by lightning, making it the second most frequent cause of loss of life among the natural hazards in Switzerland.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S007"
+    ],
+    "status": "supported",
+    "script_scenes": [
+      "scene_02",
+      "scene_04",
+      "scene_05",
+      "scene_06",
+      "scene_07",
+      "scene_08"
+    ],
+    "matched_sentences": [
+      "Positive lightning produces both higher peak currents and longer continuing currents, making them capable of heating surfaces to much higher levels which increases the likelihood of a fire being ignited.",
+      "Hybrid AI-enhanced lightning flash prediction in the medium-range forecast horizon A physics-guided machine learning framework for enhancing dust storm visibility prediction in arid and semi-arid regions Lightning nowcasting with aerosol-in",
+      "Since lightning involves complex interactions between many atmospheric and in-cloud processes, it is unsurprising that research into that phenomenon continues to generate a wide range of approaches for its prediction."
+    ],
+    "traceable": true
+  },
+  {
+    "claim_id": "C019",
+    "claim": "Lightning was considered to be the second cause of death making natural disasters after flashfloods but preventive measures have slithered it down to the third place in developed countries.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S020"
+    ],
+    "status": "supported",
+    "script_scenes": [
+      "scene_02",
+      "scene_04",
+      "scene_05",
+      "scene_07",
+      "scene_08",
+      "scene_09"
+    ],
+    "matched_sentences": [
+      "Positive lightning produces both higher peak currents and longer continuing currents, making them capable of heating surfaces to much higher levels which increases the likelihood of a fire being ignited.",
+      "Hybrid AI-enhanced lightning flash prediction in the medium-range forecast horizon A physics-guided machine learning framework for enhancing dust storm visibility prediction in arid and semi-arid regions Lightning nowcasting with aerosol-in",
+      "Many other observational variants are recognized, including: volcanic lightning, which can occur during volcanic eruptions; \"heat lightning\", which can be seen from a great distance but not heard; dry lightning, which can cause forest fires"
+    ],
+    "traceable": true
+  },
+  {
+    "claim_id": "C013",
+    "claim": "The effectiveness of the lightning interception and protection measures is tested with different high-voltage waveforms and representative high-current pulses.",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S016"
+    ],
+    "status": "supported",
+    "script_scenes": [
+      "scene_02",
+      "scene_05",
+      "scene_06",
+      "scene_09",
+      "scene_11",
+      "scene_12"
+    ],
+    "matched_sentences": [
+      "Several past studies have reported on observational findings regarding how charge structures relate to different lightning types over a wide range of convective regimes.",
+      "Despite several different approaches applied to the important problem of lightning nowcasting and early warning generation, the complex processes and large number of parameters involved in the problem lends themselves to the potential appli",
+      "A more specific hypothesis, which has been supported by past observational and laboratory charging studies, suggests that broad, strong updrafts and associated large liquid water contents in severe storms lead to the generation of an invert"
+    ],
+    "traceable": true
+  },
+  {
+    "claim_id": "C009",
+    "claim": "The model also improves upon three competitive baselines for generating lightning warnings: (i) a simple but objective baseline forecast, based on the persistence method, (ii) the widely-used method based on a threshold of the vertical electrostatic field magnitude at ground level, and, finally (iii",
+    "confidence": "limited_evidence",
+    "source_ids": [
+      "S007"
+    ],
+    "status": "supported",
+    "script_scenes": [
+      "scene_01",
+      "scene_02",
+      "scene_03",
+      "scene_04",
+      "scene_07",
+      "scene_08"
+    ],
+    "matched_sentences": [
+      "Positive lightning has also been shown to trigger the occurrence of upward lightning flashes from the tops of tall structures and is largely responsible for the initiation of sprites several tens of kilometers above ground level.",
+      "The conductivity of the electrical ground, be it soil, fresh water, or salt water, may affect the lightning discharge rate and thus visible characteristics.",
+      "Most CG lightning is negative, meaning that a negative charge is transferred (electrons flow) downwards to ground along the lightning channel (the conventional current flows from the ground up to the cloud)."
+    ],
+    "traceable": true
+  }
+]

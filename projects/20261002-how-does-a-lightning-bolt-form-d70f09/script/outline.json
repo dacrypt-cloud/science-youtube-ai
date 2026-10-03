@@ -1,0 +1,109 @@
+{
+  "structure": "journey_process",
+  "beats": [
+    "Hook: follow the journey",
+    "Stage 1",
+    "Stage 2",
+    "Stage 3",
+    "Stage 4",
+    "Where it ends / why it matters"
+  ],
+  "outline": [
+    {
+      "beat": "Hook: follow the journey",
+      "claim_ids": [
+        "C001",
+        "C002",
+        "C003",
+        "C004",
+        "C005",
+        "C006",
+        "C007"
+      ],
+      "chain_points": [
+        "How does a lightning bolt form, and what actually happens inside a thundercloud before lightning strikes?",
+        "Using recent X‐ray and gamma‐ray observations of terrestrial gamma‐ray flashes (TGFs) from spacecraft and of natural and rocket‐triggered lightning from the ground, along with detailed models of energetic particle transport, we calculate the fluence (integrated flux) of high‐energy (million electronvolt) electrons, X rays, and gamma rays likely to be produced inside or near thunderclouds in high electric field regions"
+      ]
+    },
+    {
+      "beat": "Stage 1",
+      "claim_ids": [
+        "C008",
+        "C009",
+        "C010",
+        "C011",
+        "C012",
+        "C013",
+        "C014"
+      ],
+      "chain_points": [
+        "Using recent X‐ray and gamma‐ray observations of terrestrial gamma‐ray flashes (TGFs) from spacecraft and of natural and rocket‐triggered lightning from the ground, along with detailed models of energetic particle transport, we calculate the fluence (integrated flux) of high‐energy (million electronvolt) electrons, X rays, and gamma rays likely to be produced inside or near thunderclouds in high electric field regions",
+        "The direct comparison of lightning mapping observations by the New Mexico Tech Lightning Mapping Array (LMA) with realistic models of thundercloud electrical structures and lightning discharges represents a useful tool for studies of electrification mechanisms in thunderstorms, initiation and propagation mechanisms of different types of lightning discharges as well as for understanding of electrical and energetic effects of tropospheric thunderstorms on the upper regions of the Earth's atmosphere"
+      ]
+    },
+    {
+      "beat": "Stage 2",
+      "claim_ids": [
+        "C015",
+        "C016",
+        "C017",
+        "C018",
+        "C019",
+        "C020",
+        "C021"
+      ],
+      "chain_points": [
+        "The direct comparison of lightning mapping observations by the New Mexico Tech Lightning Mapping Array (LMA) with realistic models of thundercloud electrical structures and lightning discharges represents a useful tool for studies of electrification mechanisms in thunderstorms, initiation and propagation mechanisms of different types of lightning discharges as well as for understanding of electrical and energetic effects of tropospheric thunderstorms on the upper regions of the Earth's atmosphere",
+        "It is by now well understood that large sprite discharges at the low air densities of the mesosphere are physically similar to small streamer discharges in air at standard temperature and pressure"
+      ]
+    },
+    {
+      "beat": "Stage 3",
+      "claim_ids": [
+        "C022",
+        "C023",
+        "C024",
+        "C025",
+        "C026",
+        "C027",
+        "C028"
+      ],
+      "chain_points": [
+        "It is by now well understood that large sprite discharges at the low air densities of the mesosphere are physically similar to small streamer discharges in air at standard temperature and pressure",
+        "This similarity is based on Townsend scaling with air density"
+      ]
+    },
+    {
+      "beat": "Stage 4",
+      "claim_ids": [
+        "C029",
+        "C030",
+        "C031",
+        "C032",
+        "C033",
+        "C034",
+        "C035"
+      ],
+      "chain_points": [
+        "This similarity is based on Townsend scaling with air density",
+        "Abstract In this study, it is hypothesized that the mesoscale environment can indirectly control the cloud-to-ground (CG) lightning polarity of severe storms by directly affecting their structural, dynamical, and microphysical properties, which in turn directly control cloud electrification and ground flash polarity"
+      ]
+    },
+    {
+      "beat": "Where it ends / why it matters",
+      "claim_ids": [
+        "C036",
+        "C037",
+        "C038",
+        "C039",
+        "C040",
+        "C041",
+        "C042"
+      ],
+      "chain_points": [
+        "Abstract In this study, it is hypothesized that the mesoscale environment can indirectly control the cloud-to-ground (CG) lightning polarity of severe storms by directly affecting their structural, dynamical, and microphysical properties, which in turn directly control cloud electrification and ground flash polarity",
+        "Abstract To date the true nature of initial breakdown pulses (IBPs) and narrow bipolar events (NBEs) in lightning discharges remains a mystery"
+      ]
+    }
+  ]
+}

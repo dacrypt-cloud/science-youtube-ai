@@ -8,12 +8,16 @@ BANNED_HYPE = [
     "100% effective", "definitely causes", "definitely cures", "instantly",
 ]
 ABSOLUTE_RE = re.compile(r"\b(always|never|all scientists|everyone knows|proven that)\b", re.I)
-NUMBER_RE = re.compile(r"\b\d+(?:\.\d+)?\s*(?:%|percent|million|billion|thousand|km|kg|°C|degrees)\b")
+NUMBER_RE = re.compile(r"\b[\d,]+(?:\.\d+)?\s*(?:%|percent|million|billion|thousand|km|kg|°C|°F|degrees)\b")
+
+
+def _norm_num(n: str) -> str:
+    return n.lower().replace(",", "").replace(" ", "")
 
 
 def factcheck_script(script_text: str, claims: list[dict], stack=None) -> dict:
     issues: list[dict] = []
-    claim_texts = [c["claim"].lower() for c in claims]
+    claim_blob = _norm_num(" ".join(c["claim"] for c in claims))
     sentences = re.split(r"(?<=[.!?])\s+", script_text)
     for i, s in enumerate(sentences):
         sl = s.lower().strip()
@@ -25,12 +29,12 @@ def factcheck_script(script_text: str, claims: list[dict], stack=None) -> dict:
                                "fix": f"Remove/soften '{hype}' — not supported by evidence language."})
         if ABSOLUTE_RE.search(s):
             # allow if clearly supported by an established claim
-            if not any("always" in c or "never" in c for c in claim_texts):
+            if "always" not in claim_blob and "never" not in claim_blob:
                 issues.append({"type": "absolute", "sentence": s[:220],
                                "fix": "Soften absolute ('always/never/proven') unless an established claim backs it."})
         if NUMBER_RE.search(s):
             nums = NUMBER_RE.findall(s)
-            if not any(n.lower() in " ".join(claim_texts) for n in nums):
+            if not any(_norm_num(n) in claim_blob for n in nums):
                 issues.append({"type": "number_unverified", "sentence": s[:220],
                                "fix": f"Verify numbers {nums} against sources or remove."})
     # coverage: every scene-critical claim should appear; flag orphan high-confidence claims

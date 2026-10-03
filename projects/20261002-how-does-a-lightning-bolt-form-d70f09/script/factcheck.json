@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "issues": [],
+  "orphan_claims": [
+    "C004",
+    "C016",
+    "C017"
+  ],
+  "llm_notes": [],
+  "sentences_checked": 87
+}

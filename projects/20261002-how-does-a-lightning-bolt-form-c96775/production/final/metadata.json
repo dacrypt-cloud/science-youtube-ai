@@ -1,0 +1,91 @@
+{
+  "titles": [
+    "How does a lightning bolt form, and what actually happens inside a thundercloud before lightning strikes — Explained with Evidence",
+    "The Science of How does a lightning bolt form, and what actually happens in",
+    "How does a lightning bolt form, and what actually happens inside a thundercloud before lightning strikes? What the Research Shows"
+  ],
+  "description": "How does a lightning bolt form, and what actually happens inside a thundercloud before lightning strikes?\n\nA deeply researched science explainer. Every major claim is traced to sources below.\n\nCHAPTERS:\n00:00 — Hook: follow the journey\n00:53 — Hook: follow the journey — part 2\n02:01 — Stage 1\n02:58 — Stage 1 — part 2\n04:10 — Stage 2\n05:13 — Stage 2 — part 2\n06:11 — Stage 3\n07:17 — Stage 3 — part 2\n08:30 — Stage 4\n09:42 — Stage 4 — part 2\n10:48 — Where it ends / why it matters\n11:17 — Where it ends / why it matters — part 2\n\nSOURCES & FURTHER READING:\n[S001] Lightning — https://en.wikipedia.org/wiki/Lightning\n[S002] Lightning strike — https://en.wikipedia.org/wiki/Lightning_strike\n[S003] Estimation of the fluence of high‐energy electron bursts produced by thunderclouds and the resulting radiation doses received in aircraft — https://doi.org/10.1029/2009jd012039\n[S006] Physical mechanism of initial breakdown pulses and narrow bipolar events in lightning discharges — https://doi.org/10.1002/2015jd023209\n[S007] Nowcasting lightning occurrence from commonly available meteorological parameters using machine learning techniques — https://doi.org/10.1038/s41612-019-0098-0\n[S009] Thundercloud Project: Exploring high-energy phenomena in thundercloud and lightning — http://arxiv.org/abs/2007.13618v1\n[S010] Laser-guided lightning — http://arxiv.org/abs/2207.03769v2\n[S016] Protection of Aircraft Radomes against Direct Lightning Strikes—An Overview — https://doi.org/10.3390/atmos12091141\n[S017] High-Energy Atmospheric Physics: Ball Lightning — https://doi.org/10.4236/jhepgc.2019.52020\n[S019] Lightning Discharges to Aircraft and Associated Meteorological Conditions — https://openalex.org/W600326372\n[S020] Lightning Interactions with Humans and Lifelines — https://doi.org/10.2174/1652803420131029001\n[S026] A review of volcanic electrification of the atmosphere and volcanic lightning — https://doi.org/10.1016/j.jvolgeores.2021.107449\n[S028] Lightning morphology and impulse charge moment change of high peak current negative strokes — https://doi.org/10.1029/2011jd016890\n[S029] Continuous broadband digital interferometry of lightning using a generalized cross-correlation algorithm — https://doi.org/10.1002/2013jd020217\n[S030] Lightning detection on Venus: a critical review — https://doi.org/10.1186/s40645-018-0181-x\n\nVOICES/MEDIA: narration via free TTS; visuals: Wikimedia Commons / Pexels / Pixabay / project-generated diagrams (see credits file).\nUncertainty is stated where the evidence is limited — see claims file.",
+  "chapters": [
+    {
+      "at_s": 0,
+      "at": "00:00",
+      "title": "Hook: follow the journey"
+    },
+    {
+      "at_s": 53,
+      "at": "00:53",
+      "title": "Hook: follow the journey — part 2"
+    },
+    {
+      "at_s": 121,
+      "at": "02:01",
+      "title": "Stage 1"
+    },
+    {
+      "at_s": 178,
+      "at": "02:58",
+      "title": "Stage 1 — part 2"
+    },
+    {
+      "at_s": 250,
+      "at": "04:10",
+      "title": "Stage 2"
+    },
+    {
+      "at_s": 313,
+      "at": "05:13",
+      "title": "Stage 2 — part 2"
+    },
+    {
+      "at_s": 371,
+      "at": "06:11",
+      "title": "Stage 3"
+    },
+    {
+      "at_s": 437,
+      "at": "07:17",
+      "title": "Stage 3 — part 2"
+    },
+    {
+      "at_s": 510,
+      "at": "08:30",
+      "title": "Stage 4"
+    },
+    {
+      "at_s": 582,
+      "at": "09:42",
+      "title": "Stage 4 — part 2"
+    },
+    {
+      "at_s": 648,
+      "at": "10:48",
+      "title": "Where it ends / why it matters"
+    },
+    {
+      "at_s": 677,
+      "at": "11:17",
+      "title": "Where it ends / why it matters — part 2"
+    }
+  ],
+  "tags": [
+    "How",
+    "does",
+    "a",
+    "lightning",
+    "bolt",
+    "form,",
+    "and",
+    "what",
+    "actually",
+    "happens",
+    "inside",
+    "thundercloud",
+    "before",
+    "strikes",
+    "science"
+  ],
+  "hashtags": "#science #explained #research",
+  "duration_s": 748.2719999999999,
+  "sources_count": 30,
+  "claims_count": 24
+}

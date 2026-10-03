@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#0a1420"/>
+<rect x="0" y="0" width="1920" height="200" fill="#0d1b2e"/>
+<text x="80" y="100" font-family="sans-serif" font-size="64" font-weight="bold" fill="#e8f1ff">Where it ends / why it matters</text>
+<text x="80" y="160" font-family="sans-serif" font-size="34" fill="#4fc3f7">Zooming in — scale by scale</text>
+<defs><marker id="a" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L12,5 L0,10 z" fill="#4fc3f7"/></marker></defs>
+<rect x="90" y="420" width="300" height="220" rx="18" fill="#12263f" stroke="#4fc3f7" stroke-width="3"/>
+<text x="110" y="480" font-family="sans-serif" font-size="30" font-weight="bold" fill="#ffb74d">1</text>
+<text x="110" y="530" font-family="sans-serif" font-size="26" fill="#e8f1ff">The electroactive region is modeled</text>
+<text x="110" y="570" font-family="sans-serif" font-size="26" fill="#e8f1ff">here as a quantum</text>
+<line x1="396" y1="530" x2="444" y2="530" stroke="#4fc3f7" stroke-width="5" marker-end="url(#a)"/>
+<rect x="450" y="420" width="300" height="220" rx="18" fill="#12263f" stroke="#4fc3f7" stroke-width="3"/>
+<text x="470" y="480" font-family="sans-serif" font-size="30" font-weight="bold" fill="#ffb74d">2</text>
+<text x="470" y="530" font-family="sans-serif" font-size="26" fill="#e8f1ff">We benchmark the performance of</text>
+<text x="470" y="570" font-family="sans-serif" font-size="26" fill="#e8f1ff">Lightning with backends supporting</text>
+<line x1="756" y1="530" x2="804" y2="530" stroke="#4fc3f7" stroke-width="5" marker-end="url(#a)"/>
+<rect x="810" y="420" width="300" height="220" rx="18" fill="#12263f" stroke="#4fc3f7" stroke-width="3"/>
+<text x="830" y="480" font-family="sans-serif" font-size="30" font-weight="bold" fill="#ffb74d">3</text>
+<text x="830" y="530" font-family="sans-serif" font-size="26" fill="#e8f1ff">19 On the other hand,</text>
+<text x="830" y="570" font-family="sans-serif" font-size="26" fill="#e8f1ff">some studies employ a</text>
+<line x1="1116" y1="530" x2="1164" y2="530" stroke="#4fc3f7" stroke-width="5" marker-end="url(#a)"/>
+<rect x="1170" y="420" width="300" height="220" rx="18" fill="#12263f" stroke="#4fc3f7" stroke-width="3"/>
+<text x="1190" y="480" font-family="sans-serif" font-size="30" font-weight="bold" fill="#ffb74d">4</text>
+<text x="1190" y="530" font-family="sans-serif" font-size="26" fill="#e8f1ff">26 implemented a dynamic forecast</text>
+<text x="1190" y="570" font-family="sans-serif" font-size="26" fill="#e8f1ff">scheme for both cloud-to-ground</text>
+<line x1="1476" y1="530" x2="1524" y2="530" stroke="#4fc3f7" stroke-width="5" marker-end="url(#a)"/>
+<rect x="1530" y="420" width="300" height="220" rx="18" fill="#12263f" stroke="#4fc3f7" stroke-width="3"/>
+<text x="1550" y="480" font-family="sans-serif" font-size="30" font-weight="bold" fill="#ffb74d">5</text>
+<text x="1550" y="530" font-family="sans-serif" font-size="26" fill="#e8f1ff">27 used the product of</text>
+<text x="1550" y="570" font-family="sans-serif" font-size="26" fill="#e8f1ff">convective available potential energy</text>
+<text x="80" y="1040" font-family="sans-serif" font-size="24" fill="#5b7a99">science-youtube-ai · diagram generated from verified research</text>
+</svg>

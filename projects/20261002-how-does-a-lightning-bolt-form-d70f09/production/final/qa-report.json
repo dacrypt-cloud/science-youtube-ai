@@ -1,0 +1,144 @@
+{
+  "status": "fail",
+  "checks": [
+    {
+      "name": "claims_have_sources",
+      "ok": true,
+      "detail": "47 claims traced",
+      "repaired": ""
+    },
+    {
+      "name": "assets_exist",
+      "ok": true,
+      "detail": "13 assets ok",
+      "repaired": ""
+    },
+    {
+      "name": "narration_exist",
+      "ok": true,
+      "detail": "12 scenes narrated",
+      "repaired": ""
+    },
+    {
+      "name": "narration_duration",
+      "ok": true,
+      "detail": "total narration 1014s",
+      "repaired": ""
+    },
+    {
+      "name": "subtitles_exist",
+      "ok": true,
+      "detail": "projects/20261002-how-does-a-lightning-bolt-form-d70f09/production/subtitles/subtitles.srt",
+      "repaired": ""
+    },
+    {
+      "name": "video_exists",
+      "ok": true,
+      "detail": "projects/20261002-how-does-a-lightning-bolt-form-d70f09/production/final/final.mp4 (32.0 MB)",
+      "repaired": ""
+    },
+    {
+      "name": "video_duration_match",
+      "ok": true,
+      "detail": "video 1014s vs narration 1014s",
+      "repaired": ""
+    },
+    {
+      "name": "scenes_nonempty",
+      "ok": true,
+      "detail": "12 scenes",
+      "repaired": ""
+    },
+    {
+      "name": "aspect_16x9",
+      "ok": true,
+      "detail": "renderer fixed 16:9 (1920x1080 default)",
+      "repaired": ""
+    },
+    {
+      "name": "real_voices",
+      "ok": true,
+      "detail": "all scenes voiced by TTS",
+      "repaired": ""
+    },
+    {
+      "name": "pacing",
+      "ok": true,
+      "detail": "avg scene 84s",
+      "repaired": ""
+    },
+    {
+      "name": "repetition",
+      "ok": true,
+      "detail": "top trigram ('machine learning techniques', 4)",
+      "repaired": ""
+    },
+    {
+      "name": "resolution_1080p",
+      "ok": false,
+      "detail": "NonexNone @ 30.0fps",
+      "repaired": ""
+    },
+    {
+      "name": "codec_compatible",
+      "ok": false,
+      "detail": "v:None a:aac",
+      "repaired": ""
+    },
+    {
+      "name": "no_black_frames",
+      "ok": true,
+      "detail": "0 black segments >=0.5s",
+      "repaired": ""
+    },
+    {
+      "name": "thumbnail_valid",
+      "ok": true,
+      "detail": "1280x720",
+      "repaired": ""
+    },
+    {
+      "name": "metadata_complete",
+      "ok": true,
+      "detail": "3 titles, 12/12 chapters, 3885 desc chars",
+      "repaired": ""
+    },
+    {
+      "name": "visual_narration_traceable",
+      "ok": true,
+      "detail": "12/12 scenes carry sourced claims",
+      "repaired": ""
+    },
+    {
+      "name": "subtitle_timing",
+      "ok": true,
+      "detail": "last cue ends 1013s vs narration 1014s (208 cues)",
+      "repaired": ""
+    },
+    {
+      "name": "subtitle_readability",
+      "ok": true,
+      "detail": "longest cue line 42 chars",
+      "repaired": ""
+    },
+    {
+      "name": "min_scene_length",
+      "ok": true,
+      "detail": "all 12 scenes >= 8s",
+      "repaired": ""
+    },
+    {
+      "name": "duration_in_target",
+      "ok": false,
+      "detail": "video 1014s vs target 720-900s",
+      "repaired": ""
+    }
+  ],
+  "video_duration_s": 1013.61,
+  "narration_total_s": 1013.664,
+  "failed": [
+    "resolution_1080p",
+    "codec_compatible",
+    "duration_in_target"
+  ]
+}
