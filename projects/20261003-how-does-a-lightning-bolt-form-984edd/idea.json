@@ -1,0 +1,291 @@
+{
+  "project_id": "20261003-how-does-a-lightning-bolt-form-984edd",
+  "idea": "How does a lightning bolt form, and what actually happens inside a thundercloud before lightning strikes?",
+  "instructions": "Documentary explainer for a general audience aged 15-35. Open with a visual mystery, progressively reveal the hidden mechanism inside the cloud, close with what remains unknown.",
+  "duration": "12-15",
+  "mode": "autonomous",
+  "state": "READY",
+  "created_at": "2026-10-03T00:10:06.239644+00:00",
+  "updated_at": "2026-10-30T19:21:07.655494+00:00",
+  "history": [
+    {
+      "state": "IDEA",
+      "at": "2026-10-03T00:10:06.239644+00:00"
+    },
+    {
+      "state": "RESEARCHING",
+      "at": "2026-10-03T00:10:06.405949+00:00",
+      "note": ""
+    },
+    {
+      "state": "RESEARCH_COMPLETE",
+      "at": "2026-10-03T00:10:07.121662+00:00",
+      "note": "30 sources, 24 claims"
+    },
+    {
+      "state": "OUTLINING",
+      "at": "2026-10-03T00:10:07.121979+00:00",
+      "note": ""
+    },
+    {
+      "state": "SCRIPTING",
+      "at": "2026-10-03T00:10:07.123924+00:00",
+      "note": ""
+    },
+    {
+      "state": "FACT_CHECKING",
+      "at": "2026-10-03T00:10:07.369681+00:00",
+      "note": ""
+    },
+    {
+      "state": "VISUAL_PLANNING",
+      "at": "2026-10-03T00:10:07.375759+00:00",
+      "note": ""
+    },
+    {
+      "state": "ASSET_COLLECTION",
+      "at": "2026-10-03T00:10:07.380342+00:00",
+      "note": ""
+    },
+    {
+      "state": "ASSET_COLLECTION",
+      "at": "2026-10-03T08:22:41.765570+00:00",
+      "note": ""
+    },
+    {
+      "state": "NARRATION",
+      "at": "2026-10-03T08:22:46.714124+00:00",
+      "note": ""
+    },
+    {
+      "state": "RENDERING",
+      "at": "2026-10-03T08:22:47.571824+00:00",
+      "note": ""
+    },
+    {
+      "state": "FAILED",
+      "at": "2026-10-03T08:22:47.579203+00:00",
+      "note": "no ffmpeg available: No module named 'imageio_ffmpeg'"
+    },
+    {
+      "state": "NARRATION",
+      "at": "2026-10-03T08:25:46.642428+00:00",
+      "note": ""
+    },
+    {
+      "state": "RENDERING",
+      "at": "2026-10-03T08:26:01.938311+00:00",
+      "note": ""
+    },
+    {
+      "state": "QA",
+      "at": "2026-10-03T08:36:58.266718+00:00",
+      "note": ""
+    },
+    {
+      "state": "READY",
+      "at": "2026-10-03T08:37:48.988474+00:00",
+      "note": "QA review"
+    },
+    {
+      "state": "SCRIPTING",
+      "at": "2026-10-03T08:39:36.509665+00:00",
+      "note": "polish pass: regenerate script+downstream with headless-sentence + title-card + QA-production fixes"
+    },
+    {
+      "state": "OUTLINING",
+      "at": "2026-10-03T08:39:43.345337+00:00",
+      "note": ""
+    },
+    {
+      "state": "SCRIPTING",
+      "at": "2026-10-03T08:39:43.348660+00:00",
+      "note": ""
+    },
+    {
+      "state": "FACT_CHECKING",
+      "at": "2026-10-03T08:39:43.620165+00:00",
+      "note": ""
+    },
+    {
+      "state": "VISUAL_PLANNING",
+      "at": "2026-10-03T08:39:43.632905+00:00",
+      "note": ""
+    },
+    {
+      "state": "ASSET_COLLECTION",
+      "at": "2026-10-03T08:39:43.639199+00:00",
+      "note": ""
+    },
+    {
+      "state": "NARRATION",
+      "at": "2026-10-03T08:39:51.405890+00:00",
+      "note": ""
+    },
+    {
+      "state": "RENDERING",
+      "at": "2026-10-03T08:40:30.020882+00:00",
+      "note": ""
+    },
+    {
+      "state": "QA",
+      "at": "2026-10-03T08:51:08.624575+00:00",
+      "note": ""
+    },
+    {
+      "state": "READY",
+      "at": "2026-10-03T08:51:56.193080+00:00",
+      "note": "QA pass"
+    },
+    {
+      "state": "ASSET_COLLECTION",
+      "at": "2026-10-03T09:02:17.141615+00:00",
+      "note": ""
+    },
+    {
+      "state": "ASSET_COLLECTION",
+      "at": "2026-10-03T09:02:20.617187+00:00",
+      "note": ""
+    },
+    {
+      "state": "NARRATION",
+      "at": "2026-10-03T09:02:26.527589+00:00",
+      "note": ""
+    },
+    {
+      "state": "RENDERING",
+      "at": "2026-10-03T09:02:26.541341+00:00",
+      "note": ""
+    },
+    {
+      "state": "QA",
+      "at": "2026-10-03T09:12:39.130328+00:00",
+      "note": ""
+    },
+    {
+      "state": "READY",
+      "at": "2026-10-03T09:13:25.851070+00:00",
+      "note": "QA pass"
+    },
+    {
+      "state": "ASSET_COLLECTION",
+      "at": "2026-10-03T09:15:25.449171+00:00",
+      "note": ""
+    },
+    {
+      "state": "ASSET_COLLECTION",
+      "at": "2026-10-03T09:15:25.617469+00:00",
+      "note": ""
+    },
+    {
+      "state": "NARRATION",
+      "at": "2026-10-03T09:15:27.151976+00:00",
+      "note": ""
+    },
+    {
+      "state": "RENDERING",
+      "at": "2026-10-03T09:15:27.178495+00:00",
+      "note": ""
+    },
+    {
+      "state": "QA",
+      "at": "2026-10-03T09:25:42.676658+00:00",
+      "note": ""
+    },
+    {
+      "state": "READY",
+      "at": "2026-10-03T09:26:31.851261+00:00",
+      "note": "QA review"
+    },
+    {
+      "state": "ASSET_COLLECTION",
+      "at": "2026-10-03T09:31:19.187099+00:00",
+      "note": ""
+    },
+    {
+      "state": "ASSET_COLLECTION",
+      "at": "2026-10-03T09:31:19.330253+00:00",
+      "note": ""
+    },
+    {
+      "state": "NARRATION",
+      "at": "2026-10-03T09:31:20.788373+00:00",
+      "note": ""
+    },
+    {
+      "state": "RENDERING",
+      "at": "2026-10-03T09:31:20.802672+00:00",
+      "note": ""
+    },
+    {
+      "state": "QA",
+      "at": "2026-10-03T09:41:54.908656+00:00",
+      "note": ""
+    },
+    {
+      "state": "READY",
+      "at": "2026-10-03T09:42:44.815496+00:00",
+      "note": "QA pass"
+    },
+    {
+      "state": "ASSET_COLLECTION",
+      "at": "2026-10-03T09:46:03.585068+00:00",
+      "note": ""
+    },
+    {
+      "state": "ASSET_COLLECTION",
+      "at": "2026-10-03T09:46:08.731605+00:00",
+      "note": ""
+    },
+    {
+      "state": "NARRATION",
+      "at": "2026-10-03T09:46:10.460609+00:00",
+      "note": ""
+    },
+    {
+      "state": "RENDERING",
+      "at": "2026-10-03T09:46:10.477159+00:00",
+      "note": ""
+    },
+    {
+      "state": "QA",
+      "at": "2026-10-03T09:56:38.869903+00:00",
+      "note": ""
+    },
+    {
+      "state": "READY",
+      "at": "2026-10-03T09:57:32.782731+00:00",
+      "note": "QA pass"
+    },
+    {
+      "state": "ASSET_COLLECTION",
+      "at": "2026-10-30T19:13:42.566023+00:00",
+      "note": ""
+    },
+    {
+      "state": "ASSET_COLLECTION",
+      "at": "2026-10-30T19:16:01.098860+00:00",
+      "note": ""
+    },
+    {
+      "state": "NARRATION",
+      "at": "2026-10-30T19:16:10.760301+00:00",
+      "note": ""
+    },
+    {
+      "state": "RENDERING",
+      "at": "2026-10-30T19:16:10.777136+00:00",
+      "note": ""
+    },
+    {
+      "state": "QA",
+      "at": "2026-10-30T19:20:28.622948+00:00",
+      "note": ""
+    },
+    {
+      "state": "READY",
+      "at": "2026-10-30T19:21:07.655494+00:00",
+      "note": "QA pass"
+    }
+  ]
+}

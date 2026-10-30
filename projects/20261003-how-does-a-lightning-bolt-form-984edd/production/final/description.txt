@@ -1,0 +1,38 @@
+How does a lightning bolt form, and what actually happens inside a thundercloud before lightning strikes?
+
+A deeply researched science explainer. Every major claim is traced to sources below.
+
+CHAPTERS:
+00:00 — Hook: follow the journey
+00:53 — Hook: follow the journey — part 2
+01:55 — Stage 1
+03:05 — Stage 1 — part 2
+04:13 — Stage 2
+05:16 — Stage 2 — part 2
+06:23 — Stage 3
+07:28 — Stage 3 — part 2
+08:41 — Stage 4
+09:32 — Stage 4 — part 2
+10:27 — Where it ends / why it matters
+10:37 — Where it ends / why it matters — part 2
+
+SOURCES & FURTHER READING:
+[S001] Lightning — https://en.wikipedia.org/wiki/Lightning
+[S002] Lightning strike — https://en.wikipedia.org/wiki/Lightning_strike
+[S003] Estimation of the fluence of high‐energy electron bursts produced by thunderclouds and the resulting radiation doses received in aircraft — https://doi.org/10.1029/2009jd012039
+[S005] Environmental Control of Cloud-to-Ground Lightning Polarity in Severe Storms — https://doi.org/10.1175/mwr3361.1
+[S006] Physical mechanism of initial breakdown pulses and narrow bipolar events in lightning discharges — https://doi.org/10.1002/2015jd023209
+[S007] Nowcasting lightning occurrence from commonly available meteorological parameters using machine learning techniques — https://doi.org/10.1038/s41612-019-0098-0
+[S009] Thundercloud Project: Exploring high-energy phenomena in thundercloud and lightning — http://arxiv.org/abs/2007.13618v1
+[S010] Laser-guided lightning — http://arxiv.org/abs/2207.03769v2
+[S016] Protection of Aircraft Radomes against Direct Lightning Strikes—An Overview — https://doi.org/10.3390/atmos12091141
+[S017] High-Energy Atmospheric Physics: Ball Lightning — https://doi.org/10.4236/jhepgc.2019.52020
+[S019] Lightning Discharges to Aircraft and Associated Meteorological Conditions — https://openalex.org/W600326372
+[S020] Lightning Interactions with Humans and Lifelines — https://doi.org/10.2174/1652803420131029001
+[S026] A review of volcanic electrification of the atmosphere and volcanic lightning — https://doi.org/10.1016/j.jvolgeores.2021.107449
+[S028] Lightning morphology and impulse charge moment change of high peak current negative strokes — https://doi.org/10.1029/2011jd016890
+[S029] Continuous broadband digital interferometry of lightning using a generalized cross-correlation algorithm — https://doi.org/10.1002/2013jd020217
+[S030] Lightning detection on Venus: a critical review — https://doi.org/10.1186/s40645-018-0181-x
+
+VOICES/MEDIA: narration via free TTS; visuals: Wikimedia Commons / Pexels / Pixabay / project-generated diagrams (see credits file).
+Uncertainty is stated where the evidence is limited — see claims file.

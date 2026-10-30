@@ -1,0 +1,91 @@
+[
+  {
+    "topic": "lightning",
+    "claim_ids": [
+      "C048",
+      "C051",
+      "C051",
+      "C051"
+    ],
+    "note": "Same topic described with different confidence levels — verify before scripting."
+  },
+  {
+    "topic": "thunderstorm",
+    "claim_ids": [
+      "C048",
+      "C016"
+    ],
+    "note": "Same topic described with different confidence levels — verify before scripting."
+  },
+  {
+    "topic": "discharge",
+    "claim_ids": [
+      "C051",
+      "C049"
+    ],
+    "note": "Same topic described with different confidence levels — verify before scripting."
+  },
+  {
+    "topic": "between",
+    "claim_ids": [
+      "C051",
+      "C049",
+      "C045",
+      "C009"
+    ],
+    "note": "Same topic described with different confidence levels — verify before scripting."
+  },
+  {
+    "topic": "atmosphere",
+    "claim_ids": [
+      "C051",
+      "C052"
+    ],
+    "note": "Same topic described with different confidence levels — verify before scripting."
+  },
+  {
+    "topic": "ground",
+    "claim_ids": [
+      "C051",
+      "C049",
+      "C049",
+      "C049"
+    ],
+    "note": "Same topic described with different confidence levels — verify before scripting."
+  },
+  {
+    "topic": "positive",
+    "claim_ids": [
+      "C046",
+      "C046",
+      "C047",
+      "C045"
+    ],
+    "note": "Same topic described with different confidence levels — verify before scripting."
+  },
+  {
+    "topic": "electrons",
+    "claim_ids": [
+      "C046",
+      "C001",
+      "C050"
+    ],
+    "note": "Same topic described with different confidence levels — verify before scripting."
+  },
+  {
+    "topic": "upward",
+    "claim_ids": [
+      "C046",
+      "C047"
+    ],
+    "note": "Same topic described with different confidence levels — verify before scripting."
+  },
+  {
+    "topic": "channel",
+    "claim_ids": [
+      "C046",
+      "C050"
+    ],
+    "note": "Same topic described with different confidence levels — verify before scripting."
+  }
+]

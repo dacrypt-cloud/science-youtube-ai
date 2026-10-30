@@ -1,0 +1,732 @@
+1
+00:00:00,000 --> 00:00:04,478
+The most common occurrence of a lightning
+event is known as a thunderstorm, though
+
+2
+00:00:04,478 --> 00:00:08,956
+they can also commonly occur in other
+types of energetic weather systems, such
+
+3
+00:00:08,956 --> 00:00:13,434
+as volcanic eruptions. Positive lightning
+has also been shown to trigger the
+
+4
+00:00:13,434 --> 00:00:17,912
+occurrence of upward lightning flashes
+from the tops of tall structures and is
+
+5
+00:00:17,912 --> 00:00:22,390
+largely responsible for the initiation of
+sprites several tens of kilometers above
+
+6
+00:00:22,390 --> 00:00:26,868
+ground level. The electrification of
+volcanic ash plumes and the occurrence of
+
+7
+00:00:26,868 --> 00:00:31,345
+volcanic lightning are now known to be
+common phenomena during explosive volcanic
+
+8
+00:00:31,345 --> 00:00:35,824
+eruptions. The most direct effects of
+lightning on humans occur as a result of
+
+9
+00:00:35,824 --> 00:00:40,302
+cloud-to-ground lightning, even though
+intra-cloud and cloud-to-cloud are more
+
+10
+00:00:40,302 --> 00:00:44,780
+common. Contrary to popular belief,
+positive lightning flashes do not
+
+11
+00:00:44,780 --> 00:00:49,257
+necessarily originate from the anvil or
+the upper positive charge region and
+
+12
+00:00:49,257 --> 00:00:53,736
+strike a rain-free area outside of the
+thunderstorm.
+
+13
+00:00:53,736 --> 00:00:58,148
+Positive lightning produces both higher
+peak currents and longer continuing
+
+14
+00:00:58,148 --> 00:01:02,561
+currents, making them capable of heating
+surfaces to much higher levels which
+
+15
+00:01:02,561 --> 00:01:06,973
+increases the likelihood of a fire being
+ignited. The conductivity of the
+
+16
+00:01:06,973 --> 00:01:11,386
+electrical ground, be it soil, fresh
+water, or salt water, may affect the
+
+17
+00:01:11,386 --> 00:01:15,798
+lightning discharge rate and thus visible
+characteristics. Positive lightning is
+
+18
+00:01:15,798 --> 00:01:20,211
+less common than negative lightning and on
+average makes up less than 5% of all
+
+19
+00:01:20,211 --> 00:01:24,624
+lightning strikes. The long distances
+positive lightning can propagate through
+
+20
+00:01:24,624 --> 00:01:29,036
+clear air explains why they are known as
+"bolts from the blue", giving no warning
+
+21
+00:01:29,036 --> 00:01:33,449
+to observers. Several past studies have
+reported on observational findings
+
+22
+00:01:33,449 --> 00:01:37,861
+regarding how charge structures relate to
+different lightning types over a wide
+
+23
+00:01:37,861 --> 00:01:42,274
+range of convective regimes. Possible
+sites of electro-optical activity are
+
+24
+00:01:42,274 --> 00:01:46,686
+noted—eolian and volcanic discharges near
+the surface, convective lightning in the
+
+25
+00:01:46,686 --> 00:01:51,099
+cloud layer, and possible transient
+luminous events like sprites in the
+
+26
+00:01:51,099 --> 00:01:55,512
+mesosphere.
+
+27
+00:01:55,512 --> 00:02:00,502
+Most CG lightning is negative, meaning
+that a negative charge is transferred
+
+28
+00:02:00,502 --> 00:02:05,492
+(electrons flow) downwards to ground along
+the lightning channel (the conventional
+
+29
+00:02:05,492 --> 00:02:10,482
+current flows from the ground up to the
+cloud). Positive and negative lightning
+
+30
+00:02:10,482 --> 00:02:15,473
+Cloud-to-ground (CG) lightning is either
+positive or negative, as defined by the
+
+31
+00:02:15,473 --> 00:02:20,463
+direction of the conventional electric
+current between cloud and ground. The
+
+32
+00:02:20,463 --> 00:02:25,453
+reverse happens in a positive CG flash,
+where electrons travel upward along the
+
+33
+00:02:25,453 --> 00:02:30,444
+lightning channel, while also a positive
+charge is transferred downward to the
+
+34
+00:02:30,444 --> 00:02:35,434
+ground (the conventional current travels
+from cloud to ground). We have analyzed
+
+35
+00:02:35,434 --> 00:02:40,424
+very high frequency lightning mapping
+observations and remote magnetic field
+
+36
+00:02:40,424 --> 00:02:45,414
+measurements to investigate connections
+between lightning morphology and impulse
+
+37
+00:02:45,414 --> 00:02:50,405
+charge moment change (iCMC) of negative
+cloud‐to‐ground (CG) strokes with high
+
+38
+00:02:50,405 --> 00:02:55,395
+estimated peak currents. An average bolt
+of negative lightning creates an electric
+
+39
+00:02:55,395 --> 00:03:00,385
+current of 30,000 amperes (30 kA),
+transferring a total 15 C (coulombs) of
+
+40
+00:03:00,385 --> 00:03:05,376
+electric charge and 1 gigajoule of energy.
+
+41
+00:03:05,376 --> 00:03:10,251
+According to observations, the energy
+density contained inside ball lightning
+
+42
+00:03:10,251 --> 00:03:15,126
+can reach 1010 J/m3, and its charge can
+range from 10−3 to 10−1 C. Apart from
+
+43
+00:03:15,126 --> 00:03:20,002
+lightning diagnostic schemes producing
+bulk flash metrics such as average
+
+44
+00:03:20,002 --> 00:03:24,877
+lightning activity with useful skill up to
+several days forecast, some studies have
+
+45
+00:03:24,877 --> 00:03:29,753
+focused on assessment of the lightning
+threat in the very near future and
+
+46
+00:03:29,753 --> 00:03:34,628
+providing early warning by nowcasting
+individual flashes and/or the onset of
+
+47
+00:03:34,628 --> 00:03:39,504
+lightning within the storm. Positive
+lightning strikes tend to be much more
+
+48
+00:03:39,504 --> 00:03:44,379
+intense than their negative counterparts.
+As a result of their greater power,
+
+49
+00:03:44,379 --> 00:03:49,254
+positive lightning strikes are
+considerably more dangerous than negative
+
+50
+00:03:49,254 --> 00:03:54,130
+strikes. Positive lightning tends to occur
+more frequently in winter storms, as with
+
+51
+00:03:54,130 --> 00:03:59,005
+thundersnow, during intense tornadoes and
+in the dissipation stage of a
+
+52
+00:03:59,005 --> 00:04:03,881
+thunderstorm. Recent experimental evidence
+has correlated IBPs to the initial
+
+53
+00:04:03,881 --> 00:04:08,756
+development of lightning leaders inside
+the thundercloud. The produced warnings
+
+54
+00:04:08,756 --> 00:04:13,632
+are validated using the data from
+lightning location systems.
+
+55
+00:04:13,632 --> 00:04:18,154
+Since lightning involves complex
+interactions between many atmospheric and
+
+56
+00:04:18,154 --> 00:04:22,676
+in-cloud processes, it is unsurprising
+that research into that phenomenon
+
+57
+00:04:22,676 --> 00:04:27,198
+continues to generate a wide range of
+approaches for its prediction. Four
+
+58
+00:04:27,198 --> 00:04:31,721
+lightning morphologies are identified for
+a total of 2126 strokes within optimum
+
+59
+00:04:31,721 --> 00:04:36,243
+detection range of the North Alabama
+Lightning Mapping Array, and statistical
+
+60
+00:04:36,243 --> 00:04:40,765
+iCMC distributions are given for each of
+these types. Despite several different
+
+61
+00:04:40,765 --> 00:04:45,288
+approaches applied to the important
+problem of lightning nowcasting and early
+
+62
+00:04:45,288 --> 00:04:49,810
+warning generation, the complex processes
+and large number of parameters involved in
+
+63
+00:04:49,810 --> 00:04:54,332
+the problem lends themselves to the
+potential application of a machine
+
+64
+00:04:54,332 --> 00:04:58,854
+learning approach. Many other
+observational variants are recognized,
+
+65
+00:04:58,854 --> 00:05:03,377
+including: volcanic lightning, which can
+occur during volcanic eruptions; "heat
+
+66
+00:05:03,377 --> 00:05:07,899
+lightning", which can be seen from a great
+distance but not heard; dry lightning,
+
+67
+00:05:07,899 --> 00:05:12,421
+which can cause forest fires; and ball
+lightning, which is rarely observed
+
+68
+00:05:12,421 --> 00:05:16,944
+scientifically.
+
+69
+00:05:16,944 --> 00:05:21,708
+Lightning involves a near-instantaneous
+release of energy on a scale averaging
+
+70
+00:05:21,708 --> 00:05:26,472
+between 200 megajoules and 7 gigajoules.
+We have used machine learning techniques
+
+71
+00:05:26,472 --> 00:05:31,236
+to successfully hindcast nearby and
+distant lightning hazards by looking at
+
+72
+00:05:31,236 --> 00:05:36,000
+single-site observations of meteorological
+parameters. Third, lightning may be
+
+73
+00:05:36,000 --> 00:05:40,764
+important in atmospheric evolution and
+prebiotic evolution, notably in fixing
+
+74
+00:05:40,764 --> 00:05:45,528
+nitrogen which is an essential element in
+living things but is generally chemically
+
+75
+00:05:45,528 --> 00:05:50,292
+inaccessible. Most NBEs are quite peculiar
+in the sense that very frequently they
+
+76
+00:05:50,292 --> 00:05:55,056
+occur in isolation from other lightning
+processes. The results encourage further
+
+77
+00:05:55,056 --> 00:05:59,820
+analysis on how mining techniques could
+contribute to further our understanding of
+
+78
+00:05:59,820 --> 00:06:04,584
+lightning dependencies on atmospheric
+parameters. Based on the reports for 1023
+
+79
+00:06:04,584 --> 00:06:09,348
+fatalities associated with natural hazard
+processes in Switzerland during the period
+
+80
+00:06:09,348 --> 00:06:14,112
+from 1946 to 2015, more than 16% of the
+cases were caused by lightning, making it
+
+81
+00:06:14,112 --> 00:06:18,876
+the second most frequent cause of loss of
+life among the natural hazards in
+
+82
+00:06:18,876 --> 00:06:23,640
+Switzerland.
+
+83
+00:06:23,640 --> 00:06:28,639
+Lightning initiation problem is solved by
+GRBs that slam into thunderclouds and
+
+84
+00:06:28,639 --> 00:06:33,638
+carve a conductive path through a
+thunderstorm. To date the true nature of
+
+85
+00:06:33,638 --> 00:06:38,638
+initial breakdown pulses (IBPs) and narrow
+bipolar events (NBEs) in lightning
+
+86
+00:06:38,638 --> 00:06:43,637
+discharges remains a mystery. Fortunately
+not all of them kill people, albeit 10%
+
+87
+00:06:43,637 --> 00:06:48,636
+people fall prey to lightning annually,
+out of which hardly 20 to 25% die.
+
+88
+00:06:48,636 --> 00:06:53,636
+Finally, lightning may be a hazard for
+vehicles exploring a planetary atmosphere.
+
+89
+00:06:53,636 --> 00:06:58,635
+Lightning also causes thunder, a sound
+from the shock wave which develops as
+
+90
+00:06:58,635 --> 00:07:03,635
+heated gases in the vicinity of the
+discharge experience a sudden increase in
+
+91
+00:07:03,635 --> 00:07:08,634
+pressure. Witnesses often report seeing
+moving sparks about one millimeter in size
+
+92
+00:07:08,634 --> 00:07:13,633
+inside the ball lightning shell. Lightning
+preventive, alerting and control devices
+
+93
+00:07:13,633 --> 00:07:18,633
+help reduce fatality rates by the bolts
+out of blue skies. Power and energy
+
+94
+00:07:18,633 --> 00:07:23,632
+lifelines such as transmission lines, oil
+tankers and gas or petroleum pipelines are
+
+95
+00:07:23,632 --> 00:07:28,632
+susceptible to lightning strikes.
+
+96
+00:07:28,632 --> 00:07:33,507
+Artificial rocket and laser triggered
+lightning protection and control
+
+97
+00:07:33,507 --> 00:07:38,382
+techniques help to divert the lightning
+attacks. The VHF Broadband Digital
+
+98
+00:07:38,382 --> 00:07:43,257
+Interferometer developed by Osaka
+University has been improved to allow
+
+99
+00:07:43,257 --> 00:07:48,132
+continuous sampling over the entire
+duration of a lightning flash and to
+
+100
+00:07:48,132 --> 00:07:53,008
+utilize a generalized cross-correlation
+technique for determining the lightning
+
+101
+00:07:53,008 --> 00:07:57,883
+source directions. The air around the
+lightning flash rapidly heats to
+
+102
+00:07:57,883 --> 00:08:02,758
+temperatures of about 30,000 °C (54,000
+°F). Lightning is considered an Essential
+
+103
+00:08:02,758 --> 00:08:07,633
+Climate Variable by the World
+Meteorological Organization, and its
+
+104
+00:08:07,633 --> 00:08:12,508
+scientific study is called fulminology.
+Lightning warning systems in parks, sport
+
+105
+00:08:12,508 --> 00:08:17,384
+complexes, schools, local government
+buildings, airports, space centers, etc.
+
+106
+00:08:17,384 --> 00:08:22,259
+benefit from the output of such lightning
+nowcasting schemes to give decision-makers
+
+107
+00:08:22,259 --> 00:08:27,134
+enough time to make take the necessary
+safety precautions for staff and visitors,
+
+108
+00:08:27,134 --> 00:08:32,009
+stop lightning-sensitive operations, and
+protect equipment. By merging the
+
+109
+00:08:32,009 --> 00:08:36,884
+satellite and radar systems with numerical
+models, the lightning forecast is made
+
+110
+00:08:36,884 --> 00:08:41,760
+30–45 min before rainfall occurs.
+
+111
+00:08:41,760 --> 00:08:46,333
+Lightning influences the global
+atmospheric electrical circuit and
+
+112
+00:08:46,333 --> 00:08:50,906
+atmospheric chemistry and is a natural
+ignition source of wildfires. Lightning
+
+113
+00:08:50,906 --> 00:08:55,479
+was considered to be the second cause of
+death making natural disasters after
+
+114
+00:08:55,479 --> 00:09:00,052
+flashfloods but preventive measures have
+slithered it down to the third place in
+
+115
+00:09:00,052 --> 00:09:04,625
+developed countries. A key challenge is in
+the interpretation of electrical or
+
+116
+00:09:04,625 --> 00:09:09,198
+magnetic signatures claimed to be
+whistler-mode emissions from lightning
+
+117
+00:09:09,198 --> 00:09:13,771
+discharges. Lightning experts had hardly
+developed any concurrence on lightning
+
+118
+00:09:13,771 --> 00:09:18,344
+physics, and the observation of dark
+lightning complicated the Gordian knot.
+
+119
+00:09:18,344 --> 00:09:22,917
+However, lightning itself is viewed as an
+extraterrestrial energy source. The
+
+120
+00:09:22,917 --> 00:09:27,490
+negative sprite‐parent lightning took
+place in two thunderstorms that were
+
+121
+00:09:27,490 --> 00:09:32,064
+associated with a tropical disturbance in
+east central and south Florida.
+
+122
+00:09:32,064 --> 00:09:37,071
+On average, 50 lightning strikes occur on
+earth in one second. Cloud to ground (CG)
+
+123
+00:09:37,071 --> 00:09:42,078
+Cloud-to-ground (CG) lightning is a
+lightning discharge between a thundercloud
+
+124
+00:09:42,078 --> 00:09:47,085
+and the ground. Given its noteworthy
+socioeconomic impact, appreciable
+
+125
+00:09:47,085 --> 00:09:52,093
+attention has been given to accurate
+lightning prediction. Intra-cloud and
+
+126
+00:09:52,093 --> 00:09:57,100
+cloud-to-cloud lightning indirectly affect
+humans through their influence on
+
+127
+00:09:57,100 --> 00:10:02,107
+atmospheric chemistry. There are a number
+of mechanisms theorized to result in the
+
+128
+00:10:02,107 --> 00:10:07,114
+formation of positive lightning. Large
+bolts of positive lightning can create up
+
+129
+00:10:07,114 --> 00:10:12,122
+to 120 kA and transfer 350 C. Lightning is
+responsible for human injuries and
+
+130
+00:10:12,122 --> 00:10:17,129
+fatalities, the death of livestock, and
+house and forest fires. Lightning injures
+
+131
+00:10:17,129 --> 00:10:22,136
+victims by heat, shockwave, intense
+brightness, radio waves, and secondary
+
+132
+00:10:22,136 --> 00:10:27,144
+slip or fall mechanisms.
+
+133
+00:10:27,144 --> 00:10:32,148
+Lightning prevention rule recommends ‘when
+the thunder roars, go indoors’. CG is the
+
+134
+00:10:32,148 --> 00:10:37,152
+least common, but best understood of all
+types of lightning.
+
+135
+00:10:37,152 --> 00:10:42,193
+To date the true nature of initial
+breakdown pulses (IBPs) and narrow bipolar
+
+136
+00:10:42,193 --> 00:10:47,235
+events (NBEs) in lightning discharges
+remains a mystery. Recent experimental
+
+137
+00:10:47,235 --> 00:10:52,277
+evidence has correlated IBPs to the
+initial development of lightning leaders
+
+138
+00:10:52,277 --> 00:10:57,318
+inside the thundercloud. Most NBEs are
+quite peculiar in the sense that very
+
+139
+00:10:57,318 --> 00:11:02,360
+frequently they occur in isolation from
+other lightning processes. Lightning
+
+140
+00:11:02,360 --> 00:11:07,402
+discharges in the atmosphere owe their
+existence to the combination of complex
+
+141
+00:11:07,402 --> 00:11:12,444
+dynamic and microphysical processes. We
+have used machine learning techniques to
+
+142
+00:11:12,444 --> 00:11:17,485
+successfully hindcast nearby and distant
+lightning hazards by looking at
+
+143
+00:11:17,485 --> 00:11:22,527
+single-site observations of meteorological
+parameters. The produced warnings are
+
+144
+00:11:22,527 --> 00:11:27,569
+validated using the data from lightning
+location systems. The model also improves
+
+145
+00:11:27,569 --> 00:11:32,610
+upon three competitive baselines for
+generating lightning warnings: (i) a
+
+146
+00:11:32,610 --> 00:11:37,652
+simple but objective baseline forecast,
+based on the persistence method, (ii) the
+
+147
+00:11:37,652 --> 00:11:42,694
+widely-used method based on a threshold of
+the vertical electrostatic field magnitude
+
+148
+00:11:42,694 --> 00:11:47,736
+at ground level, and, finally (iii) a
+scheme based on CAPE threshold.

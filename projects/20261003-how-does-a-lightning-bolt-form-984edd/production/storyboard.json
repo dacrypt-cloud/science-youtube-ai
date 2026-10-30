@@ -1,0 +1,230 @@
+[
+  {
+    "scene_id": "scene_01",
+    "index": 0,
+    "title": "Hook: follow the journey",
+    "narration": "The most common occurrence of a lightning event is known as a thunderstorm, though they can also commonly occur in other types of energetic weather systems, such as volcanic eruptions. Positive lightning has also been shown to trigger the occurrence of upward lightning flashes from the tops of tall structures and is largely responsible for the initiation of sprites several tens of kilometers above ground level. The electrification of volcanic ash plumes and the occurrence of volcanic lightning are now known to be common phenomena during explosive volcanic eruptions. The most direct effects of lightning on humans occur as a result of cloud-to-ground lightning, even though intra-cloud and cloud-to-cloud are more common. Contrary to popular belief, positive lightning flashes do not necessarily originate from the anvil or the upper positive charge region and strike a rain-free area outside of the thunderstorm.",
+    "concept": "Hook: follow the journey",
+    "visual_objective": "Show: Hook: follow the journey",
+    "visual_query": "lightning bolt common occurrence",
+    "visual_query_fallback": "lightning bolt",
+    "diagram": "",
+    "onscreen_text": "",
+    "transition": "cut",
+    "claim_ids": [
+      "C048",
+      "C051",
+      "C049",
+      "C046"
+    ]
+  },
+  {
+    "scene_id": "scene_02",
+    "index": 1,
+    "title": "Hook: follow the journey — part 2",
+    "narration": "Positive lightning produces both higher peak currents and longer continuing currents, making them capable of heating surfaces to much higher levels which increases the likelihood of a fire being ignited. The conductivity of the electrical ground, be it soil, fresh water, or salt water, may affect the lightning discharge rate and thus visible characteristics. Positive lightning is less common than negative lightning and on average makes up less than 5% of all lightning strikes. The long distances positive lightning can propagate through clear air explains why they are known as \"bolts from the blue\", giving no warning to observers. Several past studies have reported on observational findings regarding how charge structures relate to different lightning types over a wide range of convective regimes. Possible sites of electro-optical activity are noted—eolian and volcanic discharges near the surface, convective lightning in the cloud layer, and possible transient luminous events like sprites in the mesosphere.",
+    "concept": "Hook: follow the journey — part 2",
+    "visual_objective": "Show: Hook: follow the journey — part 2",
+    "visual_query": "lightning bolt Positive",
+    "visual_query_fallback": "lightning bolt",
+    "diagram": "",
+    "onscreen_text": "",
+    "transition": "fade",
+    "claim_ids": [
+      "C048",
+      "C051",
+      "C049",
+      "C046"
+    ]
+  },
+  {
+    "scene_id": "scene_03",
+    "index": 2,
+    "title": "Stage 1",
+    "narration": "Most CG lightning is negative, meaning that a negative charge is transferred (electrons flow) downwards to ground along the lightning channel (the conventional current flows from the ground up to the cloud). Positive and negative lightning Cloud-to-ground (CG) lightning is either positive or negative, as defined by the direction of the conventional electric current between cloud and ground. The reverse happens in a positive CG flash, where electrons travel upward along the lightning channel, while also a positive charge is transferred downward to the ground (the conventional current travels from cloud to ground). We have analyzed very high frequency lightning mapping observations and remote magnetic field measurements to investigate connections between lightning morphology and impulse charge moment change (iCMC) of negative cloud‐to‐ground (CG) strokes with high estimated peak currents. An average bolt of negative lightning creates an electric current of 30,000 amperes (30 kA), transferring a total 15 C (coulombs) of electric charge and 1 gigajoule of energy.",
+    "concept": "Stage 1",
+    "visual_objective": "Show: Stage 1",
+    "visual_query": "lightning bolt negative",
+    "visual_query_fallback": "lightning bolt",
+    "diagram": "process",
+    "onscreen_text": "",
+    "transition": "fade",
+    "claim_ids": [
+      "C047",
+      "C001",
+      "C045",
+      "C050"
+    ]
+  },
+  {
+    "scene_id": "scene_04",
+    "index": 3,
+    "title": "Stage 1 — part 2",
+    "narration": "According to observations, the energy density contained inside ball lightning can reach 1010 J/m3, and its charge can range from 10−3 to 10−1 C. Apart from lightning diagnostic schemes producing bulk flash metrics such as average lightning activity with useful skill up to several days forecast, some studies have focused on assessment of the lightning threat in the very near future and providing early warning by nowcasting individual flashes and/or the onset of lightning within the storm. Positive lightning strikes tend to be much more intense than their negative counterparts. As a result of their greater power, positive lightning strikes are considerably more dangerous than negative strikes. Positive lightning tends to occur more frequently in winter storms, as with thundersnow, during intense tornadoes and in the dissipation stage of a thunderstorm. Recent experimental evidence has correlated IBPs to the initial development of lightning leaders inside the thundercloud. The produced warnings are validated using the data from lightning location systems.",
+    "concept": "Stage 1 — part 2",
+    "visual_objective": "Show: Stage 1 — part 2",
+    "visual_query": "lightning bolt According observations",
+    "visual_query_fallback": "lightning bolt",
+    "diagram": "",
+    "onscreen_text": "",
+    "transition": "cut",
+    "claim_ids": [
+      "C047",
+      "C001",
+      "C045",
+      "C050"
+    ]
+  },
+  {
+    "scene_id": "scene_05",
+    "index": 4,
+    "title": "Stage 2",
+    "narration": "Since lightning involves complex interactions between many atmospheric and in-cloud processes, it is unsurprising that research into that phenomenon continues to generate a wide range of approaches for its prediction. Four lightning morphologies are identified for a total of 2126 strokes within optimum detection range of the North Alabama Lightning Mapping Array, and statistical iCMC distributions are given for each of these types. Despite several different approaches applied to the important problem of lightning nowcasting and early warning generation, the complex processes and large number of parameters involved in the problem lends themselves to the potential application of a machine learning approach. Many other observational variants are recognized, including: volcanic lightning, which can occur during volcanic eruptions; \"heat lightning\", which can be seen from a great distance but not heard; dry lightning, which can cause forest fires; and ball lightning, which is rarely observed scientifically.",
+    "concept": "Stage 2",
+    "visual_objective": "Show: Stage 2",
+    "visual_query": "lightning bolt interactions",
+    "visual_query_fallback": "lightning bolt",
+    "diagram": "",
+    "onscreen_text": "",
+    "transition": "fade",
+    "claim_ids": [
+      "C009",
+      "C039",
+      "C053",
+      "C036"
+    ]
+  },
+  {
+    "scene_id": "scene_06",
+    "index": 5,
+    "title": "Stage 2 — part 2",
+    "narration": "Lightning involves a near-instantaneous release of energy on a scale averaging between 200 megajoules and 7 gigajoules. We have used machine learning techniques to successfully hindcast nearby and distant lightning hazards by looking at single-site observations of meteorological parameters. Third, lightning may be important in atmospheric evolution and prebiotic evolution, notably in fixing nitrogen which is an essential element in living things but is generally chemically inaccessible. Most NBEs are quite peculiar in the sense that very frequently they occur in isolation from other lightning processes. The results encourage further analysis on how mining techniques could contribute to further our understanding of lightning dependencies on atmospheric parameters. Based on the reports for 1023 fatalities associated with natural hazard processes in Switzerland during the period from 1946 to 2015, more than 16% of the cases were caused by lightning, making it the second most frequent cause of loss of life among the natural hazards in Switzerland.",
+    "concept": "Stage 2 — part 2",
+    "visual_objective": "Show: Stage 2 — part 2",
+    "visual_query": "lightning bolt Lightning near-instantaneous",
+    "visual_query_fallback": "lightning bolt",
+    "diagram": "chart",
+    "onscreen_text": "",
+    "transition": "fade",
+    "claim_ids": [
+      "C009",
+      "C039",
+      "C053",
+      "C036"
+    ]
+  },
+  {
+    "scene_id": "scene_07",
+    "index": 6,
+    "title": "Stage 3",
+    "narration": "Lightning initiation problem is solved by GRBs that slam into thunderclouds and carve a conductive path through a thunderstorm. To date the true nature of initial breakdown pulses (IBPs) and narrow bipolar events (NBEs) in lightning discharges remains a mystery. Fortunately not all of them kill people, albeit 10% people fall prey to lightning annually, out of which hardly 20 to 25% die. Finally, lightning may be a hazard for vehicles exploring a planetary atmosphere. Lightning also causes thunder, a sound from the shock wave which develops as heated gases in the vicinity of the discharge experience a sudden increase in pressure. Witnesses often report seeing moving sparks about one millimeter in size inside the ball lightning shell. Lightning preventive, alerting and control devices help reduce fatality rates by the bolts out of blue skies. Power and energy lifelines such as transmission lines, oil tankers and gas or petroleum pipelines are susceptible to lightning strikes.",
+    "concept": "Stage 3",
+    "visual_objective": "Show: Stage 3",
+    "visual_query": "lightning bolt Lightning initiation",
+    "visual_query_fallback": "lightning bolt",
+    "diagram": "",
+    "onscreen_text": "",
+    "transition": "cut",
+    "claim_ids": [
+      "C002",
+      "C016",
+      "C052",
+      "C004"
+    ]
+  },
+  {
+    "scene_id": "scene_08",
+    "index": 7,
+    "title": "Stage 3 — part 2",
+    "narration": "Artificial rocket and laser triggered lightning protection and control techniques help to divert the lightning attacks. The VHF Broadband Digital Interferometer developed by Osaka University has been improved to allow continuous sampling over the entire duration of a lightning flash and to utilize a generalized cross-correlation technique for determining the lightning source directions. The air around the lightning flash rapidly heats to temperatures of about 30,000 °C (54,000 °F). Lightning is considered an Essential Climate Variable by the World Meteorological Organization, and its scientific study is called fulminology. Lightning warning systems in parks, sport complexes, schools, local government buildings, airports, space centers, etc. benefit from the output of such lightning nowcasting schemes to give decision-makers enough time to make take the necessary safety precautions for staff and visitors, stop lightning-sensitive operations, and protect equipment. By merging the satellite and radar systems with numerical models, the lightning forecast is made 30–45 min before rainfall occurs.",
+    "concept": "Stage 3 — part 2",
+    "visual_objective": "Show: Stage 3 — part 2",
+    "visual_query": "lightning bolt Artificial rocket",
+    "visual_query_fallback": "lightning bolt",
+    "diagram": "",
+    "onscreen_text": "",
+    "transition": "fade",
+    "claim_ids": [
+      "C002",
+      "C016",
+      "C052",
+      "C004"
+    ]
+  },
+  {
+    "scene_id": "scene_09",
+    "index": 8,
+    "title": "Stage 4",
+    "narration": "Lightning influences the global atmospheric electrical circuit and atmospheric chemistry and is a natural ignition source of wildfires. Lightning was considered to be the second cause of death making natural disasters after flashfloods but preventive measures have slithered it down to the third place in developed countries. A key challenge is in the interpretation of electrical or magnetic signatures claimed to be whistler-mode emissions from lightning discharges. Lightning experts had hardly developed any concurrence on lightning physics, and the observation of dark lightning complicated the Gordian knot. However, lightning itself is viewed as an extraterrestrial energy source. The negative sprite‐parent lightning took place in two thunderstorms that were associated with a tropical disturbance in east central and south Florida.",
+    "concept": "Stage 4",
+    "visual_objective": "Show: Stage 4",
+    "visual_query": "lightning bolt Lightning influences",
+    "visual_query_fallback": "lightning bolt",
+    "diagram": "",
+    "onscreen_text": "",
+    "transition": "fade",
+    "claim_ids": [
+      "C017",
+      "C021",
+      "C041",
+      "C044"
+    ]
+  },
+  {
+    "scene_id": "scene_10",
+    "index": 9,
+    "title": "Stage 4 — part 2",
+    "narration": "On average, 50 lightning strikes occur on earth in one second. Cloud to ground (CG) Cloud-to-ground (CG) lightning is a lightning discharge between a thundercloud and the ground. Given its noteworthy socioeconomic impact, appreciable attention has been given to accurate lightning prediction. Intra-cloud and cloud-to-cloud lightning indirectly affect humans through their influence on atmospheric chemistry. There are a number of mechanisms theorized to result in the formation of positive lightning. Large bolts of positive lightning can create up to 120 kA and transfer 350 C. Lightning is responsible for human injuries and fatalities, the death of livestock, and house and forest fires. Lightning injures victims by heat, shockwave, intense brightness, radio waves, and secondary slip or fall mechanisms.",
+    "concept": "Stage 4 — part 2",
+    "visual_objective": "Show: Stage 4 — part 2",
+    "visual_query": "lightning bolt average",
+    "visual_query_fallback": "lightning bolt",
+    "diagram": "",
+    "onscreen_text": "",
+    "transition": "cut",
+    "claim_ids": [
+      "C017",
+      "C021",
+      "C041",
+      "C044"
+    ]
+  },
+  {
+    "scene_id": "scene_11",
+    "index": 10,
+    "title": "Where it ends / why it matters",
+    "narration": "Lightning prevention rule recommends ‘when the thunder roars, go indoors’. CG is the least common, but best understood of all types of lightning.",
+    "concept": "Where it ends / why it matters",
+    "visual_objective": "Show: Where it ends / why it matters",
+    "visual_query": "lightning bolt Lightning prevention",
+    "visual_query_fallback": "lightning bolt",
+    "diagram": "",
+    "onscreen_text": "",
+    "transition": "fade",
+    "claim_ids": [
+      "C055",
+      "C008",
+      "C015",
+      "C010"
+    ]
+  },
+  {
+    "scene_id": "scene_12",
+    "index": 11,
+    "title": "Where it ends / why it matters — part 2",
+    "narration": "To date the true nature of initial breakdown pulses (IBPs) and narrow bipolar events (NBEs) in lightning discharges remains a mystery. Recent experimental evidence has correlated IBPs to the initial development of lightning leaders inside the thundercloud. Most NBEs are quite peculiar in the sense that very frequently they occur in isolation from other lightning processes. Lightning discharges in the atmosphere owe their existence to the combination of complex dynamic and microphysical processes. We have used machine learning techniques to successfully hindcast nearby and distant lightning hazards by looking at single-site observations of meteorological parameters. The produced warnings are validated using the data from lightning location systems. The model also improves upon three competitive baselines for generating lightning warnings: (i) a simple but objective baseline forecast, based on the persistence method, (ii) the widely-used method based on a threshold of the vertical electrostatic field magnitude at ground level, and, finally (iii) a scheme based on CAPE threshold.",
+    "concept": "Where it ends / why it matters — part 2",
+    "visual_objective": "Show: Where it ends / why it matters — part 2",
+    "visual_query": "lightning bolt nature initial",
+    "visual_query_fallback": "lightning bolt",
+    "diagram": "process",
+    "onscreen_text": "",
+    "transition": "fade",
+    "claim_ids": [
+      "C055",
+      "C008",
+      "C015",
+      "C010"
+    ]
+  }
+]

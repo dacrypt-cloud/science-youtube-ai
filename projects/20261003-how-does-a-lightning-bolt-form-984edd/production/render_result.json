@@ -1,0 +1,9 @@
+{
+  "path": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/video/video.mp4",
+  "duration_s": 707.7360000000001,
+  "scenes": 12,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "provider": "ffmpeg"
+}

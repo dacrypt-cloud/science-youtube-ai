@@ -1,0 +1,86 @@
+[
+  {
+    "claim_id": "C049",
+    "claim": "Cloud to ground (CG) Cloud-to-ground (CG) lightning is a lightning discharge between a thundercloud and the ground.",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C046",
+    "claim": "The reverse happens in a positive CG flash, where electrons travel upward along the lightning channel, while also a positive charge is transferred downward to the ground (the conventional current trav",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C009",
+    "claim": "Since lightning involves complex interactions between many atmospheric and in-cloud processes, it is unsurprising that research into that phenomenon continues to generate a wide range of approaches fo",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C053",
+    "claim": "We designed, developed, and deployed a distributed sensor network aiming at observing high-energy ionizing radiation, primarily gamma rays, from winter thunderclouds and lightning in coastal areas of ",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C002",
+    "claim": "In this study, it is hypothesized that the mesoscale environment can indirectly control the cloud-to-ground (CG) lightning polarity of severe storms by directly affecting their structural, dynamical, ",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C016",
+    "claim": "Lightning initiation problem is solved by GRBs that slam into thunderclouds and carve a conductive path through a thunderstorm.",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C052",
+    "claim": "About 25% of all lightning events worldwide are strikes between the atmosphere and earth-bound objects.",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C004",
+    "claim": "Recent experimental evidence has correlated IBPs to the initial development of lightning leaders inside the thundercloud.",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C017",
+    "claim": "A summary is given of information on atmospheric electrical discharges to aircraft and associated meteorological conditions.",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C021",
+    "claim": "On average, 50 lightning strikes occur on earth in one second.",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C041",
+    "claim": "The VHF Broadband Digital Interferometer developed by Osaka University has been improved to allow continuous sampling over the entire duration of a lightning flash and to utilize a generalized cross-c",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C008",
+    "claim": "Based on the reports for 1023 fatalities associated with natural hazard processes in Switzerland during the period from 1946 to 2015, more than 16% of the cases were caused by lightning, making it the",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C015",
+    "claim": "The effectiveness of the lightning interception and protection measures is tested with different high-voltage waveforms and representative high-current pulses.",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  },
+  {
+    "claim_id": "C010",
+    "claim": "The model also improves upon three competitive baselines for generating lightning warnings: (i) a simple but objective baseline forecast, based on the persistence method, (ii) the widely-used method b",
+    "confidence": "limited_evidence",
+    "guidance": "Qualify on screen / in narration; do not present as settled fact."
+  }
+]

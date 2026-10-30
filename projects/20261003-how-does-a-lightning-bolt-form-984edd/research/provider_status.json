@@ -1,0 +1,114 @@
+{
+  "ai_chain": [
+    {
+      "name": "template-fallback",
+      "available": true,
+      "free": true,
+      "reason": "always available, offline, deterministic"
+    }
+  ],
+  "searchers": [
+    {
+      "name": "wikipedia",
+      "available": true,
+      "free": true,
+      "reason": "MediaWiki API, no key"
+    },
+    {
+      "name": "openalex",
+      "available": true,
+      "free": true,
+      "reason": "api.openalex.org, no key"
+    },
+    {
+      "name": "europepmc",
+      "available": true,
+      "free": true,
+      "reason": "ebi.ac.uk/europepmc, no key"
+    },
+    {
+      "name": "arxiv",
+      "available": true,
+      "free": true,
+      "reason": "export.arxiv.org, no key"
+    },
+    {
+      "name": "duckduckgo",
+      "available": true,
+      "free": true,
+      "reason": "api.duckduckgo.com, no key, best-effort"
+    }
+  ],
+  "images": [
+    {
+      "name": "wikimedia",
+      "available": true,
+      "free": true,
+      "reason": "commons.wikimedia.org API, no key"
+    },
+    {
+      "name": "pexels-image",
+      "available": false,
+      "free": true,
+      "reason": "PEXELS_API_KEY not set (optional)"
+    },
+    {
+      "name": "pixabay-image",
+      "available": false,
+      "free": true,
+      "reason": "PIXABAY_API_KEY not set (optional)"
+    }
+  ],
+  "videos": [
+    {
+      "name": "pexels-video",
+      "available": false,
+      "free": true,
+      "reason": "PEXELS_API_KEY not set (optional)"
+    },
+    {
+      "name": "pixabay-video",
+      "available": false,
+      "free": true,
+      "reason": "PIXABAY_API_KEY not set (optional)"
+    }
+  ],
+  "speech_chain": [
+    {
+      "name": "edge-tts",
+      "available": true,
+      "free": true,
+      "reason": "voice=en-US-AvaNeural, no key"
+    },
+    {
+      "name": "gtts",
+      "available": true,
+      "free": true,
+      "reason": "free, no key, rate-limited"
+    },
+    {
+      "name": "piper",
+      "available": false,
+      "free": true,
+      "reason": "piper not installed (optional)"
+    },
+    {
+      "name": "espeak",
+      "available": false,
+      "free": true,
+      "reason": "espeak-ng not installed"
+    },
+    {
+      "name": "silent-fallback",
+      "available": true,
+      "free": true,
+      "reason": "always available, silence with estimated timing"
+    }
+  ],
+  "renderer": {
+    "name": "ffmpeg",
+    "available": true,
+    "free": true,
+    "reason": "ffmpeg at /usr/local/lib/python3.13/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2"
+  }
+}

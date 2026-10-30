@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#0a1420"/>
+<rect x="0" y="0" width="1920" height="200" fill="#0d1b2e"/>
+<text x="80" y="100" font-family="sans-serif" font-size="64" font-weight="bold" fill="#e8f1ff">Stage 1</text>
+<text x="80" y="160" font-family="sans-serif" font-size="34" fill="#4fc3f7">Mechanism — step by step</text>
+<defs><marker id="a" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L12,5 L0,10 z" fill="#4fc3f7"/></marker></defs>
+<rect x="220" y="420" width="340" height="220" rx="18" fill="#12263f" stroke="#4fc3f7" stroke-width="3"/>
+<text x="240" y="480" font-family="sans-serif" font-size="30" font-weight="bold" fill="#ffb74d">1</text>
+<text x="240" y="530" font-family="sans-serif" font-size="26" fill="#e8f1ff">Positive lightning…</text>
+<text x="240" y="570" font-family="sans-serif" font-size="26" fill="#e8f1ff">been shown to…</text>
+<text x="240" y="610" font-family="sans-serif" font-size="26" fill="#e8f1ff">the</text>
+<line x1="566" y1="530" x2="594" y2="530" stroke="#4fc3f7" stroke-width="5" marker-end="url(#a)"/>
+<rect x="600" y="420" width="340" height="220" rx="18" fill="#12263f" stroke="#4fc3f7" stroke-width="3"/>
+<text x="620" y="480" font-family="sans-serif" font-size="30" font-weight="bold" fill="#ffb74d">2</text>
+<text x="620" y="530" font-family="sans-serif" font-size="26" fill="#e8f1ff">Using recent X‐ray…</text>
+<text x="620" y="570" font-family="sans-serif" font-size="26" fill="#e8f1ff">gamma‐ray observatio…</text>
+<text x="620" y="610" font-family="sans-serif" font-size="26" fill="#e8f1ff">gamma‐ray</text>
+<line x1="946" y1="530" x2="974" y2="530" stroke="#4fc3f7" stroke-width="5" marker-end="url(#a)"/>
+<rect x="980" y="420" width="340" height="220" rx="18" fill="#12263f" stroke="#4fc3f7" stroke-width="3"/>
+<text x="1000" y="480" font-family="sans-serif" font-size="30" font-weight="bold" fill="#ffb74d">3</text>
+<text x="1000" y="530" font-family="sans-serif" font-size="26" fill="#e8f1ff">Positive and…</text>
+<text x="1000" y="570" font-family="sans-serif" font-size="26" fill="#e8f1ff">Cloud-to-ground…</text>
+<text x="1000" y="610" font-family="sans-serif" font-size="26" fill="#e8f1ff">either</text>
+<line x1="1326" y1="530" x2="1354" y2="530" stroke="#4fc3f7" stroke-width="5" marker-end="url(#a)"/>
+<rect x="1360" y="420" width="340" height="220" rx="18" fill="#12263f" stroke="#4fc3f7" stroke-width="3"/>
+<text x="1380" y="480" font-family="sans-serif" font-size="30" font-weight="bold" fill="#ffb74d">4</text>
+<text x="1380" y="530" font-family="sans-serif" font-size="26" fill="#e8f1ff">Most CG lightning is</text>
+<text x="1380" y="570" font-family="sans-serif" font-size="26" fill="#e8f1ff">negative, meaning…</text>
+<text x="1380" y="610" font-family="sans-serif" font-size="26" fill="#e8f1ff">negative</text>
+<text x="80" y="1040" font-family="sans-serif" font-size="24" fill="#5b7a99">science-youtube-ai · diagram generated from verified research</text>
+</svg>

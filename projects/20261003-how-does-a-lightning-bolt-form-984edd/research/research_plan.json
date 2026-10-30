@@ -1,0 +1,49 @@
+{
+  "interpretation": {
+    "idea": "How does a lightning bolt form, and what actually happens inside a thundercloud before lightning strikes?",
+    "instructions": "Documentary explainer for a general audience aged 15-35. Open with a visual mystery, progressively reveal the hidden mechanism inside the cloud, close with what remains unknown.",
+    "central_question": "How does a lightning bolt form, and what actually happens inside a thundercloud before lightning strikes?",
+    "entities": [],
+    "keywords": [
+      "lightning",
+      "actually",
+      "happens",
+      "inside",
+      "thundercloud",
+      "before",
+      "strikes"
+    ],
+    "anchors": [
+      "lightning",
+      "bolt",
+      "thundercloud",
+      "strikes"
+    ]
+  },
+  "depth": "deep",
+  "budget": {
+    "questions": 12,
+    "queries_per_question": 4,
+    "sources_per_query": 6,
+    "max_sources": 50
+  },
+  "research_questions": [
+    "What is the core mechanism behind How does a lightning bolt form, and what actually happens inside a thundercloud before lightning strikes??",
+    "What causes How does a lightning bolt form, and what actually happens inside a thundercloud before lightning strikes?, step by step?",
+    "What background concepts are needed to understand How does a lightning bolt form, and what actually happens inside a thundercloud before lightning strikes??",
+    "What evidence supports the current understanding of How does a lightning bolt form, and what actually happens inside a thundercloud before lightning strikes??",
+    "What are common misconceptions about How does a lightning bolt form, and what actually happens inside a thundercloud before lightning strikes??",
+    "What remains uncertain or debated about How does a lightning bolt form, and what actually happens inside a thundercloud before lightning strikes??",
+    "What is the history of discovery for How does a lightning bolt form, and what actually happens inside a thundercloud before lightning strikes??",
+    "Why does How does a lightning bolt form, and what actually happens inside a thundercloud before lightning strikes? matter, and what are its consequences?"
+  ],
+  "background_needs": [
+    "Core vocabulary and definitions the viewer needs first",
+    "Scale and context (where/when/how big/how fast)",
+    "Prerequisite mechanisms from neighbouring fields"
+  ],
+  "causal_seed": [
+    "How does a lightning bolt form, and what actually happens inside a thundercloud before lightning strikes?",
+    "How does a lightning bolt form, and what actually happens inside a thundercloud before lightning strikes?"
+  ]
+}
