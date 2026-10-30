@@ -1,0 +1,64 @@
+# Produce a complete science video on GitHub-hosted runners ($0).
+# Usage: repo Actions tab → "Produce video" → Run workflow → type a topic.
+# The finished package (MP4, thumbnail, subtitles, metadata, QA report)
+# is attached to the run as a downloadable artifact. Nothing is committed.
+name: Produce video
+on:
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: 'Science question, e.g. "How do vaccines train the immune system?"'
+        required: true
+        type: string
+      duration:
+        description: Target video length
+        required: false
+        default: 12-15
+        type: choice
+        options: [8-10, 12-15, 15-20, auto]
+      instructions:
+        description: Optional extra instructions for the run
+        required: false
+        default: ''
+        type: string
+
+jobs:
+  produce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360  # full production can take ~1h; GH limit is 6h/job
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Install
+        run: |
+          pip install -r requirements.txt
+          pip install -e .
+      - name: Create project
+        id: new
+        env:
+          TOPIC: ${{ inputs.topic }}
+          DURATION: ${{ inputs.duration }}
+          INSTRUCTIONS: ${{ inputs.instructions }}
+        run: |
+          OUT=$(python -m science_studio new "$TOPIC" --duration "$DURATION" --instructions "$INSTRUCTIONS")
+          echo "$OUT"
+          echo "pid=$(echo "$OUT" | python -c 'import json,sys; print(json.load(sys.stdin)["project_id"])')" >> "$GITHUB_OUTPUT"
+      - name: Run production
+        env:
+          # Optional free keys (repo Settings → Secrets → Actions). All blank = keyless $0 mode.
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+        run: python -m science_studio run "${{ steps.new.outputs.pid }}"
+      - name: Upload video package
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: video-${{ steps.new.outputs.pid }}
+          retention-days: 30
+          path: |
+            projects/${{ steps.new.outputs.pid }}/production/final/
+            projects/${{ steps.new.outputs.pid }}/production/subtitles.*
+            projects/${{ steps.new.outputs.pid }}/production/subtitles/
+            projects/${{ steps.new.outputs.pid }}/pipeline.log

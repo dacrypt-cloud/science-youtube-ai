@@ -30,6 +30,9 @@ python -m science_studio new "How do mosquitoes transmit malaria?" --duration 12
 python -m science_studio run <project-id>
 # Web UI (phone-friendly)
 python -m science_studio.web.app  # → http://localhost:5000
+# Run on GitHub (no local machine needed)
+# → repo Actions tab → "Produce video" → Run workflow → type your topic,
+#    then download the finished package from the run's Artifacts.
 ```
 
 No keys at all? It still runs: template generation + Wikimedia + free TTS + FFmpeg.
