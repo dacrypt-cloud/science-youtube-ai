@@ -5,9 +5,11 @@ Job spec:
    music?, music_gain?, subtitles_srt?, out_extra?}
 Each scene -> segment mp4 (still image w/ slow zoompan + audio, or video loop/trim),
 then concat. Text overlay drawn with Pillow onto the image (no font dependency).
+Motion (Ken Burns variants, diagram builds, kinetic captions, progress bar)
+is automatic; set MOTION=0 to disable.
 """
 from __future__ import annotations
-import subprocess, json, shutil
+import subprocess, json, shutil, os
 from pathlib import Path
 from .base import RenderingProvider, ProviderStatus
 from ..config import get_settings
@@ -45,6 +47,10 @@ class FFmpegRenderer(RenderingProvider):
         H = int(job.get("height", cfg.video_height))
         fps = int(job.get("fps", cfg.video_fps))
         scenes = job.get("scenes", [])
+        from ..video.motion import (zoom_variant, zoom_filter, fade_filter,
+                                    concat_list_file, parse_srt, write_ass,
+                                    progress_filter, ffesc, has_filter)
+        motion_on = os.environ.get("MOTION", "1") != "0"
         if not scenes:
             raise RuntimeError("render job has no scenes")
         out_path = Path(out_path)
@@ -68,11 +74,17 @@ class FFmpegRenderer(RenderingProvider):
             # 2) segment video
             seg = work / f"seg_{i:03d}.mp4"
             video_src = sc.get("video", "")
+            base_vf = (f"scale={W}:{H}:force_original_aspect_ratio=increase,"
+                       f"crop={W}:{H},fps={fps},format=yuv420p")
+            if motion_on:
+                _fz = fade_filter(dur)
+                if _fz:
+                    base_vf += "," + _fz
             if video_src and Path(video_src).exists():
                 cmd = [exe, "-y", "-stream_loop", "10", "-i", str(video_src),
                        "-i", str(audio) if audio else "anullsrc",
                        "-t", f"{dur:.2f}", "-vf",
-                       f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={fps},format=yuv420p",
+                       base_vf,
                        "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
                        "-c:a", "aac", "-shortest", str(seg)]
                 # if no audio file, synthesize silence
@@ -80,22 +92,46 @@ class FFmpegRenderer(RenderingProvider):
                     cmd = [exe, "-y", "-stream_loop", "10", "-i", str(video_src),
                            "-f", "lavfi", "-i", f"anullsrc=r=44100:cl=stereo:d={dur:.2f}",
                            "-t", f"{dur:.2f}", "-vf",
-                           f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={fps},format=yuv420p",
+                           base_vf,
                            "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
                            "-c:a", "aac", "-shortest", str(seg)]
             else:
-                # still image + slow zoompan + narration audio
-                frames = max(1, int(dur * fps))
-                # zoompan from 1.0 -> 1.05 over the scene (gentle; keeps edges safe)
-                vf = (f"scale=4000:-1,zoompan=z='1+0.05*on/{frames}':"
-                      f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s={W}x{H}:fps={fps},format=yuv420p")
+                stages = sc.get("stages") or []
+                _fz = fade_filter(dur) if motion_on else ""
+                if len(stages) > 1:
+                    # diagram build-up: cumulative stages, equal splits, static (crisp text)
+                    entries = [(s, dur / len(stages)) for s in stages]
+                    lst_in = concat_list_file(entries, work / f"frames_{i:03d}.txt")
+                    vf = (f"scale={W}:{H}:force_original_aspect_ratio=increase,"
+                          f"crop={W}:{H},fps={fps},format=yuv420p")
+                    if _fz:
+                        vf += "," + _fz
+                    # NOTE: no -r input option — it overrides concat durations;
+                    # the fps= filter in vf generates the steady frame rate.
+                    in_args = ["-f", "concat", "-safe", "0",
+                               "-i", str(lst_in)]
+                else:
+                    # photo: Ken Burns variant; single diagrams stay static (crisp text)
+                    frames = max(1, int(dur * fps))
+                    if motion_on and not sc.get("is_diagram"):
+                        vf = zoom_filter(zoom_variant(i), frames, W, H, fps)
+                    elif motion_on:
+                        vf = (f"scale={W}:{H}:force_original_aspect_ratio=increase,"
+                              f"crop={W}:{H},fps={fps},format=yuv420p")
+                    else:
+                        # legacy gentle drift (MOTION=0)
+                        vf = (f"scale=4000:-1,zoompan=z='1+0.05*on/{frames}':"
+                              f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s={W}x{H}:fps={fps},format=yuv420p")
+                    if _fz:
+                        vf += "," + _fz
+                    in_args = ["-loop", "1", "-i", str(frame)]
                 if audio and Path(audio).exists():
-                    cmd = [exe, "-y", "-loop", "1", "-i", str(frame), "-i", str(audio),
+                    cmd = [exe, "-y", *in_args, "-i", str(audio),
                            "-t", f"{dur:.2f}", "-vf", vf,
                            "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
                            "-c:a", "aac", "-shortest", str(seg)]
                 else:
-                    cmd = [exe, "-y", "-loop", "1", "-i", str(frame),
+                    cmd = [exe, "-y", *in_args,
                            "-f", "lavfi", "-i", f"anullsrc=r=44100:cl=stereo:d={dur:.2f}",
                            "-t", f"{dur:.2f}", "-vf", vf,
                            "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
@@ -115,6 +151,27 @@ class FFmpegRenderer(RenderingProvider):
                             "-c", "copy", str(tmp)], capture_output=True, timeout=600)
         if r.returncode != 0:
             raise RuntimeError("concat failed: " + r.stderr[-2000:].decode(errors="ignore"))
+        # 3b) motion finishing pass: kinetic captions + progress bar.
+        # Video-only (audio copied) so A/V and subtitles stay sample-synced.
+        subs_srt = job.get("subtitles_srt", "")
+        if motion_on and subs_srt and Path(subs_srt).exists():
+            try:
+                cues = parse_srt(subs_srt)
+                vf_fin = [progress_filter(W, H, total)]
+                if cues and has_filter(exe, "subtitles"):
+                    ass = out_path.parent / "captions.ass"
+                    write_ass(cues, ass, W, H)
+                    vf_fin.insert(0, f"subtitles='{ffesc(ass)}'")
+                tmp2 = out_path.parent / "_captioned.mp4"
+                rcap = subprocess.run(
+                    [exe, "-y", "-i", str(tmp), "-vf", ",".join(vf_fin),
+                     "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
+                     "-c:a", "copy", str(tmp2)], capture_output=True, timeout=900)
+                if rcap.returncode == 0 and tmp2.exists():
+                    tmp.unlink(missing_ok=True)
+                    tmp = tmp2
+            except Exception:
+                pass  # non-fatal: ship the concat as-is
         # 4) optional music bed @ low volume
         if music and Path(music).exists():
             gain = float(job.get("music_gain", 0.08))
@@ -173,12 +230,14 @@ class FFmpegRenderer(RenderingProvider):
         # diagrams already carry their own title header — don't double-print
         title = "" if sc.get("is_diagram") else (sc.get("title") or "")[:90]
         cap = (sc.get("onscreen_text") or "")[:140]
+        # title block sits high enough to leave a caption lane below it
+        # (kinetic captions occupy roughly H-160..H-90; progress bar H-12..H)
         if title:
-            d.text((int(60 * scale), H - int(170 * scale)), title,
+            d.text((int(60 * scale), H - int(280 * scale)), title,
                    font=_font(True, int(52 * scale)), fill=(255, 255, 255),
                    stroke_width=2, stroke_fill=(0, 0, 0))
         if cap:
-            d.text((int(60 * scale), H - int(105 * scale)), cap,
+            d.text((int(60 * scale), H - int(215 * scale)), cap,
                    font=_font(False, int(36 * scale)), fill=(200, 220, 255),
                    stroke_width=1, stroke_fill=(0, 0, 0))
         base.save(frame_path)

@@ -11,76 +11,121 @@
       "video": "",
       "duration_s": 53.736,
       "is_diagram": false,
+      "stages": [],
       "audio": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/narration/scene_01.mp3"
     },
     {
       "scene_id": "scene_02",
       "title": "Hook: follow the journey — part 2",
       "onscreen_text": "",
-      "image": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/diagrams/scene_02_anatomy.png",
+      "image": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_02_s4.png",
       "video": "",
       "duration_s": 61.776,
       "is_diagram": true,
+      "stages": [
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_02_s1.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_02_s2.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_02_s3.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_02_s4.png"
+      ],
       "audio": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/narration/scene_02.mp3"
     },
     {
       "scene_id": "scene_03",
       "title": "Stage 1",
       "onscreen_text": "",
-      "image": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/diagrams/scene_03_process.png",
+      "image": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_03_s4.png",
       "video": "",
       "duration_s": 69.864,
       "is_diagram": true,
+      "stages": [
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_03_s1.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_03_s2.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_03_s3.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_03_s4.png"
+      ],
       "audio": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/narration/scene_03.mp3"
     },
     {
       "scene_id": "scene_04",
       "title": "Stage 1 — part 2",
       "onscreen_text": "",
-      "image": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/diagrams/scene_04_anatomy.png",
+      "image": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_04_s4.png",
       "video": "",
       "duration_s": 68.256,
       "is_diagram": true,
+      "stages": [
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_04_s1.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_04_s2.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_04_s3.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_04_s4.png"
+      ],
       "audio": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/narration/scene_04.mp3"
     },
     {
       "scene_id": "scene_05",
       "title": "Stage 2",
       "onscreen_text": "",
-      "image": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/diagrams/scene_05_process.png",
+      "image": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_05_s5.png",
       "video": "",
       "duration_s": 63.312,
       "is_diagram": true,
+      "stages": [
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_05_s1.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_05_s2.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_05_s3.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_05_s4.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_05_s5.png"
+      ],
       "audio": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/narration/scene_05.mp3"
     },
     {
       "scene_id": "scene_06",
       "title": "Stage 2 — part 2",
       "onscreen_text": "",
-      "image": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/diagrams/scene_06_chart.png",
+      "image": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_06_s5.png",
       "video": "",
       "duration_s": 66.696,
       "is_diagram": true,
+      "stages": [
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_06_s1.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_06_s2.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_06_s3.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_06_s4.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_06_s5.png"
+      ],
       "audio": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/narration/scene_06.mp3"
     },
     {
       "scene_id": "scene_07",
       "title": "Stage 3",
       "onscreen_text": "",
-      "image": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/diagrams/scene_07_process.png",
+      "image": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_07_s3.png",
       "video": "",
       "duration_s": 64.992,
       "is_diagram": true,
+      "stages": [
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_07_s1.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_07_s2.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_07_s3.png"
+      ],
       "audio": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/narration/scene_07.mp3"
     },
     {
       "scene_id": "scene_08",
       "title": "Stage 3 — part 2",
       "onscreen_text": "",
-      "image": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/diagrams/scene_08_anatomy.png",
+      "image": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_08_s5.png",
       "video": "",
       "duration_s": 73.128,
       "is_diagram": true,
+      "stages": [
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_08_s1.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_08_s2.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_08_s3.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_08_s4.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_08_s5.png"
+      ],
       "audio": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/narration/scene_08.mp3"
     },
     {
@@ -91,39 +136,58 @@
       "video": "",
       "duration_s": 50.304,
       "is_diagram": false,
+      "stages": [],
       "audio": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/narration/scene_09.mp3"
     },
     {
       "scene_id": "scene_10",
       "title": "Stage 4 — part 2",
       "onscreen_text": "",
-      "image": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/diagrams/scene_10_anatomy.png",
+      "image": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_10_s5.png",
       "video": "",
       "duration_s": 55.08,
       "is_diagram": true,
+      "stages": [
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_10_s1.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_10_s2.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_10_s3.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_10_s4.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_10_s5.png"
+      ],
       "audio": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/narration/scene_10.mp3"
     },
     {
       "scene_id": "scene_11",
       "title": "Where it ends / why it matters",
       "onscreen_text": "",
-      "image": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/diagrams/scene_11_process.png",
+      "image": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_11_s3.png",
       "video": "",
       "duration_s": 10.008,
       "is_diagram": true,
+      "stages": [
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_11_s1.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_11_s2.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_11_s3.png"
+      ],
       "audio": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/narration/scene_11.mp3"
     },
     {
       "scene_id": "scene_12",
       "title": "Where it ends / why it matters — part 2",
       "onscreen_text": "",
-      "image": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/diagrams/scene_12_process.png",
+      "image": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_12_s3.png",
       "video": "",
       "duration_s": 70.584,
       "is_diagram": true,
+      "stages": [
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_12_s1.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_12_s2.png",
+        "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/stages/scene_12_s3.png"
+      ],
       "audio": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/narration/scene_12.mp3"
     }
   ],
   "music": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/music/_storm_bed.m4a",
-  "music_gain": 0.15
+  "music_gain": 0.15,
+  "subtitles_srt": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/subtitles/subtitles.srt"
 }

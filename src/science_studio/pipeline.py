@@ -276,10 +276,17 @@ def run_project(pid: str, *, resume: bool = True, stop_after: str = "",
                                    music.get("path", ""))
             storage.write_json(root / "production" / "sfx.json", bed)
             _log(pid, f"sound bed: {bed.get('source', 'none')}")
+            _subs = storage.read_json(root / "production" / "subtitles.json", {})
+            _claims = storage.read_json(root / "research" / "claims.json", [])
+            _cmap = {c.get("claim_id"): c.get("claim", "") for c in _claims
+                     if c.get("claim_id") and c.get("claim")}
             job = build_job(board, assets, narr,
                             {"path": bed.get("path") or music.get("path", ""),
                              "gain": bed.get("gain", 0.08) if bed.get("path") else music.get("gain", 0.08)},
-                            get_settings())
+                            get_settings(), claims_map=_cmap,
+                            stages_dir=root / "production" / "stages")
+            if _subs.get("srt"):
+                job["subtitles_srt"] = _subs["srt"]
             storage.write_json(root / "production" / "render_job.json",
                                {**job, "scenes": [{k: v for k, v in s.items() if k != "audio"} | {"audio": s.get("audio", "")} for s in job["scenes"]]})
             out = root / "production" / "video" / "video.mp4"

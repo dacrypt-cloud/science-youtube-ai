@@ -38,6 +38,7 @@ projects/*/production/music/*.wav
 projects/*/production/video/*.mp4
 projects/*/production/final/*.mp4
 projects/*/production/diagrams/*.png
+projects/*/production/stages/*
 *.mp4
 *.mp3
 *.wav

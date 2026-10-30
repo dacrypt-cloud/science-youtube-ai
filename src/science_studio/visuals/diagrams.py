@@ -84,8 +84,10 @@ def _svg_shell(title: str, subtitle: str, body: str) -> str:
 
 
 def _flow(title: str, narration: str, subtitle: str, vertical: bool = False,
-          claims: tuple = ()) -> str:
+          claims: tuple = (), limit: int | None = None) -> str:
     steps = _steps(narration, 5, claims)
+    if limit:
+        steps = steps[:limit]
     n = len(steps)
     body = []
     if not vertical:
@@ -118,9 +120,12 @@ def _flow(title: str, narration: str, subtitle: str, vertical: bool = False,
     return _svg_shell(title, subtitle, "\n".join(body))
 
 
-def _cycle(title: str, narration: str, claims: tuple = ()) -> str:
+def _cycle(title: str, narration: str, claims: tuple = (),
+           limit: int | None = None) -> str:
     import math
     steps = _steps(narration, 6, claims)
+    if limit:
+        steps = steps[:limit]
     n = len(steps)
     cx, cy, R = W // 2, 590, 260
     body = [f'<ellipse cx="{cx}" cy="{cy}" rx="{R}" ry="{R}" fill="none" stroke="{ACC}" stroke-width="4" stroke-dasharray="14 10"/>']
@@ -150,18 +155,18 @@ def rasterize(svg_path: Path, png_path: Path, width: int = 1920, height: int = 1
 
 def render_diagram_png(kind: str, title: str, narration: str,
                        svg_path: Path, png_path: Path,
-                       claims: tuple = ()) -> Path:
+                       claims: tuple = (), limit: int | None = None) -> Path:
     """Write the SVG artifact AND a PNG for the renderer.
 
     Prefers cairosvg rasterization of the SVG; falls back to a Pillow-native
     renderer drawing the same layout (works with zero system graphics libs).
     Always returns a PNG path (raises only if Pillow itself is missing).
     """
-    render_diagram(kind, title, narration, svg_path, claims)
+    render_diagram(kind, title, narration, svg_path, claims, limit)
     rp = rasterize(Path(svg_path), Path(png_path))
     if rp and Path(rp).exists():
         return Path(rp)
-    return _pil_render(kind, title, narration, Path(png_path), claims)
+    return _pil_render(kind, title, narration, Path(png_path), claims, limit)
 
 
 def _pil_font(bold: bool, size: int):
@@ -188,10 +193,12 @@ def _pil_shell(title: str, subtitle: str):
 
 
 def _pil_flow(title: str, narration: str, subtitle: str, vertical: bool = False,
-              claims: tuple = ()):
+              claims: tuple = (), limit: int | None = None):
     from PIL import ImageDraw
     img, d = _pil_shell(title, subtitle)
     steps = _steps(narration, 5, claims)
+    if limit:
+        steps = steps[:limit]
     n = len(steps)
     if not vertical:
         bw, gap = 340, 40
@@ -228,10 +235,13 @@ def _pil_flow(title: str, narration: str, subtitle: str, vertical: bool = False,
     return img
 
 
-def _pil_cycle(title: str, narration: str, claims: tuple = ()):
+def _pil_cycle(title: str, narration: str, claims: tuple = (),
+               limit: int | None = None):
     import math
     img, d = _pil_shell(title, "Life cycle / circular process")
     steps = _steps(narration, 6, claims)
+    if limit:
+        steps = steps[:limit]
     n = len(steps)
     cx, cy, R = W // 2, 590, 260
     d.ellipse([cx - R, cy - R, cx + R, cy + R], outline=ACC, width=4)
@@ -263,13 +273,14 @@ _SUBTITLES = {
 
 
 def _pil_render(kind: str, title: str, narration: str, png_path: Path,
-                claims: tuple = ()) -> Path:
+                claims: tuple = (), limit: int | None = None) -> Path:
     k = (kind or "title").lower()
     if k == "lifecycle":
-        img = _pil_cycle(title, narration, claims)
+        img = _pil_cycle(title, narration, claims, limit)
     elif k in ("timeline", "chart", "scale", "process", "anatomy"):
         img = _pil_flow(title, narration, _SUBTITLES[k],
-                        vertical=(k in ("chart", "anatomy")), claims=claims)
+                        vertical=(k in ("chart", "anatomy")), claims=claims,
+                        limit=limit)
     else:
         img = _pil_title(title, narration)
     png_path = Path(png_path)
@@ -279,22 +290,22 @@ def _pil_render(kind: str, title: str, narration: str, png_path: Path,
 
 
 def render_diagram(kind: str, title: str, narration: str, out_path: Path,
-                   claims: tuple = ()) -> Path:
+                   claims: tuple = (), limit: int | None = None) -> Path:
     out_path = Path(out_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     k = (kind or "title").lower()
     if k == "lifecycle":
-        svg = _cycle(title, narration, claims)
+        svg = _cycle(title, narration, claims, limit)
     elif k == "timeline":
-        svg = _flow(title, narration, "Timeline — how understanding developed", claims=claims)
+        svg = _flow(title, narration, "Timeline — how understanding developed", claims=claims, limit=limit)
     elif k == "anatomy":
-        svg = _flow(title, narration, "Anatomy — where it happens", vertical=True, claims=claims)
+        svg = _flow(title, narration, "Anatomy — where it happens", vertical=True, claims=claims, limit=limit)
     elif k == "chart":
-        svg = _flow(title, narration, "Key numbers and comparisons", vertical=True, claims=claims)
+        svg = _flow(title, narration, "Key numbers and comparisons", vertical=True, claims=claims, limit=limit)
     elif k == "scale":
-        svg = _flow(title, narration, "Zooming in — scale by scale", claims=claims)
+        svg = _flow(title, narration, "Zooming in — scale by scale", claims=claims, limit=limit)
     elif k == "process":
-        svg = _flow(title, narration, "Mechanism — step by step", claims=claims)
+        svg = _flow(title, narration, "Mechanism — step by step", claims=claims, limit=limit)
     else:
         svg = _svg_shell(title, "Science explainer",
                          f'<text x="80" y="500" font-family="sans-serif" font-size="44" fill="{FG}">{_esc(_shorten(" ".join(narration.split()[:14]), 76))}</text>')

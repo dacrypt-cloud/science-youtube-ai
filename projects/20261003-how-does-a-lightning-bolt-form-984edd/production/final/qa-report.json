@@ -34,7 +34,7 @@
     {
       "name": "video_exists",
       "ok": true,
-      "detail": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/final/final.mp4 (25.2 MB)",
+      "detail": "projects/20261003-how-does-a-lightning-bolt-form-984edd/production/final/final.mp4 (31.5 MB)",
       "repaired": ""
     },
     {
@@ -76,7 +76,7 @@
     {
       "name": "resolution_1080p",
       "ok": true,
-      "detail": "1920x1080 @ 29.99fps",
+      "detail": "1920x1080 @ 30.0fps",
       "repaired": ""
     },
     {
