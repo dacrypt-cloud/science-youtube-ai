@@ -231,6 +231,110 @@ def run_qa(pid: str, project_root: Path, storyboard: list[dict], assets: list[di
     except Exception as e:
         check("duration_in_target", True, f"skipped: {e}"[:120])
 
+    # 19. narration production hygiene: QA judges the actual spoken words, not
+    #     just file validity. Every narrated sentence must pass the same
+    #     hygiene gate the script builder uses.
+    try:
+        from ..research.planner import topic_anchors as _anchors19
+        from ..providers.llm_template import is_clean_sentence as _clean19
+        from ..providers.llm_template import split_sentences_raw as _split19
+        idea19 = _json.loads((project_root / "idea.json").read_text(encoding="utf-8"))
+        anchors19 = _anchors19(idea19.get("idea", ""), idea19)
+        violations = []
+        for s in storyboard:
+            # abbreviation-aware split ("etc. benefit" must not break, but a
+            # real ". " boundary must — headless fragments hide there).
+            for sent in _split19(s.get("narration", "")):
+                if len(sent) > 40 and not _clean19(sent, anchors19):
+                    violations.append(f"{s['scene_id']}: {sent[:70]}")
+        check("narration_hygiene", len(violations) == 0,
+              f"{len(violations)} unclean narrated sentences: {violations[:3]}" if violations
+              else f"all narrated sentences pass hygiene ({len(storyboard)} scenes)")
+    except Exception as e:
+        check("narration_hygiene", False, f"hygiene scan crashed: {e}"[:160])
+    # 20. primary stock visuals must be topically relevant (no nebulae or
+    #     Roman mosaics in a lightning video).
+    try:
+        from ..research.planner import topic_anchors as _anchors20
+        from ..visuals.assets import _img_relevant as _rel20
+        from ..providers.llm_template import stem as _stem20
+        idea20 = _json.loads((project_root / "idea.json").read_text(encoding="utf-8"))
+        astems20 = {_stem20(a) for a in _anchors20(idea20.get("idea", ""), idea20)}
+        junk = [f"{a['scene_id']}:{a.get('description', '')[:50]}" for a in assets
+                if a.get("kind") in ("image", "video") and a.get("primary")
+                and not _rel20({"title": a.get("description", ""),
+                                "description": a.get("img_description", ""),
+                                "categories": a.get("categories", [])}, astems20)]
+        nprim = sum(1 for a in assets
+                    if a.get("kind") in ("image", "video") and a.get("primary"))
+        check("image_relevance", len(junk) == 0,
+              f"irrelevant primaries: {junk[:3]}" if junk
+              else f"{nprim} primary stock visuals topically relevant")
+    except Exception as e:
+        check("image_relevance", False, f"relevance scan crashed: {e}"[:160])
+    # 21. diagram labels must fit their boxes (no mid-word cuts/overflow).
+    try:
+        import re as _re3
+        over = []
+        for svg_p in sorted((project_root / "production" / "diagrams").glob("*.svg")):
+            svg = svg_p.read_text(encoding="utf-8")
+            for fs, txt in _re3.findall(
+                    r'<text[^>]*font-size="(\d+)"[^>]*>([^<]*)</text>', svg):
+                t = txt.strip()
+                if not t or "science-youtube-ai" in t or int(fs) >= 60:
+                    continue  # footer / big title
+                # horizontal box lines (fs 26, 340px boxes) fit ~20 chars;
+                # vertical box lines (fs 30, 900px boxes) fit ~50.
+                budget = 80 if int(fs) >= 40 else (55 if int(fs) >= 30 else 22)
+                if len(t) > budget:
+                    over.append(f"{svg_p.name}:{len(t)}ch")
+        check("diagram_text_fit", len(over) == 0,
+              f"overflowing labels: {over[:4]}" if over
+              else "all diagram labels within boxes")
+    except Exception as e:
+        check("diagram_text_fit", False, f"diagram scan crashed: {e}"[:160])
+    # 22. subtitle cue integrity: no overlaps, sane per-cue durations.
+    try:
+        import re as _re4
+        srt22 = Path(subs.get("srt", "")).read_text(encoding="utf-8")
+        cues = _re4.findall(
+            r"(\d+):(\d+):(\d+),(\d+)\s*-->\s*(\d+):(\d+):(\d+),(\d+)", srt22)
+
+        def _t22(h, m, s, ms):
+            return int(h) * 3600 + int(m) * 60 + int(s) + int(ms) / 1000
+
+        bad22, prev_end = 0, 0.0
+        for h1, m1, s1, x1, h2, m2, s2, x2 in cues:
+            st, en = _t22(h1, m1, s1, x1), _t22(h2, m2, s2, x2)
+            if st < prev_end - 0.001 or not (0.4 <= en - st <= 10.0):
+                bad22 += 1
+            prev_end = max(prev_end, en)
+        check("subtitle_integrity", bool(cues) and bad22 == 0,
+              f"{bad22} bad cues of {len(cues)} (overlap/bad duration)"
+              if bad22 or not cues
+              else f"{len(cues)} cues clean (no overlap, 0.4-10s each)")
+    except Exception as e:
+        check("subtitle_integrity", False, f"srt parse crashed: {e}"[:160])
+
+    # 23. conceptual alignment: visuals must show what is narrated (no
+    #     misleading stock, no placeholder/disconnected diagrams).
+    try:
+        from ..research.planner import topic_anchors as _anchors23
+        from ..providers.llm_template import stem as _stem23
+        from .conceptual import combined as _combined23
+        idea23 = _json.loads((project_root / "idea.json").read_text(encoding="utf-8"))
+        astems23 = {_stem23(a) for a in _anchors23(idea23.get("idea", ""), idea23)}
+        mis23 = _combined23(storyboard, assets, narrations, astems23,
+                            project_root / "production" / "diagrams")
+        fails23 = [f"{sid}: {msg}" for sid, iss in mis23.items()
+                   for sev, msg in iss if sev == "fail"]
+        warns23 = sum(1 for iss in mis23.values() for sev, _ in iss if sev == "warn")
+        check("conceptual_alignment", len(fails23) == 0,
+              f"misaligned: {fails23[:3]}" if fails23
+              else (f"aligned ({len(storyboard)} scenes, {warns23} warnings)"))
+    except Exception as e:
+        check("conceptual_alignment", False, f"alignment scan crashed: {e}"[:160])
+
     failed = [c for c in checks if not c["ok"]]
     status = "pass" if not failed else ("review" if len(failed) <= 2 else "fail")
     return {"status": status, "checks": checks, "video_duration_s": vdur,

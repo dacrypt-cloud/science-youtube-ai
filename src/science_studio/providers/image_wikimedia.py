@@ -12,7 +12,8 @@ class WikimediaImageProvider(CacheMixin, ImageProvider):
     name = "wikimedia"
 
     def __init__(self):
-        CacheMixin.__init__(self, "img-wikimedia")
+        # v2 cache: results now carry categories + description for relevance vetoes
+        CacheMixin.__init__(self, "img-wikimedia2")
 
     def status(self) -> ProviderStatus:
         return ProviderStatus(self.name, True, True, "commons.wikimedia.org API, no key")
@@ -26,8 +27,9 @@ class WikimediaImageProvider(CacheMixin, ImageProvider):
             params = urllib.parse.urlencode({
                 "action": "query", "format": "json", "generator": "search",
                 "gsrsearch": f"filetype:bitmap {query}", "gsrnamespace": 6,
-                "gsrlimit": min(limit * 2, 20), "prop": "imageinfo",
+                "gsrlimit": min(limit * 2, 20), "prop": "imageinfo|categories",
                 "iiprop": "url|user|extmetadata", "iiurlwidth": 1280,
+                "cllimit": 20,
             })
             url = "https://commons.wikimedia.org/w/api.php?" + params
             req = urllib.request.Request(url, headers={"User-Agent": "science-youtube-ai/0.1"})
@@ -39,6 +41,9 @@ class WikimediaImageProvider(CacheMixin, ImageProvider):
                 meta = ii.get("extmetadata") or {}
                 lic = (meta.get("LicenseShortName") or {}).get("value", "")
                 artist = re.sub(r"<[^>]+>", "", (meta.get("Artist") or {}).get("value", ""))[:120]
+                desc = re.sub(r"\s+", " ", re.sub(
+                    r"<[^>]+>", " ", (meta.get("ImageDescription") or {}).get("value", ""))).strip()[:500]
+                cats = [c.get("title", "") for c in (pg.get("categories") or [])]
                 imgurl = ii.get("thumburl") or ii.get("url") or ""
                 if not imgurl or not imgurl.startswith("http"):
                     continue
@@ -48,6 +53,7 @@ class WikimediaImageProvider(CacheMixin, ImageProvider):
                     "license": lic or "see Commons page",
                     "page_url": "https://commons.wikimedia.org/wiki/" + urllib.parse.quote(pg.get("title", "").replace(" ", "_")),
                     "width": ii.get("thumbwidth", 1280), "height": ii.get("thumbheight", 720),
+                    "description": desc, "categories": cats,
                 })
                 if len(out) >= limit:
                     break

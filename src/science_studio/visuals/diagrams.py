@@ -29,17 +29,44 @@ def _shorten(s: str, n: int) -> str:
     return cut + "…"
 
 
-def _steps(narration: str, n: int = 5) -> list[str]:
-    sents = re.split(r"(?<=[.!?])\s+", narration)
-    sents = [s.strip() for s in sents if len(s.strip()) > 20]
-    if not sents:
+_PAPER_VOICE = re.compile(r"(We|Our|Here we|In this (study|paper|work)|This (study|paper|work)|A summary)\b")
+
+
+def _label_ok(head: str) -> bool:
+    """A diagram label must read as a complete phrase: no paper-voice
+    opener, and no lowercase start (a mid-sentence fragment such as
+    "benefit from ..." after "etc.")."""
+    return (len(head) > 15 and not _PAPER_VOICE.match(head)
+            and (head[:1].isupper() or not head[:1].isalpha()))
+
+
+def _steps(narration: str, n: int = 5, claims: tuple = ()) -> list[str]:
+    # Verified claims make the best labels: factual, concise, pre-vetted —
+    # but only when they say what is actually narrated. A claim head (the
+    # ~9 words that will be shown) must share vocabulary with the narration;
+    # divergent claims are dropped in favour of narrated sentences, so the
+    # diagram always shows what the viewer hears. Splitting is
+    # abbreviation-aware ("etc. benefit" never breaks); fragments and
+    # paper-voice openers ("We have analyzed...") make poor labels anywhere.
+    from ..providers.llm_template import sent_stems as _sent_stems
+    from ..providers.llm_template import split_sentences_raw as _split_sentences
+    nstems = _sent_stems(narration)
+    pool = []
+    for c in (claims or []):
+        head = " ".join(" ".join((c or "").split()).split()[:9])
+        if _label_ok(head) and (not nstems or (_sent_stems(head) & nstems)):
+            pool.append(head)
+    if len(pool) < 3:
+        sents = [s for s in _split_sentences(narration) if len(s) > 20]
+        kept = [s for s in sents if _label_ok(s)]
+        pool += kept or sents
+    if not pool:
         return ["Step 1", "Step 2", "Step 3"][:n]
-    # pick evenly spaced sentences, shortened to ~8 words
+    # pick evenly spaced entries, shortened to ~8 words
     out = []
-    for i in range(min(n, len(sents))):
-        idx = int(i * len(sents) / min(n, len(sents)))
-        words = sents[idx].split()[:9]
-        out.append(" ".join(words))
+    for i in range(min(n, len(pool))):
+        idx = int(i * len(pool) / min(n, len(pool)))
+        out.append(" ".join(pool[idx].split()[:9]))
     while len(out) < 3:
         out.append("…")
     return out
@@ -56,12 +83,13 @@ def _svg_shell(title: str, subtitle: str, body: str) -> str:
 </svg>"""
 
 
-def _flow(title: str, narration: str, subtitle: str, vertical: bool = False) -> str:
-    steps = _steps(narration, 5)
+def _flow(title: str, narration: str, subtitle: str, vertical: bool = False,
+          claims: tuple = ()) -> str:
+    steps = _steps(narration, 5, claims)
     n = len(steps)
     body = []
     if not vertical:
-        bw, gap = 300, 60
+        bw, gap = 340, 40
         total = n * bw + (n - 1) * gap
         x0 = (W - total) // 2
         y = 420
@@ -70,9 +98,9 @@ def _flow(title: str, narration: str, subtitle: str, vertical: bool = False) -> 
             body.append(f'<rect x="{x}" y="{y}" width="{bw}" height="220" rx="18" fill="#12263f" stroke="{ACC}" stroke-width="3"/>')
             body.append(f'<text x="{x+20}" y="{y+60}" font-family="sans-serif" font-size="30" font-weight="bold" fill="{ACC2}">{i+1}</text>')
             words = s.split()
-            lines = [" ".join(words[j:j+5]) for j in range(0, len(words), 5)][:4]
+            lines = [" ".join(words[j:j+4]) for j in range(0, len(words), 4)][:4]
             for li, ln in enumerate(lines):
-                body.append(f'<text x="{x+20}" y="{y+110+li*40}" font-family="sans-serif" font-size="26" fill="{FG}">{_esc(_shorten(ln, 22))}</text>')
+                body.append(f'<text x="{x+20}" y="{y+110+li*40}" font-family="sans-serif" font-size="26" fill="{FG}">{_esc(_shorten(ln, 20))}</text>')
             if i < n - 1:
                 ax = x + bw
                 body.append(f'<line x1="{ax+6}" y1="{y+110}" x2="{ax+gap-6}" y2="{y+110}" stroke="{ACC}" stroke-width="5" marker-end="url(#a)"/>')
@@ -90,9 +118,9 @@ def _flow(title: str, narration: str, subtitle: str, vertical: bool = False) -> 
     return _svg_shell(title, subtitle, "\n".join(body))
 
 
-def _cycle(title: str, narration: str) -> str:
+def _cycle(title: str, narration: str, claims: tuple = ()) -> str:
     import math
-    steps = _steps(narration, 6)
+    steps = _steps(narration, 6, claims)
     n = len(steps)
     cx, cy, R = W // 2, 590, 260
     body = [f'<ellipse cx="{cx}" cy="{cy}" rx="{R}" ry="{R}" fill="none" stroke="{ACC}" stroke-width="4" stroke-dasharray="14 10"/>']
@@ -121,18 +149,19 @@ def rasterize(svg_path: Path, png_path: Path, width: int = 1920, height: int = 1
 
 
 def render_diagram_png(kind: str, title: str, narration: str,
-                       svg_path: Path, png_path: Path) -> Path:
+                       svg_path: Path, png_path: Path,
+                       claims: tuple = ()) -> Path:
     """Write the SVG artifact AND a PNG for the renderer.
 
     Prefers cairosvg rasterization of the SVG; falls back to a Pillow-native
     renderer drawing the same layout (works with zero system graphics libs).
     Always returns a PNG path (raises only if Pillow itself is missing).
     """
-    render_diagram(kind, title, narration, svg_path)
+    render_diagram(kind, title, narration, svg_path, claims)
     rp = rasterize(Path(svg_path), Path(png_path))
     if rp and Path(rp).exists():
         return Path(rp)
-    return _pil_render(kind, title, narration, Path(png_path))
+    return _pil_render(kind, title, narration, Path(png_path), claims)
 
 
 def _pil_font(bold: bool, size: int):
@@ -158,13 +187,14 @@ def _pil_shell(title: str, subtitle: str):
     return img, d
 
 
-def _pil_flow(title: str, narration: str, subtitle: str, vertical: bool = False):
+def _pil_flow(title: str, narration: str, subtitle: str, vertical: bool = False,
+              claims: tuple = ()):
     from PIL import ImageDraw
     img, d = _pil_shell(title, subtitle)
-    steps = _steps(narration, 5)
+    steps = _steps(narration, 5, claims)
     n = len(steps)
     if not vertical:
-        bw, gap = 300, 60
+        bw, gap = 340, 40
         total = n * bw + (n - 1) * gap
         x0 = (W - total) // 2
         y = 420
@@ -174,9 +204,9 @@ def _pil_flow(title: str, narration: str, subtitle: str, vertical: bool = False)
                                 fill="#12263f", outline=ACC, width=3)
             d.text((x + 20, y + 18), str(i + 1), font=_pil_font(True, 30), fill=ACC2)
             words = s.split()
-            lines = [" ".join(words[j:j + 5]) for j in range(0, len(words), 5)][:4]
+            lines = [" ".join(words[j:j + 4]) for j in range(0, len(words), 4)][:4]
             for li, ln in enumerate(lines):
-                d.text((x + 20, y + 62 + li * 38), _shorten(ln, 22),
+                d.text((x + 20, y + 62 + li * 38), _shorten(ln, 20),
                        font=_pil_font(False, 26), fill=FG)
             if i < n - 1:
                 ax = x + bw
@@ -198,10 +228,10 @@ def _pil_flow(title: str, narration: str, subtitle: str, vertical: bool = False)
     return img
 
 
-def _pil_cycle(title: str, narration: str):
+def _pil_cycle(title: str, narration: str, claims: tuple = ()):
     import math
     img, d = _pil_shell(title, "Life cycle / circular process")
-    steps = _steps(narration, 6)
+    steps = _steps(narration, 6, claims)
     n = len(steps)
     cx, cy, R = W // 2, 590, 260
     d.ellipse([cx - R, cy - R, cx + R, cy + R], outline=ACC, width=4)
@@ -226,19 +256,20 @@ def _pil_title(title: str, narration: str):
 
 _SUBTITLES = {
     "lifecycle": None, "timeline": "Timeline — how understanding developed",
-    "anatomy": "Anatomy — where it happens (labels from narration)",
+    "anatomy": "Anatomy — where it happens",
     "chart": "Key numbers and comparisons", "scale": "Zooming in — scale by scale",
     "process": "Mechanism — step by step",
 }
 
 
-def _pil_render(kind: str, title: str, narration: str, png_path: Path) -> Path:
+def _pil_render(kind: str, title: str, narration: str, png_path: Path,
+                claims: tuple = ()) -> Path:
     k = (kind or "title").lower()
     if k == "lifecycle":
-        img = _pil_cycle(title, narration)
+        img = _pil_cycle(title, narration, claims)
     elif k in ("timeline", "chart", "scale", "process", "anatomy"):
         img = _pil_flow(title, narration, _SUBTITLES[k],
-                        vertical=(k in ("chart", "anatomy")))
+                        vertical=(k in ("chart", "anatomy")), claims=claims)
     else:
         img = _pil_title(title, narration)
     png_path = Path(png_path)
@@ -247,22 +278,23 @@ def _pil_render(kind: str, title: str, narration: str, png_path: Path) -> Path:
     return png_path
 
 
-def render_diagram(kind: str, title: str, narration: str, out_path: Path) -> Path:
+def render_diagram(kind: str, title: str, narration: str, out_path: Path,
+                   claims: tuple = ()) -> Path:
     out_path = Path(out_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     k = (kind or "title").lower()
     if k == "lifecycle":
-        svg = _cycle(title, narration)
+        svg = _cycle(title, narration, claims)
     elif k == "timeline":
-        svg = _flow(title, narration, "Timeline — how understanding developed")
+        svg = _flow(title, narration, "Timeline — how understanding developed", claims=claims)
     elif k == "anatomy":
-        svg = _flow(title, narration, "Anatomy — where it happens (labels from narration)", vertical=True)
+        svg = _flow(title, narration, "Anatomy — where it happens", vertical=True, claims=claims)
     elif k == "chart":
-        svg = _flow(title, narration, "Key numbers and comparisons", vertical=True)
+        svg = _flow(title, narration, "Key numbers and comparisons", vertical=True, claims=claims)
     elif k == "scale":
-        svg = _flow(title, narration, "Zooming in — scale by scale")
+        svg = _flow(title, narration, "Zooming in — scale by scale", claims=claims)
     elif k == "process":
-        svg = _flow(title, narration, "Mechanism — step by step")
+        svg = _flow(title, narration, "Mechanism — step by step", claims=claims)
     else:
         svg = _svg_shell(title, "Science explainer",
                          f'<text x="80" y="500" font-family="sans-serif" font-size="44" fill="{FG}">{_esc(_shorten(" ".join(narration.split()[:14]), 76))}</text>')

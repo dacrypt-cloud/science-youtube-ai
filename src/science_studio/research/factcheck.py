@@ -15,9 +15,13 @@ def _norm_num(n: str) -> str:
     return n.lower().replace(",", "").replace(" ", "")
 
 
-def factcheck_script(script_text: str, claims: list[dict], stack=None) -> dict:
+def factcheck_script(script_text: str, claims: list[dict], stack=None,
+                     evidence_text: str = "") -> dict:
     issues: list[dict] = []
     claim_blob = _norm_num(" ".join(c["claim"] for c in claims))
+    # Numbers may be narrated from evidence sentences that never became
+    # top-ranked claims; both blobs are sourced text, so both verify.
+    ev_blob = _norm_num(evidence_text or "")
     sentences = re.split(r"(?<=[.!?])\s+", script_text)
     for i, s in enumerate(sentences):
         sl = s.lower().strip()
@@ -34,7 +38,8 @@ def factcheck_script(script_text: str, claims: list[dict], stack=None) -> dict:
                                "fix": "Soften absolute ('always/never/proven') unless an established claim backs it."})
         if NUMBER_RE.search(s):
             nums = NUMBER_RE.findall(s)
-            if not any(_norm_num(n) in claim_blob for n in nums):
+            if not any(_norm_num(n) in claim_blob
+                       or (ev_blob and _norm_num(n) in ev_blob) for n in nums):
                 issues.append({"type": "number_unverified", "sentence": s[:220],
                                "fix": f"Verify numbers {nums} against sources or remove."})
     # coverage: every scene-critical claim should appear; flag orphan high-confidence claims

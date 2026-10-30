@@ -42,10 +42,32 @@ def _infer_state_from_artifacts(root: Path) -> str:
     return state
 
 
+def _check_runtime_deps() -> None:
+    """Fail fast when critical runtime packages are missing.
+
+    Installed packages live outside the persisted workspace snapshot and can
+    vanish across sandbox restores; every silent fallback downstream would
+    otherwise produce unshippable artifacts (silent narration, empty beds)
+    before crashing at render. Raise with the exact fix instead.
+    """
+    missing = []
+    for mod in ("imageio_ffmpeg", "PIL", "mutagen"):
+        try:
+            __import__(mod)
+        except ImportError:
+            missing.append(mod)
+    if missing:
+        raise RuntimeError(
+            "missing runtime dependencies: " + ", ".join(missing)
+            + " — run `pip install -r requirements.txt` in the repo root and retry."
+        )
+
+
 def run_project(pid: str, *, resume: bool = True, stop_after: str = "",
                 approvals: dict | None = None) -> dict:
     """Run (or resume) the full pipeline. Returns final summary. Raises on fatal error
     after persisting FAILED state + traceback (recovery: fix cause, call again)."""
+    _check_runtime_deps()  # fail fast: never silently degrade on missing packages
     from .providers.registry import build_providers
     root = storage.project_dir(pid)
     idea_doc = storage.read_json(root / "idea.json", {})
@@ -56,6 +78,34 @@ def run_project(pid: str, *, resume: bool = True, stop_after: str = "",
     approvals = approvals or {}
     stack = build_providers()
     state = storage.get_state(pid) if resume else ProjectState.IDEA.value
+    if resume and state == ProjectState.FAILED.value:
+        # FAILED auto-recovery: infer furthest valid stage from artifacts.
+        # Degraded artifacts (silent narration, empty beds, dangling asset
+        # paths) are discarded so their stages re-run instead of being
+        # mistaken for complete.
+        for rel, bad in (
+            ("production/narration.json", lambda d:
+             isinstance(d, list) and any(n.get("provider") == "silent-fallback" for n in d)),
+            ("production/music.json", lambda d:
+             isinstance(d, dict) and not d.get("path")),
+            ("production/sfx.json", lambda d:
+             isinstance(d, dict) and not d.get("path")),
+            ("production/assets.json", lambda d:
+             isinstance(d, list) and any(
+                 (not a.get("path") and a.get("primary"))
+                 or (a.get("path")
+                     and not (root.parent.parent / a["path"]).exists()
+                     and not Path(a["path"]).exists()) for a in d)),
+        ):
+            p = root / rel
+            try:
+                if p.exists() and bad(storage.read_json(p, [])):
+                    p.unlink()
+                    _log(pid, f"FAILED recovery: discarded degraded {rel} (will re-run)")
+            except Exception:
+                pass
+        state = _infer_state_from_artifacts(root)
+        _log(pid, f"FAILED recovery: inferred state {state} from artifacts")
     order = [s.value for s in
              [ProjectState.IDEA, ProjectState.RESEARCHING, ProjectState.RESEARCH_COMPLETE,
               ProjectState.OUTLINING, ProjectState.SCRIPTING, ProjectState.FACT_CHECKING,
@@ -144,12 +194,14 @@ def run_project(pid: str, *, resume: bool = True, stop_after: str = "",
             from .research.factcheck import factcheck_script, apply_autofixes
             script_text = (root / "script" / "script.md").read_text(encoding="utf-8")
             claims = storage.read_json(root / "research" / "claims.json", [])
-            report = factcheck_script(script_text, claims, stack)
+            ev_path = root / "research" / "evidence_full.txt"
+            evidence_text = ev_path.read_text(encoding="utf-8") if ev_path.exists() else ""
+            report = factcheck_script(script_text, claims, stack, evidence_text)
             if report["status"] == "fail":
                 fixed = apply_autofixes(script_text, report)
                 (root / "script" / "script.md").write_text(fixed, encoding="utf-8")
                 report["autofix_applied"] = True
-                report2 = factcheck_script(fixed, claims, None)
+                report2 = factcheck_script(fixed, claims, None, evidence_text)
                 report["recheck"] = report2["status"]
             storage.write_json(root / "script" / "factcheck.json", report)
             _log(pid, f"factcheck: {report['status']} ({len(report['issues'])} issues)")
@@ -173,9 +225,12 @@ def run_project(pid: str, *, resume: bool = True, stop_after: str = "",
             from .visuals.assets import collect_assets
             from .research.planner import topic_anchors
             board = storage.read_json(root / "production" / "storyboard.json", [])
+            _claims = storage.read_json(root / "research" / "claims.json", [])
+            _cmap = {c.get("claim_id"): c.get("claim", "") for c in _claims
+                     if c.get("claim_id") and c.get("claim")}
             assets = collect_assets(board, stack, root / "production" / "assets",
                                     progress_cb=lambda d, t, m: _log(pid, f"assets {d}/{t} {m}"),
-                                    anchors=topic_anchors(idea))
+                                    anchors=topic_anchors(idea), claims_map=_cmap)
             storage.write_json(root / "production" / "assets.json", assets)
             _log(pid, f"assets: {len(assets)} collected")
             if stop_after == "ASSET_COLLECTION":
@@ -189,6 +244,13 @@ def run_project(pid: str, *, resume: bool = True, stop_after: str = "",
             board = storage.read_json(root / "production" / "storyboard.json", [])
             narr = synthesize_scenes(board, stack, root / "production" / "narration",
                                      progress_cb=lambda d, t, m: _log(pid, f"narration {d}/{t} {m}"))
+            silent = [n.get("scene_id") for n in narr
+                      if n.get("provider") == "silent-fallback"]
+            if silent:
+                raise RuntimeError(
+                    f"no working TTS provider ({len(silent)} silent scenes: "
+                    f"{silent[:4]}...) — refusing to ship a silent video. "
+                    "Check edge-tts/gTTS connectivity and retry.")
             storage.write_json(root / "production" / "narration.json", narr)
             durs = {n["scene_id"]: float(n.get("duration_s", 0) or 0) for n in narr}
             subs = build_subtitles(board, durs, root / "production" / "subtitles")
@@ -268,6 +330,10 @@ def run_project(pid: str, *, resume: bool = True, stop_after: str = "",
                     root / "production" / "final" / "final.mp4", subs, claims)
         storage.write_json(root / "production" / "final" / "qa-report.json", qa)
         _log(pid, f"QA: {qa['status']} ({len(qa['failed'])} failed: {qa['failed']})")
+        if qa["status"] == "fail":
+            raise RuntimeError(
+                f"QA failed ({len(qa['failed'])} checks: {qa['failed']}) — "
+                "refusing to mark READY. Fix the cause and resume.")
         storage.set_state(pid, ProjectState.READY, f"QA {qa['status']}")
         return {"project_id": pid, "state": "READY", "qa": qa["status"],
                 "video": str(root / "production" / "final" / "final.mp4")}

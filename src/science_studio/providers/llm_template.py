@@ -278,6 +278,8 @@ VERB_LEXICON = {
     "drive", "drives", "driven", "drove", "shape", "shapes", "shaped",
     "control", "controls", "controlled", "link", "links", "linked",
     "connect", "connects", "connected", "couple", "couples", "coupled",
+    "improve", "improves", "improved", "benefit", "benefits", "benefited",
+    "account", "accounts", "accounted",
 }
 # Lexicon verbs that are equally common as nouns in science prose ("impulse
 # charge moment change", "forecast horizon", "breakdown pulses", "excited
@@ -335,6 +337,36 @@ _HEADER_LEAD_RE = re.compile(
     r"Discussions?|Background|Summary|Keywords?|Acknowledg(e)?ments?)\s+(?=[A-Z])")
 
 
+def _headless_start(s: str) -> bool:
+    """Leading lowercase verb ("implemented an explicit...", "benefit from..."):
+    the subject was a stripped citation/list marker — a headless fragment,
+    never narration. Lowercase non-verbs ("pH", "eV") still pass."""
+    m = re.match(r"^([a-z][a-z\-]*)", s)
+    if not m:
+        return False
+    w = m.group(1)
+    return bool(re.search(r"(?:ed|ing|s)$", w)) or w in VERB_LEXICON
+
+
+# Abbreviations that must not split sentences ("etc. benefit" stays whole).
+ABBREVIATIONS = ("etc.", "e.g.", "i.e.", "vs.", "al.", "Fig.", "fig.",
+                 "Mr.", "Mrs.", "Dr.", "St.")
+
+
+def split_sentences_raw(text: str) -> list[str]:
+    """Split prose into ALL of its sentences without breaking abbreviations.
+
+    Unlike split_sentences() (a research-text cleaner that drops headless
+    fragments), this keeps every sentence: QA and diagram labels must judge
+    the actual words, not a pre-filtered subset.
+    """
+    tmp = text or ""
+    for abbr in ABBREVIATIONS:
+        tmp = tmp.replace(abbr, abbr.replace(".", "․"))
+    return [s.strip().replace("․", ".")
+            for s in re.split(r"(?<=[.!?])\s+", tmp) if s.strip()]
+
+
 def is_clean_sentence(s: str, anchors: list[str] | None = None) -> bool:
     """Hygiene gate: True if the sentence may be spoken or claimed."""
     if not s or not (30 <= len(s) <= 450):
@@ -361,6 +393,8 @@ def is_clean_sentence(s: str, anchors: list[str] | None = None) -> bool:
             return False
         # Unbalanced parentheses = cut-off fragment, never a full sentence.
         if s.count("(") != s.count(")"):
+            return False
+        if _headless_start(s):
             return False
         # Title-Case fragments are paper titles, not sentences.
         words = [w for w in re.findall(r"[A-Za-z][A-Za-z\-]{2,}", s)]
@@ -440,6 +474,8 @@ def split_sentences(text: str, anchors: list[str] | None = None) -> list[str]:
         # Lightning is..." -> "Lightning is..."); keep it when lowercase
         # follows ("Background levels rise..." is a real sentence).
         p = _HEADER_LEAD_RE.sub("", p).strip()
+        if _headless_start(p):
+            continue
         # drop truncated fragments (no terminal punctuation, cut mid-word)
         if len(p) > 40 and p[-1:] in ".!?":
             if is_clean_sentence(p, anchors):

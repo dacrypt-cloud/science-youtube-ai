@@ -111,3 +111,27 @@ def test_header_splice_split_and_paper_markers():
     assert any("responsible for human injuries" in s for s in out), out
     assert not is_clean_sentence(
         "The figure shows lightning leaders propagating inside thunderclouds during the flash.", anchors)
+
+
+def test_headless_lowercase_verbs_rejected():
+    from science_studio.providers.llm_template import split_sentences, is_clean_sentence
+    anchors = ["lightning", "bolt", "thundercloud", "strikes"]
+    out = split_sentences(
+        "Storms build charge over land. 3. implemented an explicit electrification module for lightning today. "
+        "7. developed an early lightning warning system by integrating radar data for storms.", anchors)
+    assert not any("implemented an explicit" in s for s in out), out
+    assert not any("developed an early" in s for s in out), out
+    assert not is_clean_sentence(
+        "implemented an explicit electrification module for lightning today in storms.", anchors)
+    # lowercase non-verbs still pass
+    assert is_clean_sentence(
+        "pH levels rise inside thunderclouds during strong storms with lightning.", anchors)
+
+
+def test_headless_base_verbs_rejected():
+    from science_studio.providers.llm_template import is_clean_sentence
+    anchors = ["lightning", "bolt", "thundercloud", "strikes"]
+    assert not is_clean_sentence(
+        "benefit from the output of lightning nowcasting schemes to give warnings today.", anchors)
+    assert not is_clean_sentence(
+        "run the lightning model twice daily for forecast storms and bolts.", anchors)

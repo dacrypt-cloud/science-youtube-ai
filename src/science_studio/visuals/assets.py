@@ -1,6 +1,7 @@
 """Asset manager — download/cache/dedupe with full license metadata.
 
 Priority per scene: generated diagram (mechanisms) > stock video > stock image >
+claims-driven diagram fallback (verified labels, no stock needed) > bare
 title card. The winning asset is flagged primary=True for the renderer.
 """
 from __future__ import annotations
@@ -28,24 +29,122 @@ def _add(assets: list[dict], scene_id: str, primary: bool, **kw) -> dict:
     return a
 
 
-def _img_relevant(im: dict, anchor_stems: set[str]) -> bool:
-    """Stock relevance gate: the file title must share >=1 anchor stem.
+# Namesake veto: a science topic must not illustrate itself with band concert,
+# sports, or celebrity photos that merely share a name ("Lightning Bolt" the
+# band). Three tiers, from precise to broad — all skipped when the topic
+# itself is entertainment (question-gated, like the discourse vetoes):
+#  1. MUSIC markers (title + description + categories). Single words are
+#     boundary-matched ("tour" must not fire on "toward"); bare "band" and
+#     "performance" are deliberately absent ("frequency band", "line
+#     lightning performance" are legitimate engineering phrases), as is bare
+#     "album" ("photo album" is a common legitimate description).
+#  2. SUBJECT markers (categories only — Commons categories describe what the
+#     file IS about, so background mentions elsewhere are safe).
+#  3. PHENOMENON CONTEXT: surviving candidates must show photographic or
+#     nature context (a stemmed word) or carry an anchor-bearing category
+#     that is not a bare multi-word namesake ("Lightning" / "Cloud-to-ground
+#     lightning in X" count; "Lightning Bolt" alone does not).
+MUSIC_SUBSTR = {
+    "(band)", "(musician)", "(musicians)", "(singer)", "(guitarist)",
+    "(drummer)", "(bassist)", "(vocalist)", "live music", "music festival",
+    "music venue", "on stage", "band performing", "rock band",
+    "studio album", "debut album", "music album", "live album",
+    "concert tour", "world tour", "performing live", "live performance",
+}
+MUSIC_WORDS = {
+    "concert", "concerts", "gig", "tour", "duo", "trio", "quartet",
+    "vocalist", "guitarist", "drummer", "bassist", "frontman", "nightclub",
+}
+SUBJECT_WORDS = {
+    "actor", "actress", "celebrity", "singer", "musician", "football",
+    "soccer", "basketball", "tennis", "cricket", "rugby", "olympic",
+    "stadium", "arena", "sport", "sports", "athlete", "baseball", "hockey",
+    "golf",
+}
+PHENOMENON_CONTEXT = {
+    "photo", "photograph", "picture", "image", "storm", "thunderstorm",
+    "thunder", "cloud", "cloudy", "sky", "skies", "nature", "natural",
+    "weather", "night", "nighttime", "daylight", "landscape", "outdoor",
+    "outdoors", "wild", "wildlife", "phenomenon", "closeup", "aerial",
+    "macro", "satellite", "radar", "rain", "rainfall", "hail", "snow",
+    "fog", "mist", "rainbow", "sunset", "sunrise", "mountain", "sea",
+    "ocean", "lake", "river", "field", "forest", "tree", "desert",
+    "volcano", "city", "town", "village", "street", "building", "house",
+    "skyline", "discharge", "spark", "observatory", "exposure",
+}
+ENTERTAINMENT_TOPIC_WORDS = (
+    "music band song concert album guitar piano drum rock pop jazz sing "
+    "singer film movie cinema sport football soccer game olympic dance "
+    "theatre theater comedy"
+).split()
 
-    Without this, full-text search quirks return nebulae for 'lightning bolt
-    interactions'. Rejected candidates fall through to the next hit / query /
-    the honest title-card diagram fallback.
+
+def _img_relevant(im: dict, anchor_stems: set[str]) -> bool:
+    """Stock relevance gate (see tiers above). Rejected candidates fall
+    through to the next hit / query / the honest title-card diagram fallback.
     """
     if not anchor_stems:
         return True
     from ..providers.llm_template import stem as _stem
     import re as _re
-    toks = {_stem(w) for w in _re.findall(r"[a-zA-Z]{4,}",
-            ((im.get("title") or "") + " " + (im.get("description") or "")).lower())}
-    return bool(toks & set(anchor_stems))
+    cats = im.get("categories") or []
+    text = ((im.get("title") or "") + " " + (im.get("description") or "")
+            + " " + " ".join(cats)).lower()
+    anchors = set(anchor_stems)
+    ent_topic = {_stem(w) for w in ENTERTAINMENT_TOPIC_WORDS}
+    if not (ent_topic & anchors):
+        for m in MUSIC_SUBSTR:
+            if m in text:
+                return False
+        words = set(_re.findall(r"[a-z]{3,}", text))
+        if words & MUSIC_WORDS:
+            return False
+        catwords = set()
+        for ct in cats:
+            catwords.update(_re.findall(r"[a-z]{3,}", ct.lower()))
+        if catwords & SUBJECT_WORDS:
+            return False
+        # phenomenon context (stemmed both sides so plurals match)
+        ctx = {_stem(w) for w in PHENOMENON_CONTEXT}
+        textstems = {_stem(w) for w in _re.findall(r"[a-z]{4,}", text)}
+        if not (textstems & ctx):
+            # ...or an anchor-bearing category that is not a bare namesake
+            cat_ok = False
+            for ct in cats:
+                stems = {_stem(w) for w in _re.findall(r"[a-z]{4,}", ct.lower())}
+                stems.discard("category")
+                if not (stems & anchors):
+                    continue
+                if len(stems) == 1 or (stems - anchors):
+                    cat_ok = True
+                    break
+            if not cat_ok:
+                return False
+    toks = {_stem(w) for w in _re.findall(r"[a-zA-Z]{4,}", text)}
+    return bool(toks & anchors)
+
+
+def _scene_claims(sc: dict, claims_map: dict | None) -> tuple:
+    """Resolve a scene's claim_ids (list or stringified list) to claim texts
+    for diagram labels. Empty tuple when unavailable (labels fall back to
+    narration sentences)."""
+    if not claims_map:
+        return ()
+    ids = sc.get("claim_ids") or []
+    if isinstance(ids, str):
+        try:
+            import ast as _ast
+            ids = _ast.literal_eval(ids)
+        except Exception:
+            ids = [ids]
+    if not isinstance(ids, (list, tuple)):
+        ids = [ids]
+    return tuple(claims_map[i] for i in ids if i in claims_map)
 
 
 def collect_assets(storyboard: list[dict], stack, assets_dir: Path, progress_cb=None,
-                   anchors: list[str] | None = None) -> list[dict]:
+                   anchors: list[str] | None = None,
+                   claims_map: dict | None = None) -> list[dict]:
     from .diagrams import render_diagram_png
     from ..providers.llm_template import stem as _stem
     anchor_stems = {_stem(a) for a in (anchors or [])}
@@ -65,7 +164,8 @@ def collect_assets(storyboard: list[dict], stack, assets_dir: Path, progress_cb=
             try:
                 dp = diagrams_dir / f"{sid}_{sc['diagram']}.svg"
                 png = diagrams_dir / f"{sid}_{sc['diagram']}.png"
-                rp = render_diagram_png(sc["diagram"], sc["title"], sc["narration"], dp, png)
+                rp = render_diagram_png(sc["diagram"], sc["title"], sc["narration"], dp, png,
+                                        claims=_scene_claims(sc, claims_map))
                 if rp and Path(rp).exists():
                     _add(assets, sid, True, kind="diagram", path=str(rp),
                          source="generated-svg", source_url="", license="CC0 (project-generated)",
@@ -114,7 +214,7 @@ def collect_assets(storyboard: list[dict], stack, assets_dir: Path, progress_cb=
                     continue
                 hits: list[dict] = []
                 for q in queries:
-                    hits = ip.search_images(q, limit=3)
+                    hits = ip.search_images(q, limit=5)
                     if hits:
                         break
                 for im in hits:
@@ -128,7 +228,9 @@ def collect_assets(storyboard: list[dict], stack, assets_dir: Path, progress_cb=
                         _add(assets, sid, not primary_done, kind="image", path=str(p),
                              source=ip.name, source_url=im.get("page_url", im.get("url", "")),
                              license=im.get("license", ""), creator=im.get("creator", ""),
-                             description=im.get("title", ""))
+                             description=im.get("title", ""),
+                             img_description=im.get("description", ""),
+                             categories=im.get("categories", []))
                         primary_done = True
                         break
                     except Exception:
@@ -138,16 +240,25 @@ def collect_assets(storyboard: list[dict], stack, assets_dir: Path, progress_cb=
             except Exception:
                 continue
 
-        # 4) title-card fallback (guaranteed visual)
+        # 4) claims-diagram fallback, then title card (guaranteed visual).
+        #    A mechanism scene whose stock photos all failed the veto still
+        #    deserves an informative visual: with >=3 verified claims we can
+        #    render a real diagram instead of a bare card. Kind alternates
+        #    for variety; the PNG helper has a PIL fallback so it renders
+        #    even when cairosvg is unavailable.
         if not primary_done:
+            claims = _scene_claims(sc, claims_map)
+            kind = ("process" if i % 2 == 0 else "anatomy") if len(claims) >= 3 else "title"
             try:
-                dp = diagrams_dir / f"{sid}_title.svg"
-                png = diagrams_dir / f"{sid}_title.png"
-                render_diagram("title", sc["title"], sc["narration"], dp)
-                rp = rasterize(dp, png)
-                _add(assets, sid, True, kind="diagram", path=str(rp) if rp else "",
+                dp = diagrams_dir / f"{sid}_{kind}.svg"
+                png = diagrams_dir / f"{sid}_{kind}.png"
+                rp = render_diagram_png(kind, sc["title"], sc["narration"], dp, png,
+                                        claims=claims)
+                _add(assets, sid, True, kind="diagram", path=str(rp),
                      source="generated-svg", source_url="", license="CC0 (project-generated)",
-                     creator="science-youtube-ai", description=f"Title card: {sc['title']}")
+                     creator="science-youtube-ai",
+                     description=f"{kind} diagram (claims fallback): {sc['title']}"
+                     if kind != "title" else f"Title card: {sc['title']}")
             except Exception:
                 _add(assets, sid, True, kind="diagram", path="", source="generated-svg",
                      source_url="", license="CC0 (project-generated)", creator="science-youtube-ai",
