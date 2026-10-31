@@ -23,7 +23,7 @@ class Settings:
     ollama_base_url: str = field(default_factory=lambda: _env("OLLAMA_BASE_URL"))
     ollama_model: str = field(default_factory=lambda: _env("OLLAMA_MODEL", "llama3.1:8b"))
     groq_api_key: str = field(default_factory=lambda: _env("GROQ_API_KEY"))
-    groq_model: str = field(default_factory=lambda: _env("GROQ_MODEL", "llama-3.3-70b-versatile"))
+    groq_model: str = field(default_factory=lambda: _env("GROQ_MODEL", "openai/gpt-oss-120b"))
     openrouter_api_key: str = field(default_factory=lambda: _env("OPENROUTER_API_KEY"))
     openrouter_model: str = field(default_factory=lambda: _env("OPENROUTER_MODEL", "openrouter/free"))
     pexels_api_key: str = field(default_factory=lambda: _env("PEXELS_API_KEY"))

@@ -269,7 +269,7 @@ def test_groq_parses_and_caches(_cfg, monkeypatch):
                         _fake_urlopen([("api.groq.com",
                                         {"choices": [{"message": {"content": "groq-text"}}]})]))
     g = GroqProvider()
-    assert g.status().available and "llama" in g.status().reason
+    assert g.status().available and "gpt-oss" in g.status().reason
     assert g.generate("hi") == "groq-text"
     monkeypatch.setattr("urllib.request.urlopen", _fake_urlopen([]))
     assert g.generate("hi") == "groq-text"  # cached

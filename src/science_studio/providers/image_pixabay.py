@@ -29,7 +29,9 @@ class PixabayImageProvider(CacheMixin, ImageProvider):
             q = urllib.parse.urlencode({"key": get_settings().pixabay_api_key, "q": query,
                                         "per_page": min(limit, 20), "orientation": "horizontal",
                                         "image_type": "photo"})
-            with urllib.request.urlopen("https://pixabay.com/api/?" + q, timeout=30) as r:
+            req = urllib.request.Request("https://pixabay.com/api/?" + q,
+                                     headers={"User-Agent": "science-youtube-ai/0.1"})
+            with urllib.request.urlopen(req, timeout=30) as r:
                 data = json.loads(r.read().decode())
             for h in data.get("hits", [])[:limit]:
                 tags = [t.strip() for t in str(h.get("tags", "")).split(",") if t.strip()]
@@ -41,7 +43,7 @@ class PixabayImageProvider(CacheMixin, ImageProvider):
                             "height": h.get("imageHeight", 1080),
                             "description": ", ".join(tags), "categories": tags})
         except Exception:
-            out = []
+            return []  # never cache failures (would poison later calls)
         self.cache_put(out, query, str(limit))
         return out
 
@@ -67,7 +69,9 @@ class PixabayVideoProvider(CacheMixin, VideoProvider):
         try:
             q = urllib.parse.urlencode({"key": get_settings().pixabay_api_key, "q": query,
                                         "per_page": min(limit, 20)})
-            with urllib.request.urlopen("https://pixabay.com/api/videos/?" + q, timeout=30) as r:
+            req = urllib.request.Request("https://pixabay.com/api/videos/?" + q,
+                                         headers={"User-Agent": "science-youtube-ai/0.1"})
+            with urllib.request.urlopen(req, timeout=30) as r:
                 data = json.loads(r.read().decode())
             for h in data.get("hits", [])[:limit]:
                 vids = h.get("videos", {})
@@ -86,6 +90,6 @@ class PixabayVideoProvider(CacheMixin, VideoProvider):
                             "height": best.get("height", 1080), "duration": h.get("duration", 0),
                             "description": ", ".join(tags), "categories": tags})
         except Exception:
-            out = []
+            return []  # never cache failures (would poison later calls)
         self.cache_put(out, query, str(limit))
         return out

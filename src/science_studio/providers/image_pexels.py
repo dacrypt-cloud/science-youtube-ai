@@ -42,7 +42,7 @@ class PexelsImageProvider(CacheMixin, ImageProvider):
                             "page_url": p.get("url", ""), "width": p.get("width", 1920),
                             "height": p.get("height", 1080)})
         except Exception:
-            out = []
+            return []  # never cache failures (would poison later calls)
         self.cache_put(out, query, str(limit))
         return out
 
@@ -86,6 +86,6 @@ class PexelsVideoProvider(CacheMixin, VideoProvider):
                             "page_url": v.get("url", ""), "width": best.get("width", 1920),
                             "height": best.get("height", 1080), "duration": v.get("duration", 0)})
         except Exception:
-            out = []
+            return []  # never cache failures (would poison later calls)
         self.cache_put(out, query, str(limit))
         return out

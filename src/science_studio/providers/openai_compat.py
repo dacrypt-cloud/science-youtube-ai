@@ -23,7 +23,9 @@ def chat_complete(base_url: str, api_key: str, model: str, prompt: str, *,
                        "temperature": temperature,
                        "max_tokens": max_tokens}).encode()
     headers = {"Content-Type": "application/json",
-               "Authorization": f"Bearer {api_key}"}
+               "Authorization": f"Bearer {api_key}",
+               # urllib's default UA gets 403 from some WAFs; identify honestly.
+               "User-Agent": "science-youtube-ai/0.1"}
     if extra_headers:
         headers.update(extra_headers)
     last: Exception | None = None

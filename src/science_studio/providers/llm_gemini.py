@@ -40,7 +40,8 @@ class GeminiProvider(CacheMixin, AIProvider):
         last_err: Exception | None = None
         for attempt in range(3):
             try:
-                req = urllib.request.Request(url, data=body, headers={"Content-Type": "application/json"})
+                req = urllib.request.Request(url, data=body, headers={"Content-Type": "application/json",
+                                                                 "User-Agent": "science-youtube-ai/0.1"})
                 with urllib.request.urlopen(req, timeout=60) as resp:
                     data = json.loads(resp.read().decode())
                 cands = data.get("candidates", [])
