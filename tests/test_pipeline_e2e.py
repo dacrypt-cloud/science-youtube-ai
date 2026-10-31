@@ -12,6 +12,8 @@ def test_pipeline_offline(monkeypatch, tmp_path):
     monkeypatch.setenv("VIDEO_HEIGHT", "360")
     monkeypatch.setenv("VIDEO_FPS", "24")
     from science_studio.config import get_settings
+    get_settings(reload=True)  # settings cache: re-read after setenv
+    from science_studio.config import get_settings
     get_settings(reload=True)
     from science_studio import storage
     from science_studio.providers.registry import build_providers

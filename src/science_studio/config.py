@@ -22,6 +22,10 @@ class Settings:
     gemini_model: str = field(default_factory=lambda: _env("GEMINI_MODEL", "gemini-2.5-flash"))
     ollama_base_url: str = field(default_factory=lambda: _env("OLLAMA_BASE_URL"))
     ollama_model: str = field(default_factory=lambda: _env("OLLAMA_MODEL", "llama3.1:8b"))
+    groq_api_key: str = field(default_factory=lambda: _env("GROQ_API_KEY"))
+    groq_model: str = field(default_factory=lambda: _env("GROQ_MODEL", "llama-3.3-70b-versatile"))
+    openrouter_api_key: str = field(default_factory=lambda: _env("OPENROUTER_API_KEY"))
+    openrouter_model: str = field(default_factory=lambda: _env("OPENROUTER_MODEL", "openrouter/free"))
     pexels_api_key: str = field(default_factory=lambda: _env("PEXELS_API_KEY"))
     pixabay_api_key: str = field(default_factory=lambda: _env("PIXABAY_API_KEY"))
     default_duration: str = field(default_factory=lambda: _env("DEFAULT_DURATION", "12-15"))
@@ -49,6 +53,8 @@ class Settings:
             "free_only": self.free_only,
             "gemini_model": self.gemini_model,
             "has_gemini_key": bool(self.gemini_api_key),
+            "has_groq_key": bool(self.groq_api_key),
+            "has_openrouter_key": bool(self.openrouter_api_key),
             "has_pexels_key": bool(self.pexels_api_key),
             "has_pixabay_key": bool(self.pixabay_api_key),
             "default_duration": self.default_duration,

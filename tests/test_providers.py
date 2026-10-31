@@ -240,3 +240,97 @@ def test_registry_keyed_status(_cfg, monkeypatch):
     assert by_name.get("pixabay-image") is True
     assert by_name.get("pixabay-video") is True
     assert by_name.get("wikimedia") in (True, False)  # keyless, env-dependent
+
+
+def test_openai_compat_posts_chat_shape(_cfg, monkeypatch):
+    from science_studio.providers.openai_compat import chat_complete
+    seen = {}
+
+    def _open(req, timeout=None):
+        seen["url"] = req.full_url
+        seen["headers"] = dict(req.header_items())
+        seen["body"] = _json.loads(req.data.decode())
+        return _FakeResp({"choices": [{"message": {"content": "  hey  "}}]})
+
+    monkeypatch.setattr("urllib.request.urlopen", _open)
+    out = chat_complete("https://x.test/v1", "k", "m", "prompt-hi",
+                        system="sys-hi", max_tokens=50, temperature=0.1)
+    assert out == "hey"
+    assert seen["url"] == "https://x.test/v1/chat/completions"
+    assert seen["headers"].get("Authorization") == "Bearer k"
+    roles = [m["role"] for m in seen["body"]["messages"]]
+    assert roles == ["system", "user"] and seen["body"]["model"] == "m"
+
+
+def test_groq_parses_and_caches(_cfg, monkeypatch):
+    from science_studio.providers.llm_groq import GroqProvider
+    _keyed(monkeypatch, GROQ_API_KEY="test")
+    monkeypatch.setattr("urllib.request.urlopen",
+                        _fake_urlopen([("api.groq.com",
+                                        {"choices": [{"message": {"content": "groq-text"}}]})]))
+    g = GroqProvider()
+    assert g.status().available and "llama" in g.status().reason
+    assert g.generate("hi") == "groq-text"
+    monkeypatch.setattr("urllib.request.urlopen", _fake_urlopen([]))
+    assert g.generate("hi") == "groq-text"  # cached
+    assert GroqProvider().status().available
+
+
+def test_openrouter_headers_and_no_key(_cfg, monkeypatch):
+    from science_studio.providers.llm_openrouter import OpenRouterProvider
+    assert not OpenRouterProvider().status().available
+    import pytest
+    with pytest.raises(RuntimeError):
+        OpenRouterProvider().generate("hi")
+    _keyed(monkeypatch, OPENROUTER_API_KEY="test")
+    seen = {}
+
+    def _open(req, timeout=None):
+        seen["headers"] = dict(req.header_items())
+        return _FakeResp({"choices": [{"message": {"content": "or-text"}}]})
+
+    monkeypatch.setattr("urllib.request.urlopen", _open)
+    assert OpenRouterProvider().generate("hi") == "or-text"
+    lowered = {k.lower(): v for k, v in seen["headers"].items()}
+    assert "http-referer" in lowered and "x-title" in lowered
+
+
+def test_chain_orders_free_llms_before_template(_cfg, monkeypatch):
+    _keyed(monkeypatch, GROQ_API_KEY="t", OPENROUTER_API_KEY="t")
+    names = [p.name for p in build_providers().ai_chain]
+    assert names == ["groq", "openrouter", "template-fallback"]
+    _keyed(monkeypatch, GEMINI_API_KEY="t")
+    names = [p.name for p in build_providers().ai_chain]
+    assert names == ["gemini", "groq", "openrouter", "template-fallback"]
+
+
+def test_ai_generate_skips_unavailable():
+    from science_studio.providers.registry import ai_generate
+    from science_studio.providers.base import ProviderStatus
+
+    class Off:
+        name = "off"
+        def status(self):
+            return ProviderStatus(self.name, False, True, "no key")
+        def generate(self, prompt, **k):
+            raise AssertionError("must be skipped")
+
+    class On:
+        name = "on"
+        def status(self):
+            return ProviderStatus(self.name, True, True, "")
+        def generate(self, prompt, **k):
+            return "yes"
+
+    import types
+    assert ai_generate(types.SimpleNamespace(ai_chain=[Off(), On()]), "hi") == ("yes", "on")
+
+
+def test_no_test_litter_in_real_projects(_cfg):
+    from science_studio import storage
+    from pathlib import Path
+    pid, root = storage.create_project("Test idea?")
+    assert str(root).startswith(str(_cfg))
+    real = [p for p in Path("projects").iterdir()
+            if p.is_dir() and "test-idea" in p.name] if Path("projects").exists() else []
+    assert real == [], f"test litter escaped isolation: {real}"

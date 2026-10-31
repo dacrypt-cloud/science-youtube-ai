@@ -48,6 +48,8 @@ jobs:
         env:
           # Optional free keys (repo Settings → Secrets → Actions). All blank = keyless $0 mode.
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
         run: python -m science_studio run "${{ steps.new.outputs.pid }}"

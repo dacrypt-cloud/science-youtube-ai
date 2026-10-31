@@ -34,6 +34,8 @@ class ProviderStack:
 
 def build_providers() -> ProviderStack:
     from .llm_gemini import GeminiProvider
+    from .llm_groq import GroqProvider
+    from .llm_openrouter import OpenRouterProvider
     from .llm_template import TemplateAIProvider
     from .search_wikipedia import WikipediaSearchProvider
     from .search_openalex import OpenAlexSearchProvider
@@ -52,12 +54,13 @@ def build_providers() -> ProviderStack:
     cfg = get_settings()
     stack = ProviderStack()
 
-    # AI chain: Gemini (free tier) -> Ollama (local, optional) -> template fallback (always works).
+    # AI chain: Gemini -> Groq -> OpenRouter (all free tiers) -> Ollama
+    # (local, optional) -> template fallback (always works).
     ai_chain: list = []
-    gem = GeminiProvider()
-    g_status = gem.status()
-    if g_status.available:
-        ai_chain.append(gem)
+    for cls in (GeminiProvider, GroqProvider, OpenRouterProvider):
+        p = cls()
+        if p.status().available:
+            ai_chain.append(p)
     if cfg.ollama_base_url:
         try:
             from .llm_ollama import OllamaProvider
