@@ -9,7 +9,22 @@ SYSTEM = (
     "researchers, statistics, quotes, or mechanisms. (2) Simplify language, never the science: "
     "keep the actual mechanism, define jargon on first use. (3) Sound natural spoken aloud. "
     "(4) No filler, no 'in conclusion', no hype. (5) Mark uncertainty with words like "
-    "'evidence suggests', 'researchers think', 'still debated'."
+    "'evidence suggests', 'researchers think', 'still debated'. "
+    "(6) Craft: open scene 1 with a concrete hook — an observable puzzle, a vivid "
+    "'imagine' scenario, or a surprising fact straight from the claims. "
+    "(7) Ground every abstraction with an everyday example or analogy (kitchens, "
+    "weather, sports, phones); flag them as analogies ('it's like...', 'imagine...'), "
+    "never state an analogy as the mechanism. "
+    "(8) Rhythm: vary short punchy lines with longer explanatory ones; address ONE "
+    "curious listener as 'you'. End scenes on open loops when natural, pay them off "
+    "later, and callback the hook in the final scene."
+)
+
+
+CRAFT = (
+    "CRAFT: cold-open hook in scene 1 (first 2 sentences must earn the next 10 minutes); "
+    "one concrete everyday example or analogy per scene where it fits; "
+    "speak to one curious listener; end scenes on open loops, callback the hook at the close."
 )
 
 
@@ -61,7 +76,7 @@ def write_script(outline: list[dict], claims: list[dict], evidence_text: str,
             from ..providers.registry import ai_generate
             import json as _json
             prompt = (
-                f"TOPIC: {idea}\nTARGET: ~{target_words} words total spoken narration.\n\n"
+                f"TOPIC: {idea}\nTARGET: ~{target_words} words total spoken narration.\n{CRAFT}\n\n"
                 f"VERIFIED CLAIMS (use these, cite nothing inline, just be faithful):\n{claim_block}\n\n"
                 f"SCENES (write narration for EACH, {len(scenes_outline)} scenes):\n"
                 + "\n".join(f"{i+1}. {s['title']}" for i, s in enumerate(scenes_outline))

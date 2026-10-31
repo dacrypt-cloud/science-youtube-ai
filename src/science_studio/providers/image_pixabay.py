@@ -32,11 +32,14 @@ class PixabayImageProvider(CacheMixin, ImageProvider):
             with urllib.request.urlopen("https://pixabay.com/api/?" + q, timeout=30) as r:
                 data = json.loads(r.read().decode())
             for h in data.get("hits", [])[:limit]:
+                tags = [t.strip() for t in str(h.get("tags", "")).split(",") if t.strip()]
                 out.append({"url": h.get("largeImageURL") or h.get("webformatURL", ""),
-                            "thumb": h.get("previewURL", ""), "title": f"Pixabay {h.get('id')}",
+                            "thumb": h.get("previewURL", ""),
+                            "title": ", ".join(tags[:8]) or f"Pixabay {h.get('id')}",
                             "creator": h.get("user", ""), "license": "Pixabay Content License (free commercial)",
                             "page_url": h.get("pageURL", ""), "width": h.get("imageWidth", 1920),
-                            "height": h.get("imageHeight", 1080)})
+                            "height": h.get("imageHeight", 1080),
+                            "description": ", ".join(tags), "categories": tags})
         except Exception:
             out = []
         self.cache_put(out, query, str(limit))
@@ -68,13 +71,20 @@ class PixabayVideoProvider(CacheMixin, VideoProvider):
                 data = json.loads(r.read().decode())
             for h in data.get("hits", [])[:limit]:
                 vids = h.get("videos", {})
-                best = vids.get("large") or vids.get("medium") or vids.get("small") or {}
-                if not best.get("url"):
+                cands = [v for v in (vids.get("large"), vids.get("medium"), vids.get("small"))
+                         if isinstance(v, dict) and v.get("url")]
+                if not cands:
                     continue
-                out.append({"url": best["url"], "title": f"Pixabay video {h.get('id')}",
+                ok = [v for v in cands if (v.get("width") or 0) <= 1920]
+                best = (max(ok, key=lambda v: v.get("width", 0)) if ok
+                        else min(cands, key=lambda v: v.get("width", 0)))
+                tags = [t.strip() for t in str(h.get("tags", "")).split(",") if t.strip()]
+                out.append({"url": best["url"],
+                            "title": ", ".join(tags[:8]) or f"Pixabay video {h.get('id')}",
                             "creator": h.get("user", ""), "license": "Pixabay Content License (free commercial)",
                             "page_url": h.get("pageURL", ""), "width": best.get("width", 1920),
-                            "height": best.get("height", 1080), "duration": h.get("duration", 0)})
+                            "height": best.get("height", 1080), "duration": h.get("duration", 0),
+                            "description": ", ".join(tags), "categories": tags})
         except Exception:
             out = []
         self.cache_put(out, query, str(limit))

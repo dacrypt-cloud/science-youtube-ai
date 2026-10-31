@@ -79,9 +79,14 @@ ENTERTAINMENT_TOPIC_WORDS = (
 ).split()
 
 
-def _img_relevant(im: dict, anchor_stems: set[str]) -> bool:
+def _img_relevant(im: dict, anchor_stems: set[str], query_trusted: bool = False) -> bool:
     """Stock relevance gate (see tiers above). Rejected candidates fall
     through to the next hit / query / the honest title-card diagram fallback.
+
+    query_trusted: the provider searched OUR query (Pexels/Pixabay), so the
+    query match itself is the relevance evidence — tiers 1-2 vetoes still
+    apply, but tier 3 (context words) and the anchor-token check are skipped
+    (these providers return no descriptions/categories).
     """
     if not anchor_stems:
         return True
@@ -104,22 +109,25 @@ def _img_relevant(im: dict, anchor_stems: set[str]) -> bool:
             catwords.update(_re.findall(r"[a-z]{3,}", ct.lower()))
         if catwords & SUBJECT_WORDS:
             return False
-        # phenomenon context (stemmed both sides so plurals match)
-        ctx = {_stem(w) for w in PHENOMENON_CONTEXT}
-        textstems = {_stem(w) for w in _re.findall(r"[a-z]{4,}", text)}
-        if not (textstems & ctx):
-            # ...or an anchor-bearing category that is not a bare namesake
-            cat_ok = False
-            for ct in cats:
-                stems = {_stem(w) for w in _re.findall(r"[a-z]{4,}", ct.lower())}
-                stems.discard("category")
-                if not (stems & anchors):
-                    continue
-                if len(stems) == 1 or (stems - anchors):
-                    cat_ok = True
-                    break
-            if not cat_ok:
-                return False
+        if not query_trusted:
+            # phenomenon context (stemmed both sides so plurals match)
+            ctx = {_stem(w) for w in PHENOMENON_CONTEXT}
+            textstems = {_stem(w) for w in _re.findall(r"[a-z]{4,}", text)}
+            if not (textstems & ctx):
+                # ...or an anchor-bearing category that is not a bare namesake
+                cat_ok = False
+                for ct in cats:
+                    stems = {_stem(w) for w in _re.findall(r"[a-z]{4,}", ct.lower())}
+                    stems.discard("category")
+                    if not (stems & anchors):
+                        continue
+                    if len(stems) == 1 or (stems - anchors):
+                        cat_ok = True
+                        break
+                if not cat_ok:
+                    return False
+    if query_trusted:
+        return True
     toks = {_stem(w) for w in _re.findall(r"[a-zA-Z]{4,}", text)}
     return bool(toks & anchors)
 
@@ -181,10 +189,11 @@ def collect_assets(storyboard: list[dict], stack, assets_dir: Path, progress_cb=
                 try:
                     if not vp.status().available:
                         continue
+                    vp_trusted = vp.name.split("-")[0] in ("pexels", "pixabay")
                     for v in vp.search_videos(sc["visual_query"], limit=2):
                         if v["url"] in seen_urls:
                             continue
-                        if not _img_relevant(v, anchor_stems):
+                        if not _img_relevant(v, anchor_stems, query_trusted=vp_trusted):
                             continue
                         try:
                             p = download(v["url"], assets_dir / f"{sid}.mp4")
@@ -212,6 +221,7 @@ def collect_assets(storyboard: list[dict], stack, assets_dir: Path, progress_cb=
             try:
                 if not ip.status().available:
                     continue
+                ip_trusted = ip.name.split("-")[0] in ("pexels", "pixabay")
                 hits: list[dict] = []
                 for q in queries:
                     hits = ip.search_images(q, limit=5)
@@ -220,7 +230,7 @@ def collect_assets(storyboard: list[dict], stack, assets_dir: Path, progress_cb=
                 for im in hits:
                     if im["url"] in seen_urls:
                         continue
-                    if not _img_relevant(im, anchor_stems):
+                    if not _img_relevant(im, anchor_stems, query_trusted=ip_trusted):
                         continue
                     try:
                         p = download(im["url"], assets_dir / f"{sid}.jpg")

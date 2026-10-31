@@ -75,7 +75,11 @@ class PexelsVideoProvider(CacheMixin, VideoProvider):
                 mp4s = [f for f in files if f.get("file_type") == "video/mp4"]
                 if not mp4s:
                     continue
-                best = mp4s[0]
+                # Cap at 1080p: 4K files are slow to fetch and gain nothing
+                # at our 1920x1080 render. Fall back to the smallest file.
+                ok = [f for f in mp4s if (f.get("width") or 0) <= 1920]
+                best = (max(ok, key=lambda f: f.get("width", 0)) if ok
+                        else min(mp4s, key=lambda f: f.get("width", 0)))
                 out.append({"url": best.get("link", ""), "title": f"Pexels video {v.get('id')}",
                             "creator": v.get("user", {}).get("name", ""),
                             "license": "Pexels License (free commercial)",

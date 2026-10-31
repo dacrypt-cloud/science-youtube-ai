@@ -22,6 +22,13 @@ STRUCTURES = {
 }
 
 
+STORY_SYSTEM = (
+    "You are a documentary story editor. Beat titles must build an arc: promise "
+    "payoff, escalate curiosity, vary shape (questions, stakes, revelations). "
+    "Keep each under 10 words, topic-specific, no generic labels."
+)
+
+
 def pick_structure(causal_chain: list[str], idea: str, stack=None) -> tuple[str, list[str]]:
     text = (idea + " " + " ".join(causal_chain[:6])).lower()
     if any(w in text for w in ("life cycle", "travel", "inside", "through", "journey", "stage", "transmit")):
@@ -47,8 +54,9 @@ def pick_structure(causal_chain: list[str], idea: str, stack=None) -> tuple[str,
         try:
             from ..providers.registry import ai_generate
             prompt = (f"Topic: {idea}\nStructure: {key} with beats {beats}\n"
-                      f"Rewrite the {len(beats)} beat titles for this exact topic. One per line.")
-            t, used = ai_generate(stack, prompt, system="You are a documentary story editor.",
+                      f"Rewrite the {len(beats)} beat titles for this exact topic as a "
+                      f"curiosity arc (hook -> escalate -> payoff). One per line, no numbering.")
+            t, used = ai_generate(stack, prompt, system=STORY_SYSTEM,
                                   max_tokens=300)
             if used == "template-fallback":
                 return key, beats
