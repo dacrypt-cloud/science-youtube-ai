@@ -25,7 +25,11 @@ def concept(idea: str, claims: list[dict], stack=None) -> dict:
             from ..providers.registry import ai_generate
             prompt = (f"Topic: {idea}\nHook claim: {hook[:300]}\nWrite a YouTube thumbnail: "
                       f"TEXT (<=6 words, accurate, curious), SUBTEXT (<=5 words). Two lines: TEXT: ... SUBTEXT: ...")
-            t, _ = ai_generate(stack, prompt, system="You write honest science thumbnails.", max_tokens=120)
+            import re as _re
+            t, used = ai_generate(stack, prompt, system="You write honest science thumbnails.", max_tokens=900)
+            if used == "template-fallback":
+                raise RuntimeError("skip template thumbnail")
+            t = _re.sub(r"<think>.*?</think>", "", t, flags=_re.S | _re.I)
             for line in t.splitlines():
                 if line.upper().startswith("TEXT:"):
                     concept_d["text"] = line.split(":", 1)[1].strip()[:60]

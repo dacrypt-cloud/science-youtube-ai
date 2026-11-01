@@ -51,7 +51,8 @@ ANCHOR_STOP = {
     "from", "that", "this", "into", "over", "such", "than", "then", "them",
     "they", "their", "there", "these", "those", "while", "would", "could",
     "should", "more", "most", "other", "some", "using", "used", "make", "makes",
-    "take", "takes", "know", "known", "part", "form", "forms",
+    "take", "takes", "know", "known", "part", "form", "forms", "work", "works",
+    "working", "explain", "explained",
 }
 
 
@@ -109,7 +110,10 @@ def plan_research(idea: str, instructions: str = "", duration: str = "12-15",
                 f"history, misconceptions, uncertainties). One per line, no numbering."
             )
             text, used = ai_generate(stack, prompt, system="You are a documentary research lead.",
-                                     max_tokens=800)
+                                     max_tokens=1200)
+            if used == "template-fallback":
+                raise RuntimeError("skip template questions")
+            text = re.sub(r"<think>.*?</think>", "", text, flags=re.S | re.I)
             questions = [l.strip(" -•0123456789.)").strip() for l in text.splitlines()
                          if len(l.strip()) > 15][:budget["questions"]]
         except Exception:

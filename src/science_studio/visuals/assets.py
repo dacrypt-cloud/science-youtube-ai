@@ -79,6 +79,12 @@ ENTERTAINMENT_TOPIC_WORDS = (
 ).split()
 
 
+def is_query_trusted_source(source: str) -> bool:
+    """True when the asset came from a stock API searched with our own query
+    (Pexels/Pixabay), where tags lack Wikimedia-style category sentences."""
+    return (source or "").split("-")[0] in ("pexels", "pixabay")
+
+
 def _img_relevant(im: dict, anchor_stems: set[str], query_trusted: bool = False) -> bool:
     """Stock relevance gate (see tiers above). Rejected candidates fall
     through to the next hit / query / the honest title-card diagram fallback.
@@ -189,7 +195,7 @@ def collect_assets(storyboard: list[dict], stack, assets_dir: Path, progress_cb=
                 try:
                     if not vp.status().available:
                         continue
-                    vp_trusted = vp.name.split("-")[0] in ("pexels", "pixabay")
+                    vp_trusted = is_query_trusted_source(vp.name)
                     for v in vp.search_videos(sc["visual_query"], limit=2):
                         if v["url"] in seen_urls:
                             continue
@@ -221,7 +227,7 @@ def collect_assets(storyboard: list[dict], stack, assets_dir: Path, progress_cb=
             try:
                 if not ip.status().available:
                     continue
-                ip_trusted = ip.name.split("-")[0] in ("pexels", "pixabay")
+                ip_trusted = is_query_trusted_source(ip.name)
                 hits: list[dict] = []
                 for q in queries:
                     hits = ip.search_images(q, limit=5)

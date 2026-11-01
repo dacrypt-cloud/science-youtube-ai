@@ -181,7 +181,8 @@ def run_project(pid: str, *, resume: bool = True, stop_after: str = "",
             storage.write_json(root / "script" / "traceability.json",
                                script.get("traceability", []))
             storage.write_json(root / "research" / "claims.json", claims)  # with scene mapping
-            _log(pid, f"script: {script['words']} words, ~{script['est_seconds']/60:.1f} min, via {script['provider']}")
+            _log(pid, f"script: {script['words']} words, ~{script['est_seconds']/60:.1f} min, via {script['provider']}"
+                 + (f" (llm fallback reason: {script['llm_error']})" if script.get("llm_error") else ""))
             if stop_after == "SCRIPTING":
                 return {"project_id": pid, "state": "SCRIPTING"}
             if mode == "approval" and approvals.get("script") is False:
@@ -271,9 +272,9 @@ def run_project(pid: str, *, resume: bool = True, stop_after: str = "",
             durs = {n["scene_id"]: float(n.get("duration_s", 0) or 0) for n in narr}
             music = ensure_music(root / "production" / "music", sum(durs.values()))
             storage.write_json(root / "production" / "music.json", music)
-            from .audio.sfx import ensure_storm_bed
-            bed = ensure_storm_bed(root / "production" / "music", sum(durs.values()),
-                                   music.get("path", ""))
+            from .audio.sfx import ensure_ambience_bed
+            bed = ensure_ambience_bed(root / "production" / "music", sum(durs.values()),
+                                      music.get("path", ""), idea=idea)
             storage.write_json(root / "production" / "sfx.json", bed)
             _log(pid, f"sound bed: {bed.get('source', 'none')}")
             _subs = storage.read_json(root / "production" / "subtitles.json", {})

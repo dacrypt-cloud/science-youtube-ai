@@ -70,31 +70,89 @@ def write_script(outline: list[dict], claims: list[dict], evidence_text: str,
         i += 1
 
     provider_used = "template-fallback"
+    llm_error = ""
     scene_narrations: list[dict] = []
     if stack is not None:
         try:
             from ..providers.registry import ai_generate
-            import json as _json
-            prompt = (
-                f"TOPIC: {idea}\nTARGET: ~{target_words} words total spoken narration.\n{CRAFT}\n\n"
-                f"VERIFIED CLAIMS (use these, cite nothing inline, just be faithful):\n{claim_block}\n\n"
-                f"SCENES (write narration for EACH, {len(scenes_outline)} scenes):\n"
-                + "\n".join(f"{i+1}. {s['title']}" for i, s in enumerate(scenes_outline))
-                + "\n\nReturn ONLY a JSON array: [{\"title\": ..., \"narration\": \"...\"}]. "
-                  "Each narration 90-160 words, spoken style. Open scene 1 with genuine curiosity, "
-                  "no 'Hey guys'. Close with what remains unknown or why it matters."
+            from ..providers.openai_compat import extract_json_array
+            has_real_llm = any(
+                getattr(p, "name", "") != "template-fallback" and p.status().available
+                for p in getattr(stack, "ai_chain", [])
             )
-            text, provider_used = ai_generate(stack, prompt, system=SYSTEM, max_tokens=6000,
-                                              temperature=0.6)
-            m = re.search(r"\[.*\]", text, re.S)
-            arr = _json.loads(m.group(0) if m else text)
-            for s, a in zip(scenes_outline, arr):
-                nar = str(a.get("narration", "")).strip()
-                if len(nar.split()) >= 20:
-                    scene_narrations.append({"title": str(a.get("title", s["title"])),
-                                             "narration": nar, "claim_ids": s["claim_ids"]})
-        except Exception:
+            if not has_real_llm:
+                raise RuntimeError("no external LLM configured")
+            n_total = max(1, len(scenes_outline))
+            per_words = max(95, round(target_words / n_total))
+            lo_w, hi_w = max(85, per_words - 20), min(185, per_words + 25)
+            batch_size = 6
+            hook_summary = ""
+            prev_tail = ""
+            providers_seen: list[str] = []
+            for start in range(0, n_total, batch_size):
+                chunk = scenes_outline[start:start + batch_size]
+                is_first = (start == 0)
+                is_last = (start + batch_size >= n_total)
+                chunk_claims_ids = {cid for s in chunk for cid in s.get("claim_ids", [])}
+                rel_claims = [c for c in claims if c["claim_id"] in chunk_claims_ids]
+                other_claims = [c for c in claims if c["claim_id"] not in chunk_claims_ids]
+                ordered_claims = (rel_claims + other_claims)[:32]
+                cblock = "\n".join(
+                    f"- [{c['claim_id']}] ({c['confidence']}) {c['claim']} :: {c.get('evidence_summary','')}"
+                    for c in ordered_claims
+                )
+                ctx_lines = []
+                if hook_summary:
+                    ctx_lines.append(f"OPENING HOOK TO CALLBACK AT END: {hook_summary}")
+                if prev_tail:
+                    ctx_lines.append(f"PREVIOUS SCENE ENDED WITH (continue smoothly, do not repeat): {prev_tail}")
+                role_note = (
+                    "Scene 1 is the cold-open hook — open with genuine curiosity, no 'Hey guys'. "
+                    if is_first else "Continue mid-documentary — no re-introductions. "
+                ) + (
+                    "Close the final scene by paying off the opening hook and stating what remains unknown or why it matters."
+                    if is_last else "End the last scene in this batch on a natural open loop into the next scene."
+                )
+                prompt = (
+                    f"TOPIC: {idea}\n"
+                    f"BATCH: scenes {start + 1}-{start + len(chunk)} of {n_total} "
+                    f"(full documentary target ~{target_words} words).\n{CRAFT}\n"
+                    + ("\n".join(ctx_lines) + "\n\n" if ctx_lines else "\n")
+                    + f"VERIFIED CLAIMS (use ONLY these facts; never invent numbers, studies, or quotes; no inline [C001] tags):\n{cblock}\n\n"
+                    + f"SCENES IN THIS BATCH (write spoken narration for EACH of these {len(chunk)} scenes):\n"
+                    + "\n".join(f"{start + k + 1}. {s['title']}" for k, s in enumerate(chunk))
+                    + f"\n\nReturn ONLY a JSON array of {len(chunk)} objects: "
+                      f"[{{\"title\": \"...\", \"narration\": \"...\"}}]. "
+                      f"Each narration MUST be {lo_w}-{hi_w} words, natural spoken documentary prose. "
+                      f"{role_note}"
+                )
+                text, used = ai_generate(stack, prompt, system=SYSTEM, max_tokens=3200,
+                                         temperature=0.55)
+                if used == "template-fallback":
+                    raise RuntimeError("all external LLMs fell through to template-fallback")
+                providers_seen.append(used)
+                arr = extract_json_array(text)
+                batch_out: list[dict] = []
+                for k, s in enumerate(chunk):
+                    a = arr[k] if k < len(arr) and isinstance(arr[k], dict) else {}
+                    nar = re.sub(r"\[C\d{2,4}\]|\[S\d{2,4}\]", "", str(a.get("narration", ""))).strip()
+                    nar = re.sub(r"\s+", " ", nar)
+                    if len(nar.split()) >= 20:
+                        batch_out.append({"title": str(a.get("title") or s["title"]).strip(),
+                                          "narration": nar, "claim_ids": s["claim_ids"]})
+                if len(batch_out) < len(chunk):
+                    raise RuntimeError(f"LLM returned {len(batch_out)}/{len(chunk)} valid scenes in batch {start}")
+                if is_first and batch_out:
+                    hook_summary = batch_out[0]["narration"][:220]
+                if batch_out:
+                    prev_tail = batch_out[-1]["narration"][-200:]
+                scene_narrations.extend(batch_out)
+            provider_used = providers_seen[0] if len(set(providers_seen)) == 1 else "+".join(dict.fromkeys(providers_seen))
+        except Exception as e:
+            if str(e) != "no external LLM configured":
+                llm_error = str(e)[:300]
             scene_narrations = []
+            provider_used = "template-fallback"
     if not scene_narrations:
         from ..providers.llm_template import TemplateAIProvider
         tpl = TemplateAIProvider()
@@ -116,6 +174,7 @@ def write_script(outline: list[dict], claims: list[dict], evidence_text: str,
     traceability = build_traceability(scene_narrations, claims)
     return {"scenes": scene_narrations, "full_text": full_text, "words": words,
             "est_seconds": words / 150 * 60, "provider": provider_used,
+            "llm_error": llm_error,
             "target_words": target_words, "traceability": traceability}
 
 

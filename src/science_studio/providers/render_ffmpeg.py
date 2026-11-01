@@ -68,10 +68,7 @@ class FFmpegRenderer(RenderingProvider):
                 continue
             total += dur
             audio = sc.get("audio", "")
-            # 1) base frame
-            frame = work / f"frame_{i:03d}.png"
-            self._make_frame(sc, frame, W, H)
-            # 2) segment video
+            # 1) segment video (stock B-roll clip or still/diagram frame)
             seg = work / f"seg_{i:03d}.mp4"
             video_src = sc.get("video", "")
             base_vf = (f"scale={W}:{H}:force_original_aspect_ratio=increase,"
@@ -81,21 +78,27 @@ class FFmpegRenderer(RenderingProvider):
                 if _fz:
                     base_vf += "," + _fz
             if video_src and Path(video_src).exists():
-                cmd = [exe, "-y", "-stream_loop", "10", "-i", str(video_src),
-                       "-i", str(audio) if audio else "anullsrc",
-                       "-t", f"{dur:.2f}", "-vf",
-                       base_vf,
-                       "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
-                       "-c:a", "aac", "-shortest", str(seg)]
-                # if no audio file, synthesize silence
-                if not audio or not Path(audio).exists():
-                    cmd = [exe, "-y", "-stream_loop", "10", "-i", str(video_src),
+                # Explicit -map 0:v:0 -map 1:a:0 strips any embedded stock-clip
+                # audio (which would otherwise beat mono TTS in ffmpeg's stream
+                # selector and mute narration); -stream_loop -1 loops short
+                # clips cleanly for the full scene duration.
+                if audio and Path(audio).exists():
+                    cmd = [exe, "-y", "-stream_loop", "-1", "-i", str(video_src),
+                           "-i", str(audio),
+                           "-map", "0:v:0", "-map", "1:a:0",
+                           "-t", f"{dur:.2f}", "-vf", base_vf,
+                           "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
+                           "-c:a", "aac", "-shortest", str(seg)]
+                else:
+                    cmd = [exe, "-y", "-stream_loop", "-1", "-i", str(video_src),
                            "-f", "lavfi", "-i", f"anullsrc=r=44100:cl=stereo:d={dur:.2f}",
-                           "-t", f"{dur:.2f}", "-vf",
-                           base_vf,
+                           "-map", "0:v:0", "-map", "1:a:0",
+                           "-t", f"{dur:.2f}", "-vf", base_vf,
                            "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
                            "-c:a", "aac", "-shortest", str(seg)]
             else:
+                frame = work / f"frame_{i:03d}.png"
+                self._make_frame(sc, frame, W, H)
                 stages = sc.get("stages") or []
                 _fz = fade_filter(dur) if motion_on else ""
                 if len(stages) > 1:

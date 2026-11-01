@@ -310,34 +310,49 @@ def _extract_claims(evidence_text: str, sources: list[dict], stack,
     claims: list[dict] = []
     fetched = fetched or {}
     # Try LLM structuring first
+    valid_sids = {s["source_id"] for s in sources if s.get("source_id")}
     if stack is not None and evidence_text.strip():
         try:
             from ..providers.registry import ai_generate
-            import json as _json
+            from ..providers.openai_compat import extract_json_array
             prompt = (
                 "From the RESEARCH NOTES below, extract the 15-30 most important factual claims "
                 "for a science documentary. For each: claim (one sentence), evidence_summary "
                 "(<=40 words), confidence (one of: established, strong_evidence, limited_evidence, "
-                "active_debate, plausible_hypothesis, speculation), source_ids (from brackets).\n"
+                "active_debate, plausible_hypothesis, speculation), source_ids (list of IDs like \"S001\" from brackets).\n"
                 "Return ONLY a JSON array of objects with keys claim, evidence_summary, confidence, source_ids.\n\n"
-                f"RESEARCH NOTES:\n{evidence_text[:18000]}"
+                f"RESEARCH NOTES:\n{evidence_text[:12000]}"
             )
-            text, _ = ai_generate(stack, prompt,
-                                  system="You extract verifiable claims. Never invent sources.",
-                                  max_tokens=3000)
-            m = re.search(r"\[.*\]", text, re.S)
-            arr = _json.loads(m.group(0) if m else text)
+            text, used = ai_generate(stack, prompt,
+                                     system="You extract verifiable claims. Never invent sources.",
+                                     max_tokens=2800)
+            if used == "template-fallback":
+                raise RuntimeError("skip template claim json")
+            arr = extract_json_array(text)
             for c in arr:
                 if not isinstance(c, dict) or not c.get("claim"):
                     continue
+                raw_ids = c.get("source_ids") or []
+                if isinstance(raw_ids, str):
+                    raw_ids = [raw_ids]
+                sids = []
+                for sid in raw_ids:
+                    if isinstance(sid, str):
+                        clean_sid = sid.strip("[]() ,;\"'")
+                        if clean_sid in valid_sids and clean_sid not in sids:
+                            sids.append(clean_sid)
+                if not sids:
+                    continue  # never accept unsourced LLM claims
                 claims.append({
                     "claim_id": f"C{len(claims)+1:03d}",
                     "claim": str(c["claim"])[:500],
-                    "source_ids": [s for s in (c.get("source_ids") or []) if isinstance(s, str)][:4],
+                    "source_ids": sids[:4],
                     "evidence_summary": str(c.get("evidence_summary", ""))[:300],
                     "confidence": str(c.get("confidence", "limited_evidence")),
                     "status": "supported",
                 })
+            if len(claims) < 8:
+                claims = []  # too few valid sourced claims; use full extractive set
         except Exception:
             claims = []
     # Fallback: per-source extractive claims (honest, traceable).

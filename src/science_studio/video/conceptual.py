@@ -62,7 +62,7 @@ def visuals_only(board: list[dict], assets: list[dict],
                  anchor_stems: set[str] | None = None,
                  diagrams_dir: Path | None = None) -> dict[str, list[tuple]]:
     """Per-scene visual defects. Returns {scene_id: [(severity, message)]}."""
-    from ..visuals.assets import _img_relevant
+    from ..visuals.assets import _img_relevant, is_query_trusted_source
     out: dict[str, list[tuple]] = {}
     primaries = {a["scene_id"]: a for a in assets if a.get("primary")}
     for sc in board:
@@ -81,7 +81,8 @@ def visuals_only(board: list[dict], assets: list[dict],
             if not _img_relevant({"title": a.get("description", ""),
                                   "description": a.get("img_description", ""),
                                   "categories": a.get("categories", [])},
-                                 anchor_stems):
+                                 anchor_stems,
+                                 query_trusted=is_query_trusted_source(a.get("source", ""))):
                 issues.append(("fail", f"misleading stock visual: "
                                        f"{a.get('description', '')[:60]}"))
         if issues:

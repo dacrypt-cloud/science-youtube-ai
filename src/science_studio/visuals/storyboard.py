@@ -19,28 +19,39 @@ DIAGRAM_TRIGGERS = {
                 "midgut", "salivary", "liver", "lung", "brain", "cell structure",
                 "structure", "layer", "layers", "region", "regions", "anatomy",
                 "where it happens", "located"],
-    "process": ["process", "mechanism", "pathway", "step by step", "first", "then",
-                "finally", "cascade", "formation", "forms", "develops", "develop",
+    "process": ["process", "mechanism", "pathway", "step by step",
+                "cascade", "formation", "forms", "develops", "develop",
                 "collide", "collision", "charge", "discharge", "current", "flow",
                 "transfer", "buildup", "build-up", "propagat", "breakdown", "trigger"],
     "timeline": ["history", "discover", "19", "20th century", "year", "timeline",
                  "century", "decade"],
     "chart": ["percent", "%", "million", "billion", "rate", "increase", "decrease",
               "graph", "data", "temperature", "degrees", "volt", "energy", "speed",
-              "kelvin", "second", "milliseconds", "times", "average", "measure"],
+              "kelvin", "milliseconds", "average", "measure"],
     "scale": ["microscop", "molecular", "molecule", "atom", "nanometer", "zoom",
               "scale", "particle", "particles", "droplet", "crystal", "electron",
               "photon", "micro", "tiny", "invisible"],
 }
 
-# Observable-scale nouns: what a camera could film. When these dominate a
-# scene, a real photo leads instead of a diagram.
+VALID_DIAGRAMS = frozenset(DIAGRAM_TRIGGERS.keys())
+
+# Observable-scale nouns: what a camera could film across weather, biology,
+# medicine, human life, lab work, and everyday analogies. When these dominate
+# a scene, real B-roll / photography leads instead of a diagram.
 OBSERVED_TRIGGERS = [
     "storm", "storms", "thunderstorm", "sky", "skies", "rain", "rainbow",
     "tornado", "hurricane", "weather", "bolt", "flash", "thunder", "strike",
     "strikes", "lightning", "photograph", "footage", "satellite", "landscape",
     "horizon", "night", "clouds gather", "dark clouds", "eruption", "aurora",
     "ocean", "forest", "city", "aircraft", "you can see", "visible",
+    "patient", "patients", "doctor", "doctors", "hospital", "clinic",
+    "baby", "newborn", "infant", "mother", "pregnant", "pregnancy",
+    "child", "children", "person", "people", "human", "hand", "hands",
+    "face", "eyes", "sleep", "sleeping", "kitchen", "cooking", "phone",
+    "laboratory", "scientist", "scientists", "researcher", "wildlife",
+    "animal", "animals", "mosquito", "insect", "tree", "trees", "water",
+    "river", "mountain", "mountains", "earth", "sunlight", "imagine",
+    "picture a", "every day", "daily life",
 ]
 
 QUERY_STOP = {
@@ -88,6 +99,18 @@ def _query_for(title: str, narration: str, idea: str = "") -> tuple[str, str]:
     return (q or title, fb or title)
 
 
+def _mechanism_margin(text: str) -> int:
+    t = text.lower()
+    mech = max((sum(1 for k in keys if k in t) for keys in DIAGRAM_TRIGGERS.values()), default=0)
+    obs = sum(1 for k in OBSERVED_TRIGGERS if k in t)
+    return mech - obs
+
+
+def _norm_diagram(val) -> str:
+    d = str(val or "").strip().lower()
+    return d if d in VALID_DIAGRAMS else ""
+
+
 def build_storyboard(scenes: list[dict], idea: str, stack=None) -> list[dict]:
     board: list[dict] = []
     # Optional LLM visual pass
@@ -95,17 +118,22 @@ def build_storyboard(scenes: list[dict], idea: str, stack=None) -> list[dict]:
     if stack is not None:
         try:
             from ..providers.registry import ai_generate
-            import json as _json
-            prompt = ("For each scene below give: visual_objective (1 line), visual_query "
-                      "(3-5 word stock search), diagram (one of lifecycle/anatomy/process/timeline/chart/scale or empty), "
-                      "onscreen_text (<=8 words or empty). Return ONLY JSON array.\n\n" +
-                      "\n".join(f"{i+1}. {s['title']}: {s['narration'][:200]}" for i, s in enumerate(scenes)))
+            from ..providers.openai_compat import extract_json_array
+            prompt = (
+                "For each scene below give: visual_objective (1 line), visual_query "
+                "(3-5 concrete filmable nouns for stock video/photo search, e.g. 'pregnant mother ultrasound clinic'), "
+                "diagram (one of lifecycle/anatomy/process/timeline/chart/scale ONLY for invisible mechanisms, "
+                "or \"\" empty string for observable/human/story/hook scenes so real B-roll footage plays — "
+                "keep at least half the scenes \"\" including scene 1), "
+                "onscreen_text (<=8 words or \"\"). Return ONLY a JSON array.\n\n"
+                + "\n".join(f"{i+1}. {s['title']}: {s['narration'][:200]}" for i, s in enumerate(scenes))
+            )
             text, used = ai_generate(stack, prompt,
-                                     system="You are a science visual director.", max_tokens=2500)
+                                     system="You are a science visual director balancing real B-roll footage and mechanism diagrams.",
+                                     max_tokens=2800)
             if used == "template-fallback":
                 raise RuntimeError("skip template visuals")
-            m = re.search(r"\[.*\]", text, re.S)
-            arr = _json.loads(m.group(0) if m else text)
+            arr = extract_json_array(text)
             for i, a in enumerate(arr):
                 if isinstance(a, dict):
                     llm_visuals[i] = a
@@ -115,6 +143,10 @@ def build_storyboard(scenes: list[dict], idea: str, stack=None) -> list[dict]:
         lv = llm_visuals.get(i, {})
         text = f"{s['title']} {s['narration']}"
         q, fb = _query_for(s["title"], s["narration"], idea)
+        if "diagram" in lv:
+            diag = _norm_diagram(lv.get("diagram"))
+        else:
+            diag = _diagram_for(text)
         board.append({
             "scene_id": f"scene_{i+1:02d}",
             "index": i,
@@ -124,9 +156,26 @@ def build_storyboard(scenes: list[dict], idea: str, stack=None) -> list[dict]:
             "visual_objective": lv.get("visual_objective") or f"Show: {s['title']}",
             "visual_query": lv.get("visual_query") or q,
             "visual_query_fallback": fb,
-            "diagram": (lv.get("diagram") or _diagram_for(text)).strip(),
+            "diagram": diag,
             "onscreen_text": (lv.get("onscreen_text") or "")[:80],
             "transition": "fade" if i % 3 else "cut",
             "claim_ids": s.get("claim_ids", []),
         })
+    # Full-length visual pacing: open the cold-open hook on real B-roll/photo,
+    # and cap diagrams at <=50% of scenes (retaining the strongest mechanism
+    # scenes) so a documentary never degenerates into back-to-back box charts.
+    if len(board) >= 6:
+        board[0]["diagram"] = ""
+        max_diag = len(board) // 2
+        diag_idxs = [b["index"] for b in board if b["diagram"]]
+        if len(diag_idxs) > max_diag:
+            ranked = sorted(
+                diag_idxs,
+                key=lambda idx: _mechanism_margin(f"{board[idx]['title']} {board[idx]['narration']}"),
+                reverse=True,
+            )
+            keep = set(ranked[:max_diag])
+            for b in board:
+                if b["index"] not in keep:
+                    b["diagram"] = ""
     return board

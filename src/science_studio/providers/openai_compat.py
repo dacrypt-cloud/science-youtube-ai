@@ -5,15 +5,47 @@ same JSON shape — one client, thin provider wrappers, one mock point.
 """
 from __future__ import annotations
 import json
+import re
 import time
+import urllib.error
 import urllib.request
+
+
+def extract_json_array(text: str) -> list:
+    """Extract the best top-level JSON array from LLM output.
+
+    Tolerates <think>...</think> blocks, ```json fences, and stray [brackets]
+    in prose (which break greedy regexes like r'\\[.*\\]').
+    """
+    cleaned = re.sub(r"<think>.*?</think>", "", text or "", flags=re.S | re.I).strip()
+    cleaned = re.sub(r"^```(?:json)?\s*|\s*```$", "", cleaned, flags=re.I).strip()
+    dec = json.JSONDecoder()
+    best: list | None = None
+    pos = 0
+    while True:
+        idx = cleaned.find("[", pos)
+        if idx < 0:
+            break
+        try:
+            obj, _ = dec.raw_decode(cleaned, idx)
+            if isinstance(obj, list):
+                if obj and all(isinstance(x, dict) for x in obj):
+                    return obj
+                if best is None or len(obj) > len(best):
+                    best = obj
+        except Exception:
+            pass
+        pos = idx + 1
+    if best is not None:
+        return best
+    raise ValueError("no valid JSON array found in LLM response")
 
 
 def chat_complete(base_url: str, api_key: str, model: str, prompt: str, *,
                   system: str = "", max_tokens: int = 2000,
                   temperature: float = 0.4,
                   extra_headers: dict | None = None,
-                  timeout: int = 60, tries: int = 3) -> str:
+                  timeout: int = 90, tries: int = 3) -> str:
     """POST a chat-completions request. Returns stripped text; raises on failure."""
     msgs = []
     if system:
@@ -42,7 +74,27 @@ def chat_complete(base_url: str, api_key: str, model: str, prompt: str, *,
             if not text:
                 raise RuntimeError("empty choice")
             return text
+        except urllib.error.HTTPError as e:
+            detail = ""
+            try:
+                detail = e.read().decode(errors="ignore")[:240]
+            except Exception:
+                pass
+            last = RuntimeError(f"HTTP {e.code}: {detail or e.reason}")
+            if e.code in (401, 403, 413):
+                break  # auth or request-too-large won't succeed on retry; let chain fall over
+            wait = 2 ** attempt
+            if e.code == 429:
+                try:
+                    ra = float(e.headers.get("Retry-After", "0") or 0)
+                    if 0 < ra <= 12:
+                        wait = max(wait, ra)
+                except Exception:
+                    pass
+            if attempt + 1 < tries:
+                time.sleep(wait)
         except Exception as e:
             last = e
-            time.sleep(2 ** attempt)
+            if attempt + 1 < tries:
+                time.sleep(2 ** attempt)
     raise RuntimeError(f"chat completions failed: {last}")

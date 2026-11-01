@@ -46,7 +46,11 @@ def build_metadata(idea: str, storyboard: list[dict], durations: dict[str, float
             from ..providers.registry import ai_generate
             prompt = (f"Topic: {idea}\nWrite 3 accurate YouTube titles (<=70 chars, no clickbait) "
                       f"and 1 two-sentence hook for the description. Format:\nT1: ...\nT2: ...\nT3: ...\nHOOK: ...")
-            t, _ = ai_generate(stack, prompt, system="You write honest science titles.", max_tokens=250)
+            import re as _re
+            t, used = ai_generate(stack, prompt, system="You write honest science titles.", max_tokens=1000)
+            if used == "template-fallback":
+                raise RuntimeError("skip template titles")
+            t = _re.sub(r"<think>.*?</think>", "", t, flags=_re.S | _re.I)
             ts = []
             for line in t.splitlines():
                 if line.strip().upper().startswith("T") and ":" in line:

@@ -1,19 +1,74 @@
 """Procedural sound design — CC0, project-generated, $0.
 
-Builds a quiet ambience bed under the narration:
-- soft rain/wind wash (filtered noise, very low) for the full duration,
-- 2-3 distant thunder rolls (lowpassed noise bursts with natural decay),
-- optionally layered under the generated ambient music bed.
+Topic-aware ambience under narration:
+- Storm/weather topics -> soft rain wash + 2-3 distant thunder rolls + music bed.
+- All other science topics -> clean studio air floor + ambient music bed (no thunder/rain).
 
 Everything is synthesized with FFmpeg lavfi filters — no downloads, no
 copyright risk. Levels are restrained by design (bed gain keeps it well
 under the narration).
 """
 from __future__ import annotations
+import re
 import subprocess
 from pathlib import Path
 
 from .music import _ffmpeg
+
+STORM_TOPIC_WORDS = frozenset({
+    "lightning", "thunder", "thunderstorm", "thunderstorms", "thundercloud",
+    "thunderclouds", "storm", "storms", "hurricane", "hurricanes", "tornado",
+    "tornadoes", "cyclone", "typhoon", "monsoon", "rain", "rainfall",
+    "downpour", "blizzard", "squall",
+})
+
+
+def is_storm_topic(idea: str) -> bool:
+    words = set(re.findall(r"[a-z]{4,}", (idea or "").lower()))
+    return bool(words & STORM_TOPIC_WORDS)
+
+
+def ensure_ambience_bed(out_dir: Path, duration_s: float,
+                        music_path: str = "", idea: str = "") -> dict:
+    """Topic-appropriate ambience bed. Delegates to storm bed only for weather/storm topics."""
+    if is_storm_topic(idea):
+        return ensure_storm_bed(out_dir, duration_s, music_path)
+    out_dir = Path(out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out = out_dir / "_ambience_bed.m4a"
+    exe = _ffmpeg()
+    dur = max(30, int(duration_s + 10))
+    if exe is None:
+        if music_path and Path(music_path).exists():
+            return {"path": music_path, "source": "music-only (no ffmpeg for sfx mix)",
+                    "license": "CC0 (project-generated)", "gain": 0.08}
+        return {"path": "", "source": "none", "license": "", "gain": 0.0}
+    inputs = ["-f", "lavfi", "-i", f"anoisesrc=color=pink:duration={dur}:seed=3"]
+    mix_parts = ["[0:a]lowpass=f=450,volume=0.012[air]"]
+    labels = ["[air]"]
+    if music_path and Path(music_path).exists():
+        inputs += ["-i", str(music_path)]
+        mix_parts.append("[1:a]volume=0.85[mus]")
+        labels.append("[mus]")
+    filt = (";".join(mix_parts) + f";{''.join(labels)}amix=inputs={len(labels)}"
+            f":duration=longest:dropout_transition=2,volume=1.0")
+    try:
+        subprocess.run([exe, "-y", *inputs, "-filter_complex", filt,
+                        "-t", str(dur), "-ar", "44100", "-ac", "2", str(out)],
+                       capture_output=True, timeout=300, check=True)
+    except Exception:
+        if music_path and Path(music_path).exists():
+            return {"path": music_path, "source": "music-only",
+                    "license": "CC0 (project-generated)", "gain": 0.08}
+        return {"path": "", "source": "none", "license": "", "gain": 0.0}
+    if not (out.exists() and out.stat().st_size > 5000):
+        if music_path and Path(music_path).exists():
+            return {"path": music_path, "source": "music-only",
+                    "license": "CC0 (project-generated)", "gain": 0.08}
+        return {"path": "", "source": "none", "license": "", "gain": 0.0}
+    src = "generated-ambient+studio-air" if music_path else "studio-air"
+    return {"path": str(out), "source": src,
+            "license": "CC0 (project-generated)", "gain": 0.09}
 
 
 def ensure_storm_bed(out_dir: Path, duration_s: float, music_path: str = "") -> dict:

@@ -53,6 +53,67 @@ jobs:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
         run: python -m science_studio run "${{ steps.new.outputs.pid }}"
+      - name: Write run summary
+        if: always()
+        env:
+          PID: ${{ steps.new.outputs.pid }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from collections import Counter
+          from pathlib import Path
+
+          pid = os.environ.get("PID", "").strip()
+          root = Path("projects") / pid if pid else Path("nonexistent")
+          def rj(rel, default):
+              p = root / rel
+              if not p.exists():
+                  return default
+              try:
+                  return json.loads(p.read_text(encoding="utf-8"))
+              except Exception:
+                  return default
+
+          idea = rj("idea.json", {})
+          script = rj("script/script.json", {})
+          assets = rj("production/assets.json", [])
+          sfx = rj("production/sfx.json", {})
+          qa = rj("production/final/qa-report.json", {})
+          mp4 = root / "production/final/final.mp4"
+
+          prim = [a for a in assets if isinstance(a, dict) and a.get("primary")]
+          kinds = Counter(a.get("kind", "?") for a in prim)
+          sources = Counter(a.get("source", "?") for a in prim)
+          checks = qa.get("checks", [])
+          n_ok = sum(1 for c in checks if c.get("ok"))
+          vdur = float(qa.get("video_duration_s", 0) or 0)
+          mb = f"{mp4.stat().st_size / 1e6:.1f} MB" if mp4.exists() else "missing"
+
+          lines = [
+              f"## Production Summary — `{pid}`",
+              "",
+              "| Metric | Value |",
+              "|---|---|",
+              f"| **Topic** | {idea.get('idea', '?')} |",
+              f"| **Target duration** | `{idea.get('duration', '?')}` min |",
+              f"| **Script provider** | `{script.get('provider', '?')}` ({script.get('words', 0)} words) |",
+              f"| **Primary visuals** | {kinds.get('video', 0)} video · {kinds.get('image', 0)} image · {kinds.get('diagram', 0)} diagram |",
+              f"| **Visual sources** | {', '.join(f'`{k}`×{v}' for k, v in sources.most_common()) or 'none'} |",
+              f"| **Sound bed** | `{sfx.get('source', '?')}` |",
+              f"| **Rendered MP4** | {int(vdur // 60)}m {int(vdur % 60):02d}s ({mb}) |",
+              f"| **QA status** | **{qa.get('status', 'not-run').upper()}** ({n_ok}/{len(checks)} checks passed) |",
+          ]
+          if script.get("llm_error"):
+              lines.append(f"\n> **LLM fallback note:** `{script['llm_error']}`")
+          if qa.get("failed"):
+              lines.append(f"\n> **QA flagged checks:** `{', '.join(qa['failed'])}`")
+          md = "\n".join(lines) + "\n"
+          print(md)
+          sp = os.environ.get("GITHUB_STEP_SUMMARY")
+          if sp:
+              with open(sp, "a", encoding="utf-8") as f:
+                  f.write(md)
+          PY
       - name: Upload video package
         if: always()
         uses: actions/upload-artifact@v4
@@ -63,4 +124,7 @@ jobs:
             projects/${{ steps.new.outputs.pid }}/production/final/
             projects/${{ steps.new.outputs.pid }}/production/subtitles.*
             projects/${{ steps.new.outputs.pid }}/production/subtitles/
+            projects/${{ steps.new.outputs.pid }}/production/storyboard.json
+            projects/${{ steps.new.outputs.pid }}/production/assets.json
+            projects/${{ steps.new.outputs.pid }}/script/script.md
             projects/${{ steps.new.outputs.pid }}/pipeline.log

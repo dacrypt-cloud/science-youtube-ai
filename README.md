@@ -53,15 +53,15 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). Key ideas:
 
 ## Providers & free tiers
 
-See [docs/PROVIDERS.md](docs/PROVIDERS.md) (researched Sep 2026). Summary:
+See [docs/PROVIDERS.md](docs/PROVIDERS.md). Any subset of free keys works (zero keys = deterministic offline-capable fallback):
 
-| Need | Default ($0, keyless) | Better ($0, free key) |
+| Need | Default ($0, keyless) | Better ($0, free key, no card) |
 |---|---|---|
-| LLM | template-fallback (offline) | Gemini 2.5 Flash — 1,500 req/day, no card |
+| LLM (script / claims / visuals) | `template-fallback` (extractive) | Gemini 2.5 Flash → Groq (`openai/gpt-oss-120b`) → OpenRouter (`openrouter/free`) → Ollama |
 | Research | Wikipedia, OpenAlex, Europe PMC, arXiv, DDG | — |
-| Images | Wikimedia Commons | + Pexels (200/hr), Pixabay (100/min) |
-| TTS | edge-tts → gTTS → local → silent | — |
-| Render | FFmpeg (static binary via imageio-ffmpeg) | — |
+| Visuals (B-roll + photos + diagrams) | Wikimedia Commons + multi-stage SVG diagrams | + Pexels (video + photo), Pixabay (video + photo) |
+| TTS & Ambience | edge-tts → gTTS → local → silent + topic-aware CC0 ambience | — |
+| Render | FFmpeg 1080p30 (Ken Burns, diagram builds, kinetic captions, progress bar) | — |
 
 ## Project layout
 
@@ -74,9 +74,10 @@ projects/<id>/idea.json  research/{research_plan,sources,claims,evidence,
 
 ## Tests
 
-`python -m pytest tests/ -q` (28 tests: intake, planning, claims, factcheck,
-script, storyboard, assets, TTS, render incl. relative-path regression,
-subtitles, states, recovery, providers, QA, e2e-stub).
+`python -m pytest tests/ -q` (125+ tests: intake, planning, claims, factcheck,
+batched LLM scripting, visual-track pacing, B-roll audio stream mapping,
+topic-aware ambience, namesake/domain vetoes, TTS, FFmpeg motion render,
+subtitles, state recovery, providers, 23-check production QA, isolated e2e).
 First real e2e: `python scripts/run_malaria_test.py`.
 
 ## Demo run (malaria / Plasmodium, keyless $0 mode)

@@ -232,31 +232,43 @@ def run_qa(pid: str, project_root: Path, storyboard: list[dict], assets: list[di
         check("duration_in_target", True, f"skipped: {e}"[:120])
 
     # 19. narration production hygiene: QA judges the actual spoken words, not
-    #     just file validity. Every narrated sentence must pass the same
-    #     hygiene gate the script builder uses.
+    #     just file validity. Extractive template runs enforce strict per-sentence
+    #     anchor checks; real LLM runs enforce full structural/chrome/domain-veto
+    #     hygiene while allowing natural multi-sentence storytelling & analogies.
     try:
         from ..research.planner import topic_anchors as _anchors19
-        from ..providers.llm_template import is_clean_sentence as _clean19
-        from ..providers.llm_template import split_sentences_raw as _split19
+        from ..providers.llm_template import (
+            is_clean_sentence as _clean19,
+            is_clean_llm_sentence as _clean_llm19,
+            split_sentences_raw as _split19,
+        )
         idea19 = _json.loads((project_root / "idea.json").read_text(encoding="utf-8"))
         anchors19 = _anchors19(idea19.get("idea", ""), idea19)
+        script_prov = "template-fallback"
+        sp19 = project_root / "script" / "script.json"
+        if sp19.exists():
+            try:
+                script_prov = _json.loads(sp19.read_text(encoding="utf-8")).get("provider") or "template-fallback"
+            except Exception:
+                script_prov = "template-fallback"
+        gate19 = _clean_llm19 if script_prov != "template-fallback" else _clean19
         violations = []
         for s in storyboard:
             # abbreviation-aware split ("etc. benefit" must not break, but a
             # real ". " boundary must — headless fragments hide there).
             for sent in _split19(s.get("narration", "")):
-                if len(sent) > 40 and not _clean19(sent, anchors19):
+                if len(sent) > 40 and not gate19(sent, anchors19):
                     violations.append(f"{s['scene_id']}: {sent[:70]}")
         check("narration_hygiene", len(violations) == 0,
               f"{len(violations)} unclean narrated sentences: {violations[:3]}" if violations
-              else f"all narrated sentences pass hygiene ({len(storyboard)} scenes)")
+              else f"all narrated sentences pass hygiene ({len(storyboard)} scenes, {script_prov})")
     except Exception as e:
         check("narration_hygiene", False, f"hygiene scan crashed: {e}"[:160])
     # 20. primary stock visuals must be topically relevant (no nebulae or
     #     Roman mosaics in a lightning video).
     try:
         from ..research.planner import topic_anchors as _anchors20
-        from ..visuals.assets import _img_relevant as _rel20
+        from ..visuals.assets import _img_relevant as _rel20, is_query_trusted_source as _qtrust20
         from ..providers.llm_template import stem as _stem20
         idea20 = _json.loads((project_root / "idea.json").read_text(encoding="utf-8"))
         astems20 = {_stem20(a) for a in _anchors20(idea20.get("idea", ""), idea20)}
@@ -264,7 +276,9 @@ def run_qa(pid: str, project_root: Path, storyboard: list[dict], assets: list[di
                 if a.get("kind") in ("image", "video") and a.get("primary")
                 and not _rel20({"title": a.get("description", ""),
                                 "description": a.get("img_description", ""),
-                                "categories": a.get("categories", [])}, astems20)]
+                                "categories": a.get("categories", [])},
+                               astems20,
+                               query_trusted=_qtrust20(a.get("source", "")))]
         nprim = sum(1 for a in assets
                     if a.get("kind") in ("image", "video") and a.get("primary"))
         check("image_relevance", len(junk) == 0,

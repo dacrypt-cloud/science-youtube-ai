@@ -56,10 +56,12 @@ def pick_structure(causal_chain: list[str], idea: str, stack=None) -> tuple[str,
             prompt = (f"Topic: {idea}\nStructure: {key} with beats {beats}\n"
                       f"Rewrite the {len(beats)} beat titles for this exact topic as a "
                       f"curiosity arc (hook -> escalate -> payoff). One per line, no numbering.")
+            import re as _re
             t, used = ai_generate(stack, prompt, system=STORY_SYSTEM,
-                                  max_tokens=300)
+                                  max_tokens=1000)
             if used == "template-fallback":
                 return key, beats
+            t = _re.sub(r"<think>.*?</think>", "", t, flags=_re.S | _re.I)
             lines = [l.strip(" -•0123456789.)").strip() for l in t.splitlines() if l.strip()]
             if len(lines) >= 4:
                 beats = lines[:len(beats)]

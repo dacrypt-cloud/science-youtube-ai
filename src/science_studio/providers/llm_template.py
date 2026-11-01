@@ -280,6 +280,17 @@ VERB_LEXICON = {
     "connect", "connects", "connected", "couple", "couples", "coupled",
     "improve", "improves", "improved", "benefit", "benefits", "benefited",
     "account", "accounts", "accounted",
+    "implant", "implants", "implanted", "fertilize", "fertilizes", "fertilized",
+    "secrete", "secretes", "secreted", "bind", "binds", "bound",
+    "signal", "signals", "signaled", "differentiate", "differentiates", "differentiated",
+    "nourish", "nourishes", "nourished", "pump", "pumps", "pumped",
+    "filter", "filters", "filtered", "activate", "activates", "activated",
+    "train", "trains", "trained", "neutralize", "neutralizes", "neutralized",
+    "replicate", "replicates", "replicated", "mutate", "mutates", "mutated",
+    "fuse", "fuses", "fused", "cleave", "cleaves", "cleaved",
+    "attach", "attaches", "attached", "deliver", "delivers", "delivered",
+    "supply", "supplies", "supplied", "sense", "senses", "sensed",
+    "fire", "fires", "fired", "encode", "encodes", "encoded",
 }
 # Lexicon verbs that are equally common as nouns in science prose ("impulse
 # charge moment change", "forecast horizon", "breakdown pulses", "excited
@@ -435,6 +446,43 @@ def is_clean_sentence(s: str, anchors: list[str] | None = None) -> bool:
         # not sentences ("...forecast horizon A physics-guided..."). Real
         # 140+ char sentences always carry an auxiliary or a comma.
         if len(s) > 140 and "," not in s and not _AUX_RE.search(s):
+            return False
+    return True
+
+
+def is_clean_llm_sentence(s: str, anchors: list[str] | None = None) -> bool:
+    """Hygiene gate for real LLM-written documentary narration.
+
+    Enforces chrome, citation, paper-discourse, cross-domain veto, paren
+    balance, headless-fragment, and title-salad rules, without requiring every
+    single sentence or analogy to repeat the literal topic noun.
+    """
+    if not s or not (20 <= len(s) <= 500):
+        return False
+    sl = s.lower()
+    for m in CHROME_MARKERS:
+        if m in sl:
+            return False
+    if re.search(r"\[[CS]\d{2,4}\]", s):
+        return False
+    if LEAD_JUNK_RE.search(s):
+        return False
+    digits = sum(c.isdigit() for c in s)
+    if digits > len(s) * 0.18:
+        return False
+    if anchors and domain_veto(s, anchors):
+        return False
+    letters = [c for c in s if c.isalpha()]
+    if len(letters) > 20 and sum(c.isupper() for c in letters) / len(letters) > 0.7:
+        return False
+    if s.count("(") != s.count(")"):
+        return False
+    if _headless_start(s):
+        return False
+    words = [w for w in re.findall(r"[A-Za-z][A-Za-z\-]{2,}", s)]
+    if len(words) >= 5:
+        caps = sum(1 for w in words[1:] if w[0].isupper())
+        if caps / max(1, len(words) - 1) > 0.55:
             return False
     return True
 

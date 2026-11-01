@@ -1,11 +1,13 @@
-# Providers — researched Sep 30, 2026 (all $0 usable)
+# Providers — all $0 usable (strict FREE_ONLY=1)
 
-## AI / LLM
+## AI / LLM (automatic fallback chain: Gemini → Groq → OpenRouter → Ollama → template)
 | Provider | Free terms | Key? | Notes |
 |---|---|---|---|
-| Gemini 2.5 Flash (AI Studio) | ~1,500 req/day, 15 RPM, 1M TPM, no expiry, no card | Yes (free) | Pro models paid-only since Apr 2026. Free-tier data may train Google models. Primary. |
-| Ollama (local) | Unlimited, offline after pull | No | Optional. Set OLLAMA_BASE_URL. |
-| template-fallback | Unlimited, offline | No | Deterministic extractive generation. Always available. Lower quality, honestly labelled. |
+| Gemini 2.5 Flash (AI Studio) | ~500–1,500 req/day, no card | Optional (`GEMINI_API_KEY`) | Primary if set. |
+| Groq (`openai/gpt-oss-120b`) | ~14.4k req/day, 30 RPM, no card | Optional (`GROQ_API_KEY`) | Fast OpenAI-compatible inference; scripts run in 6-scene batches within free TPM limits. |
+| OpenRouter (`openrouter/free`) | ~200 req/day on `:free` auto-router, no card | Optional (`OPENROUTER_API_KEY`) | Auto-selects live free models so model IDs never go stale. |
+| Ollama (local) | Unlimited, offline after pull | No (`OLLAMA_BASE_URL`) | Optional local inference. |
+| `template-fallback` | Unlimited, offline | No | Deterministic extractive generation. Always available; honestly labelled. |
 
 ## Research / search (all keyless)
 - Wikipedia/MediaWiki — CC BY-SA, attribute.
