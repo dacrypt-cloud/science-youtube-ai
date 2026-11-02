@@ -1,5 +1,6 @@
-"""Scene-by-scene narration with provider fallback chain. Real durations recorded."""
+"""Scene-by-scene narration with provider fallback chain. Real durations + word timings recorded."""
 from __future__ import annotations
+import json
 from pathlib import Path
 
 
@@ -15,13 +16,21 @@ def synthesize_scenes(storyboard: list[dict], stack, narr_dir: Path, progress_cb
         sc["narration"] = text  # keep subtitles consistent with spoken audio
         out = narr_dir / f"{sc['scene_id']}.mp3"
         sidecar = narr_dir / f"{sc['scene_id']}.txt"
-        # resume: reuse cached audio ONLY if the text is unchanged (no script/audio drift)
+        words_sidecar = narr_dir / f"{sc['scene_id']}.words.json"
+        # resume: reuse cached audio ONLY if text unchanged AND word timings exist
         if (out.exists() and out.stat().st_size > 1000
-                and sidecar.exists() and sidecar.read_text(encoding="utf-8") == text):
+                and sidecar.exists() and sidecar.read_text(encoding="utf-8") == text
+                and words_sidecar.exists()):
             from ..providers.tts_edge import _audio_duration
+            cached_words = []
+            try:
+                cached_words = json.loads(words_sidecar.read_text(encoding="utf-8"))
+            except Exception:
+                cached_words = []
             results.append({"scene_id": sc["scene_id"], "path": str(out),
                             "duration_s": _audio_duration(out, text),
-                            "voice": "cached", "provider": "cached"})
+                            "voice": "cached", "provider": "cached",
+                            "words": cached_words})
             continue
         errors = []
         done = None
@@ -39,6 +48,7 @@ def synthesize_scenes(storyboard: list[dict], stack, narr_dir: Path, progress_cb
             raise RuntimeError(f"TTS failed for {sc['scene_id']}: {' | '.join(errors)}")
         try:
             sidecar.write_text(text, encoding="utf-8")
+            words_sidecar.write_text(json.dumps(done.get("words") or []), encoding="utf-8")
         except Exception:
             pass
         results.append({"scene_id": sc["scene_id"], **done})

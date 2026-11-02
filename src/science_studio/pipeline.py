@@ -254,7 +254,8 @@ def run_project(pid: str, *, resume: bool = True, stop_after: str = "",
                     "Check edge-tts/gTTS connectivity and retry.")
             storage.write_json(root / "production" / "narration.json", narr)
             durs = {n["scene_id"]: float(n.get("duration_s", 0) or 0) for n in narr}
-            subs = build_subtitles(board, durs, root / "production" / "subtitles")
+            subs = build_subtitles(board, durs, root / "production" / "subtitles",
+                                   narrations=narr)
             storage.write_json(root / "production" / "subtitles.json", subs)
             total = sum(durs.values())
             _log(pid, f"narration: {len(narr)} scenes, {total/60:.1f} min total")
@@ -288,6 +289,8 @@ def run_project(pid: str, *, resume: bool = True, stop_after: str = "",
                             stages_dir=root / "production" / "stages")
             if _subs.get("srt"):
                 job["subtitles_srt"] = _subs["srt"]
+            if _subs.get("words_path"):
+                job["subtitles_words"] = _subs["words_path"]
             storage.write_json(root / "production" / "render_job.json",
                                {**job, "scenes": [{k: v for k, v in s.items() if k != "audio"} | {"audio": s.get("audio", "")} for s in job["scenes"]]})
             out = root / "production" / "video" / "video.mp4"

@@ -80,22 +80,24 @@ class FFmpegRenderer(RenderingProvider):
             if video_src and Path(video_src).exists():
                 # Explicit -map 0:v:0 -map 1:a:0 strips any embedded stock-clip
                 # audio (which would otherwise beat mono TTS in ffmpeg's stream
-                # selector and mute narration); -stream_loop -1 loops short
-                # clips cleanly for the full scene duration.
+                # selector and mute narration); -stream_loop -1 + apad + -t dur
+                # locks segment duration to exact millisecond parity with captions.
                 if audio and Path(audio).exists():
                     cmd = [exe, "-y", "-stream_loop", "-1", "-i", str(video_src),
                            "-i", str(audio),
                            "-map", "0:v:0", "-map", "1:a:0",
-                           "-t", f"{dur:.2f}", "-vf", base_vf,
+                           "-vf", base_vf, "-af", "apad",
+                           "-t", f"{dur:.3f}",
                            "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
-                           "-c:a", "aac", "-shortest", str(seg)]
+                           "-c:a", "aac", str(seg)]
                 else:
                     cmd = [exe, "-y", "-stream_loop", "-1", "-i", str(video_src),
-                           "-f", "lavfi", "-i", f"anullsrc=r=44100:cl=stereo:d={dur:.2f}",
+                           "-f", "lavfi", "-i", f"anullsrc=r=44100:cl=stereo:d={dur:.3f}",
                            "-map", "0:v:0", "-map", "1:a:0",
-                           "-t", f"{dur:.2f}", "-vf", base_vf,
+                           "-vf", base_vf,
+                           "-t", f"{dur:.3f}",
                            "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
-                           "-c:a", "aac", "-shortest", str(seg)]
+                           "-c:a", "aac", str(seg)]
             else:
                 frame = work / f"frame_{i:03d}.png"
                 self._make_frame(sc, frame, W, H)
@@ -103,7 +105,9 @@ class FFmpegRenderer(RenderingProvider):
                 _fz = fade_filter(dur) if motion_on else ""
                 if len(stages) > 1:
                     # diagram build-up: cumulative stages, equal splits, static (crisp text)
-                    entries = [(s, dur / len(stages)) for s in stages]
+                    per_st = dur / len(stages)
+                    entries = [(s, per_st + (0.15 if k == len(stages) - 1 else 0.0))
+                               for k, s in enumerate(stages)]
                     lst_in = concat_list_file(entries, work / f"frames_{i:03d}.txt")
                     vf = (f"scale={W}:{H}:force_original_aspect_ratio=increase,"
                           f"crop={W}:{H},fps={fps},format=yuv420p")
@@ -115,7 +119,7 @@ class FFmpegRenderer(RenderingProvider):
                                "-i", str(lst_in)]
                 else:
                     # photo: Ken Burns variant; single diagrams stay static (crisp text)
-                    frames = max(1, int(dur * fps))
+                    frames = max(2, int(round(dur * fps)) + 2)
                     if motion_on and not sc.get("is_diagram"):
                         vf = zoom_filter(zoom_variant(i), frames, W, H, fps)
                     elif motion_on:
@@ -130,15 +134,17 @@ class FFmpegRenderer(RenderingProvider):
                     in_args = ["-loop", "1", "-i", str(frame)]
                 if audio and Path(audio).exists():
                     cmd = [exe, "-y", *in_args, "-i", str(audio),
-                           "-t", f"{dur:.2f}", "-vf", vf,
+                           "-vf", vf, "-af", "apad",
+                           "-t", f"{dur:.3f}",
                            "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
-                           "-c:a", "aac", "-shortest", str(seg)]
+                           "-c:a", "aac", str(seg)]
                 else:
                     cmd = [exe, "-y", *in_args,
-                           "-f", "lavfi", "-i", f"anullsrc=r=44100:cl=stereo:d={dur:.2f}",
-                           "-t", f"{dur:.2f}", "-vf", vf,
+                           "-f", "lavfi", "-i", f"anullsrc=r=44100:cl=stereo:d={dur:.3f}",
+                           "-vf", vf,
+                           "-t", f"{dur:.3f}",
                            "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
-                           "-c:a", "aac", "-shortest", str(seg)]
+                           "-c:a", "aac", str(seg)]
             r = subprocess.run(cmd, capture_output=True, timeout=900)
             if r.returncode != 0 or not seg.exists():
                 raise RuntimeError(f"scene {i} render failed: {r.stderr[-2000:].decode(errors='ignore')}")
@@ -160,10 +166,17 @@ class FFmpegRenderer(RenderingProvider):
         if motion_on and subs_srt and Path(subs_srt).exists():
             try:
                 cues = parse_srt(subs_srt)
+                timed_cues = None
+                sw_path = job.get("subtitles_words", "")
+                if sw_path and Path(sw_path).exists():
+                    try:
+                        timed_cues = json.loads(Path(sw_path).read_text(encoding="utf-8"))
+                    except Exception:
+                        timed_cues = None
                 vf_fin = [progress_filter(W, H, total)]
-                if cues and has_filter(exe, "subtitles"):
+                if (cues or timed_cues) and has_filter(exe, "subtitles"):
                     ass = out_path.parent / "captions.ass"
-                    write_ass(cues, ass, W, H)
+                    write_ass(cues, ass, W, H, timed_cues=timed_cues)
                     vf_fin.insert(0, f"subtitles='{ffesc(ass)}'")
                 tmp2 = out_path.parent / "_captioned.mp4"
                 rcap = subprocess.run(

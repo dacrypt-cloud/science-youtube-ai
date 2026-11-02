@@ -98,20 +98,46 @@ def parse_srt(path) -> list[tuple[float, float, str]]:
     return out
 
 
-def word_dialogues(cues) -> list[tuple[float, float, str, str]]:
+def word_dialogues(cues, timed_cues: list[dict] | None = None) -> list[tuple[float, float, str, str]]:
     """Split cues into per-word (start, end, prefix_plain, current_word).
 
-    Each dialogue shows the cue-so-far with the current word highlighted
-    (typewriter + highlight, the modern caption style). Boundaries cover
-    each cue exactly, proportional to word length.
+    When `timed_cues` carries exact neural TTS WordBoundary timestamps, each
+    word highlights at the exact instant it is spoken and holds across brief
+    inter-word pauses until the next word actually starts (zero race-ahead).
+    Otherwise falls back to spoken-weight distribution (numbers + punctuation).
     """
+    from ..audio.subtitles import spoken_word_weight
     out = []
+    if timed_cues:
+        for tc in timed_cues:
+            wlist = tc.get("words") or []
+            if not wlist:
+                # Fallback for this single cue if words list is empty
+                st, en, text = float(tc["start_s"]), float(tc["end_s"]), str(tc.get("text", "")).replace("\n", " ")
+                out.extend(word_dialogues([(st, en, text)]))
+                continue
+            words_str = [str(x["word"]) for x in wlist]
+            n = len(wlist)
+            for i, x in enumerate(wlist):
+                wst = float(x["start_s"])
+                wen = float(x["end_s"])
+                if i + 1 < n:
+                    nxt_st = float(wlist[i + 1]["start_s"])
+                    # Hold through natural breath/comma pauses (<=0.8s) so the
+                    # highlight waits for the voice instead of jumping early.
+                    end_t = nxt_st if 0 <= (nxt_st - wen) <= 0.8 else max(wst + 0.04, min(wen, nxt_st))
+                else:
+                    end_t = max(wst + 0.08, wen, float(tc.get("end_s", wen)))
+                if end_t > wst:
+                    out.append((wst, end_t, " ".join(words_str[:i]), words_str[i]))
+        return out
+
     for st, en, text in cues:
         words = text.split()
         if not words:
             continue
-        weights = [len(w) + 1 for w in words]
-        tot = sum(weights)
+        weights = [spoken_word_weight(w) for w in words]
+        tot = sum(weights) or 1.0
         bounds = [st]
         for i in range(len(words) - 1):
             bounds.append(st + (en - st) * sum(weights[:i + 1]) / tot)
@@ -133,7 +159,8 @@ def ass_esc(s: str) -> str:
     return s.replace("\\", "\\\\").replace("{", "\\{").replace("}", "\\}")
 
 
-def write_ass(cues, path, W: int = 1920, H: int = 1080) -> Path:
+def write_ass(cues, path, W: int = 1920, H: int = 1080,
+              timed_cues: list[dict] | None = None) -> Path:
     """Write kinetic-caption .ass (one dialogue per word, current highlighted).
 
     Captions sit at MarginV=90 — in the lane below the burned scene
@@ -154,7 +181,7 @@ Style: Default,DejaVu Sans,{fontsize},&H00FFFFFF,&H0000FFFF,&H80000000,&H8000000
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 """
     lines = [head.rstrip("\n")]
-    for st, en, pre, cur in word_dialogues(cues):
+    for st, en, pre, cur in word_dialogues(cues, timed_cues=timed_cues):
         pre, cur = ass_esc(pre), ass_esc(cur)
         if pre:
             text = f"{pre} {{\\c&H0000FFFF&}}{cur}{{\\c&H00FFFFFF&}}"

@@ -8,7 +8,7 @@
 3. Stock motion B-roll requires free `PEXELS_API_KEY` or `PIXABAY_API_KEY`; without them
    the renderer uses Wikimedia photographs + multi-stage SVG diagrams + Ken Burns motion.
 4. Diagrams are structured multi-stage SVG schematics, not hand-drawn character animation.
-5. Subtitles/kinetic captions are phrase-distributed within each scene's measured TTS audio,
-   not phoneme-forced-aligned.
+5. With `edge-tts` (default), captions use exact neural `WordBoundary` timestamps per word;
+   offline/fallback TTS engines use pause- and number-weighted word distribution.
 6. Fact-check is heuristic + optional LLM review — human spot-check is recommended before
    publishing, especially for medical or clinical topics.
