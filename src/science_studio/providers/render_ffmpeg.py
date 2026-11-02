@@ -78,11 +78,38 @@ class FFmpegRenderer(RenderingProvider):
                 if _fz:
                     base_vf += "," + _fz
             if video_src and Path(video_src).exists():
-                # Explicit -map 0:v:0 -map 1:a:0 strips any embedded stock-clip
+                # Explicit -map / filter_complex strips any embedded stock-clip
                 # audio (which would otherwise beat mono TTS in ffmpeg's stream
                 # selector and mute narration); -stream_loop -1 + apad + -t dur
                 # locks segment duration to exact millisecond parity with captions.
-                if audio and Path(audio).exists():
+                badge_png = work / f"badge_{i:03d}.png"
+                has_badge = (motion_on and dur >= 3.0 and bool((sc.get("title") or "").strip())
+                             and self._make_broll_badge(sc, badge_png, W, H))
+                if has_badge:
+                    end_b = min(dur - 0.3, 4.8)
+                    fc_vid = (
+                        f"[0:v]{base_vf}[bv];"
+                        f"[bv][1:v]overlay=0:0:enable='between(t,0.25,{end_b:.2f})'[vout]"
+                    )
+                    if audio and Path(audio).exists():
+                        cmd = [exe, "-y", "-stream_loop", "-1", "-i", str(video_src),
+                               "-loop", "1", "-t", f"{dur:.3f}", "-i", str(badge_png),
+                               "-i", str(audio),
+                               "-filter_complex", fc_vid,
+                               "-map", "[vout]", "-map", "2:a:0",
+                               "-af", "apad", "-t", f"{dur:.3f}",
+                               "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
+                               "-c:a", "aac", str(seg)]
+                    else:
+                        cmd = [exe, "-y", "-stream_loop", "-1", "-i", str(video_src),
+                               "-loop", "1", "-t", f"{dur:.3f}", "-i", str(badge_png),
+                               "-f", "lavfi", "-i", f"anullsrc=r=44100:cl=stereo:d={dur:.3f}",
+                               "-filter_complex", fc_vid,
+                               "-map", "[vout]", "-map", "2:a:0",
+                               "-t", f"{dur:.3f}",
+                               "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
+                               "-c:a", "aac", str(seg)]
+                elif audio and Path(audio).exists():
                     cmd = [exe, "-y", "-stream_loop", "-1", "-i", str(video_src),
                            "-i", str(audio),
                            "-map", "0:v:0", "-map", "1:a:0",
@@ -244,19 +271,88 @@ class FFmpegRenderer(RenderingProvider):
             return ImageFont.load_default()
         scale = W / 1280
         # diagrams already carry their own title header — don't double-print
-        title = "" if sc.get("is_diagram") else (sc.get("title") or "")[:90]
-        cap = (sc.get("onscreen_text") or "")[:140]
-        # title block sits high enough to leave a caption lane below it
-        # (kinetic captions occupy roughly H-160..H-90; progress bar H-12..H)
-        if title:
-            d.text((int(60 * scale), H - int(280 * scale)), title,
-                   font=_font(True, int(52 * scale)), fill=(255, 255, 255),
-                   stroke_width=2, stroke_fill=(0, 0, 0))
-        if cap:
-            d.text((int(60 * scale), H - int(215 * scale)), cap,
-                   font=_font(False, int(36 * scale)), fill=(200, 220, 255),
-                   stroke_width=1, stroke_fill=(0, 0, 0))
+        title = "" if sc.get("is_diagram") else (sc.get("title") or "")[:72]
+        cap = "" if sc.get("is_diagram") else (sc.get("onscreen_text") or "")[:90]
+        if title or cap:
+            rgba = base.convert("RGBA")
+            glass = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+            gd = ImageDraw.Draw(glass)
+            f_title = _font(True, int(36 * scale))
+            f_cap = _font(False, int(24 * scale))
+            pad_x, pad_y = int(44 * scale), int(38 * scale)
+            card_h = int((92 if (title and cap) else 62) * scale)
+            t_len = max(len(title) * int(20 * scale), len(cap) * int(13 * scale), int(260 * scale))
+            card_w = min(W - 2 * pad_x, t_len + int(64 * scale))
+            gd.rounded_rectangle(
+                [pad_x, pad_y, pad_x + card_w, pad_y + card_h],
+                radius=int(14 * scale),
+                fill=(8, 17, 32, 205),
+                outline=(56, 189, 248, 190),
+                width=max(2, int(2 * scale)),
+            )
+            gd.rounded_rectangle(
+                [pad_x + int(12 * scale), pad_y + int(12 * scale),
+                 pad_x + int(19 * scale), pad_y + card_h - int(12 * scale)],
+                radius=3,
+                fill=(56, 189, 248, 255),
+            )
+            tx = pad_x + int(32 * scale)
+            if title:
+                gd.text((tx, pad_y + int(12 * scale)), title, font=f_title, fill=(244, 248, 255, 255))
+            if cap:
+                cy = pad_y + int((54 if title else 18) * scale)
+                gd.text((tx, cy), cap, font=f_cap, fill=(140, 212, 255, 255))
+            base = Image.alpha_composite(rgba, glass).convert("RGB")
         base.save(frame_path)
+
+    def _make_broll_badge(self, sc: dict, badge_path: Path, W: int, H: int) -> bool:
+        """Render a transparent-RGBA top-left glassmorphic chapter pill for B-roll video."""
+        try:
+            from PIL import Image, ImageDraw, ImageFont
+
+            def _font(bold: bool, size: int):
+                for p in ("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+                          if bold else "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",):
+                    try:
+                        return ImageFont.truetype(p, size)
+                    except Exception:
+                        continue
+                return ImageFont.load_default()
+
+            scale = W / 1280
+            title = (sc.get("title") or "").strip()[:68]
+            cap = (sc.get("onscreen_text") or "").strip()[:84]
+            if not title:
+                return False
+            img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+            gd = ImageDraw.Draw(img)
+            f_title = _font(True, int(32 * scale))
+            f_cap = _font(False, int(22 * scale))
+            pad_x, pad_y = int(42 * scale), int(36 * scale)
+            card_h = int((86 if cap else 58) * scale)
+            t_len = max(len(title) * int(18 * scale), len(cap) * int(12 * scale), int(240 * scale))
+            card_w = min(W - 2 * pad_x, t_len + int(60 * scale))
+            gd.rounded_rectangle(
+                [pad_x, pad_y, pad_x + card_w, pad_y + card_h],
+                radius=int(14 * scale),
+                fill=(8, 17, 32, 210),
+                outline=(56, 189, 248, 200),
+                width=max(2, int(2 * scale)),
+            )
+            gd.rounded_rectangle(
+                [pad_x + int(12 * scale), pad_y + int(11 * scale),
+                 pad_x + int(19 * scale), pad_y + card_h - int(11 * scale)],
+                radius=3,
+                fill=(255, 183, 77, 255),
+            )
+            tx = pad_x + int(32 * scale)
+            gd.text((tx, pad_y + int(11 * scale)), title, font=f_title, fill=(244, 248, 255, 255))
+            if cap:
+                gd.text((tx, pad_y + int(50 * scale)), cap, font=f_cap, fill=(140, 212, 255, 255))
+            img.save(badge_path)
+            return True
+        except Exception:
+            return False
 
 
 def _cover(img, W: int, H: int):

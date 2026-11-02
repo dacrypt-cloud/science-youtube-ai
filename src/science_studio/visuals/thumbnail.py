@@ -41,39 +41,43 @@ def concept(idea: str, claims: list[dict], stack=None) -> dict:
 
 
 def render(concept_d: dict, out_path: Path, bg_image: str = "") -> Path:
-    from PIL import Image, ImageDraw
+    from PIL import Image, ImageDraw, ImageFont
     W, H = 1280, 720
     base = None
     if bg_image:
         try:
-            from pathlib import Path as P
-            if P(bg_image).exists():
+            if Path(bg_image).exists():
                 base = Image.open(bg_image).convert("RGB")
         except Exception:
             base = None
     if base is None:
-        base = Image.new("RGB", (W, H), (8, 15, 28))
-    # cover
+        base = Image.new("RGB", (W, H), (9, 20, 38))
+        gd_bg = ImageDraw.Draw(base)
+        gd_bg.ellipse([620, 40, 1260, 680], fill=(22, 58, 104), outline=(56, 189, 248), width=5)
+        gd_bg.ellipse([720, 140, 1160, 580], fill=(16, 42, 78), outline=(255, 183, 77), width=4)
     w, h = base.size
     s = max(W / w, H / h)
     base = base.resize((int(w * s) + 1, int(h * s) + 1))
     x = (base.size[0] - W) // 2
     y = (base.size[1] - H) // 2
-    base = base.crop((x, y, x + W, y + H))
-    d = ImageDraw.Draw(base)
-    d.rectangle([0, 0, 760, H], fill=(5, 10, 20))
-    # wrap text crudely
-    text = concept_d.get("text", "?")
-    words, lines, cur = text.split(), [], ""
-    for wd in words:
-        if len(cur) + len(wd) + 1 > 16:
-            lines.append(cur)
-            cur = wd
+    base = base.crop((x, y, x + W, y + H)).convert("RGBA")
+
+    # Smooth horizontal cinematic vignette (solid left -> transparent right)
+    grad = Image.new("L", (W, 1))
+    for px in range(W):
+        if px < 380:
+            a = 242
+        elif px < 980:
+            t = (px - 380) / 600.0
+            a = int(242 * (1.0 - t) ** 1.6)
         else:
-            cur = f"{cur} {wd}".strip()
-    if cur:
-        lines.append(cur)
-    from PIL import ImageFont
+            a = 0
+        grad.putpixel((px, 0), a)
+    dark = Image.new("RGBA", (W, H), (6, 13, 26, 255))
+    dark.putalpha(grad.resize((W, H)))
+    base = Image.alpha_composite(base, dark)
+
+    d = ImageDraw.Draw(base)
 
     def _font(bold: bool, size: int):
         for p in ("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
@@ -84,14 +88,36 @@ def render(concept_d: dict, out_path: Path, bg_image: str = "") -> Path:
                 continue
         return ImageFont.load_default()
 
-    yy = 180
-    for ln in lines[:4]:
-        d.text((60, yy), ln, font=_font(True, 72), fill=(255, 210, 60),
-               stroke_width=3, stroke_fill=(0, 0, 0))
-        yy += 92
-    d.text((60, yy + 16), concept_d.get("subtext", ""), font=_font(False, 40),
-           fill=(160, 200, 255), stroke_width=2, stroke_fill=(0, 0, 0))
+    # Top accent pill badge
+    d.rounded_rectangle([56, 56, 336, 104], radius=24, fill=(56, 189, 248, 255))
+    d.text((196, 80), "SCIENCE EXPLAINED", font=_font(True, 22), fill=(6, 14, 26, 255), anchor="mm")
+
+    text = concept_d.get("text", "?")
+    words, lines, cur = text.split(), [], ""
+    for wd in words:
+        if len(cur) + len(wd) + 1 > 16 and cur:
+            lines.append(cur)
+            cur = wd
+        else:
+            cur = f"{cur} {wd}".strip()
+    if cur:
+        lines.append(cur)
+
+    yy = 148
+    for idx, ln in enumerate(lines[:4]):
+        col = (255, 214, 56, 255) if idx == len(lines[:4]) - 1 else (248, 252, 255, 255)
+        d.text((58, yy), ln, font=_font(True, 74), fill=col,
+               stroke_width=4, stroke_fill=(4, 8, 18, 255))
+        yy += 90
+
+    sub = (concept_d.get("subtext") or "").strip()
+    if sub:
+        d.rounded_rectangle([58, yy + 14, 58 + min(680, len(sub) * 21 + 44), yy + 72],
+                            radius=14, fill=(15, 32, 58, 220), outline=(255, 183, 77, 220), width=2)
+        d.text((80, yy + 43), sub[:34], font=_font(True, 30),
+               fill=(255, 200, 100, 255), anchor="lm")
+
     out_path = Path(out_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    base.save(out_path)
+    base.convert("RGB").save(out_path)
     return out_path

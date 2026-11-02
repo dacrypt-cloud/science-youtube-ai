@@ -175,7 +175,7 @@ WrapStyle: 2
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Default,DejaVu Sans,{fontsize},&H00FFFFFF,&H0000FFFF,&H80000000,&H80000000,0,0,0,0,100,100,0,0,1,2,1,2,40,40,90,1
+Style: Default,DejaVu Sans,{fontsize},&H00FFFFFF,&H0000FFFF,&H20060D18,&H80000000,-1,0,0,0,100,100,0,0,1,4,2,2,60,60,82,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -183,10 +183,8 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     lines = [head.rstrip("\n")]
     for st, en, pre, cur in word_dialogues(cues, timed_cues=timed_cues):
         pre, cur = ass_esc(pre), ass_esc(cur)
-        if pre:
-            text = f"{pre} {{\\c&H0000FFFF&}}{cur}{{\\c&H00FFFFFF&}}"
-        else:
-            text = f"{{\\c&H0000FFFF&}}{cur}{{\\c&H00FFFFFF&}}"
+        hi = f"{{\\c&H0000FFFF&\\fscx106\\fscy106}}{cur}{{\\fscx100\\fscy100\\c&H00FFFFFF&}}"
+        text = f"{pre} {hi}" if pre else hi
         lines.append(f"Dialogue: 0,{ass_time(st)},{ass_time(en)},Default,,0,0,0,,{text}")
     p = Path(path)
     p.parent.mkdir(parents=True, exist_ok=True)
