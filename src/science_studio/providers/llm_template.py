@@ -73,12 +73,18 @@ DISCOURSE_DOMAINS: dict[str, tuple[set[str], set[str]]] = {
     ),
     "finance": (
         {"econom", "economy", "financ", "market", "money", "bank", "invest",
-         "bitcoin", "stock", "trade"},
+         "bitcoin", "stock", "trade", "rich", "wealth", "wealthy", "million",
+         "billion", "income", "saving", "savings", "asset", "assets", "capital",
+         "compound", "crypto", "cryptocurrenc", "blockchain", "defi", "ethereum",
+         "token", "wallet", "hack", "hacks", "cyber", "exploit", "breach",
+         "scam", "fraud", "theft", "heist"},
         {"bitcoin", "blockchain", "cryptocurrency", "stock market",
          "portfolio", "shareholder"},
     ),
     "legal": (
-        {"law", "legal", "court", "lawsuit", "justice", "trial lawyer"},
+        {"law", "legal", "court", "lawsuit", "justice", "trial lawyer",
+         "crime", "hack", "hacks", "fraud", "scam", "theft", "heist",
+         "stolen", "regulate", "regulation"},
         {"plaintiff", "defendant", "litigation", "lawsuit", "appellant",
          "court ruled"},
     ),
@@ -291,6 +297,18 @@ VERB_LEXICON = {
     "attach", "attaches", "attached", "deliver", "delivers", "delivered",
     "supply", "supplies", "supplied", "sense", "senses", "sensed",
     "fire", "fires", "fired", "encode", "encodes", "encoded",
+    "invest", "invests", "invested", "earn", "earns", "earned",
+    "save", "saves", "saved", "spend", "spends", "spent",
+    "compound", "compounds", "compounded", "exploit", "exploits", "exploited",
+    "steal", "steals", "stole", "stolen", "hack", "hacks", "hacked",
+    "compromise", "compromises", "compromised", "drain", "drains", "drained",
+    "lose", "loses", "lost", "gain", "gains", "gained",
+    "pay", "pays", "paid", "own", "owns", "owned",
+    "buy", "buys", "bought", "sell", "sells", "sold",
+    "value", "values", "valued", "encrypt", "encrypts", "encrypted",
+    "sign", "signs", "signed", "attack", "attacks", "attacked",
+    "breach", "breaches", "breached", "launder", "launders", "laundered",
+    "recover", "recovers", "recovered", "accumulate", "accumulates",
 }
 # Lexicon verbs that are equally common as nouns in science prose ("impulse
 # charge moment change", "forecast horizon", "breakdown pulses", "excited
@@ -494,7 +512,9 @@ def keywords(text: str, n: int = 12) -> list[str]:
 
 
 def _preclean(text: str) -> str:
-    # blank line = structural boundary (title/body, heading/paragraph): split.
+    # Any newline in Wikipedia / article extracts is a heading or paragraph boundary:
+    # replace with ". " so subsection titles ("Altcoins\nAfter...") never glue onto prose.
+    text = re.sub(r"(?<![.!?])\n+\s*(?=[A-Z0-9])", ". ", text)
     text = re.sub(r"\n\s*\n+", ". ", text)
     # engine-side title references, never spoken: (see: Some Title Here)
     text = re.sub(r"\(see:[^)\n]{0,300}\)", " ", text)
@@ -612,8 +632,14 @@ class TemplateAIProvider(AIProvider):
         """
         import re as _re
         sents = split_sentences(evidence, anchors=anchors)
-        if len(sents) < len(scenes_outline) * 2:
-            # thin/topical-mismatch evidence: keep chrome-clean sentences
+        if anchors:
+            sents = [
+                s for s in sents
+                if all(len(sub) <= 40 or is_clean_sentence(sub, anchors)
+                       for sub in split_sentences_raw(s))
+            ]
+        if not sents:
+            # Emergency fallback only when anchor-gated pool is completely empty
             sents = split_sentences(evidence)
         # dedupe: evidence routinely contains snippet+fetched duplicates
         sents = list(dict.fromkeys(sents))
@@ -637,6 +663,7 @@ class TemplateAIProvider(AIProvider):
         word_cap = int(per_scene * 1.05)
         sents_per_scene = max(3, per_scene // 18)
         used: set[str] = set()
+        use_counts: Counter = Counter()
         keys = keywords(evidence)
         kset = set(keys)
 
@@ -662,8 +689,6 @@ class TemplateAIProvider(AIProvider):
             if len(fresh) >= sents_per_scene:
                 pool = fresh
             if idx <= 1:
-                # opening readability, with starvation fallback: prefer plain,
-                # grammatical, medium-length sentences — but never silence.
                 def _ro(s0: str) -> bool:
                     sl0 = s0.lower()
                     ac = len(_re.findall(r"\b[A-Z0-9]{2,}s?\b", s0))
@@ -680,14 +705,10 @@ class TemplateAIProvider(AIProvider):
                 key_hit = len(toks & kset)
                 bonus = 0.0
                 sl = s.lower()
-                # documentary shaping (selection only — never invented text):
-                # open with curiosity, close with open questions.
                 if idx == 0 and ("?" in s or any(w in sl for w in
                         ("mystery", "strange", "surprising", "puzzle", "imagine", "consider"))):
                     bonus = 2.0
                 if idx == 0:
-                    # hook readability: prefer short sentences, penalize jargon
-                    # density (fraction of very long words).
                     words0 = s.split()
                     long_frac = sum(1 for w in words0 if len(w) >= 11) / max(1, len(words0))
                     if len(s) < 180:
@@ -703,18 +724,32 @@ class TemplateAIProvider(AIProvider):
             for _, s in scored[:sents_per_scene]:
                 chunk.append(s)
                 used.add(s)
-            if len(chunk) < 2:  # recycle least-used if evidence is thin
-                for s in sents:
-                    if s not in chunk:
-                        chunk.append(s)
-                    if len(chunk) >= sents_per_scene:
+                use_counts[s] += 1
+            if len(chunk) < 2:
+                # Strictly least-used rotation (never clone sents[0..2] identically across scenes)
+                max_reuse = max(2, (len(scenes_outline) * 3) // max(1, len(sents)) + 1)
+                least = sorted(
+                    [s for s in sents if s not in chunk and use_counts[s] < max_reuse],
+                    key=lambda s0: (use_counts[s0], (sents.index(s0) - idx * 2) % max(1, len(sents))),
+                )
+                for s in least:
+                    chunk.append(s)
+                    use_counts[s] += 1
+                    if len(chunk) >= max(2, min(sents_per_scene, 4)):
                         break
-            # Titles are on-screen text; the voice speaks evidence sentences only.
-            narration = " ".join(chunk)
-            words = narration.split()
-            if len(words) > word_cap:
-                narration = " ".join(words[:word_cap])
-                if "." in narration:
-                    narration = narration.rsplit(".", 1)[0] + "."
+            if not chunk and sents:
+                pick = sents[idx % len(sents)]
+                chunk = [pick]
+                use_counts[pick] += 1
+            # Trim only at complete sentence boundaries (never rsplit(".") inside decimals like 2.5!)
+            kept_chunk = []
+            w_running = 0
+            for cs in chunk:
+                cw = len(cs.split())
+                if kept_chunk and w_running + cw > word_cap:
+                    break
+                kept_chunk.append(cs)
+                w_running += cw
+            narration = " ".join(kept_chunk or chunk[:1])
             out.append({**sc, "narration": narration})
         return out

@@ -100,7 +100,11 @@ def run_research(plan: dict, stack, progress_cb=None) -> dict:
         try:
             from .backbone import fetch_topic_backbone
             bb_sources, bb_texts = fetch_topic_backbone(
-                anchors, progress_cb=(lambda d, t, m: progress_cb(d, t, m)) if progress_cb else None)
+                anchors,
+                progress_cb=(lambda d, t, m: progress_cb(d, t, m)) if progress_cb else None,
+                queries=interp0.get("backbone_queries") or None,
+                idea=interp0.get("idea", ""),
+            )
             for bs in bb_sources:
                 url = bs["url"]
                 if url in seen_urls:
@@ -136,7 +140,9 @@ def run_research(plan: dict, stack, progress_cb=None) -> dict:
 
     queries: list[str] = []
     interp = plan.get("interpretation", {}) or {}
-    # Seed queries: the raw idea + entities + keyword cores (best for search APIs).
+    # Seed queries: canonical backbone phrases + raw idea + entities + keyword cores.
+    for bq in (interp.get("backbone_queries") or [])[:4]:
+        queries.append(bq[:160])
     if interp.get("idea"):
         queries.append(interp["idea"][:160])
     for ent in (interp.get("entities") or [])[:4]:
@@ -187,13 +193,17 @@ def run_research(plan: dict, stack, progress_cb=None) -> dict:
                     if not title or len(snippet) < MIN_SNIPPET:
                         thin_dropped += 1
                         continue
+                    from .backbone import _is_junk_reference
+                    if _is_junk_reference(title, snippet, idea=interp.get("idea", "")):
+                        continue
                     if not _relevant(title, snippet, vocab_stems, anchor_stems, stype):
                         continue
-                    if backbone_vocab:
+                    if backbone_vocab and backbone_stats["chars"] >= 6000:
                         # drift gate: the source must speak the topic's language
-                        # (>=3 backbone-vocabulary overlaps) — drops subtopic drift
-                        # like ball-lightning/aircraft papers on a formation topic.
-                        if len(_text_stems(f"{title} {snippet}") & backbone_vocab) < 3:
+                        # (>=2 backbone overlaps OR >=2 direct anchor overlaps) —
+                        # drops subtopic drift without starving multi-faceted topics.
+                        hit_stems = _text_stems(f"{title} {snippet}")
+                        if len(hit_stems & backbone_vocab) < 2 and len(hit_stems & anchor_stems) < 2:
                             continue
                     seen_urls.add(url)
                     sid = f"S{len(sources)+1:03d}"
@@ -241,11 +251,9 @@ def run_research(plan: dict, stack, progress_cb=None) -> dict:
         for sid, text in more.items():
             fetched.setdefault(sid, text)
         # Post-fetch content gate: fetched texts must speak the tier-1 core
-        # language (top-50-stem core density >= 0.12) or they drop back to
-        # snippet-only evidence (source kept as metadata, full text unused).
-        if backbone_vocab:
-            # distinctive core: backbone-lead stems repeated >=3x (topical
-            # repetition, not generic one-off words like 'large'/'often').
+        # language (top-50-stem core density >= 0.10 or >=2 anchor stems) or
+        # they drop back to snippet-only evidence.
+        if backbone_vocab and backbone_stats["chars"] >= 6000:
             lead = " ".join(fetched_pre.values())[:12000].lower()
             _lf = Counter(stem(w) for w in re.findall(r"[a-z]{6,}", lead))
             core_freq = {w for w, n in _lf.items() if n >= 3}
@@ -254,12 +262,13 @@ def run_research(plan: dict, stack, progress_cb=None) -> dict:
                 toks = [stem(w) for w in re.findall(r"[a-z]{6,}", more[sid].lower())]
                 top = [w for w, _ in Counter(toks).most_common(50)]
                 dens = len(set(top) & core_freq) / max(1, len(top))
-                if dens < 0.12:
+                anc_hit = len(set(top) & anchor_stems)
+                if dens < 0.10 and anc_hit < 2:
                     dropped.append(sid)
                     fetched.pop(sid, None)
                     for s in sources:
                         if s.get("source_id") == sid:
-                            s["fetch_error"] = f"content-gate: core-density {dens:.2f} < 0.12"
+                            s["fetch_error"] = f"content-gate: core-density {dens:.2f} < 0.10"
                             s["fetched_chars"] = 0
             if dropped and progress_cb:
                 progress_cb(total, total, f"content-gate dropped {len(dropped)} drift texts")

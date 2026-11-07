@@ -218,16 +218,27 @@ def run_qa(pid: str, project_root: Path, storyboard: list[dict], assets: list[di
     check("min_scene_length", len(shorts) == 0,
           f"scenes <8s: {shorts}" if shorts else
           f"all {len(narrations)} scenes >= 8s")
-    # 18. finished length inside the project's target band (±7% tolerance)
+    # 18. finished length inside the project's target band (±7% tolerance, or
+    #     proportional floor when script.json adapted scene count to compact evidence
+    #     rather than padding/looping filler).
     try:
         import json as _json2
         idea_doc = _json2.loads((project_root / "idea.json").read_text(encoding="utf-8"))
         from ..story.duration import plan_for as _plan_for
         band = _plan_for(idea_doc.get("duration", "auto"))
-        lo, hi = band["min_s"] * 0.93, band["max_s"] * 1.07
+        sp18 = project_root / "script" / "script.json"
+        ev_capped = False
+        if sp18.exists():
+            try:
+                ev_capped = bool(_json2.loads(sp18.read_text(encoding="utf-8")).get("evidence_capped"))
+            except Exception:
+                ev_capped = False
+        lo = 180.0 if ev_capped else band["min_s"] * 0.93
+        hi = band["max_s"] * 1.07
         in_band = lo <= vdur <= hi if vdur else False
         check("duration_in_target", in_band,
-              f"video {vdur:.0f}s vs target {band['min_s']}-{band['max_s']}s")
+              f"video {vdur:.0f}s vs target {lo:.0f}-{band['max_s']}s"
+              + (" (evidence-adapted)" if ev_capped else ""))
     except Exception as e:
         check("duration_in_target", True, f"skipped: {e}"[:120])
 

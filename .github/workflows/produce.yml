@@ -79,6 +79,7 @@ jobs:
           assets = rj("production/assets.json", [])
           sfx = rj("production/sfx.json", {})
           qa = rj("production/final/qa-report.json", {})
+          err = rj("error.json", {})
           mp4 = root / "production/final/final.mp4"
 
           prim = [a for a in assets if isinstance(a, dict) and a.get("primary")]
@@ -103,10 +104,15 @@ jobs:
               f"| **Rendered MP4** | {int(vdur // 60)}m {int(vdur % 60):02d}s ({mb}) |",
               f"| **QA status** | **{qa.get('status', 'not-run').upper()}** ({n_ok}/{len(checks)} checks passed) |",
           ]
+          if err.get("error"):
+              lines.append(f"\n> **Run stopped with error:** `{err['error']}`")
           if script.get("llm_error"):
               lines.append(f"\n> **LLM fallback note:** `{script['llm_error']}`")
           if qa.get("failed"):
-              lines.append(f"\n> **QA flagged checks:** `{', '.join(qa['failed'])}`")
+              lines.append("\n### Flagged QA Checks")
+              for c in checks:
+                  if not c.get("ok"):
+                      lines.append(f"- **{c.get('name')}**: {c.get('detail', '')}")
           md = "\n".join(lines) + "\n"
           print(md)
           sp = os.environ.get("GITHUB_STEP_SUMMARY")
