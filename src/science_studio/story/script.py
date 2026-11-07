@@ -40,8 +40,9 @@ def build_script_outline(beats: list[str], causal_chain: list[str], claims: list
 
 
 def _content_toks(s: str) -> set[str]:
-    from ..providers.llm_template import STOP
-    return {w for w in re.findall(r"[a-z]{4,}|\d+", (s or "").lower()) if w not in STOP}
+    from ..providers.llm_template import STOP, stem
+    raw = re.findall(r"[a-z]{4,}|\d+", (s or "").lower())
+    return {(stem(w) if w.isalpha() else w) for w in raw if w not in STOP}
 
 
 def _strip_robotic_lead(s: str) -> str:
@@ -83,12 +84,12 @@ def _dedupe_scene_repetitions(scenes: list[dict], anchors: list[str] | None = No
                     continue
                 imagine_count += 1
             toks = _content_toks(s)
-            if enforce_hygiene and toks:
+            if enforce_hygiene and len(toks) >= 4:
                 is_dup = any(
-                    len(toks & prev) / max(1, len(toks | prev)) >= 0.80
+                    len(toks & prev) / max(1, len(toks | prev)) >= 0.65
                     for prev in seen_sets
                 )
-                if is_dup and len(raw_sents) > 1:
+                if is_dup and (len(raw_sents) > 1 or len(kept) >= 1):
                     continue
             w4 = re.findall(r"[a-z]{4,}", low)
             s_tris = [" ".join(w4[j:j + 3]) for j in range(len(w4) - 2)]

@@ -87,3 +87,58 @@ def test_write_script_caps_scenes_when_claims_are_sparse():
     scr = write_script(outline, claims, ev, "12-15", "How cellular energy storage works", stack=None)
     assert scr["evidence_capped"] is True
     assert len(scr["scenes"]) == 6
+
+
+def test_dedupe_catches_paraphrased_echo_across_scenes():
+    scenes = [
+        {
+            "title": "Scene 1",
+            "narration": (
+                "Reinvested dividends allow household savings to compound exponentially across decades. "
+                "Automatic payroll deductions remove behavioral friction from monthly saving."
+            ),
+            "claim_ids": ["C001"],
+        },
+        {
+            "title": "Scene 2",
+            "narration": (
+                "Household savings compound exponentially over decades through reinvesting dividends. "
+                "Low-cost index funds diversify equity exposure across hundreds of companies."
+            ),
+            "claim_ids": ["C002"],
+        },
+    ]
+    cleaned = _dedupe_scene_repetitions(
+        scenes, anchors=["savings", "dividend", "index", "equity"], is_llm=True, enforce_hygiene=True
+    )
+    assert "reinvesting dividends" not in cleaned[1]["narration"].lower()
+    assert "index funds" in cleaned[1]["narration"].lower()
+
+
+def test_qa_rejects_repeated_narration_loops(tmp_path):
+    import json
+    from science_studio.video.qa import run_qa
+
+    (tmp_path / "idea.json").write_text(
+        json.dumps({"idea": "How To Become Rich", "duration": "8-10"}), encoding="utf-8"
+    )
+    repeated = "Compound returns grow household wealth exponentially when dividends stay invested over decades."
+    dirty_sb = [
+        {"scene_id": f"scene_0{i}", "narration": repeated, "claim_ids": ["C001"]}
+        for i in range(1, 5)
+    ]
+    narr = [{"scene_id": s["scene_id"], "path": "", "duration_s": 30, "provider": "edge-tts"} for s in dirty_sb]
+    claims = [{"claim_id": "C001", "claim": repeated, "source_ids": ["S001"]}]
+    rep_dirty = run_qa("t", tmp_path, dirty_sb, [], narr, tmp_path / "nope.mp4", {}, claims)
+    by_dirty = {c["name"]: c for c in rep_dirty["checks"]}
+    assert not by_dirty["no_narration_repetition"]["ok"]
+
+    clean_sb = [
+        {"scene_id": "scene_01", "narration": "Compound returns grow household wealth when dividends stay invested.", "claim_ids": ["C001"]},
+        {"scene_id": "scene_02", "narration": "Broad index funds reduce management fees across equity markets.", "claim_ids": ["C001"]},
+    ]
+    narr_clean = [{"scene_id": s["scene_id"], "path": "", "duration_s": 30, "provider": "edge-tts"} for s in clean_sb]
+    rep_clean = run_qa("t", tmp_path, clean_sb, [], narr_clean, tmp_path / "nope.mp4", {}, claims)
+    by_clean = {c["name"]: c for c in rep_clean["checks"]}
+    assert by_clean["no_narration_repetition"]["ok"], by_clean["no_narration_repetition"]
+

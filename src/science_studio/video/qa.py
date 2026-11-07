@@ -360,6 +360,44 @@ def run_qa(pid: str, project_root: Path, storyboard: list[dict], assets: list[di
     except Exception as e:
         check("conceptual_alignment", False, f"alignment scan crashed: {e}"[:160])
 
+    # 24. anti-loop / no narration repetition: no echoed sentences or looping
+    #     multi-word stock phrases across scenes.
+    try:
+        import re as _re24
+        from collections import Counter as _Counter24
+        from ..providers.llm_template import STOP as _STOP24, split_sentences_raw as _split24, stem as _stem24
+        seen_sent_stems: list[tuple[str, set[str]]] = []
+        dup_hits: list[str] = []
+        scene_4grams: _Counter24 = _Counter24()
+        for s in storyboard:
+            sid24 = s.get("scene_id", "scene")
+            sc_grams_seen: set[str] = set()
+            for sent in _split24(s.get("narration", "")):
+                raw_w = [w for w in _re24.findall(r"[a-z]{4,}|\d+", sent.lower()) if w not in _STOP24]
+                st24 = {(_stem24(w) if w.isalpha() else w) for w in raw_w}
+                if len(st24) >= 5:
+                    for prev_sid, prev_st in seen_sent_stems:
+                        if prev_sid != sid24 and len(st24 & prev_st) / max(1, len(st24 | prev_st)) >= 0.75:
+                            dup_hits.append(f"{sid24}~{prev_sid}: {sent[:55]}")
+                            break
+                    seen_sent_stems.append((sid24, st24))
+                if len(raw_w) >= 4:
+                    for j in range(len(raw_w) - 3):
+                        g4 = " ".join(_stem24(w) if w.isalpha() else w for w in raw_w[j:j + 4])
+                        sc_grams_seen.add(g4)
+            for g4 in sc_grams_seen:
+                scene_4grams[g4] += 1
+        loop_grams = [f"'{g}'x{cnt}" for g, cnt in scene_4grams.most_common(3) if cnt >= 4]
+        loop_ok = (len(dup_hits) == 0 and len(loop_grams) == 0)
+        detail24 = (
+            f"repeated sentences={dup_hits[:2]} looping_phrases={loop_grams}"
+            if not loop_ok
+            else f"0 repeated sentences or phrase loops across {len(storyboard)} scenes"
+        )
+        check("no_narration_repetition", loop_ok, detail24)
+    except Exception as e:
+        check("no_narration_repetition", False, f"repetition scan crashed: {e}"[:160])
+
     failed = [c for c in checks if not c["ok"]]
     status = "pass" if not failed else ("review" if len(failed) <= 2 else "fail")
     return {"status": status, "checks": checks, "video_duration_s": vdur,
