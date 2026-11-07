@@ -91,3 +91,39 @@ def test_broll_badge_and_gradient_thumbnail(tmp_path: Path):
     )
     with Image.open(th) as im:
         assert im.size == (1280, 720)
+
+
+def test_multistage_diagram_renders_with_zero_black_frames(tmp_path: Path):
+    from science_studio.video.qa import _black_segments
+
+    st1 = render_diagram_png(
+        "anatomy", "Wealth Structure", NARR, tmp_path / "s1.svg", tmp_path / "s1.png",
+        claims=CLAIMS, limit=2,
+    )
+    st2 = render_diagram_png(
+        "anatomy", "Wealth Structure", NARR, tmp_path / "s2.svg", tmp_path / "s2.png",
+        claims=CLAIMS, limit=4,
+    )
+    r = FFmpegRenderer()
+    out = tmp_path / "out.mp4"
+    job = {
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "motion": True,
+        "scenes": [
+            {
+                "scene_id": "scene_01",
+                "title": "Wealth Structure",
+                "is_diagram": True,
+                "image": str(st2),
+                "stages": [str(st1), str(st2)],
+                "duration_s": 4.0,
+                "audio": "",
+            }
+        ],
+    }
+    r.render(job, out)
+    assert out.exists() and out.stat().st_size > 10000
+    assert _black_segments(out) == 0
+

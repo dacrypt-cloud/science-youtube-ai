@@ -93,16 +93,16 @@ class FFmpegRenderer(RenderingProvider):
                     )
                     if audio and Path(audio).exists():
                         cmd = [exe, "-y", "-stream_loop", "-1", "-i", str(video_src),
-                               "-loop", "1", "-t", f"{dur:.3f}", "-i", str(badge_png),
+                               "-loop", "1", "-framerate", str(fps), "-t", f"{dur:.3f}", "-i", str(badge_png),
                                "-i", str(audio),
                                "-filter_complex", fc_vid,
                                "-map", "[vout]", "-map", "2:a:0",
-                               "-af", "apad", "-t", f"{dur:.3f}",
+                               "-af", f"apad=whole_dur={dur:.3f}", "-t", f"{dur:.3f}",
                                "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
                                "-c:a", "aac", str(seg)]
                     else:
                         cmd = [exe, "-y", "-stream_loop", "-1", "-i", str(video_src),
-                               "-loop", "1", "-t", f"{dur:.3f}", "-i", str(badge_png),
+                               "-loop", "1", "-framerate", str(fps), "-t", f"{dur:.3f}", "-i", str(badge_png),
                                "-f", "lavfi", "-i", f"anullsrc=r=44100:cl=stereo:d={dur:.3f}",
                                "-filter_complex", fc_vid,
                                "-map", "[vout]", "-map", "2:a:0",
@@ -113,7 +113,7 @@ class FFmpegRenderer(RenderingProvider):
                     cmd = [exe, "-y", "-stream_loop", "-1", "-i", str(video_src),
                            "-i", str(audio),
                            "-map", "0:v:0", "-map", "1:a:0",
-                           "-vf", base_vf, "-af", "apad",
+                           "-vf", base_vf, "-af", f"apad=whole_dur={dur:.3f}",
                            "-t", f"{dur:.3f}",
                            "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
                            "-c:a", "aac", str(seg)]
@@ -131,25 +131,47 @@ class FFmpegRenderer(RenderingProvider):
                 stages = sc.get("stages") or []
                 _fz = fade_filter(dur) if motion_on else ""
                 if len(stages) > 1:
-                    # diagram build-up: cumulative stages, equal splits, static (crisp text)
+                    # diagram build-up: stream each stage via `-loop 1 -framerate {fps} -t`
+                    # into `concat=n=K:v=1:a=0` so FFmpeg 8 never queues hundreds of
+                    # uncompressed frames in RAM AND `fade` sees true 30fps timestamps
+                    # (zero black frames on stage 1).
                     per_st = dur / len(stages)
-                    entries = [(s, per_st + (0.15 if k == len(stages) - 1 else 0.0))
-                               for k, s in enumerate(stages)]
-                    lst_in = concat_list_file(entries, work / f"frames_{i:03d}.txt")
-                    vf = (f"scale={W}:{H}:force_original_aspect_ratio=increase,"
-                          f"crop={W}:{H},fps={fps},format=yuv420p")
-                    if _fz:
-                        vf += "," + _fz
-                    # NOTE: no -r input option — it overrides concat durations;
-                    # the fps= filter in vf generates the steady frame rate.
-                    in_args = ["-f", "concat", "-safe", "0",
-                               "-i", str(lst_in)]
+                    in_args = []
+                    fc_parts = []
+                    for k, st_p in enumerate(stages):
+                        d_k = per_st + (0.15 if k == len(stages) - 1 else 0.0)
+                        in_args += ["-loop", "1", "-framerate", str(fps), "-t", f"{d_k:.3f}", "-i", str(st_p)]
+                        fc_parts.append(
+                            f"[{k}:v]scale={W}:{H}:force_original_aspect_ratio=increase,"
+                            f"crop={W}:{H},setsar=1,format=yuv420p[v{k}]"
+                        )
+                    cat_in = "".join(f"[v{k}]" for k in range(len(stages)))
+                    tail_f = f",{_fz}" if _fz else ""
+                    fc_multi = ";".join(fc_parts) + f";{cat_in}concat=n={len(stages)}:v=1:a=0{tail_f}[vout]"
+                    a_idx = len(stages)
+                    if audio and Path(audio).exists():
+                        cmd = [exe, "-y", *in_args, "-i", str(audio),
+                               "-filter_complex", fc_multi,
+                               "-map", "[vout]", "-map", f"{a_idx}:a:0",
+                               "-af", f"apad=whole_dur={dur:.3f}", "-t", f"{dur:.3f}",
+                               "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
+                               "-c:a", "aac", str(seg)]
+                    else:
+                        cmd = [exe, "-y", *in_args,
+                               "-f", "lavfi", "-i", f"anullsrc=r=44100:cl=stereo:d={dur:.3f}",
+                               "-filter_complex", fc_multi,
+                               "-map", "[vout]", "-map", f"{a_idx}:a:0",
+                               "-t", f"{dur:.3f}",
+                               "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
+                               "-c:a", "aac", str(seg)]
                 else:
                     # photo: Ken Burns variant; single diagrams stay static (crisp text)
                     frames = max(2, int(round(dur * fps)) + 2)
+                    uses_zoompan = True
                     if motion_on and not sc.get("is_diagram"):
                         vf = zoom_filter(zoom_variant(i), frames, W, H, fps)
                     elif motion_on:
+                        uses_zoompan = False
                         vf = (f"scale={W}:{H}:force_original_aspect_ratio=increase,"
                               f"crop={W}:{H},fps={fps},format=yuv420p")
                     else:
@@ -158,20 +180,25 @@ class FFmpegRenderer(RenderingProvider):
                               f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s={W}x{H}:fps={fps},format=yuv420p")
                     if _fz:
                         vf += "," + _fz
-                    in_args = ["-loop", "1", "-i", str(frame)]
-                if audio and Path(audio).exists():
-                    cmd = [exe, "-y", *in_args, "-i", str(audio),
-                           "-vf", vf, "-af", "apad",
-                           "-t", f"{dur:.3f}",
-                           "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
-                           "-c:a", "aac", str(seg)]
-                else:
-                    cmd = [exe, "-y", *in_args,
-                           "-f", "lavfi", "-i", f"anullsrc=r=44100:cl=stereo:d={dur:.3f}",
-                           "-vf", vf,
-                           "-t", f"{dur:.3f}",
-                           "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
-                           "-c:a", "aac", str(seg)]
+                    # Never combine `-loop 1` with `zoompan` (zoompan already emits `d=frames`
+                    # frames from 1 still image; `-loop 1` queues 100x 4000px frames in RAM!).
+                    if uses_zoompan:
+                        in_args = ["-i", str(frame)]
+                    else:
+                        in_args = ["-loop", "1", "-framerate", str(fps), "-t", f"{dur:.3f}", "-i", str(frame)]
+                    if audio and Path(audio).exists():
+                        cmd = [exe, "-y", *in_args, "-i", str(audio),
+                               "-vf", vf, "-af", f"apad=whole_dur={dur:.3f}",
+                               "-t", f"{dur:.3f}",
+                               "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
+                               "-c:a", "aac", str(seg)]
+                    else:
+                        cmd = [exe, "-y", *in_args,
+                               "-f", "lavfi", "-i", f"anullsrc=r=44100:cl=stereo:d={dur:.3f}",
+                               "-vf", vf,
+                               "-t", f"{dur:.3f}",
+                               "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
+                               "-c:a", "aac", str(seg)]
             r = subprocess.run(cmd, capture_output=True, timeout=900)
             if r.returncode != 0 or not seg.exists():
                 raise RuntimeError(f"scene {i} render failed: {r.stderr[-2000:].decode(errors='ignore')}")

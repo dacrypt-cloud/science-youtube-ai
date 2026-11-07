@@ -16,9 +16,9 @@ import re
 from pathlib import Path
 
 W, H = 1920, 1080
-BG = "#070E1A"
-PANEL = "#0F1E36"
-PANEL_HI = "#162C4E"
+BG = "#0B1628"
+PANEL = "#122442"
+PANEL_HI = "#1A335C"
 FG = "#F0F6FF"
 MUTED = "#8CA8C8"
 ACC = "#38BDF8"
@@ -69,7 +69,8 @@ def _steps(narration: str, n: int = 5, claims: tuple = ()) -> list[str]:
     pool = []
     for c in (claims or []):
         head = " ".join(" ".join((c or "").split()).split()[:9])
-        if _label_ok(head) and (not nstems or (_sent_stems(head) & nstems)):
+        lead5 = " ".join(head.split()[:5])
+        if _label_ok(head) and (not nstems or (_sent_stems(lead5) & nstems)):
             pool.append(head)
     if len(pool) < 3:
         sents = [s for s in _split_sentences(narration) if len(s) > 20]

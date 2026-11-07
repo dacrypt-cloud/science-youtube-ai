@@ -71,6 +71,11 @@ PHENOMENON_CONTEXT = {
     "ocean", "lake", "river", "field", "forest", "tree", "desert",
     "volcano", "city", "town", "village", "street", "building", "house",
     "skyline", "discharge", "spark", "observatory", "exposure",
+    "coin", "coins", "banknote", "currency", "money", "bank", "finance",
+    "market", "trading", "chart", "office", "computer", "server", "network",
+    "digital", "code", "electronic", "hardware", "device", "technology",
+    "laboratory", "microscope", "medical", "hospital", "clinic", "cell",
+    "cellular", "diagram", "illustration",
 }
 ENTERTAINMENT_TOPIC_WORDS = (
     "music band song concert album guitar piano drum rock pop jazz sing "
